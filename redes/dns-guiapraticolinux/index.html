@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f0d">
+  <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <meta property="og:title" content="Redes-DNS · Ninja Linux">
+  <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/redes/dns-guiapraticolinux/">
+  <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Redes-DNS · Ninja Linux">
+  <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <title>Redes-DNS · Ninja Linux</title>
+  <link rel="icon" href="/ninja-linux/images/favicon.png">
+  <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <button class="menu-toggle" id="menuToggle" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menu">☰ <span>Menu</span></button>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="/ninja-linux/">
+      <span class="brand-mark">NL</span>
+      <span><strong>Ninja Linux</strong></span>
+    </a>
+
+    <div class="search-box">
+      <label for="sidebarSearchInput">Buscar no menu</label>
+      <input id="sidebarSearchInput" type="search" placeholder="Ex.: Kubernetes, LVM..." autocomplete="off">
+    </div>
+
+    <nav class="sidebar-menu" aria-label="Navegação principal">
+      
+      
+        
+        <a href="/ninja-linux/linux/">◉ Linux</a>
+      
+        
+        <a href="/ninja-linux/devops/">⚙ DevOps (incl. Git)</a>
+      
+        
+        <a href="/ninja-linux/kubernetes/">☸ Kubernetes</a>
+      
+        
+        <a href="/ninja-linux/docker/">⬢ Docker</a>
+      
+        
+        <a href="/ninja-linux/redes/">◎ Redes</a>
+      
+        
+        <a href="/ninja-linux/squid/">◉ Squid</a>
+      
+        
+        <a href="/ninja-linux/monitoramento/">▥ Monitoramento</a>
+      
+        
+        <a href="/ninja-linux/nutanix/">◇ Nutanix</a>
+      
+        
+        <a href="/ninja-linux/vmware/">▣ VMware</a>
+      
+        
+        <a href="/ninja-linux/watchguard/">◈ WatchGuard</a>
+      
+        
+        <a href="/ninja-linux/windows/">⊞ Windows</a>
+      
+        
+        <a href="/ninja-linux/troubleshooting/">◆ Troubleshooting</a>
+      
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="https://github.com/seu-usuario/ninja-linux" target="_blank" rel="noopener">Ver no GitHub ↗</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <main id="conteudo" tabindex="-1">
+      <h1 id="dns">DNS</h1>
+
+<h2 id="1-o-que-é-dns">1. O que é DNS?</h2>
+
+<p><strong>DNS (Domain Name System)</strong> é o sistema responsável por traduzir nomes de domínio em endereços IP.</p>
+
+<p>Em vez de acessar:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://10.0.19.20
+</code></pre></div></div>
+
+<p>podemos acessar:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>O DNS faz a associação:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pgd.infraero.gov.br → 10.0.19.20
+</code></pre></div></div>
+
+<p>Essa tradução é chamada de <strong>resolução de nomes</strong>.</p>
+
+<h3 id="exemplo">Exemplo</h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliente Linux
+     │
+     │ "Qual é o IP de pgd.infraero.gov.br?"
+     ▼
+Servidor DNS
+     │
+     │ "10.0.19.20"
+     ▼
+Cliente Linux
+     │
+     ▼
+10.0.19.20
+</code></pre></div></div>
+
+<p>DNS normalmente utiliza:</p>
+
+<ul>
+  <li><strong>UDP/53</strong> — consultas DNS comuns;</li>
+  <li><strong>TCP/53</strong> — transferências de zona e consultas que precisam de TCP;</li>
+  <li><strong>DoT (DNS over TLS)</strong> — normalmente TCP/853;</li>
+  <li><strong>DoH (DNS over HTTPS)</strong> — normalmente HTTPS/443.</li>
+</ul>
+
+<hr />
+
+<h1 id="2-o-que-acontece-quando-você-acessa-um-site">2. O que acontece quando você acessa um site?</h1>
+
+<p>Quando executamos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>primeiro precisamos descobrir o IP de <code class="language-plaintext highlighter-rouge">pgd.infraero.gov.br</code>.</p>
+
+<p>O sistema consulta o DNS configurado.</p>
+
+<p>Por exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pgd.infraero.gov.br
+        ↓
+DNS
+        ↓
+10.0.19.20
+        ↓
+TCP/443
+        ↓
+Servidor HTTPS
+</code></pre></div></div>
+
+<p>Por isso, <strong>DNS e conectividade IP são coisas diferentes</strong>.</p>
+
+<p>Se o DNS funcionar, isso não significa que o servidor esteja acessível.</p>
+
+<p>Podemos ter:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS funcionando
+       +
+TCP bloqueado
+       =
+aplicação inacessível
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="3-como-descobrir-qual-dns-o-linux-está-usando">3. Como descobrir qual DNS o Linux está usando?</h1>
+
+<p>Em sistemas Linux tradicionais, verifique:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/resolv.conf
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 10.0.27.23
+search infraero.gov.br
+</code></pre></div></div>
+
+<p>Nesse caso:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 10.0.27.23
+</code></pre></div></div>
+
+<p>significa que o sistema utiliza <code class="language-plaintext highlighter-rouge">10.0.27.23</code> como servidor DNS.</p>
+
+<p>O parâmetro:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>search infraero.gov.br
+</code></pre></div></div>
+
+<p>define um domínio de pesquisa.</p>
+
+<p>Por exemplo, dependendo da configuração, uma consulta para:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping servidor01
+</code></pre></div></div>
+
+<p>pode resultar em uma tentativa de resolução de:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>servidor01.infraero.gov.br
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="4-dig--principal-ferramenta-para-diagnóstico-dns">4. <code class="language-plaintext highlighter-rouge">dig</code> — principal ferramenta para diagnóstico DNS</h1>
+
+<p>No Linux, uma das melhores ferramentas para investigar DNS é o <code class="language-plaintext highlighter-rouge">dig</code>.</p>
+
+<p>Instalação no Debian/Ubuntu:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>dnsutils
+</code></pre></div></div>
+
+<p>Uso básico:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com
+</code></pre></div></div>
+
+<p>Uma resposta pode apresentar:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; ANSWER SECTION:
+google.com.    300    IN    A    142.250.x.x
+</code></pre></div></div>
+
+<p>O registro:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A
+</code></pre></div></div>
+
+<p>representa um endereço IPv4.</p>
+
+<hr />
+
+<h1 id="5-descobrir-qual-dns-respondeu">5. Descobrir qual DNS respondeu</h1>
+
+<p>No final da saída do <code class="language-plaintext highlighter-rouge">dig</code> existe uma linha semelhante a:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; SERVER: 10.0.27.23#53(10.0.27.23)
+</code></pre></div></div>
+
+<p>Isso informa:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS utilizado: 10.0.27.23
+Porta:         53
+Protocolo:     UDP
+</code></pre></div></div>
+
+<p>Isso é muito útil durante troubleshooting.</p>
+
+<hr />
+
+<h1 id="6-consultar-um-dns-específico">6. Consultar um DNS específico</h1>
+
+<p>Podemos escolher exatamente qual servidor DNS queremos consultar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @10.0.27.23 pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>A sintaxe é:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @DNS domínio
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @8.8.8.8 google.com
+</code></pre></div></div>
+
+<p>ou:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @1.1.1.1 google.com
+</code></pre></div></div>
+
+<p>Isso permite comparar servidores DNS diferentes.</p>
+
+<hr />
+
+<h1 id="7-exemplo-real-de-resolução-interna">7. Exemplo real de resolução interna</h1>
+
+<p>Em uma rede corporativa, podemos ter:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @10.0.27.23 pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Resultado:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;; ANSWER SECTION:
+pgd.infraero.gov.br.    3600    IN    A    10.0.19.20
+</code></pre></div></div>
+
+<p>Isso significa:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pgd.infraero.gov.br
+        ↓
+10.0.19.20
+</code></pre></div></div>
+
+<p>Observe que <code class="language-plaintext highlighter-rouge">10.0.19.20</code> é um endereço IP privado.</p>
+
+<p>Portanto, esse nome pode existir somente no <strong>DNS interno da organização</strong>.</p>
+
+<p>Um DNS público, como o Google ou Cloudflare, pode não conhecer esse registro.</p>
+
+<hr />
+
+<h1 id="8-consultar-registros-específicos">8. Consultar registros específicos</h1>
+
+<p>Podemos especificar o tipo de registro:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com A
+</code></pre></div></div>
+
+<p>IPv4:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com A
+</code></pre></div></div>
+
+<p>IPv6:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com AAAA
+</code></pre></div></div>
+
+<p>Servidor de e-mail:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com MX
+</code></pre></div></div>
+
+<p>Servidores DNS autoritativos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com NS
+</code></pre></div></div>
+
+<p>Informações de texto:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig google.com TXT
+</code></pre></div></div>
+
+<p>DNS reverso:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig <span class="nt">-x</span> 10.0.19.20
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="9-dns-reverso">9. DNS reverso</h1>
+
+<p>A resolução normal é:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nome → IP
+</code></pre></div></div>
+
+<p>Por exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pgd.infraero.gov.br → 10.0.19.20
+</code></pre></div></div>
+
+<p>O DNS reverso faz o contrário:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IP → nome
+</code></pre></div></div>
+
+<p>Com:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig <span class="nt">-x</span> 10.0.19.20
+</code></pre></div></div>
+
+<p>podemos receber:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20.19.0.10.in-addr.arpa.    PTR    pgd.infraero.gov.br.
+</code></pre></div></div>
+
+<p>O registro utilizado nesse caso é:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PTR
+</code></pre></div></div>
+
+<p>Um IP pode inclusive possuir mais de um nome DNS.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10.0.19.20
+├── pgd.infraero.gov.br
+└── pgd.hml.infraero.gov.br
+</code></pre></div></div>
+
+<p>Isso é possível porque DNS permite múltiplos registros <code class="language-plaintext highlighter-rouge">PTR</code>, embora o uso de múltiplos PTR possa causar problemas dependendo da aplicação.</p>
+
+<hr />
+
+<h1 id="10-principais-tipos-de-registros-dns">10. Principais tipos de registros DNS</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Registro</th>
+      <th>Função</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>Nome → IPv4</td>
+    </tr>
+    <tr>
+      <td>AAAA</td>
+      <td>Nome → IPv6</td>
+    </tr>
+    <tr>
+      <td>CNAME</td>
+      <td>Alias de outro nome</td>
+    </tr>
+    <tr>
+      <td>MX</td>
+      <td>Servidores de e-mail</td>
+    </tr>
+    <tr>
+      <td>NS</td>
+      <td>Servidores DNS autoritativos</td>
+    </tr>
+    <tr>
+      <td>PTR</td>
+      <td>IP → nome</td>
+    </tr>
+    <tr>
+      <td>TXT</td>
+      <td>Informações textuais</td>
+    </tr>
+    <tr>
+      <td>SOA</td>
+      <td>Informações da zona DNS</td>
+    </tr>
+    <tr>
+      <td>SRV</td>
+      <td>Localização de serviços</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h1 id="11-cname">11. CNAME</h1>
+
+<p>Um <code class="language-plaintext highlighter-rouge">CNAME</code> cria um alias.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www.exemplo.com → web.exemplo.com
+</code></pre></div></div>
+
+<p>Consulta:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig www.exemplo.com CNAME
+</code></pre></div></div>
+
+<p>Pode retornar:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www.exemplo.com.    IN    CNAME    web.exemplo.com.
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="12-mx">12. MX</h1>
+
+<p>Registros <code class="language-plaintext highlighter-rouge">MX</code> indicam os servidores responsáveis pelo recebimento de e-mails.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig exemplo.com MX
+</code></pre></div></div>
+
+<p>Resultado hipotético:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exemplo.com.    IN    MX    10 mail.exemplo.com.
+</code></pre></div></div>
+
+<p>O número:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+</code></pre></div></div>
+
+<p>é a prioridade.</p>
+
+<p>Quanto menor o valor, maior a prioridade.</p>
+
+<hr />
+
+<h1 id="13-ns">13. NS</h1>
+
+<p>Mostra os servidores DNS responsáveis pela zona:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig exemplo.com NS
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exemplo.com.    IN    NS    ns1.exemplo.com.
+exemplo.com.    IN    NS    ns2.exemplo.com.
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="14-soa">14. SOA</h1>
+
+<p>O registro <code class="language-plaintext highlighter-rouge">SOA</code> contém informações importantes sobre a zona DNS:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig exemplo.com SOA
+</code></pre></div></div>
+
+<p>Ele normalmente contém informações como:</p>
+
+<ul>
+  <li>servidor DNS principal;</li>
+  <li>responsável pela zona;</li>
+  <li>número de série;</li>
+  <li>intervalo de atualização;</li>
+  <li>tempo de retry;</li>
+  <li>expiração;</li>
+  <li>TTL mínimo.</li>
+</ul>
+
+<hr />
+
+<h1 id="15-ttl">15. TTL</h1>
+
+<p>TTL significa <strong>Time To Live</strong>.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>google.com.    300    IN    A    142.250.x.x
+</code></pre></div></div>
+
+<p>O valor:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300
+</code></pre></div></div>
+
+<p>é o TTL em segundos.</p>
+
+<p>Isso indica por quanto tempo uma resposta pode permanecer armazenada em cache.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300 segundos = 5 minutos
+3600 segundos = 1 hora
+86400 segundos = 24 horas
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="16-caches-dns">16. Caches DNS</h1>
+
+<p>O DNS utiliza cache para evitar consultas repetidas.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliente
+   │
+   ▼
+DNS
+   │
+   ├── Cache? SIM
+   │
+   └── retorna imediatamente
+</code></pre></div></div>
+
+<p>Quando não existe no cache:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliente
+   │
+   ▼
+DNS local
+   │
+   ▼
+DNS superior
+   │
+   ▼
+Servidor autoritativo
+</code></pre></div></div>
+
+<p>Isso explica por que uma alteração DNS pode não aparecer imediatamente para todos os usuários.</p>
+
+<hr />
+
+<h1 id="17-dns-recursivo-x-autoritativo">17. DNS recursivo x autoritativo</h1>
+
+<h3 id="dns-recursivo">DNS recursivo</h3>
+
+<p>Recebe uma consulta do cliente e procura a resposta.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliente → DNS corporativo → Internet
+</code></pre></div></div>
+
+<h3 id="dns-autoritativo">DNS autoritativo</h3>
+
+<p>É responsável pela informação oficial de uma zona.</p>
+
+<p>Por exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>infraero.gov.br
+</code></pre></div></div>
+
+<p>pode possuir servidores autoritativos responsáveis pelos registros dessa zona.</p>
+
+<p>Um servidor pode exercer funções diferentes dependendo da arquitetura.</p>
+
+<hr />
+
+<h1 id="18-testando-dns-com-nslookup">18. Testando DNS com <code class="language-plaintext highlighter-rouge">nslookup</code></h1>
+
+<p>Outra ferramenta bastante conhecida:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nslookup google.com
+</code></pre></div></div>
+
+<p>Também podemos especificar o DNS:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nslookup google.com 8.8.8.8
+</code></pre></div></div>
+
+<p>Embora <code class="language-plaintext highlighter-rouge">nslookup</code> seja útil, para troubleshooting mais detalhado normalmente é preferível utilizar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="19-resolvectl">19. <code class="language-plaintext highlighter-rouge">resolvectl</code></h1>
+
+<p>Em sistemas que utilizam <code class="language-plaintext highlighter-rouge">systemd-resolved</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resolvectl status
+</code></pre></div></div>
+
+<p>pode mostrar:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS Servers:
+10.0.27.23
+</code></pre></div></div>
+
+<p>Também podemos consultar um domínio:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resolvectl query google.com
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="20-dns-não-significa-conectividade">20. DNS não significa conectividade</h1>
+
+<p>Este é um dos conceitos mais importantes para troubleshooting.</p>
+
+<p>Imagine:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>retornando:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10.0.19.20
+</code></pre></div></div>
+
+<p>Isso prova que:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS → funcionando
+</code></pre></div></div>
+
+<p>Mas ainda não sabemos se:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10.0.19.20:443
+</code></pre></div></div>
+
+<p>está acessível.</p>
+
+<p>Precisamos testar separadamente.</p>
+
+<hr />
+
+<h1 id="21-testando-conectividade-com-ping">21. Testando conectividade com <code class="language-plaintext highlighter-rouge">ping</code></h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c</span> 4 10.0.19.20
+</code></pre></div></div>
+
+<p>O resultado pode ser:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 packets transmitted, 4 received, 0% packet loss
+</code></pre></div></div>
+
+<p>Isso demonstra que o host responde a ICMP.</p>
+
+<p><strong>Importante:</strong> ausência de resposta ao ping não significa necessariamente que o servidor esteja fora do ar.</p>
+
+<p>Firewalls podem bloquear ICMP.</p>
+
+<hr />
+
+<h1 id="22-testando-uma-porta-tcp">22. Testando uma porta TCP</h1>
+
+<p>Use:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> 10.0.19.20 443
+</code></pre></div></div>
+
+<p>Se aparecer:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connection to 10.0.19.20 443 port [tcp/https] succeeded!
+</code></pre></div></div>
+
+<p>temos:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS       → OK
+IP        → alcançável
+TCP/443   → acessível
+</code></pre></div></div>
+
+<p>Esse teste é muito mais específico que o <code class="language-plaintext highlighter-rouge">ping</code>.</p>
+
+<hr />
+
+<h1 id="23-testando-httphttps-com-curl">23. Testando HTTP/HTTPS com <code class="language-plaintext highlighter-rouge">curl</code></h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-I</span> https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Podemos receber:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Server: Apache
+Content-Type: text/html
+</code></pre></div></div>
+
+<p>Agora sabemos que:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS
+ ↓
+IP
+ ↓
+TCP/443
+ ↓
+TLS
+ ↓
+HTTP
+ ↓
+Aplicação
+</code></pre></div></div>
+
+<p>estão funcionando até aquele ponto.</p>
+
+<hr />
+
+<h1 id="24-entendendo-curl">24. Entendendo <code class="language-plaintext highlighter-rouge">curl</code></h1>
+
+<p>Consulta simples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://example.com
+</code></pre></div></div>
+
+<p>Mostrar apenas cabeçalhos:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-I</span> https://example.com
+</code></pre></div></div>
+
+<p>Ignorar validação do certificado:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-k</span> https://example.com
+</code></pre></div></div>
+
+<p>Mostrar detalhes da conexão:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-v</span> https://example.com
+</code></pre></div></div>
+
+<p>Combinação muito útil para diagnóstico:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-vk</span> https://example.com
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="25-diagnóstico-em-camadas">25. Diagnóstico em camadas</h1>
+
+<p>Quando um sistema está indisponível, não comece assumindo que o problema é DNS.</p>
+
+<p>Investigue em camadas:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. DNS
+     ↓
+2. Rota
+     ↓
+3. IP/ICMP
+     ↓
+4. TCP/porta
+     ↓
+5. TLS
+     ↓
+6. HTTP
+     ↓
+7. Aplicação
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>↓</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c</span> 4 10.0.19.20
+</code></pre></div></div>
+
+<p>↓</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> 10.0.19.20 443
+</code></pre></div></div>
+
+<p>↓</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-vk</span> https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Cada teste elimina uma camada diferente do problema.</p>
+
+<hr />
+
+<h1 id="26-diagnóstico-de-erro-dns">26. Diagnóstico de erro DNS</h1>
+
+<h3 id="nxdomain"><code class="language-plaintext highlighter-rouge">NXDOMAIN</code></h3>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status: NXDOMAIN
+</code></pre></div></div>
+
+<p>Significa que o DNS informa que o nome <strong>não existe</strong> naquela zona/visão DNS.</p>
+
+<p>Possíveis causas:</p>
+
+<ul>
+  <li>domínio digitado errado;</li>
+  <li>registro inexistente;</li>
+  <li>consulta ao DNS errado;</li>
+  <li>problema de DNS interno;</li>
+  <li>split DNS.</li>
+</ul>
+
+<hr />
+
+<h3 id="servfail"><code class="language-plaintext highlighter-rouge">SERVFAIL</code></h3>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status: SERVFAIL
+</code></pre></div></div>
+
+<p>Significa que o servidor DNS não conseguiu fornecer uma resposta válida.</p>
+
+<p>Possíveis causas:</p>
+
+<ul>
+  <li>falha de resolução recursiva;</li>
+  <li>problema de encaminhamento;</li>
+  <li>DNS autoritativo indisponível;</li>
+  <li>DNSSEC;</li>
+  <li>timeout;</li>
+  <li>configuração incorreta.</li>
+</ul>
+
+<hr />
+
+<h3 id="refused"><code class="language-plaintext highlighter-rouge">REFUSED</code></h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status: REFUSED
+</code></pre></div></div>
+
+<p>O servidor recebeu a consulta, mas recusou respondê-la.</p>
+
+<p>Pode ocorrer por:</p>
+
+<ul>
+  <li>ACL;</li>
+  <li>política de segurança;</li>
+  <li>recursão desabilitada;</li>
+  <li>consulta não autorizada.</li>
+</ul>
+
+<hr />
+
+<h3 id="timeout">Timeout</h3>
+
+<p>Se:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @10.0.27.23 exemplo.com
+</code></pre></div></div>
+
+<p>fica aguardando e termina com timeout, investigue:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliente
+   ↓
+rota
+   ↓
+firewall
+   ↓
+10.0.27.23:53
+   ↓
+DNS
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="27-comparando-dns-interno-e-externo">27. Comparando DNS interno e externo</h1>
+
+<p>Em redes corporativas, é muito útil comparar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @10.0.27.23 pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>com:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @8.8.8.8 pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Pode acontecer:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS interno:
+pgd.infraero.gov.br → 10.0.19.20
+
+DNS público:
+NXDOMAIN
+</code></pre></div></div>
+
+<p>Isso pode ser totalmente normal.</p>
+
+<p>A empresa pode utilizar <strong>DNS interno/split DNS</strong>, onde determinados nomes só existem dentro da rede corporativa.</p>
+
+<hr />
+
+<h1 id="28-arquivo-etchosts">28. Arquivo <code class="language-plaintext highlighter-rouge">/etc/hosts</code></h1>
+
+<p>Antes ou além do DNS, o Linux pode resolver nomes através de:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/hosts
+</code></pre></div></div>
+
+<p>Veja:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/hosts
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10.0.19.20    pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Nesse caso, o nome pode funcionar mesmo sem uma consulta DNS.</p>
+
+<p>A ordem de resolução normalmente é definida em:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/nsswitch.conf
+</code></pre></div></div>
+
+<p>Procure:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="s1">'^hosts:'</span> /etc/nsswitch.conf
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hosts: files dns
+</code></pre></div></div>
+
+<p>Nesse caso, o sistema consulta primeiro:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/hosts
+</code></pre></div></div>
+
+<p>e depois o DNS.</p>
+
+<hr />
+
+<h1 id="29-troubleshooting-rápido-de-dns">29. Troubleshooting rápido de DNS</h1>
+
+<p>Quando alguém disser:</p>
+
+<blockquote>
+  <p>“O site não abre.”</p>
+</blockquote>
+
+<p>Não altere DNS imediatamente.</p>
+
+<p>Faça:</p>
+
+<h3 id="1-verifique-a-configuração-dns">1. Verifique a configuração DNS</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/resolv.conf
+</code></pre></div></div>
+
+<h3 id="2-resolva-o-nome">2. Resolva o nome</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig exemplo.com
+</code></pre></div></div>
+
+<h3 id="3-consulte-diretamente-o-dns">3. Consulte diretamente o DNS</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @10.0.27.23 exemplo.com
+</code></pre></div></div>
+
+<h3 id="4-teste-o-ip">4. Teste o IP</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c</span> 4 IP
+</code></pre></div></div>
+
+<h3 id="5-teste-a-porta">5. Teste a porta</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> IP 443
+</code></pre></div></div>
+
+<h3 id="6-teste-a-aplicação">6. Teste a aplicação</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-vk</span> https://exemplo.com
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="30-exemplo-completo-de-diagnóstico">30. Exemplo completo de diagnóstico</h1>
+
+<p>Suponha:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<h3 id="dns-1">DNS</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Resultado:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pgd.infraero.gov.br. 3600 IN A 10.0.19.20
+</code></pre></div></div>
+
+<h3 id="conectividade">Conectividade</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c</span> 4 10.0.19.20
+</code></pre></div></div>
+
+<p>Resultado:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0% packet loss
+</code></pre></div></div>
+
+<h3 id="porta">Porta</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> 10.0.19.20 443
+</code></pre></div></div>
+
+<p>Resultado:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connection succeeded
+</code></pre></div></div>
+
+<h3 id="http">HTTP</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-I</span> https://pgd.infraero.gov.br
+</code></pre></div></div>
+
+<p>Resultado:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Server: Apache
+</code></pre></div></div>
+
+<p>Conclusão:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS       → OK
+Roteamento → OK
+ICMP       → OK
+TCP/443    → OK
+HTTPS      → OK
+Aplicação  → respondeu
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="31-checklist-de-dns">31. Checklist de DNS</h1>
+
+<p>Quando houver problema de resolução:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ ] /etc/resolv.conf está correto?
+[ ] O DNS responde?
+[ ] A porta UDP/53 está acessível?
+[ ] TCP/53 está acessível quando necessário?
+[ ] O domínio existe?
+[ ] O registro correto existe?
+[ ] Estou consultando o DNS correto?
+[ ] Existe DNS interno?
+[ ] Existe split DNS?
+[ ] Existe entrada em /etc/hosts?
+[ ] Existe cache DNS?
+[ ] O problema é realmente DNS?
+</code></pre></div></div>
+
+<h2 id="comandos-essenciais">Comandos essenciais</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/resolv.conf
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig dominio.com
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig @DNS dominio.com
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig dominio.com A
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig dominio.com AAAA
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig dominio.com MX
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig dominio.com NS
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig <span class="nt">-x</span> IP
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nslookup dominio.com
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resolvectl status
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping <span class="nt">-c</span> 4 IP
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> IP PORTA
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-vk</span> https://dominio.com
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="regra-de-ouro">Regra de ouro</h2>
+
+<p><strong>DNS resolve nomes. DNS não garante conectividade.</strong></p>
+
+<p>Sempre pense em camadas:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NOME
+ ↓
+DNS
+ ↓
+IP
+ ↓
+ROTA
+ ↓
+FIREWALL
+ ↓
+PORTA TCP/UDP
+ ↓
+TLS
+ ↓
+HTTP
+ ↓
+APLICAÇÃO
+</code></pre></div></div>
+
+<p>Quando você aprende a testar cada camada separadamente, deixa de simplesmente perguntar <strong>“o servidor está fora?”</strong> e passa a identificar exatamente <strong>em qual etapa a comunicação está falhando</strong>.</p>
+
+    </main>
+    <footer class="site-footer">
+      <span>🥷 Ninja Linux</span>
+      <span>Conhecimento técnico, direto ao ponto.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const toggle = document.getElementById('menuToggle');
+      const backdrop = document.getElementById('backdrop');
+      const closeMenu = () => {
+        body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        backdrop.hidden = true;
+      };
+      toggle.addEventListener('click', () => {
+        const open = !body.classList.contains('menu-open');
+        body.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        backdrop.hidden = !open;
+      });
+      backdrop.addEventListener('click', closeMenu);
+
+      const current = location.pathname.replace(/index\.html$/, '');
+      document.querySelectorAll('.sidebar-menu a').forEach(link => {
+        const path = new URL(link.href).pathname.replace(/index\.html$/, '');
+        if (path === current) link.classList.add('active');
+      });
+
+      const search = document.getElementById('sidebarSearchInput');
+      search.addEventListener('input', () => {
+        const term = search.value.trim().toLocaleLowerCase('pt-BR');
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+          link.hidden = term && !link.textContent.toLocaleLowerCase('pt-BR').includes(term);
+        });
+      });
+
+      document.querySelectorAll('.sidebar-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (body.classList.contains('menu-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      document.querySelectorAll('pre').forEach(pre => {
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.type = 'button';
+        button.textContent = 'Copiar';
+        button.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(pre.querySelector('code')?.innerText || pre.innerText);
+            button.textContent = 'Copiado ✓';
+          } catch (_) {
+            button.textContent = 'Selecione e copie';
+          }
+          setTimeout(() => button.textContent = 'Copiar', 1800);
+        });
+        pre.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>
