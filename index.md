@@ -60,9 +60,9 @@ description: Ninja Linux é a base de conhecimento prática para Linux, infraest
     <p>Administração, comandos, LVM e certificados.</p>
   </a>
 
-  <a class="card" href="devops/">
-    <h3>⚙️ DevOps</h3>
-    <p>Git, Docker, Kubernetes, CI/CD e automação.</p>
+  <a class="card" href="devops/"> 
+    <h3>⚙️ DevOps</h3> 
+    <p>Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</p> 
   </a>
 
   <a class="card" href="redes/">

@@ -15,11 +15,11 @@ Seu objetivo é reduzir o tempo entre o desenvolvimento e a disponibilização d
 
 ## Conteúdo
 
-* [Início rápido em DevOps](inicio-rapido.md)
-* [CI/CD](cicd.md)
-* [Git - Guia Prático](git.md)
-* [Ansible - Guia Prático](ansible.md)
-* [Docker](docker.md)
+* [Início rápido em DevOps](inicio-rapido/)
+* [CI/CD](cicd/)
+* [Git](git/)
+* [Ansible](ansible/)
+* [Docker](docker/)
 * [Kubernetes](kubernetes/)
 
 ---
