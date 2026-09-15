@@ -149,7 +149,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/deployments/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/deployments/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -158,6 +158,14 @@
     
     <url>
       <loc>https://seu-usuario.github.io/ninja-linux/redes/dns-guiapraticolinux/</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    
+    
+    <url>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/docker/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -174,14 +182,6 @@
     
     <url>
       <loc>https://seu-usuario.github.io/ninja-linux/devops/git/</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    
-    
-    <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/devops/gitintermediario/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -229,14 +229,6 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/git/</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    
-    
-    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/troubleshooting/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -261,23 +253,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    
-    
-    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/redes/</loc>
-      <lastmod>2026-09-15</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    
-    
-    <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/docker/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -301,6 +277,14 @@
     
     
     <url>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    
+    
+    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/devops/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -317,7 +301,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/ingress/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/ingress/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -333,7 +317,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/instalacao-cluster-rocky-containerd-calico/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/instalacao-cluster-rocky-containerd-calico/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -365,7 +349,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/kubeconfig/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/kubeconfig/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -373,7 +357,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/kubectl/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/kubectl/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -381,7 +365,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/pods/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/pods/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -405,7 +389,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/services/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/services/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -455,7 +439,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/troubleshooting/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/troubleshooting/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -487,7 +471,7 @@
     
     
     <url>
-      <loc>https://seu-usuario.github.io/ninja-linux/kubernetes/tutorial-kubernetes-rocky-linux/</loc>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/tutorial-kubernetes-rocky-linux/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
     </url>

@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0f0d">
   <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <meta property="og:title" content="Git Básico para Administradores Linux · Ninja Linux">
+  <meta property="og:title" content="Git — guia prático · Ninja Linux">
   <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/devops/git/">
   <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Git Básico para Administradores Linux · Ninja Linux">
+  <meta name="twitter:title" content="Git — guia prático · Ninja Linux">
   <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <title>Git Básico para Administradores Linux · Ninja Linux</title>
+  <title>Git — guia prático · Ninja Linux</title>
   <link rel="icon" href="/ninja-linux/images/favicon.png">
   <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
 </head>
@@ -40,13 +40,7 @@
         <a href="/ninja-linux/linux/">◉ Linux</a>
       
         
-        <a href="/ninja-linux/devops/">⚙ DevOps (incl. Git)</a>
-      
-        
-        <a href="/ninja-linux/kubernetes/">☸ Kubernetes</a>
-      
-        
-        <a href="/ninja-linux/docker/">⬢ Docker</a>
+        <a href="/ninja-linux/devops/">⚙ DevOps</a>
       
         
         <a href="/ninja-linux/redes/">◎ Redes</a>
@@ -81,223 +75,184 @@
 
   <div class="page-shell">
     <main id="conteudo" tabindex="-1">
-      <h1 id="-git-básico-para-administradores-linux">🐙 Git Básico para Administradores Linux</h1>
+      <h1 id="-git--guia-prático">🐙 Git — guia prático</h1>
 
-<h2 id="o-que-é-git">O que é Git?</h2>
+<p>Este guia reúne o fluxo essencial e os recursos de colaboração do Git para administrar a documentação e outros projetos.</p>
 
-<p>Git é um sistema de controle de versão que permite registrar alterações em arquivos, manter histórico de mudanças e colaborar em projetos.</p>
+<h2 id="antes-de-começar">Antes de começar</h2>
 
-<hr />
-
-<h2 id="verificar-se-o-git-está-instalado">Verificar se o Git está instalado</h2>
+<p>Verifique a instalação e identifique seus commits:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span>
+git config <span class="nt">--global</span> user.name <span class="s2">"Seu Nome"</span>
+git config <span class="nt">--global</span> user.email <span class="s2">"voce@exemplo.com"</span>
 </code></pre></div></div>
 
-<p>Exemplo:</p>
+<p>Nunca versione senhas, tokens, chaves privadas ou arquivos de configuração com dados sensíveis. Use um <code class="language-plaintext highlighter-rouge">.gitignore</code> para evitar inclusões acidentais.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git version 2.43.5
-</code></pre></div></div>
+<h2 id="fluxo-diário">Fluxo diário</h2>
 
-<hr />
-
-<h2 id="configuração-inicial">Configuração inicial</h2>
-
-<p>Defina seu nome e e-mail:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Usuário Exemplo"</span>
-git config <span class="nt">--global</span> user.email <span class="s2">"usuario@example.com"</span>
-</code></pre></div></div>
-
-<p>Verificar configuração:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--list</span>
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="clonar-um-repositório">Clonar um repositório</h2>
-
-<p>Baixar um projeto existente:</p>
+<p>Para trabalhar em um repositório existente, clone-o uma vez e entre no diretório:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/usuario/repositorio.git
+<span class="nb">cd </span>repositorio
 </code></pre></div></div>
 
-<p>Exemplo:</p>
+<p>Antes de iniciar uma alteração, atualize sua cópia e crie uma branch com um nome descritivo:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/seu-usuario/linux-docs.git
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git switch main
+git pull <span class="nt">--ff-only</span> origin main
+git switch <span class="nt">-c</span> docs/tutorial-git
 </code></pre></div></div>
 
-<p>Entrar no diretório:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>linux-docs
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="verificar-status">Verificar status</h2>
-
-<p>Mostrar arquivos modificados:</p>
+<p>Depois de editar os arquivos, revise exatamente o que será enviado, registre a alteração e publique a branch:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+git diff
+git add arquivo.md
+git diff <span class="nt">--staged</span>
+git commit <span class="nt">-m</span> <span class="s2">"docs: adiciona tutorial de Git"</span>
+git push <span class="nt">-u</span> origin docs/tutorial-git
 </code></pre></div></div>
 
-<hr />
+<p>Abra um Pull Request para revisão. Após a aprovação e o merge, atualize sua <code class="language-plaintext highlighter-rouge">main</code> local antes de começar a próxima tarefa.</p>
 
-<h2 id="adicionar-arquivos">Adicionar arquivos</h2>
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">git add .</code> é útil apenas quando você conferiu o <code class="language-plaintext highlighter-rouge">git status</code> e sabe que todos os arquivos modificados devem entrar no commit.</p>
+</blockquote>
 
-<p>Adicionar um arquivo específico:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add arquivo.md
-</code></pre></div></div>
-
-<p>Adicionar todos os arquivos:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="criar-um-commit">Criar um commit</h2>
-
-<p>Salvar alterações localmente:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Adicionado tutorial de Git"</span>
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="enviar-alterações-para-o-github">Enviar alterações para o GitHub</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin main
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="atualizar-repositório-local">Atualizar repositório local</h2>
-
-<p>Baixar alterações do GitHub:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull origin main
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="ver-histórico">Ver histórico</h2>
-
-<p>Mostrar commits realizados:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log
-</code></pre></div></div>
-
-<p>Versão resumida:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--oneline</span>
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="ver-diferenças">Ver diferenças</h2>
-
-<p>Mostrar alterações antes do commit:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="remover-arquivo-do-git">Remover arquivo do Git</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nb">rm </span>arquivo.md
-git commit <span class="nt">-m</span> <span class="s2">"Removido arquivo antigo"</span>
-git push origin main
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="fluxo-básico-do-dia-a-dia">Fluxo básico do dia a dia</h2>
-
-<p>Verificar alterações:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
-</code></pre></div></div>
-
-<p>Adicionar arquivos:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span>
-</code></pre></div></div>
-
-<p>Criar commit:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Descrição da alteração"</span>
-</code></pre></div></div>
-
-<p>Enviar para o GitHub:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin main
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="comandos-mais-utilizados">Comandos mais utilizados</h2>
+<h2 id="comandos-de-consulta">Comandos de consulta</h2>
 
 <table>
   <thead>
     <tr>
       <th>Comando</th>
-      <th>Função</th>
+      <th>Uso</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>git status</td>
-      <td>Verificar alterações</td>
+      <td><code class="language-plaintext highlighter-rouge">git status</code></td>
+      <td>Exibe arquivos alterados e o estado da branch.</td>
     </tr>
     <tr>
-      <td>git add .</td>
-      <td>Adicionar arquivos</td>
+      <td><code class="language-plaintext highlighter-rouge">git diff</code></td>
+      <td>Mostra alterações ainda fora da área de stage.</td>
     </tr>
     <tr>
-      <td>git commit -m</td>
-      <td>Criar commit</td>
+      <td><code class="language-plaintext highlighter-rouge">git diff --staged</code></td>
+      <td>Mostra o conteúdo que irá para o próximo commit.</td>
     </tr>
     <tr>
-      <td>git push</td>
-      <td>Enviar para GitHub</td>
+      <td><code class="language-plaintext highlighter-rouge">git log --oneline --graph --decorate</code></td>
+      <td>Exibe um histórico compacto.</td>
     </tr>
     <tr>
-      <td>git pull</td>
-      <td>Atualizar repositório</td>
+      <td><code class="language-plaintext highlighter-rouge">git fetch origin</code></td>
+      <td>Atualiza referências remotas sem alterar seus arquivos.</td>
     </tr>
     <tr>
-      <td>git log</td>
-      <td>Ver histórico</td>
+      <td><code class="language-plaintext highlighter-rouge">git branch -a</code></td>
+      <td>Lista branches locais e remotas.</td>
     </tr>
     <tr>
-      <td>git diff</td>
-      <td>Ver diferenças</td>
-    </tr>
-    <tr>
-      <td>git clone</td>
-      <td>Clonar repositório</td>
+      <td><code class="language-plaintext highlighter-rouge">git remote -v</code></td>
+      <td>Confirma os endereços dos repositórios remotos.</td>
     </tr>
   </tbody>
 </table>
 
-<hr />
+<h2 id="branches-e-integração">Branches e integração</h2>
 
-<h2 id="exemplo-prático">Exemplo prático</h2>
+<p>Liste branches com <code class="language-plaintext highlighter-rouge">git branch</code>; o asterisco indica a atual. Para alternar, prefira:</p>
 
-<p>Após criar um novo tutorial:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git switch nome-da-branch
+git switch <span class="nt">-c</span> nova-branch
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
-git add <span class="nb">.</span>
-git commit <span class="nt">-m</span> <span class="s2">"Adicionado tutorial LVM"</span>
+<p>Para integrar uma branch concluída localmente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git switch main
+git pull <span class="nt">--ff-only</span> origin main
+git merge nome-da-branch
 git push origin main
 </code></pre></div></div>
 
-<p>O conteúdo será enviado para o GitHub e atualizado no site após a publicação.</p>
+<p>Em equipes, prefira o Pull Request como caminho de merge. Remova a branch somente depois de confirmar que ela foi integrada:</p>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-d</span> nome-da-branch
+git push origin <span class="nt">--delete</span> nome-da-branch
+</code></pre></div></div>
+
+<h2 id="atualizações-conflitos-e-rebase">Atualizações, conflitos e rebase</h2>
+
+<p><code class="language-plaintext highlighter-rouge">git pull</code> obtém alterações remotas e as integra. <code class="language-plaintext highlighter-rouge">git fetch</code> apenas as baixa, permitindo inspecioná-las antes. O uso de <code class="language-plaintext highlighter-rouge">git pull --ff-only</code> evita criar merges inesperados.</p>
+
+<p>Se houver conflito, o Git marca os trechos envolvidos. Edite o arquivo, mantenha a versão correta, remova os marcadores <code class="language-plaintext highlighter-rouge">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code class="language-plaintext highlighter-rouge">=======</code> e <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>, então conclua:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add arquivo-com-conflito.md
+git commit
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">git rebase main</code> reaplica os commits da sua branch sobre a <code class="language-plaintext highlighter-rouge">main</code>, deixando o histórico linear. Use-o apenas em commits que ainda não são compartilhados, ou combine-o previamente com a equipe. Não use <code class="language-plaintext highlighter-rouge">git push --force</code> em uma branch compartilhada; se for indispensável numa branch própria, prefira <code class="language-plaintext highlighter-rouge">git push --force-with-lease</code>.</p>
+
+<h2 id="desfazer-com-segurança">Desfazer com segurança</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situação</th>
+      <th>Comando</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Descartar alterações não adicionadas em um arquivo</td>
+      <td><code class="language-plaintext highlighter-rouge">git restore arquivo.md</code></td>
+    </tr>
+    <tr>
+      <td>Retirar um arquivo da área de stage, mantendo a edição</td>
+      <td><code class="language-plaintext highlighter-rouge">git restore --staged arquivo.md</code></td>
+    </tr>
+    <tr>
+      <td>Guardar trabalho temporariamente</td>
+      <td><code class="language-plaintext highlighter-rouge">git stash</code></td>
+    </tr>
+    <tr>
+      <td>Restaurar o último stash</td>
+      <td><code class="language-plaintext highlighter-rouge">git stash pop</code></td>
+    </tr>
+    <tr>
+      <td>Reverter um commit já publicado</td>
+      <td><code class="language-plaintext highlighter-rouge">git revert ID_DO_COMMIT</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">git reset --hard</code> apaga alterações locais e pode causar perda de trabalho. Use-o somente quando tiver certeza do alvo e não houver conteúdo a preservar.</p>
+
+<h2 id="recursos-úteis">Recursos úteis</h2>
+
+<p>Marque versões estáveis com tags:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git tag <span class="nt">-a</span> v1.0 <span class="nt">-m</span> <span class="s2">"Versão 1.0"</span>
+git push origin v1.0
+</code></pre></div></div>
+
+<p>Para descobrir a origem de uma linha:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git blame arquivo.md
+</code></pre></div></div>
+
+<h2 id="checklist-antes-do-push">Checklist antes do push</h2>
+
+<ul>
+  <li>Confirme a branch com <code class="language-plaintext highlighter-rouge">git status</code>.</li>
+  <li>Revise <code class="language-plaintext highlighter-rouge">git diff --staged</code>.</li>
+  <li>Use uma mensagem de commit curta e objetiva.</li>
+  <li>Não envie credenciais ou arquivos gerados sem necessidade.</li>
+  <li>Atualize a branch e resolva conflitos antes de abrir o Pull Request.</li>
+</ul>
 
     </main>
     <footer class="site-footer">

@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0f0d">
   <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <meta property="og:title" content="Kubernetes · Ninja Linux">
+  <meta property="og:title" content="Docker · Ninja Linux">
   <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/kubernetes/">
+  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/devops/docker/">
   <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kubernetes · Ninja Linux">
+  <meta name="twitter:title" content="Docker · Ninja Linux">
   <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <title>Kubernetes · Ninja Linux</title>
+  <title>Docker · Ninja Linux</title>
   <link rel="icon" href="/ninja-linux/images/favicon.png">
   <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
 </head>
@@ -40,13 +40,7 @@
         <a href="/ninja-linux/linux/">◉ Linux</a>
       
         
-        <a href="/ninja-linux/devops/">⚙ DevOps (incl. Git)</a>
-      
-        
-        <a href="/ninja-linux/kubernetes/">☸ Kubernetes</a>
-      
-        
-        <a href="/ninja-linux/docker/">⬢ Docker</a>
+        <a href="/ninja-linux/devops/">⚙ DevOps</a>
       
         
         <a href="/ninja-linux/redes/">◎ Redes</a>
@@ -81,43 +75,59 @@
 
   <div class="page-shell">
     <main id="conteudo" tabindex="-1">
-      <h1 id="️-kubernetes">☸️ Kubernetes</h1>
+      <h1 id="-docker">🐳 Docker</h1>
 
 <h2 id="introdução">Introdução</h2>
 
-<p>O Kubernetes é uma plataforma de orquestração de containers utilizada para automatizar implantação, escalabilidade e gerenciamento de aplicações.</p>
+<p>Docker é uma plataforma para criar, empacotar e executar aplicações em containers.</p>
 
-<p>Atualmente é uma das principais tecnologias utilizadas em ambientes corporativos, nuvem e arquiteturas de microsserviços.</p>
-
-<p>Permite executar aplicações de forma distribuída, resiliente e altamente disponível.</p>
+<p>Ele ajuda a padronizar ambientes, reduzir diferenças entre desenvolvimento e produção e facilitar a distribuição de aplicações com suas dependências.</p>
 
 <hr />
 
 <h2 id="conteúdo">Conteúdo</h2>
 
+<p>Esta seção será usada para documentar:</p>
+
 <ul>
-  <li><a href="kubeconfig.md">KUBECONFIG</a></li>
-  <li><a href="kubectl.md">Kubectl</a></li>
-  <li><a href="instalacao-cluster-rocky-containerd-calico.md">Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico</a></li>
-  <li><a href="tutorial-kubernetes-rocky-linux.md">Instalação do Kubernetes (kubeadm) no Rocky Linux</a></li>
-  <li><a href="pods.md">Pods</a></li>
-  <li><a href="deployments.md">Deployments</a></li>
-  <li><a href="services.md">Services</a></li>
-  <li><a href="ingress.md">Ingress</a></li>
-  <li><a href="troubleshooting.md">Troubleshooting Kubernetes</a></li>
+  <li>containers</li>
+  <li>imagens</li>
+  <li>volumes</li>
+  <li>redes Docker</li>
+  <li>Docker Compose</li>
+  <li>registries privados</li>
+  <li>troubleshooting de containers</li>
 </ul>
 
 <hr />
 
-<h2 id="fluxo-recomendado-de-estudo">Fluxo recomendado de estudo</h2>
+<h2 id="comandos-de-consulta-rápida">Comandos de consulta rápida</h2>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KUBECONFIG --&gt; Kubectl --&gt; Instalação do Cluster --&gt; Pods --&gt; Deployments --&gt; Services --&gt; Ingress --&gt; Troubleshooting
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps
+docker ps <span class="nt">-a</span>
+docker images
+docker logs nome-do-container
+docker <span class="nb">exec</span> <span class="nt">-it</span> nome-do-container /bin/sh
+docker inspect nome-do-container
 </code></pre></div></div>
 
 <hr />
 
+<h2 id="boas-práticas">Boas práticas</h2>
+
+<ul>
+  <li>Use tags fixas de imagem em produção.</li>
+  <li>Evite executar containers como root quando possível.</li>
+  <li>Separe dados persistentes em volumes.</li>
+  <li>Documente portas, variáveis de ambiente e volumes.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">.dockerignore</code> para reduzir o tamanho do build.</li>
+  <li>Faça limpeza periódica de imagens e containers antigos.</li>
+</ul>
+
+<hr />
+
 <blockquote>
-  <p>💡 Recomenda-se iniciar pelos tópicos KUBECONFIG, Kubectl e Pods antes de avançar para Deployments, Services, Ingress e Troubleshooting.</p>
+  <p>💡 Esta seção concentra procedimentos e anotações sobre containers, imagens, volumes e execução de aplicações com Docker.</p>
 </blockquote>
 
     </main>
