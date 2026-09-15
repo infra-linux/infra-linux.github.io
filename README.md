@@ -130,6 +130,8 @@ Cada página deve seguir, sempre que fizer sentido, esta estrutura:
 - Boas práticas
 - Resumo
 
+Consulte o [padrão completo de documentação](docs/padrao-de-documentacao.md), incluindo validação, rollback e avisos para operações de risco.
+
 ---
 
 ## 📌 Observação
@@ -140,11 +142,7 @@ Este repositório é uma base viva de conhecimento. Os conteúdos podem evoluir 
 
 ## 🚧 Como contribuir
 
-1. Crie uma branch com o nome do tema ou da correção.
-2. Adicione o conteúdo seguindo o padrão do repositório.
-3. Valide o site localmente.
-4. Confirme que exemplos não contêm credenciais ou dados sensíveis.
-5. Envie um Pull Request explicando claramente a alteração.
+Siga o guia de [contribuição](CONTRIBUTING.md). Pull Requests recebem validação automática do build e dos links internos.
 
 ---
 

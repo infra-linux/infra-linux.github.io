@@ -5,6 +5,8 @@ title: Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico
 
 # Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico
 
+> ⚠️ As seções de limpeza deste guia removem componentes do Kubernetes e dados locais do nó. Confirme o hostname, o contexto e a necessidade de descomissionar o nó antes de executar comandos `rm -rf` ou `kubeadm reset`.
+
 ## 1. Objetivo
 
 Este procedimento apresenta a instalação de um cluster Kubernetes com três máquinas:
