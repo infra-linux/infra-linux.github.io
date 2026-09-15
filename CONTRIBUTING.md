@@ -7,7 +7,7 @@ Obrigado por melhorar o Ninja Linux. Este guia ajuda a manter os procedimentos c
 1. Atualize a `main` e crie uma branch descritiva, por exemplo `docs/guia-docker`.
 2. Escreva ou revise o conteúdo com base no [padrão de documentação](docs/padrao-de-documentacao.md).
 3. Revise comandos, caminhos, links e dados sensíveis.
-4. Valide localmente com `bundle install` e `bundle exec jekyll build`.
+4. Revise a renderização Markdown, os links e os exemplos de comando.
 5. Abra um Pull Request explicando o objetivo, a validação realizada e o impacto da alteração.
 
 ## Segurança e qualidade
@@ -18,4 +18,4 @@ Obrigado por melhorar o Ninja Linux. Este guia ajuda a manter os procedimentos c
 - Mantenha um assunto por página e use títulos objetivos.
 - Revise o diff antes de enviar: `git diff --staged`.
 
-O Pull Request só deve ser mesclado depois que a validação automática estiver concluída.
+O Pull Request deve ser revisado antes do merge.

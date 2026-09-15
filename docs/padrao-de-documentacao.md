@@ -1,18 +1,8 @@
----
-layout: default
-title: Padrão de documentação
----
-
 # Padrão de documentação
 
 Use esta estrutura para novos procedimentos. Remova seções que não se aplicarem, mas mantenha as informações necessárias para outra pessoa executar e validar o trabalho com segurança.
 
 ```markdown
----
-layout: default
-title: Nome do procedimento
----
-
 # Nome do procedimento
 
 ## Objetivo

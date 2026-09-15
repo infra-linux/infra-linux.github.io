@@ -4,7 +4,6 @@
 
 ## Validação
 
-- [ ] Executei `bundle exec jekyll build`.
 - [ ] Revisei links e exemplos de comando.
 - [ ] Não incluí credenciais, dados internos ou informações sensíveis.
 

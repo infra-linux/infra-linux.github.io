@@ -27,8 +27,7 @@ O Ninja Linux nasceu para centralizar conhecimentos adquiridos na rotina de infr
 
 - Navegação organizada por área técnica.
 - Exemplos práticos e comandos prontos para consulta.
-- Layout responsivo para desktop e dispositivos móveis.
-- Publicação automatizada com GitHub Actions e GitHub Pages.
+- Conteúdo mantido em arquivos Markdown, fácil de consultar e versionar.
 
 ---
 
@@ -45,47 +44,8 @@ O Ninja Linux nasceu para centralizar conhecimentos adquiridos na rotina de infr
 ## 🚀 Tecnologias
 
 - Markdown
-- Jekyll
-- Ruby e Bundler
-- GitHub Pages
-- GitHub Actions
 - HTML
 - CSS
-
----
-
-## 💻 Executar localmente
-
-Pré-requisitos:
-
-- Ruby 3.2 ou compatível
-- Bundler
-
-Instale as dependências:
-
-```bash
-bundle install
-```
-
-Inicie o servidor local:
-
-```bash
-bundle exec jekyll serve --livereload
-```
-
-Acesse:
-
-```text
-http://127.0.0.1:4000/ninja-linux/
-```
-
-Para gerar somente os arquivos estáticos:
-
-```bash
-bundle exec jekyll build
-```
-
-O resultado será criado no diretório `_site/`.
 
 ---
 
@@ -93,7 +53,6 @@ O resultado será criado no diretório `_site/`.
 
 ```text
 ninja-linux/
-├── .github/workflows/
 ├── linux/
 ├── devops/
 │   ├── kubernetes/
@@ -110,9 +69,6 @@ ninja-linux/
 ├── assets/
 ├── docs/
 ├── images/
-├── _layouts/
-├── _config.yml
-├── Gemfile
 └── index.md
 ```
 
@@ -142,21 +98,4 @@ Este repositório é uma base viva de conhecimento. Os conteúdos podem evoluir 
 
 ## 🚧 Como contribuir
 
-Siga o guia de [contribuição](CONTRIBUTING.md). Pull Requests recebem validação automática do build e dos links internos.
-
----
-
-## 📦 Deploy
-
-O deploy é executado automaticamente pelo workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
-
-Ao receber um push na branch `main`, o GitHub Actions:
-
-1. Prepara o Ruby 3.2.
-2. Instala as dependências com Bundler.
-3. Executa `bundle exec jekyll build`.
-4. Publica o diretório `_site/` na branch `gh-pages`.
-
-Antes do primeiro deploy, ajuste em [`_config.yml`](_config.yml) os campos `url`, `baseurl`, `github_username` e `repository`.
-
-Após a publicação, o portal ficará disponível no endereço configurado para o GitHub Pages.
+Siga o guia de [contribuição](CONTRIBUTING.md).
