@@ -1,0 +1,1691 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f0d">
+  <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <meta property="og:title" content="DevOps-Ansible · Ninja Linux">
+  <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/devops/ansible/">
+  <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DevOps-Ansible · Ninja Linux">
+  <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
+  <title>DevOps-Ansible · Ninja Linux</title>
+  <link rel="icon" href="/ninja-linux/images/favicon.png">
+  <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <button class="menu-toggle" id="menuToggle" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menu">☰ <span>Menu</span></button>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="/ninja-linux/">
+      <span class="brand-mark">NL</span>
+      <span><strong>Ninja Linux</strong></span>
+    </a>
+
+    <div class="search-box">
+      <label for="sidebarSearchInput">Buscar no menu</label>
+      <input id="sidebarSearchInput" type="search" placeholder="Ex.: Kubernetes, LVM..." autocomplete="off">
+    </div>
+
+    <nav class="sidebar-menu" aria-label="Navegação principal">
+      
+      
+        
+        <a href="/ninja-linux/linux/">◉ Linux</a>
+      
+        
+        <a href="/ninja-linux/devops/">⚙ DevOps (incl. Git)</a>
+      
+        
+        <a href="/ninja-linux/kubernetes/">☸ Kubernetes</a>
+      
+        
+        <a href="/ninja-linux/docker/">⬢ Docker</a>
+      
+        
+        <a href="/ninja-linux/redes/">◎ Redes</a>
+      
+        
+        <a href="/ninja-linux/squid/">◉ Squid</a>
+      
+        
+        <a href="/ninja-linux/monitoramento/">▥ Monitoramento</a>
+      
+        
+        <a href="/ninja-linux/nutanix/">◇ Nutanix</a>
+      
+        
+        <a href="/ninja-linux/vmware/">▣ VMware</a>
+      
+        
+        <a href="/ninja-linux/watchguard/">◈ WatchGuard</a>
+      
+        
+        <a href="/ninja-linux/windows/">⊞ Windows</a>
+      
+        
+        <a href="/ninja-linux/troubleshooting/">◆ Troubleshooting</a>
+      
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="https://github.com/seu-usuario/ninja-linux" target="_blank" rel="noopener">Ver no GitHub ↗</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <main id="conteudo" tabindex="-1">
+      <h1 id="-ansible--guia-prático">🤖 Ansible — Guia Prático</h1>
+
+<h2 id="introdução">Introdução</h2>
+
+<p>O <strong>Ansible</strong> é uma ferramenta de automação utilizada para administrar servidores, executar comandos, instalar pacotes, alterar configurações e realizar tarefas repetitivas em vários hosts.</p>
+
+<p>Ele utiliza principalmente <strong>SSH</strong> para se comunicar com servidores Linux e permite transformar procedimentos manuais em automações reproduzíveis.</p>
+
+<p>Em ambientes de infraestrutura, o Ansible pode ser utilizado para:</p>
+
+<ul>
+  <li>Administração de servidores Linux</li>
+  <li>Instalação e atualização de pacotes</li>
+  <li>Gerenciamento de serviços</li>
+  <li>Alteração de arquivos de configuração</li>
+  <li>Criação de usuários</li>
+  <li>Execução de comandos remotos</li>
+  <li>Aplicação de configurações</li>
+  <li>Deploy de aplicações</li>
+  <li>Gerenciamento de múltiplos servidores</li>
+  <li>Automação de rotinas operacionais</li>
+</ul>
+
+<hr />
+
+<h2 id="o-que-é-ansible">O que é Ansible?</h2>
+
+<p>O Ansible trabalha com uma estrutura simples:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Administrador
+     │
+     │ Ansible
+     ▼
+ Inventário
+     │
+     ├── Servidor 01
+     ├── Servidor 02
+     └── Servidor 03
+</code></pre></div></div>
+
+<p>O administrador define <strong>o que precisa ser feito</strong>, e o Ansible executa as tarefas nos hosts definidos.</p>
+
+<p>Um dos principais objetivos é evitar procedimentos como:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh servidor01
+comando
+ssh servidor02
+comando
+ssh servidor03
+comando
+</code></pre></div></div>
+
+<p>Em vez disso:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> shell <span class="nt">-a</span> <span class="s2">"comando"</span>
+</code></pre></div></div>
+
+<p>Ou através de um playbook:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook configurar.yml
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="instalação">Instalação</h1>
+
+<h2 id="red-hat--rocky--almalinux">Red Hat / Rocky / AlmaLinux</h2>
+
+<p>Em sistemas baseados em RHEL:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf <span class="nb">install </span>ansible-core <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>Verifique:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible [core 2.x.x]
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="debian--ubuntu">Debian / Ubuntu</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
+apt <span class="nb">install </span>ansible <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>Verifique:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="estrutura-básica">Estrutura básica</h1>
+
+<p>Um projeto Ansible pode ser organizado assim:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible/
+├── inventory/
+│   └── hosts.ini
+├── playbooks/
+│   ├── teste.yml
+│   └── nginx.yml
+└── ansible.cfg
+</code></pre></div></div>
+
+<p>Uma estrutura simples também pode ser:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible/
+├── hosts.ini
+├── teste.yml
+└── ansible.cfg
+</code></pre></div></div>
+
+<p>Para começar, a segunda opção é suficiente.</p>
+
+<hr />
+
+<h1 id="inventário">Inventário</h1>
+
+<p>O <strong>inventário</strong> define quais servidores serão administrados pelo Ansible.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">server01</span><span class="w">
+</span><span class="na">server02</span><span class="w">
+</span><span class="na">server03</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Também é possível informar IPs:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">10.0.0.10</span><span class="w">
+</span><span class="na">10.0.0.11</span><span class="w">
+</span><span class="na">10.0.0.12</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="grupos">Grupos</h2>
+
+<p>O inventário permite organizar servidores em grupos.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[web]</span><span class="w">
+</span><span class="na">web01</span><span class="w">
+</span><span class="na">web02</span><span class="w">
+
+</span><span class="nn">[banco]</span><span class="w">
+</span><span class="na">db01</span><span class="w">
+</span><span class="na">db02</span><span class="w">
+
+</span><span class="nn">[monitoramento]</span><span class="w">
+</span><span class="na">zabbix01</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Isso permite executar tarefas somente em determinado grupo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible web <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<p>Ou:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible banco <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="variáveis-do-inventário">Variáveis do inventário</h1>
+
+<p>É possível definir informações específicas para os hosts.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">server01</span><span class="w"> </span><span class="py">ansible_host</span><span class="p">=</span><span class="s">10.0.0.10</span>
+<span class="na">server02</span><span class="w"> </span><span class="py">ansible_host</span><span class="p">=</span><span class="s">10.0.0.11</span>
+</code></pre></div></div>
+
+<p>Também é possível definir o usuário:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">server01</span><span class="w"> </span><span class="py">ansible_host</span><span class="p">=</span><span class="s">10.0.0.10 ansible_user=root</span>
+</code></pre></div></div>
+
+<p>Outro exemplo:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">server01</span><span class="w"> </span><span class="py">ansible_host</span><span class="p">=</span><span class="s">10.0.0.10 ansible_user=ansible</span>
+<span class="na">server02</span><span class="w"> </span><span class="py">ansible_host</span><span class="p">=</span><span class="s">10.0.0.11 ansible_user=ansible</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="testando-a-comunicação">Testando a comunicação</h1>
+
+<p>O primeiro teste normalmente é:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible all <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<p>Se funcionar, o resultado será parecido com:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server01 | SUCCESS =&gt; {
+    "changed": false,
+    "ping": "pong"
+}
+</code></pre></div></div>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">ping</code> do Ansible não é o mesmo que o comando Linux:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping 10.0.0.10
+</code></pre></div></div>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">ping</code> verifica principalmente se o Ansible consegue se comunicar com o host e executar Python remotamente.</p>
+
+<hr />
+
+<h1 id="ad-hoc-commands">Ad-Hoc Commands</h1>
+
+<p>Os comandos <strong>ad-hoc</strong> permitem executar tarefas diretamente sem criar um playbook.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+</code></pre></div></div>
+
+<p>Executar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">uptime</span>
+</code></pre></div></div>
+
+<p>em todos os servidores:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"uptime"</span>
+</code></pre></div></div>
+
+<p>Consultar memória:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"free -h"</span>
+</code></pre></div></div>
+
+<p>Consultar espaço em disco:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"df -h"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="módulos">Módulos</h1>
+
+<p>O Ansible possui diversos <strong>módulos</strong>, cada um destinado a determinado tipo de tarefa.</p>
+
+<p>Exemplos:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>command
+shell
+copy
+file
+package
+dnf
+apt
+service
+systemd
+user
+group
+lineinfile
+template
+debug
+stat
+</code></pre></div></div>
+
+<p>A ideia é utilizar o módulo adequado para cada tarefa.</p>
+
+<hr />
+
+<h1 id="command">command</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">command</code> executa comandos no servidor remoto.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+</code></pre></div></div>
+
+<p>Outro exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"df -h"</span>
+</code></pre></div></div>
+
+<p>Por padrão, o <code class="language-plaintext highlighter-rouge">command</code> não utiliza um shell completo.</p>
+
+<p>Por exemplo, operadores como:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|
+<span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span>
+<span class="o">&amp;&amp;</span>
+</code></pre></div></div>
+
+<p>podem não funcionar como esperado.</p>
+
+<hr />
+
+<h1 id="shell">shell</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">shell</code> executa o comando através do shell.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> shell <span class="nt">-a</span> <span class="s2">"df -h | grep /"</span>
+</code></pre></div></div>
+
+<p>Outro exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> shell <span class="nt">-a</span> <span class="s2">"hostname &amp;&amp; uptime"</span>
+</code></pre></div></div>
+
+<h3 id="regra-prática">Regra prática</h3>
+
+<p>Prefira:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>command
+</code></pre></div></div>
+
+<p>quando o comando simples for suficiente.</p>
+
+<p>Utilize:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shell
+</code></pre></div></div>
+
+<p>quando realmente precisar de recursos do shell.</p>
+
+<hr />
+
+<h1 id="become">become</h1>
+
+<p>O <code class="language-plaintext highlighter-rouge">become</code> permite executar tarefas com privilégios elevados.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"whoami"</span> <span class="nt">--become</span>
+</code></pre></div></div>
+
+<p>Em um playbook:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Exemplo</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+  <span class="na">become</span><span class="pi">:</span> <span class="kc">true</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar usuário</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">whoami</span>
+</code></pre></div></div>
+
+<p>Normalmente:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">become</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<p>é utilizado para tarefas administrativas.</p>
+
+<hr />
+
+<h1 id="playbooks">Playbooks</h1>
+
+<p>O <strong>playbook</strong> é um arquivo YAML que descreve as tarefas que o Ansible deverá executar.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Teste Ansible</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar hostname</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+</code></pre></div></div>
+
+<p>Salvar como:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>teste.yml
+</code></pre></div></div>
+
+<p>Executar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini teste.yml
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="estrutura-de-um-playbook">Estrutura de um Playbook</h1>
+
+<p>Um playbook normalmente possui:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Nome do play</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+  <span class="na">become</span><span class="pi">:</span> <span class="kc">true</span>
+
+  <span class="na">vars</span><span class="pi">:</span>
+    <span class="na">variavel</span><span class="pi">:</span> <span class="s">valor</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Primeira tarefa</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">comando</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Segunda tarefa</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">outro_comando</span>
+</code></pre></div></div>
+
+<p>Os principais elementos são:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name
+hosts
+become
+vars
+tasks
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="tasks">Tasks</h1>
+
+<p>As <code class="language-plaintext highlighter-rouge">tasks</code> são as tarefas executadas pelo Ansible.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar hostname</span>
+    <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar uptime</span>
+    <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">uptime</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar disco</span>
+    <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">df -h</span>
+</code></pre></div></div>
+
+<p>Cada tarefa deve possuir uma descrição clara.</p>
+
+<hr />
+
+<h1 id="módulo-package">Módulo package</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">package</code> permite trabalhar com pacotes de diferentes distribuições.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar pacote</span>
+  <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<p>O Ansible utilizará o gerenciador de pacotes disponível no sistema.</p>
+
+<hr />
+
+<h1 id="dnf">DNF</h1>
+
+<p>Em sistemas Rocky Linux, RHEL, AlmaLinux e derivados:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar vim</span>
+  <span class="na">ansible.builtin.dnf</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<p>Instalar vários pacotes:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar pacotes</span>
+  <span class="na">ansible.builtin.dnf</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">vim</span>
+      <span class="pi">-</span> <span class="s">curl</span>
+      <span class="pi">-</span> <span class="s">wget</span>
+      <span class="pi">-</span> <span class="s">git</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="apt">APT</h1>
+
+<p>Em Debian e Ubuntu:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar vim</span>
+  <span class="na">ansible.builtin.apt</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">update_cache</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="gerenciamento-de-serviços">Gerenciamento de serviços</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">systemd</code> permite administrar serviços.</p>
+
+<p>Iniciar:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Iniciar nginx</span>
+  <span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">started</span>
+</code></pre></div></div>
+
+<p>Parar:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Parar nginx</span>
+  <span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">stopped</span>
+</code></pre></div></div>
+
+<p>Reiniciar:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Reiniciar nginx</span>
+  <span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">restarted</span>
+</code></pre></div></div>
+
+<p>Habilitar no boot:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Habilitar nginx</span>
+  <span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">enabled</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="criando-arquivos">Criando arquivos</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">file</code> pode criar arquivos e diretórios.</p>
+
+<p>Criar diretório:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Criar diretório</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/opt/teste</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">directory</span>
+    <span class="na">mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0755'</span>
+</code></pre></div></div>
+
+<p>Criar arquivo vazio:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Criar arquivo</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/opt/teste/exemplo.txt</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="copiando-arquivos">Copiando arquivos</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">copy</code> envia arquivos para os servidores.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Copiar arquivo</span>
+  <span class="na">ansible.builtin.copy</span><span class="pi">:</span>
+    <span class="na">src</span><span class="pi">:</span> <span class="s">arquivo.conf</span>
+    <span class="na">dest</span><span class="pi">:</span> <span class="s">/etc/arquivo.conf</span>
+    <span class="na">mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0644'</span>
+</code></pre></div></div>
+
+<p>Estrutura:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>projeto/
+├── hosts.ini
+├── playbook.yml
+└── arquivo.conf
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="usuários">Usuários</h1>
+
+<p>Criar usuário:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Criar usuário</span>
+  <span class="na">ansible.builtin.user</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">operador</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<p>Remover usuário:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Remover usuário</span>
+  <span class="na">ansible.builtin.user</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">operador</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">absent</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="variáveis">Variáveis</h1>
+
+<p>Variáveis permitem evitar valores repetidos.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Exemplo de variáveis</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+
+  <span class="na">vars</span><span class="pi">:</span>
+    <span class="na">pacote</span><span class="pi">:</span> <span class="s">vim</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar pacote</span>
+      <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<p>A variável é utilizada assim:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="register">Register</h1>
+
+<p>O <code class="language-plaintext highlighter-rouge">register</code> permite armazenar o resultado de uma tarefa.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Consultar hostname</span>
+  <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+  <span class="na">register</span><span class="pi">:</span> <span class="s">resultado_hostname</span>
+</code></pre></div></div>
+
+<p>Depois:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Mostrar resultado</span>
+  <span class="na">ansible.builtin.debug</span><span class="pi">:</span>
+    <span class="na">var</span><span class="pi">:</span> <span class="s">resultado_hostname.stdout</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="debug">Debug</h1>
+
+<p>O módulo <code class="language-plaintext highlighter-rouge">debug</code> permite exibir informações durante a execução.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Mostrar mensagem</span>
+  <span class="na">ansible.builtin.debug</span><span class="pi">:</span>
+    <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Servidor</span><span class="nv"> </span><span class="s">configurado</span><span class="nv"> </span><span class="s">com</span><span class="nv"> </span><span class="s">sucesso"</span>
+</code></pre></div></div>
+
+<p>Com variável:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Mostrar hostname</span>
+  <span class="na">ansible.builtin.debug</span><span class="pi">:</span>
+    <span class="na">var</span><span class="pi">:</span> <span class="s">ansible_hostname</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="facts">Facts</h1>
+
+<p>O Ansible coleta informações sobre o sistema remoto chamadas de <strong>facts</strong>.</p>
+
+<p>Exemplos:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible_hostname
+ansible_distribution
+ansible_distribution_version
+ansible_kernel
+ansible_default_ipv4.address
+ansible_memtotal_mb
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Mostrar sistema operacional</span>
+  <span class="na">ansible.builtin.debug</span><span class="pi">:</span>
+    <span class="na">msg</span><span class="pi">:</span> <span class="s2">"</span><span class="nv"> </span><span class="s">"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="gather_facts">gather_facts</h1>
+
+<p>Por padrão, o Ansible normalmente coleta facts no início de um play.</p>
+
+<p>É possível desabilitar:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">gather_facts</span><span class="pi">:</span> <span class="kc">false</span>
+</code></pre></div></div>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Teste</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+  <span class="na">gather_facts</span><span class="pi">:</span> <span class="kc">false</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Verificar hostname</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+</code></pre></div></div>
+
+<p>Isso pode deixar execuções simples mais rápidas.</p>
+
+<hr />
+
+<h1 id="condicionais">Condicionais</h1>
+
+<p>O <code class="language-plaintext highlighter-rouge">when</code> permite executar uma tarefa somente quando uma condição for verdadeira.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar pacote em Rocky Linux</span>
+  <span class="na">ansible.builtin.dnf</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+  <span class="na">when</span><span class="pi">:</span> <span class="s">ansible_distribution == "Rocky"</span>
+</code></pre></div></div>
+
+<p>Outro exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Executar somente em servidor web</span>
+  <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+  <span class="na">when</span><span class="pi">:</span> <span class="s2">"</span><span class="s">'web'</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">group_names"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="loops">Loops</h1>
+
+<p>Loops permitem repetir uma tarefa.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar pacotes</span>
+  <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+  <span class="na">loop</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">vim</span>
+    <span class="pi">-</span> <span class="s">curl</span>
+    <span class="pi">-</span> <span class="s">wget</span>
+    <span class="pi">-</span> <span class="s">git</span>
+</code></pre></div></div>
+
+<p>Isso evita criar uma task para cada pacote.</p>
+
+<hr />
+
+<h1 id="handlers">Handlers</h1>
+
+<p>Handlers são tarefas executadas quando uma alteração ocorre.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Copiar configuração</span>
+    <span class="na">ansible.builtin.copy</span><span class="pi">:</span>
+      <span class="na">src</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+      <span class="na">dest</span><span class="pi">:</span> <span class="s">/etc/nginx/nginx.conf</span>
+    <span class="na">notify</span><span class="pi">:</span> <span class="s">Reiniciar nginx</span>
+
+<span class="na">handlers</span><span class="pi">:</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Reiniciar nginx</span>
+    <span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+      <span class="na">state</span><span class="pi">:</span> <span class="s">restarted</span>
+</code></pre></div></div>
+
+<p>Se o arquivo não mudar, o handler não será executado.</p>
+
+<p>Isso é muito útil para configurações de serviços.</p>
+
+<hr />
+
+<h1 id="idempotência">Idempotência</h1>
+
+<p>Um dos conceitos mais importantes do Ansible é a <strong>idempotência</strong>.</p>
+
+<p>Significa que executar o mesmo playbook várias vezes deve deixar o servidor no estado desejado sem realizar alterações desnecessárias.</p>
+
+<p>Por exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar vim</span>
+  <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+</code></pre></div></div>
+
+<p>Na primeira execução:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changed=1
+</code></pre></div></div>
+
+<p>Nas próximas:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changed=0
+</code></pre></div></div>
+
+<p>O pacote já está instalado, então nenhuma alteração é necessária.</p>
+
+<hr />
+
+<h1 id="changed-ok-failed-e-skipped">changed, ok, failed e skipped</h1>
+
+<p>Ao executar um playbook, o Ansible apresenta informações como:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ok
+changed
+failed
+skipped
+</code></pre></div></div>
+
+<h3 id="ok">ok</h3>
+
+<p>A tarefa foi executada e nenhuma alteração foi necessária.</p>
+
+<h3 id="changed">changed</h3>
+
+<p>O Ansible realizou alguma alteração.</p>
+
+<h3 id="failed">failed</h3>
+
+<p>A tarefa apresentou erro.</p>
+
+<h3 id="skipped">skipped</h3>
+
+<p>A tarefa foi ignorada, normalmente por causa de uma condição <code class="language-plaintext highlighter-rouge">when</code>.</p>
+
+<hr />
+
+<h1 id="check-mode">Check Mode</h1>
+
+<p>O <code class="language-plaintext highlighter-rouge">--check</code> permite simular alterações sem aplicá-las.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--check</span>
+</code></pre></div></div>
+
+<p>É muito útil antes de executar mudanças em produção.</p>
+
+<hr />
+
+<h1 id="diff">Diff</h1>
+
+<p>O parâmetro <code class="language-plaintext highlighter-rouge">--diff</code> pode mostrar diferenças em arquivos alterados.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--diff</span>
+</code></pre></div></div>
+
+<p>Pode ser combinado com:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--check</span> <span class="nt">--diff</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="limitar-a-execução">Limitar a execução</h1>
+
+<p>O parâmetro <code class="language-plaintext highlighter-rouge">--limit</code> permite executar o playbook somente em determinado host ou grupo.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--limit</span> server01
+</code></pre></div></div>
+
+<p>Ou:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--limit</span> web
+</code></pre></div></div>
+
+<p>Isso é extremamente útil para testar uma alteração antes de aplicá-la em todos os servidores.</p>
+
+<hr />
+
+<h1 id="tags">Tags</h1>
+
+<p>Tags permitem executar apenas determinadas tarefas.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">tasks</span><span class="pi">:</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar nginx</span>
+    <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+      <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">instalacao</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Configurar nginx</span>
+    <span class="na">ansible.builtin.copy</span><span class="pi">:</span>
+      <span class="na">src</span><span class="pi">:</span> <span class="s">nginx.conf</span>
+      <span class="na">dest</span><span class="pi">:</span> <span class="s">/etc/nginx/nginx.conf</span>
+    <span class="na">tags</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">configuracao</span>
+</code></pre></div></div>
+
+<p>Executar somente:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--tags</span> instalacao
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="ansible-vault">Ansible Vault</h1>
+
+<p>O <strong>Ansible Vault</strong> permite proteger informações sensíveis.</p>
+
+<p>Por exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>senhas
+tokens
+chaves
+credenciais
+</code></pre></div></div>
+
+<p>Criar arquivo criptografado:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-vault create secrets.yml
+</code></pre></div></div>
+
+<p>Editar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-vault edit secrets.yml
+</code></pre></div></div>
+
+<p>Visualizar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-vault view secrets.yml
+</code></pre></div></div>
+
+<p>Isso evita armazenar senhas diretamente em texto puro nos playbooks.</p>
+
+<hr />
+
+<h1 id="ansiblecfg">ansible.cfg</h1>
+
+<p>O arquivo <code class="language-plaintext highlighter-rouge">ansible.cfg</code> permite definir configurações do projeto.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[defaults]</span><span class="w">
+</span><span class="py">inventory</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">hosts.ini</span>
+<span class="py">host_key_checking</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">False</span>
+<span class="py">interpreter_python</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">auto_silent</span>
+</code></pre></div></div>
+
+<p>Com isso, em vez de:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible all <span class="nt">-i</span> hosts.ini <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<p>pode ser utilizado:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible all <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<p>desde que o comando seja executado no diretório onde o <code class="language-plaintext highlighter-rouge">ansible.cfg</code> está disponível.</p>
+
+<hr />
+
+<h1 id="exemplo-prático">Exemplo prático</h1>
+
+<p>Vamos criar um playbook que:</p>
+
+<ol>
+  <li>Instala o <code class="language-plaintext highlighter-rouge">vim</code></li>
+  <li>Cria um diretório</li>
+  <li>Cria um arquivo</li>
+  <li>Mostra o hostname</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Configuração básica dos servidores</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+  <span class="na">become</span><span class="pi">:</span> <span class="kc">true</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Instalar vim</span>
+      <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">vim</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Criar diretório</span>
+      <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+        <span class="na">path</span><span class="pi">:</span> <span class="s">/opt/ninja-linux</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">directory</span>
+        <span class="na">mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0755'</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Criar arquivo</span>
+      <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+        <span class="na">path</span><span class="pi">:</span> <span class="s">/opt/ninja-linux/servidor.txt</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
+        <span class="na">mode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">0644'</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Mostrar hostname</span>
+      <span class="na">ansible.builtin.command</span><span class="pi">:</span> <span class="s">hostname</span>
+      <span class="na">register</span><span class="pi">:</span> <span class="s">hostname_result</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Exibir hostname</span>
+      <span class="na">ansible.builtin.debug</span><span class="pi">:</span>
+        <span class="na">var</span><span class="pi">:</span> <span class="s">hostname_result.stdout</span>
+</code></pre></div></div>
+
+<p>Executar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini configuracao.yml
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="executando-comandos-em-vários-servidores">Executando comandos em vários servidores</h1>
+
+<p>Imagine o seguinte inventário:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[squid]</span><span class="w">
+</span><span class="na">s-sesu2772</span><span class="w">
+</span><span class="na">s-sesu2773</span><span class="w">
+</span><span class="na">s-sesu2775</span><span class="w">
+</span><span class="na">s-sesu872</span><span class="w">
+</span><span class="na">s-sesu873</span><span class="w">
+</span><span class="na">s-sesu874</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Consultar hostname:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible squid <span class="nt">-i</span> squid.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+</code></pre></div></div>
+
+<p>Consultar espaço em disco:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible squid <span class="nt">-i</span> squid.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"df -h"</span>
+</code></pre></div></div>
+
+<p>Consultar memória:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible squid <span class="nt">-i</span> squid.ini <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"free -h"</span>
+</code></pre></div></div>
+
+<p>Consultar serviço:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible squid <span class="nt">-i</span> squid.ini <span class="nt">-m</span> shell <span class="nt">-a</span> <span class="s2">"systemctl status squid --no-pager"</span>
+</code></pre></div></div>
+
+<p>Esse modelo é muito útil para administração de vários servidores.</p>
+
+<hr />
+
+<h1 id="serial">Serial</h1>
+
+<p>Quando existem muitos servidores, pode ser interessante evitar alterações simultâneas.</p>
+
+<p>O parâmetro <code class="language-plaintext highlighter-rouge">serial</code> controla quantos hosts serão processados por vez.</p>
+
+<p>Exemplo:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Atualização controlada</span>
+  <span class="na">hosts</span><span class="pi">:</span> <span class="s">servidores</span>
+  <span class="na">become</span><span class="pi">:</span> <span class="kc">true</span>
+  <span class="na">serial</span><span class="pi">:</span> <span class="m">1</span>
+
+  <span class="na">tasks</span><span class="pi">:</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Atualizar pacote</span>
+      <span class="na">ansible.builtin.package</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">squid</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">latest</span>
+</code></pre></div></div>
+
+<p>Com:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">serial</span><span class="pi">:</span> <span class="m">1</span>
+</code></pre></div></div>
+
+<p>o Ansible trabalha com um servidor por vez.</p>
+
+<p>Também é possível:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">serial</span><span class="pi">:</span> <span class="m">2</span>
+</code></pre></div></div>
+
+<p>para trabalhar com dois servidores por vez.</p>
+
+<hr />
+
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<p>Quando o Ansible apresenta erro, não significa necessariamente que o problema seja no playbook.</p>
+
+<p>O problema pode estar em:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DNS
+│
+├── SSH
+│
+├── autenticação
+│
+├── permissões
+│
+├── Python
+│
+├── firewall
+│
+├── rede
+│
+└── próprio playbook
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-1--resolução-dns">Teste 1 — Resolução DNS</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getent hosts server01
+</code></pre></div></div>
+
+<p>Ou:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nslookup server01
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-2--conectividade">Teste 2 — Conectividade</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping server01
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-3--ssh">Teste 3 — SSH</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh server01
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-4--porta-ssh">Teste 4 — Porta SSH</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc <span class="nt">-vz</span> server01 22
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-5--ansible-ping">Teste 5 — Ansible Ping</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible server01 <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="teste-6--verificar-configuração">Teste 6 — Verificar configuração</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-inventory <span class="nt">-i</span> hosts.ini <span class="nt">--graph</span>
+</code></pre></div></div>
+
+<p>Para visualizar os dados:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-inventory <span class="nt">-i</span> hosts.ini <span class="nt">--list</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="erros-comuns">Erros comuns</h1>
+
+<h2 id="permission-denied">Permission denied</h2>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Permission denied (publickey,password)
+</code></pre></div></div>
+
+<p>Normalmente indica problema de autenticação SSH.</p>
+
+<p>Verifique:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh usuario@servidor
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="unreachable">UNREACHABLE</h2>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server01 | UNREACHABLE!
+</code></pre></div></div>
+
+<p>Pode indicar:</p>
+
+<ul>
+  <li>DNS incorreto</li>
+  <li>IP incorreto</li>
+  <li>SSH indisponível</li>
+  <li>firewall</li>
+  <li>rota</li>
+  <li>credencial</li>
+  <li>usuário incorreto</li>
+</ul>
+
+<hr />
+
+<h2 id="sudo-password-required">sudo password required</h2>
+
+<p>Exemplo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Missing sudo password
+</code></pre></div></div>
+
+<p>O Ansible precisa da senha para utilizar <code class="language-plaintext highlighter-rouge">sudo</code>.</p>
+
+<p>Pode ser utilizado:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--ask-become-pass</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="python-ausente">Python ausente</h2>
+
+<p>Alguns módulos Ansible precisam de Python no host remoto.</p>
+
+<p>Verifique:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>Se necessário, defina o interpretador:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">server01</span><span class="w"> </span><span class="py">ansible_python_interpreter</span><span class="p">=</span><span class="s">/usr/bin/python3</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="boas-práticas">Boas práticas</h1>
+
+<h3 id="use-nomes-claros">Use nomes claros</h3>
+
+<p>Prefira:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Reiniciar serviço Squid</span>
+</code></pre></div></div>
+
+<p>em vez de:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Tarefa </span><span class="m">1</span>
+</code></pre></div></div>
+
+<h3 id="prefira-módulos">Prefira módulos</h3>
+
+<p>Em vez de:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">ansible.builtin.shell</span><span class="pi">:</span> <span class="s">systemctl restart squid</span>
+</code></pre></div></div>
+
+<p>prefira:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">ansible.builtin.systemd</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">squid</span>
+  <span class="na">state</span><span class="pi">:</span> <span class="s">restarted</span>
+</code></pre></div></div>
+
+<h3 id="teste-primeiro">Teste primeiro</h3>
+
+<p>Utilize:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--check</span>
+</code></pre></div></div>
+
+<p>e:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--limit</span>
+</code></pre></div></div>
+
+<p>antes de executar mudanças grandes.</p>
+
+<h3 id="evite-credenciais-no-código">Evite credenciais no código</h3>
+
+<p>Utilize:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ansible Vault
+</code></pre></div></div>
+
+<p>para informações sensíveis.</p>
+
+<h3 id="faça-mudanças-graduais">Faça mudanças graduais</h3>
+
+<p>Em ambientes críticos:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">serial</span><span class="pi">:</span> <span class="m">1</span>
+</code></pre></div></div>
+
+<p>pode evitar que uma alteração errada afete todos os servidores simultaneamente.</p>
+
+<hr />
+
+<h1 id="fluxo-recomendado-para-execução">Fluxo recomendado para execução</h1>
+
+<p>Um fluxo seguro pode ser:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Editar inventário
+        ↓
+2. Testar conectividade
+        ↓
+3. Testar SSH
+        ↓
+4. Executar ansible ping
+        ↓
+5. Validar inventário
+        ↓
+6. Executar --check
+        ↓
+7. Testar com --limit
+        ↓
+8. Executar playbook
+        ↓
+9. Validar resultado
+        ↓
+10. Verificar logs/serviço
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="comandos-essenciais">Comandos essenciais</h1>
+
+<h3 id="ver-versão">Ver versão</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+</code></pre></div></div>
+
+<h3 id="testar-hosts">Testar hosts</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible all <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<h3 id="executar-comando">Executar comando</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible all <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+</code></pre></div></div>
+
+<h3 id="executar-playbook">Executar playbook</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook playbook.yml
+</code></pre></div></div>
+
+<h3 id="especificar-inventário">Especificar inventário</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml
+</code></pre></div></div>
+
+<h3 id="simular-alterações">Simular alterações</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--check</span>
+</code></pre></div></div>
+
+<h3 id="mostrar-diferenças">Mostrar diferenças</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--diff</span>
+</code></pre></div></div>
+
+<h3 id="limitar-execução">Limitar execução</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--limit</span> server01
+</code></pre></div></div>
+
+<h3 id="ver-inventário">Ver inventário</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-inventory <span class="nt">-i</span> hosts.ini <span class="nt">--graph</span>
+</code></pre></div></div>
+
+<h3 id="listar-inventário">Listar inventário</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-inventory <span class="nt">-i</span> hosts.ini <span class="nt">--list</span>
+</code></pre></div></div>
+
+<hr />
+
+<h1 id="-o-que-estudar-depois">🧠 O que estudar depois</h1>
+
+<p>Depois de dominar os fundamentos, avance para:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ansible
+│
+├── Inventários avançados
+├── Variáveis
+├── Facts
+├── Conditionals
+├── Loops
+├── Handlers
+├── Templates Jinja2
+├── Ansible Vault
+├── Roles
+├── Collections
+├── Ansible Galaxy
+├── Ansible Lint
+├── Molecule
+└── AWX / Ansible Automation Platform
+</code></pre></div></div>
+
+<p>Para administração Linux, <strong>Roles + Jinja2 + Vault + Ansible Galaxy</strong> são especialmente importantes.</p>
+
+<hr />
+
+<h1 id="-exercícios-práticos">🎯 Exercícios práticos</h1>
+
+<h2 id="exercício-1--inventário">Exercício 1 — Inventário</h2>
+
+<p>Crie três hosts:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[servidores]</span><span class="w">
+</span><span class="na">server01</span><span class="w">
+</span><span class="na">server02</span><span class="w">
+</span><span class="na">server03</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Teste:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> ping
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="exercício-2--informações-do-sistema">Exercício 2 — Informações do sistema</h2>
+
+<p>Execute:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+</code></pre></div></div>
+
+<p>Depois:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"uptime"</span>
+</code></pre></div></div>
+
+<p>E:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible servidores <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"df -h"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="exercício-3--playbook">Exercício 3 — Playbook</h2>
+
+<p>Crie um playbook que:</p>
+
+<ul>
+  <li>Instale <code class="language-plaintext highlighter-rouge">vim</code></li>
+  <li>Crie <code class="language-plaintext highlighter-rouge">/opt/ninja-linux</code></li>
+  <li>Crie <code class="language-plaintext highlighter-rouge">/opt/ninja-linux/teste.txt</code></li>
+  <li>Mostre o hostname</li>
+  <li>Mostre a distribuição Linux</li>
+</ul>
+
+<hr />
+
+<h2 id="exercício-4--serviço">Exercício 4 — Serviço</h2>
+
+<p>Crie um playbook que:</p>
+
+<ul>
+  <li>Instale o Nginx</li>
+  <li>Inicie o serviço</li>
+  <li>Habilite o serviço no boot</li>
+  <li>Verifique o estado do serviço</li>
+</ul>
+
+<hr />
+
+<h2 id="exercício-5--alteração-controlada">Exercício 5 — Alteração controlada</h2>
+
+<p>Execute o playbook primeiro:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--check</span>
+</code></pre></div></div>
+
+<p>Depois teste somente em um host:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml <span class="nt">--limit</span> server01
+</code></pre></div></div>
+
+<p>Somente depois aplique nos demais.</p>
+
+<hr />
+
+<h1 id="-resumo">📌 Resumo</h1>
+
+<p>O Ansible permite transformar tarefas repetitivas de administração em automações padronizadas.</p>
+
+<p>Os principais conceitos para começar são:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Inventário
+    ↓
+Hosts e grupos
+    ↓
+Módulos
+    ↓
+Ad-Hoc Commands
+    ↓
+Playbooks
+    ↓
+Tasks
+    ↓
+Variáveis
+    ↓
+Conditionals
+    ↓
+Loops
+    ↓
+Handlers
+    ↓
+Roles
+</code></pre></div></div>
+
+<p>Os comandos mais importantes para memorizar inicialmente são:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ansible <span class="nt">--version</span>
+ansible all <span class="nt">-m</span> ping
+ansible all <span class="nt">-m</span> <span class="nb">command</span> <span class="nt">-a</span> <span class="s2">"hostname"</span>
+ansible-playbook <span class="nt">-i</span> hosts.ini playbook.yml
+ansible-inventory <span class="nt">-i</span> hosts.ini <span class="nt">--graph</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>💡 <strong>Regra de ouro:</strong> primeiro aprenda a executar uma tarefa manualmente no Linux. Depois transforme essa tarefa em um comando Ansible. Por fim, transforme o comando em um playbook idempotente e reutilizável.</p>
+</blockquote>
+
+<p>🥷 <strong>Ninja Linux — Conhecimento técnico, direto ao ponto.</strong></p>
+
+    </main>
+    <footer class="site-footer">
+      <span>🥷 Ninja Linux</span>
+      <span>Conhecimento técnico, direto ao ponto.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.body;
+      const toggle = document.getElementById('menuToggle');
+      const backdrop = document.getElementById('backdrop');
+      const closeMenu = () => {
+        body.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        backdrop.hidden = true;
+      };
+      toggle.addEventListener('click', () => {
+        const open = !body.classList.contains('menu-open');
+        body.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        backdrop.hidden = !open;
+      });
+      backdrop.addEventListener('click', closeMenu);
+
+      const current = location.pathname.replace(/index\.html$/, '');
+      document.querySelectorAll('.sidebar-menu a').forEach(link => {
+        const path = new URL(link.href).pathname.replace(/index\.html$/, '');
+        if (path === current) link.classList.add('active');
+      });
+
+      const search = document.getElementById('sidebarSearchInput');
+      search.addEventListener('input', () => {
+        const term = search.value.trim().toLocaleLowerCase('pt-BR');
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+          link.hidden = term && !link.textContent.toLocaleLowerCase('pt-BR').includes(term);
+        });
+      });
+
+      document.querySelectorAll('.sidebar-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (body.classList.contains('menu-open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      document.querySelectorAll('pre').forEach(pre => {
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.type = 'button';
+        button.textContent = 'Copiar';
+        button.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(pre.querySelector('code')?.innerText || pre.innerText);
+            button.textContent = 'Copiado ✓';
+          } catch (_) {
+            button.textContent = 'Selecione e copie';
+          }
+          setTimeout(() => button.textContent = 'Copiar', 1800);
+        });
+        pre.appendChild(button);
+      });
+    });
+  </script>
+</body>
+</html>
