@@ -1673,5 +1673,3 @@ ansible-inventory -i hosts.ini --graph
 ```
 
 > 💡 **Regra de ouro:** primeiro aprenda a executar uma tarefa manualmente no Linux. Depois transforme essa tarefa em um comando Ansible. Por fim, transforme o comando em um playbook idempotente e reutilizável.
-
-🥷 **Ninja Linux — Conhecimento técnico, direto ao ponto.**
