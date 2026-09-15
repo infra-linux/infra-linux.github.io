@@ -16,8 +16,8 @@ Esta seção reúne conceitos, comandos e procedimentos relacionados a conectivi
 ## Temas da seção
 
 * [DNS](dns-guiapraticolinux.md)
-* TCP/IP
-* portas e protocolos
+* [TCP/IP](tcpip.md)
+* [portas e protocolos](portaseprotocolos.md)
 * rotas
 * firewall
 * proxy
