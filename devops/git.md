@@ -1,212 +1,137 @@
 ---
 layout: default
-title: Git Básico para Administradores Linux
+title: Git — guia prático
 ---
 
-# 🐙 Git Básico para Administradores Linux
+# 🐙 Git — guia prático
 
-## O que é Git?
+Este guia reúne o fluxo essencial e os recursos de colaboração do Git para administrar a documentação e outros projetos.
 
-Git é um sistema de controle de versão que permite registrar alterações em arquivos, manter histórico de mudanças e colaborar em projetos.
+## Antes de começar
 
----
-
-## Verificar se o Git está instalado
+Verifique a instalação e identifique seus commits:
 
 ```bash
 git --version
+git config --global user.name "Seu Nome"
+git config --global user.email "voce@exemplo.com"
 ```
 
-Exemplo:
+Nunca versione senhas, tokens, chaves privadas ou arquivos de configuração com dados sensíveis. Use um `.gitignore` para evitar inclusões acidentais.
 
-```bash
-git version 2.43.5
-```
+## Fluxo diário
 
----
-
-## Configuração inicial
-
-Defina seu nome e e-mail:
-
-```bash
-git config --global user.name "Usuário Exemplo"
-git config --global user.email "usuario@example.com"
-```
-
-Verificar configuração:
-
-```bash
-git config --list
-```
-
----
-
-## Clonar um repositório
-
-Baixar um projeto existente:
+Para trabalhar em um repositório existente, clone-o uma vez e entre no diretório:
 
 ```bash
 git clone https://github.com/usuario/repositorio.git
+cd repositorio
 ```
 
-Exemplo:
+Antes de iniciar uma alteração, atualize sua cópia e crie uma branch com um nome descritivo:
 
 ```bash
-git clone https://github.com/seu-usuario/linux-docs.git
+git switch main
+git pull --ff-only origin main
+git switch -c docs/tutorial-git
 ```
 
-Entrar no diretório:
-
-```bash
-cd linux-docs
-```
-
----
-
-## Verificar status
-
-Mostrar arquivos modificados:
+Depois de editar os arquivos, revise exatamente o que será enviado, registre a alteração e publique a branch:
 
 ```bash
 git status
-```
-
----
-
-## Adicionar arquivos
-
-Adicionar um arquivo específico:
-
-```bash
-git add arquivo.md
-```
-
-Adicionar todos os arquivos:
-
-```bash
-git add .
-```
-
----
-
-## Criar um commit
-
-Salvar alterações localmente:
-
-```bash
-git commit -m "Adicionado tutorial de Git"
-```
-
----
-
-## Enviar alterações para o GitHub
-
-```bash
-git push origin main
-```
-
----
-
-## Atualizar repositório local
-
-Baixar alterações do GitHub:
-
-```bash
-git pull origin main
-```
-
----
-
-## Ver histórico
-
-Mostrar commits realizados:
-
-```bash
-git log
-```
-
-Versão resumida:
-
-```bash
-git log --oneline
-```
-
----
-
-## Ver diferenças
-
-Mostrar alterações antes do commit:
-
-```bash
 git diff
+git add arquivo.md
+git diff --staged
+git commit -m "docs: adiciona tutorial de Git"
+git push -u origin docs/tutorial-git
 ```
 
----
+Abra um Pull Request para revisão. Após a aprovação e o merge, atualize sua `main` local antes de começar a próxima tarefa.
 
-## Remover arquivo do Git
+> `git add .` é útil apenas quando você conferiu o `git status` e sabe que todos os arquivos modificados devem entrar no commit.
+
+## Comandos de consulta
+
+| Comando | Uso |
+| --- | --- |
+| `git status` | Exibe arquivos alterados e o estado da branch. |
+| `git diff` | Mostra alterações ainda fora da área de stage. |
+| `git diff --staged` | Mostra o conteúdo que irá para o próximo commit. |
+| `git log --oneline --graph --decorate` | Exibe um histórico compacto. |
+| `git fetch origin` | Atualiza referências remotas sem alterar seus arquivos. |
+| `git branch -a` | Lista branches locais e remotas. |
+| `git remote -v` | Confirma os endereços dos repositórios remotos. |
+
+## Branches e integração
+
+Liste branches com `git branch`; o asterisco indica a atual. Para alternar, prefira:
 
 ```bash
-git rm arquivo.md
-git commit -m "Removido arquivo antigo"
+git switch nome-da-branch
+git switch -c nova-branch
+```
+
+Para integrar uma branch concluída localmente:
+
+```bash
+git switch main
+git pull --ff-only origin main
+git merge nome-da-branch
 git push origin main
 ```
 
----
-
-## Fluxo básico do dia a dia
-
-Verificar alterações:
+Em equipes, prefira o Pull Request como caminho de merge. Remova a branch somente depois de confirmar que ela foi integrada:
 
 ```bash
-git status
+git branch -d nome-da-branch
+git push origin --delete nome-da-branch
 ```
 
-Adicionar arquivos:
+## Atualizações, conflitos e rebase
+
+`git pull` obtém alterações remotas e as integra. `git fetch` apenas as baixa, permitindo inspecioná-las antes. O uso de `git pull --ff-only` evita criar merges inesperados.
+
+Se houver conflito, o Git marca os trechos envolvidos. Edite o arquivo, mantenha a versão correta, remova os marcadores `<<<<<<<`, `=======` e `>>>>>>>`, então conclua:
 
 ```bash
-git add .
+git add arquivo-com-conflito.md
+git commit
 ```
 
-Criar commit:
+`git rebase main` reaplica os commits da sua branch sobre a `main`, deixando o histórico linear. Use-o apenas em commits que ainda não são compartilhados, ou combine-o previamente com a equipe. Não use `git push --force` em uma branch compartilhada; se for indispensável numa branch própria, prefira `git push --force-with-lease`.
+
+## Desfazer com segurança
+
+| Situação | Comando |
+| --- | --- |
+| Descartar alterações não adicionadas em um arquivo | `git restore arquivo.md` |
+| Retirar um arquivo da área de stage, mantendo a edição | `git restore --staged arquivo.md` |
+| Guardar trabalho temporariamente | `git stash` |
+| Restaurar o último stash | `git stash pop` |
+| Reverter um commit já publicado | `git revert ID_DO_COMMIT` |
+
+`git reset --hard` apaga alterações locais e pode causar perda de trabalho. Use-o somente quando tiver certeza do alvo e não houver conteúdo a preservar.
+
+## Recursos úteis
+
+Marque versões estáveis com tags:
 
 ```bash
-git commit -m "Descrição da alteração"
+git tag -a v1.0 -m "Versão 1.0"
+git push origin v1.0
 ```
 
-Enviar para o GitHub:
+Para descobrir a origem de uma linha:
 
 ```bash
-git push origin main
+git blame arquivo.md
 ```
 
----
+## Checklist antes do push
 
-## Comandos mais utilizados
-
-| Comando       | Função                |
-| ------------- | --------------------- |
-| git status    | Verificar alterações  |
-| git add .     | Adicionar arquivos    |
-| git commit -m | Criar commit          |
-| git push      | Enviar para GitHub    |
-| git pull      | Atualizar repositório |
-| git log       | Ver histórico         |
-| git diff      | Ver diferenças        |
-| git clone     | Clonar repositório    |
-
----
-
-## Exemplo prático
-
-Após criar um novo tutorial:
-
-```bash
-git status
-git add .
-git commit -m "Adicionado tutorial LVM"
-git push origin main
-```
-
-O conteúdo será enviado para o GitHub e atualizado no site após a publicação.
-
+- Confirme a branch com `git status`.
+- Revise `git diff --staged`.
+- Use uma mensagem de commit curta e objetiva.
+- Não envie credenciais ou arquivos gerados sem necessidade.
+- Atualize a branch e resolva conflitos antes de abrir o Pull Request.

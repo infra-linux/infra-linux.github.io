@@ -11,10 +11,7 @@ O Ninja Linux nasceu para centralizar conhecimentos adquiridos na rotina de infr
 | Área | Conteúdo principal |
 | --- | --- |
 | [Linux](linux/) | Administração, LVM e certificados SSL |
-| [Kubernetes](kubernetes/) | Instalação, Kubeconfig, kubectl, workloads, rede e troubleshooting |
-| [Docker](docker/) | Containers, imagens, volumes e Docker Compose |
-| [DevOps](devops/) | CI/CD, Azure DevOps, Jenkins, Harbor e Git |
-| [Git](git/) | Fundamentos e fluxo de trabalho |
+| [DevOps](devops/) | Git, Docker, Kubernetes, CI/CD, Ansible e automação |
 | [Redes](redes/) | DNS, conectividade e diagnóstico |
 | [Squid](squid/) | Proxy e administração |
 | [Monitoramento](monitoramento/) | Zabbix e Grafana |
@@ -98,10 +95,10 @@ O resultado será criado no diretório `_site/`.
 ninja-linux/
 ├── .github/workflows/
 ├── linux/
-├── kubernetes/
-├── docker/
 ├── devops/
-├── git/
+│   ├── kubernetes/
+│   ├── docker.md
+│   └── git.md
 ├── redes/
 ├── squid/
 ├── monitoramento/

@@ -34,7 +34,7 @@
     </div>
 
     <nav class="sidebar-menu" aria-label="Navegação principal">
-      {% assign sections = "linux:◉ Linux,devops:⚙ DevOps (incl. Git),kubernetes:☸ Kubernetes,docker:⬢ Docker,redes:◎ Redes,squid:◉ Squid,monitoramento:▥ Monitoramento,nutanix:◇ Nutanix,vmware:▣ VMware,watchguard:◈ WatchGuard,windows:⊞ Windows,troubleshooting:◆ Troubleshooting" | split: "," %}
+      {% assign sections = "linux:◉ Linux,devops:⚙ DevOps,redes:◎ Redes,squid:◉ Squid,monitoramento:▥ Monitoramento,nutanix:◇ Nutanix,vmware:▣ VMware,watchguard:◈ WatchGuard,windows:⊞ Windows,troubleshooting:◆ Troubleshooting" | split: "," %}
       {% for item in sections %}
         {% assign parts = item | split: ":" %}
         <a href="{{ '/' | append: parts[0] | append: '/' | relative_url }}">{{ parts[1] }}</a>

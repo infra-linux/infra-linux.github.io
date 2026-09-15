@@ -18,7 +18,7 @@ description: Ninja Linux é a base de conhecimento prática para Linux, infraest
 
   <div class="home-hero-panel" aria-label="Resumo do conteúdo">
     <div>
-      <strong>12</strong>
+      <strong>10</strong>
       <span>áreas técnicas</span>
     </div>
     <div>
@@ -62,17 +62,7 @@ description: Ninja Linux é a base de conhecimento prática para Linux, infraest
 
   <a class="card" href="devops/">
     <h3>⚙️ DevOps</h3>
-    <p>CI/CD, automação, pipelines e Git.</p>
-  </a>
-
-  <a class="card" href="kubernetes/">
-    <h3>☸️ Kubernetes</h3>
-    <p>Kubectl, Pods, Deployments, Services e Ingress.</p>
-  </a>
-
-  <a class="card" href="docker/">
-    <h3>🐳 Docker</h3>
-    <p>Containers, imagens, volumes e Compose.</p>
+    <p>Git, Docker, Kubernetes, CI/CD e automação.</p>
   </a>
 
   <a class="card" href="redes/">
