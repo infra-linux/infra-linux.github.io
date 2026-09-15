@@ -16,7 +16,7 @@ Seu objetivo é reduzir o tempo entre o desenvolvimento e a disponibilização d
 ## Conteúdo
 
 * [CI/CD](cicd.md)
-* [Git — Guia Prático](git.md)
+* [Git - Guia Prático](git.md)
 * [Ansible - Guia Prático](ansible.md)
 * [Docker](docker.md)
 * [Kubernetes](kubernetes/)
