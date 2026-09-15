@@ -29,8 +29,9 @@
     </a>
 
     <div class="search-box">
-      <label for="sidebarSearchInput">Buscar no menu</label>
-      <input id="sidebarSearchInput" type="search" placeholder="Ex.: Kubernetes, LVM..." autocomplete="off">
+      <label for="sidebarSearchInput">Filtrar menu</label>
+      <input id="sidebarSearchInput" type="search" placeholder="Ex.: DevOps, Linux..." autocomplete="off">
+      <a class="global-search-link" href="/ninja-linux/buscar/">Buscar em todo o conteúdo →</a>
     </div>
 
     <nav class="sidebar-menu" aria-label="Navegação principal">
@@ -84,6 +85,10 @@
 <p>Atualmente é uma das principais tecnologias utilizadas em ambientes corporativos, nuvem e arquiteturas de microsserviços.</p>
 
 <p>Permite executar aplicações de forma distribuída, resiliente e altamente disponível.</p>
+
+<blockquote>
+  <p>⚠️ Execute comandos <code class="language-plaintext highlighter-rouge">kubectl</code> somente após confirmar o contexto com <code class="language-plaintext highlighter-rouge">kubectl config current-context</code>. Em produção, valide namespace, recurso e impacto antes de aplicar ou remover manifestos.</p>
+</blockquote>
 
 <hr />
 

@@ -101,6 +101,14 @@
     
     
     <url>
+      <loc>https://seu-usuario.github.io/ninja-linux/buscar/</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    
+    
+    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/linux/certificadossl/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -309,6 +317,14 @@
     
     
     <url>
+      <loc>https://seu-usuario.github.io/ninja-linux/devops/inicio-rapido/</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    
+    
+    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/windows/instalacao-aplicativos-exe/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -365,6 +381,14 @@
     
     
     <url>
+      <loc>https://seu-usuario.github.io/ninja-linux/docs/padrao-de-documentacao/</loc>
+      <lastmod>2026-09-15</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    
+    
+    <url>
       <loc>https://seu-usuario.github.io/ninja-linux/devops/kubernetes/pods/</loc>
       <lastmod>2026-09-15</lastmod>
       <changefreq>monthly</changefreq>
@@ -386,6 +410,8 @@
       <changefreq>monthly</changefreq>
     </url>
   
+    
+      
     
     
     <url>

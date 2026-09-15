@@ -29,8 +29,9 @@
     </a>
 
     <div class="search-box">
-      <label for="sidebarSearchInput">Buscar no menu</label>
-      <input id="sidebarSearchInput" type="search" placeholder="Ex.: Kubernetes, LVM..." autocomplete="off">
+      <label for="sidebarSearchInput">Filtrar menu</label>
+      <input id="sidebarSearchInput" type="search" placeholder="Ex.: DevOps, Linux..." autocomplete="off">
+      <a class="global-search-link" href="/ninja-linux/buscar/">Buscar em todo o conteúdo →</a>
     </div>
 
     <nav class="sidebar-menu" aria-label="Navegação principal">
@@ -76,6 +77,10 @@
   <div class="page-shell">
     <main id="conteudo" tabindex="-1">
       <h1 id="instalação-de-cluster-kubernetes-com-rocky-linux-containerd-e-calico">Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico</h1>
+
+<blockquote>
+  <p>⚠️ As seções de limpeza deste guia removem componentes do Kubernetes e dados locais do nó. Confirme o hostname, o contexto e a necessidade de descomissionar o nó antes de executar comandos <code class="language-plaintext highlighter-rouge">rm -rf</code> ou <code class="language-plaintext highlighter-rouge">kubeadm reset</code>.</p>
+</blockquote>
 
 <h2 id="1-objetivo">1. Objetivo</h2>
 

@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0f0d">
   <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <meta property="og:title" content="Instalação de Aplicativos (.exe) no Windows · Ninja Linux">
+  <meta property="og:title" content="Padrão de documentação · Ninja Linux">
   <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/windows/instalacao-aplicativos-exe/">
+  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/docs/padrao-de-documentacao/">
   <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Instalação de Aplicativos (.exe) no Windows · Ninja Linux">
+  <meta name="twitter:title" content="Padrão de documentação · Ninja Linux">
   <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <title>Instalação de Aplicativos (.exe) no Windows · Ninja Linux</title>
+  <title>Padrão de documentação · Ninja Linux</title>
   <link rel="icon" href="/ninja-linux/images/favicon.png">
   <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
 </head>
@@ -76,117 +76,50 @@
 
   <div class="page-shell">
     <main id="conteudo" tabindex="-1">
-      <h1 id="instalação-de-aplicativos-exe-no-windows">Instalação de Aplicativos (.exe) no Windows</h1>
+      <h1 id="padrão-de-documentação">Padrão de documentação</h1>
 
-<h2 id="objetivo">Objetivo</h2>
+<p>Use esta estrutura para novos procedimentos. Remova seções que não se aplicarem, mas mantenha as informações necessárias para outra pessoa executar e validar o trabalho com segurança.</p>
 
-<p>Procedimento padrão para instalação de aplicativos distribuídos em formato <code class="language-plaintext highlighter-rouge">.exe</code>.</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">default</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Nome do procedimento</span>
+<span class="nn">---</span>
 
-<hr />
+<span class="gh"># Nome do procedimento</span>
 
-<h2 id="1-baixar-o-instalador">1. Baixar o instalador</h2>
+<span class="gu">## Objetivo</span>
 
-<p>Baixar o arquivo <code class="language-plaintext highlighter-rouge">.exe</code> do site oficial do fabricante.</p>
+Explique o resultado esperado e quando usar este procedimento.
 
-<p>Exemplo:</p>
+<span class="gu">## Pré-requisitos</span>
+<span class="p">
+-</span> Acessos, versões, permissões e dependências necessários.
+<span class="p">-</span> Backup, janela de manutenção ou aprovação, se aplicável.
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Downloads\programa.exe
+<span class="gu">## Procedimento</span>
+
+Apresente os passos em ordem, explicando comandos não óbvios.
+
+<span class="gu">## Validação</span>
+
+Mostre como confirmar que o resultado foi alcançado.
+
+<span class="gu">## Troubleshooting</span>
+
+Liste falhas comuns, diagnóstico e solução.
+
+<span class="gu">## Rollback</span>
+
+Explique como reverter a alteração ou informe explicitamente quando não houver reversão segura.
+
+<span class="gu">## Segurança e boas práticas</span>
+
+Registre riscos, dados sensíveis e cuidados operacionais.
 </code></pre></div></div>
 
-<hr />
-
-<h2 id="2-abrir-powershell-como-administrador">2. Abrir PowerShell como Administrador</h2>
-
-<ul>
-  <li>Menu Iniciar</li>
-  <li>Procurar por <strong>PowerShell</strong></li>
-  <li>Clicar em <strong>Executar como Administrador</strong></li>
-</ul>
-
-<hr />
-
-<h2 id="3-acessar-a-pasta-do-instalador">3. Acessar a pasta do instalador</h2>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">USERPROFILE</span><span class="nx">\Downloads</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Verificar o arquivo:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dir</span><span class="w"> </span><span class="o">*.</span><span class="nf">exe</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="4-executar-o-instalador">4. Executar o instalador</h2>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\programa.exe</span><span class="w">
-</span></code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Start-Process</span><span class="w"> </span><span class="o">.</span><span class="nx">\programa.exe</span><span class="w"> </span><span class="nt">-Verb</span><span class="w"> </span><span class="nx">RunAs</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="5-concluir-a-instalação">5. Concluir a instalação</h2>
-
-<p>Seguir o assistente:</p>
-
-<ul>
-  <li>Next</li>
-  <li>Accept License</li>
-  <li>Install</li>
-  <li>Finish</li>
-</ul>
-
-<hr />
-
-<h2 id="6-validar-a-instalação">6. Validar a instalação</h2>
-
-<p>Verificar se o aplicativo foi instalado:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-StartApps</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">findstr</span><span class="w"> </span><span class="s2">"nome"</span><span class="w">
-</span></code></pre></div></div>
-
-<p>ou pesquisar pelo programa no Menu Iniciar.</p>
-
-<hr />
-
-<h2 id="7-executar-o-aplicativo">7. Executar o aplicativo</h2>
-
-<p>Abrir pelo Menu Iniciar ou executar diretamente:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"C:\Program Files\Aplicativo\programa.exe"</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="exemplo">Exemplo</h2>
-
-<p>Instalação do Markdown Monster:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">USERPROFILE</span><span class="nx">\Downloads</span><span class="w">
-
-</span><span class="n">Start-Process</span><span class="w"> </span><span class="o">.</span><span class="nx">\MarkdownMonsterSetup.exe</span><span class="w"> </span><span class="nt">-Verb</span><span class="w"> </span><span class="nx">RunAs</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Após a instalação:</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Menu Iniciar → Markdown Monster
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="boas-práticas">Boas práticas</h2>
-
-<ul>
-  <li>Utilizar instaladores obtidos no site oficial.</li>
-  <li>Executar sempre como Administrador.</li>
-  <li>Manter os aplicativos atualizados.</li>
-  <li>Preferir versões homologadas pela empresa quando aplicável.</li>
-</ul>
-
+<blockquote>
+  <p>⚠️ Antes de comandos que removem dados, sobrescrevem configurações ou atuam em produção, informe o impacto, a confirmação do alvo e a alternativa de rollback.</p>
+</blockquote>
 
     </main>
     <footer class="site-footer">

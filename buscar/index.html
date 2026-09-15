@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b0f0d">
   <meta name="description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <meta property="og:title" content="Instalação de Aplicativos (.exe) no Windows · Ninja Linux">
+  <meta property="og:title" content="Buscar no conteúdo · Ninja Linux">
   <meta property="og:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/windows/instalacao-aplicativos-exe/">
+  <meta property="og:url" content="https://seu-usuario.github.io/ninja-linux/buscar/">
   <meta property="og:image" content="https://seu-usuario.github.io/images/banner-ninja-linux.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Instalação de Aplicativos (.exe) no Windows · Ninja Linux">
+  <meta name="twitter:title" content="Buscar no conteúdo · Ninja Linux">
   <meta name="twitter:description" content="Documentação prática sobre Linux, DevOps, Kubernetes, redes, monitoramento e infraestrutura.">
-  <title>Instalação de Aplicativos (.exe) no Windows · Ninja Linux</title>
+  <title>Buscar no conteúdo · Ninja Linux</title>
   <link rel="icon" href="/ninja-linux/images/favicon.png">
   <link rel="stylesheet" href="/ninja-linux/assets/css/style.css">
 </head>
@@ -76,116 +76,40 @@
 
   <div class="page-shell">
     <main id="conteudo" tabindex="-1">
-      <h1 id="instalação-de-aplicativos-exe-no-windows">Instalação de Aplicativos (.exe) no Windows</h1>
+      <h1 id="buscar-no-conteúdo">Buscar no conteúdo</h1>
 
-<h2 id="objetivo">Objetivo</h2>
+<p><label class="visually-hidden" for="globalSearchInput">Termo de busca</label>
+<input class="global-search-input" id="globalSearchInput" type="search" placeholder="Ex.: Kubernetes, LVM, certificado SSL" autocomplete="off" /></p>
+<p id="globalSearchStatus" class="search-status" aria-live="polite">Digite ao menos dois caracteres para buscar.</p>
+<div id="globalSearchResults" class="search-results"></div>
 
-<p>Procedimento padrão para instalação de aplicativos distribuídos em formato <code class="language-plaintext highlighter-rouge">.exe</code>.</p>
+<script>
+  (() => {
+    const input = document.getElementById('globalSearchInput');
+    const status = document.getElementById('globalSearchStatus');
+    const results = document.getElementById('globalSearchResults');
+    let pages = [];
 
-<hr />
+    fetch('/ninja-linux/search.json')
+      .then(response => response.ok ? response.json() : Promise.reject())
+      .then(data => { pages = data; })
+      .catch(() => { status.textContent = 'Não foi possível carregar o índice de busca.'; });
 
-<h2 id="1-baixar-o-instalador">1. Baixar o instalador</h2>
+    const escapeHtml = value => value.replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
 
-<p>Baixar o arquivo <code class="language-plaintext highlighter-rouge">.exe</code> do site oficial do fabricante.</p>
-
-<p>Exemplo:</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Downloads\programa.exe
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="2-abrir-powershell-como-administrador">2. Abrir PowerShell como Administrador</h2>
-
-<ul>
-  <li>Menu Iniciar</li>
-  <li>Procurar por <strong>PowerShell</strong></li>
-  <li>Clicar em <strong>Executar como Administrador</strong></li>
-</ul>
-
-<hr />
-
-<h2 id="3-acessar-a-pasta-do-instalador">3. Acessar a pasta do instalador</h2>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">USERPROFILE</span><span class="nx">\Downloads</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Verificar o arquivo:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dir</span><span class="w"> </span><span class="o">*.</span><span class="nf">exe</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="4-executar-o-instalador">4. Executar o instalador</h2>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="n">\programa.exe</span><span class="w">
-</span></code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Start-Process</span><span class="w"> </span><span class="o">.</span><span class="nx">\programa.exe</span><span class="w"> </span><span class="nt">-Verb</span><span class="w"> </span><span class="nx">RunAs</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="5-concluir-a-instalação">5. Concluir a instalação</h2>
-
-<p>Seguir o assistente:</p>
-
-<ul>
-  <li>Next</li>
-  <li>Accept License</li>
-  <li>Install</li>
-  <li>Finish</li>
-</ul>
-
-<hr />
-
-<h2 id="6-validar-a-instalação">6. Validar a instalação</h2>
-
-<p>Verificar se o aplicativo foi instalado:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-StartApps</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">findstr</span><span class="w"> </span><span class="s2">"nome"</span><span class="w">
-</span></code></pre></div></div>
-
-<p>ou pesquisar pelo programa no Menu Iniciar.</p>
-
-<hr />
-
-<h2 id="7-executar-o-aplicativo">7. Executar o aplicativo</h2>
-
-<p>Abrir pelo Menu Iniciar ou executar diretamente:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"C:\Program Files\Aplicativo\programa.exe"</span><span class="w">
-</span></code></pre></div></div>
-
-<hr />
-
-<h2 id="exemplo">Exemplo</h2>
-
-<p>Instalação do Markdown Monster:</p>
-
-<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cd</span><span class="w"> </span><span class="nv">$</span><span class="nn">env</span><span class="p">:</span><span class="nv">USERPROFILE</span><span class="nx">\Downloads</span><span class="w">
-
-</span><span class="n">Start-Process</span><span class="w"> </span><span class="o">.</span><span class="nx">\MarkdownMonsterSetup.exe</span><span class="w"> </span><span class="nt">-Verb</span><span class="w"> </span><span class="nx">RunAs</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Após a instalação:</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Menu Iniciar → Markdown Monster
-</code></pre></div></div>
-
-<hr />
-
-<h2 id="boas-práticas">Boas práticas</h2>
-
-<ul>
-  <li>Utilizar instaladores obtidos no site oficial.</li>
-  <li>Executar sempre como Administrador.</li>
-  <li>Manter os aplicativos atualizados.</li>
-  <li>Preferir versões homologadas pela empresa quando aplicável.</li>
-</ul>
+    input.addEventListener('input', () => {
+      const term = input.value.trim().toLocaleLowerCase('pt-BR');
+      if (term.length < 2) {
+        results.innerHTML = '';
+        status.textContent = 'Digite ao menos dois caracteres para buscar.';
+        return;
+      }
+      const matches = pages.filter(page => `${page.title} ${page.content}`.toLocaleLowerCase('pt-BR').includes(term)).slice(0, 20);
+      status.textContent = `${matches.length} resultado(s) encontrado(s).`;
+      results.innerHTML = matches.map(page => `<article><h2><a href="${escapeHtml(page.url)}">${escapeHtml(page.title)}</a></h2><p>${escapeHtml(page.content.slice(0, 220))}...</p></article>`).join('') || '<p>Nenhum conteúdo encontrado.</p>';
+    });
+  })();
+</script>
 
 
     </main>
