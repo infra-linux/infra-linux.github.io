@@ -1,18 +1,20 @@
 ﻿:root {
-    --accent-light: #e5e5e5;
-    --accent-soft: rgba(255, 255, 255, 0.08);
-    --accent-border: rgba(255, 255, 255, 0.12);
-    --accent-strong: rgba(255, 255, 255, 0.18);
-    --bg-principal: #0B0F0D;
-    --bg-secundario: #141918;
-    --bg-card: #171B18;
-    --bg-panel: rgba(24, 24, 24, 0.95);
-    --texto: #dce5df;
-    --texto-claro: #f5f7f5;
-    --texto-suave: #b0b0b0;
-    --borda: #22312a;
-    --linha: #263129;
-    --shadow: rgba(0, 0, 0, 0.45);
+    --accent-light: #ebf8e8;
+    --accent-soft: rgba(124, 203, 94, 0.12);
+    --accent-border: rgba(124, 203, 94, 0.26);
+    --accent-strong: rgba(124, 203, 94, 0.22);
+    --bg-principal: #070B09;
+    --bg-secundario: #0D1411;
+    --bg-card: #101915;
+    --bg-panel: rgba(15, 20, 17, 0.96);
+    --texto: #dfe9e3;
+    --texto-claro: #f4f8f5;
+    --texto-suave: #a7b4ad;
+    --borda: #1f2d28;
+    --linha: #24342d;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --accent: #7CCB5E;
+    --accent-stronger: #a8e07d;
 }
 
 * {
@@ -200,22 +202,22 @@ main {
   margin: 24px 32px 32px 20px;
   padding: 24px;
   max-width: 1040px;
-  background: rgba(16, 18, 16, 0.95);
+  background: linear-gradient(180deg, rgba(14, 20, 17, 0.96), rgba(12, 16, 14, 0.98));
   border-radius: 24px;
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) 260px;
+  grid-template-columns: minmax(0, 1.5fr) 280px;
   gap: 30px;
   align-items: center;
-  padding: 36px 34px;
-  border-radius: 26px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015) 34%, transparent 100%), #151815;
-  border: 1px solid #22312a;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 40px rgba(0, 0, 0, 0.18);
+  padding: 42px 36px;
+  border-radius: 28px;
+  background: radial-gradient(circle at top right, rgba(124, 203, 94, 0.18), transparent 28%), linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01) 40%, transparent 100%), #131b18;
+  border: 1px solid rgba(124, 203, 94, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 22px 40px rgba(0, 0, 0, 0.22);
 }
 
 .home-hero-content {
@@ -226,12 +228,12 @@ main {
 .home-kicker {
   display: inline-flex;
   align-self: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #f5f5f5;
+  background: rgba(124, 203, 94, 0.08);
+  border: 1px solid rgba(124, 203, 94, 0.18);
+  color: var(--accent-stronger);
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
@@ -241,9 +243,9 @@ main {
 .home-hero h1 {
   margin: 0;
   color: var(--texto-claro);
-  font-size: clamp(38px, 5vw, 62px);
+  font-size: clamp(38px, 5vw, 64px);
   line-height: 0.96;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 }
 
 .home-hero p {
@@ -275,9 +277,9 @@ main {
 }
 
 .primary-action {
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #f6f6f6 0%, #dfe9e2 100%);
   color: #111;
-  box-shadow: 0 14px 26px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 26px rgba(255, 255, 255, 0.12);
 }
 
 .primary-action:hover,
@@ -287,8 +289,8 @@ main {
 }
 
 .secondary-action {
-  border: 1px solid #2f3e35;
-  background: rgba(25, 29, 27, 0.94);
+  border: 1px solid rgba(124, 203, 94, 0.2);
+  background: rgba(19, 24, 21, 0.96);
   color: var(--texto);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
@@ -301,8 +303,8 @@ main {
 .home-hero-panel div {
   padding: 18px 18px 16px;
   border-radius: 16px;
-  background: rgba(18, 20, 18, 0.86);
-  border: 1px solid #22312a;
+  background: rgba(14, 18, 16, 0.9);
+  border: 1px solid rgba(124, 203, 94, 0.14);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   min-height: 92px;
 }
@@ -410,7 +412,7 @@ blockquote {
   border-radius: 20px;
   background: linear-gradient(180deg, rgba(21, 27, 23, 0.96), rgba(16, 18, 16, 0.95));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 3px solid rgba(255, 255, 255, 0.12);
+  border-left: 3px solid rgba(124, 203, 94, 0.18);
   color: inherit;
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
@@ -419,14 +421,75 @@ blockquote {
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 38px rgba(0, 0, 0, 0.18);
-  border-color: rgba(255, 255, 255, 0.16);
-  border-left-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(124, 203, 94, 0.28);
+  border-left-color: rgba(124, 203, 94, 0.42);
   background: linear-gradient(180deg, rgba(28, 34, 28, 0.98), rgba(20, 24, 20, 0.95));
 }
 
 .card h3 {
   font-size: 1.1rem;
   letter-spacing: -0.02em;
+}
+
+.home-section {
+  margin-top: 28px;
+}
+
+.section-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  border: 1px solid rgba(124, 203, 94, 0.18);
+  border-radius: 999px;
+  background: rgba(124, 203, 94, 0.06);
+  color: var(--accent-stronger);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  padding: 24px 22px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(18, 24, 21, 0.98), rgba(13, 17, 15, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.feature-card .feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: rgba(124, 203, 94, 0.08);
+  border: 1px solid rgba(124, 203, 94, 0.18);
+  color: var(--accent-stronger);
+  font-size: 20px;
+}
+
+.feature-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--texto-suave);
 }
 
 .card h3 {
