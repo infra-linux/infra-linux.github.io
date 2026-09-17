@@ -8,35 +8,35 @@ title: TCP/IP
 
 # Sumário
 
-1. [TCP/IP](#1-tcpip)
-2. [Endereço IP](#2-endereço-ip)
+1. [TCP/IP](##1-tcpip)
+2. [Endereço IP](##2-endereço-ip)
 
    * IPv4
    * IP público, IP privado e loopback
    * Endereços especiais
-3. [Máscara de Rede](#3-máscara-de-rede)
-4. [CIDR](#4-cidr)
-5. [Rede, Host e Broadcast](#5-rede-host-e-broadcast)
-6. [Sub-redes (Subnetting)](#6-sub-redes-subnetting)
-7. [MAC Address](#7-mac-address)
-8. [ARP](#8-arp)
-9. [Gateway](#9-gateway)
-10. [Rotas](#10-rotas)
-11. [ICMP](#11-icmp)
-12. [TCP e UDP](#12-tcp-e-udp)
-13. [Portas](#13-portas)
-14. [IPv6](#14-ipv6)
-15. [NAT](#15-nat)
-16. [DNS](#16-dns)
-17. [DHCP](#17-dhcp)
-18. [VLAN](#18-vlan)
-19. [Troubleshooting de rede no Linux](#19-troubleshooting-de-rede-no-linux)
+3. [Máscara de Rede](##3-máscara-de-rede)
+4. [CIDR](##4-cidr)
+5. [Rede, Host e Broadcast](##5-rede-host-e-broadcast)
+6. [Sub-redes (Subnetting)](##6-sub-redes-subnetting)
+7. [MAC Address](##7-mac-address)
+8. [ARP](##8-arp)
+9. [Gateway](##9-gateway)
+10. [Rotas](##10-rotas)
+11. [ICMP](##11-icmp)
+12. [TCP e UDP](##12-tcp-e-udp)
+13. [Portas](##13-portas)
+14. [IPv6](##14-ipv6)
+15. [NAT](##15-nat)
+16. [DNS](##16-dns)
+17. [DHCP](##17-dhcp)
+18. [VLAN](##18-vlan)
+19. [Troubleshooting de rede no Linux](##19-troubleshooting-de-rede-no-linux)
 
 ---
 
-## 1. TCP/IP
+#### 1. TCP/IP
 
-## O que é
+#### O que é
 
 TCP/IP (Transmission Control Protocol / Internet Protocol) é uma **pilha de protocolos** utilizada para comunicação entre dispositivos em redes de computadores.
 
@@ -58,7 +58,7 @@ Outros protocolos importantes fazem parte da pilha, como:
 * SSH;
 * SMTP.
 
-## O modelo em camadas
+#### O modelo em camadas
 
 Uma forma comum de representar o TCP/IP utiliza quatro camadas:
 
@@ -71,7 +71,7 @@ Uma forma comum de representar o TCP/IP utiliza quatro camadas:
 
 O modelo TCP/IP não deve ser confundido com o **modelo OSI**, que possui sete camadas e é principalmente utilizado como modelo conceitual.
 
-## Encapsulamento
+#### Encapsulamento
 
 Quando uma aplicação envia dados, cada camada adiciona informações de controle ao conteúdo recebido da camada superior.
 
@@ -107,7 +107,7 @@ Bits
 
 No destino ocorre o processo inverso, chamado **desencapsulamento**.
 
-## Termos importantes
+#### Termos importantes
 
 | Camada     | Unidade de dados             |
 | ---------- | ---------------------------- |
@@ -117,7 +117,7 @@ No destino ocorre o processo inverso, chamado **desencapsulamento**.
 | Enlace     | Quadro (Frame)               |
 | Física     | Bits                         |
 
-## Exemplo prático: acessar um site
+#### Exemplo prático: acessar um site
 
 Ao acessar:
 
@@ -139,7 +139,7 @@ Um fluxo simplificado é:
 
 ---
 
-## 2. Endereço IP
+#### 2. Endereço IP
 
 Um endereço IP identifica logicamente uma interface de rede dentro de um determinado contexto de rede.
 
@@ -154,7 +154,7 @@ O endereço IP é utilizado principalmente para:
 
 ---
 
-## IPv4
+#### IPv4
 
 O IPv4 (Internet Protocol version 4) utiliza **32 bits**.
 
@@ -200,7 +200,7 @@ O `/24` indica que os primeiros 24 bits pertencem ao prefixo da rede.
 
 ---
 
-## IP Público
+#### IP Público
 
 Um IP público é um endereço globalmente roteável na Internet.
 
@@ -216,7 +216,7 @@ Um IP público não significa automaticamente que o equipamento esteja acessíve
 
 ---
 
-## IP Privado
+#### IP Privado
 
 Os endereços privados definidos pela RFC 1918 são:
 
@@ -240,7 +240,7 @@ Para acessar a Internet, normalmente o tráfego passa por NAT/PAT.
 
 ---
 
-## Loopback
+#### Loopback
 
 A faixa IPv4 de loopback é:
 
@@ -277,7 +277,7 @@ ping -c 4 127.0.0.1
 
 ---
 
-## Endereço link-local IPv4
+#### Endereço link-local IPv4
 
 A faixa:
 
@@ -299,7 +299,7 @@ Esse endereço normalmente indica que a comunicação está limitada ao enlace l
 
 ---
 
-## `0.0.0.0`
+#### `0.0.0.0`
 
 `0.0.0.0` possui diferentes significados dependendo do contexto.
 
@@ -316,7 +316,7 @@ Pode representar:
 
 ---
 
-## Exemplo prático
+#### Exemplo prático
 
 Linux:
 
@@ -338,7 +338,7 @@ Get-NetIPAddress -AddressFamily IPv4
 
 ---
 
-## 3. Máscara de Rede
+#### 3. Máscara de Rede
 
 A máscara de rede determina quais bits de um endereço IPv4 representam a **rede** e quais representam o **host**.
 
@@ -371,7 +371,7 @@ Rede: 192.168.10.0
 
 O host é identificado pelos últimos 8 bits.
 
-## Como o host sabe se precisa usar o gateway?
+#### Como o host sabe se precisa usar o gateway?
 
 Quando um computador precisa enviar um pacote, ele compara o endereço de destino com sua própria rede.
 
@@ -403,7 +403,7 @@ Nesse caso, o host envia o pacote para o **gateway padrão**.
 
 ---
 
-## 4. CIDR
+#### 4. CIDR
 
 CIDR (Classless Inter-Domain Routing) é uma forma de representar o prefixo de rede.
 
@@ -427,7 +427,7 @@ Equivale a:
 255.255.255.0
 ```
 
-## Tabela de referência
+#### Tabela de referência
 
 | CIDR  | Máscara         | Endereços | Hosts utilizáveis* |
 | ----- | --------------- | --------: | -----------------: |
@@ -453,11 +453,11 @@ Existem exceções, como `/31`, utilizado em determinados enlaces ponto a ponto,
 
 ---
 
-## 5. Rede, Host e Broadcast
+#### 5. Rede, Host e Broadcast
 
 Dentro de uma sub-rede IPv4 tradicional existem endereços com funções especiais.
 
-## Endereço de rede
+#### Endereço de rede
 
 Possui todos os bits de host em `0`.
 
@@ -467,7 +467,7 @@ Exemplo:
 192.168.10.0/24
 ```
 
-## Endereços de host
+#### Endereços de host
 
 São os endereços normalmente atribuídos às interfaces dos dispositivos.
 
@@ -478,7 +478,7 @@ São os endereços normalmente atribuídos às interfaces dos dispositivos.
 192.168.10.254
 ```
 
-## Broadcast
+#### Broadcast
 
 Possui todos os bits de host em `1`.
 
@@ -497,7 +497,7 @@ Exemplo completo:
 
 ---
 
-## 6. Sub-redes (Subnetting)
+#### 6. Sub-redes (Subnetting)
 
 **Subnetting** é o processo de dividir uma rede em sub-redes menores.
 
@@ -532,7 +532,7 @@ Cada `/26` possui:
 62 hosts utilizáveis
 ```
 
-## Exemplo: rede para até 30 hosts
+#### Exemplo: rede para até 30 hosts
 
 Precisamos de 5 bits para hosts:
 
@@ -572,7 +572,7 @@ As redes serão:
 192.168.10.224/27
 ```
 
-## Subnetting não é segurança por si só
+#### Subnetting não é segurança por si só
 
 Criar sub-redes reduz o domínio de broadcast, mas **não significa automaticamente isolamento de segurança**.
 
@@ -587,7 +587,7 @@ Para controlar comunicação entre redes podem ser utilizados:
 
 ---
 
-## 7. MAC Address
+#### 7. MAC Address
 
 MAC (Media Access Control) é um endereço utilizado na camada de enlace para identificar interfaces de rede em um determinado domínio de comunicação.
 
@@ -620,7 +620,7 @@ O MAC é utilizado principalmente para comunicação no **enlace local**.
 
 O IP, por outro lado, é utilizado para comunicação lógica e roteamento entre redes.
 
-## Exemplo
+#### Exemplo
 
 Linux:
 
@@ -642,7 +642,7 @@ Get-NetAdapter
 
 ---
 
-## 8. ARP
+#### 8. ARP
 
 ARP (Address Resolution Protocol) é utilizado no IPv4 para descobrir o endereço MAC associado a um endereço IP dentro do enlace local.
 
@@ -668,7 +668,7 @@ Exemplo conceitual:
 192.168.10.30 → AA:BB:CC:DD:EE:FF
 ```
 
-## ARP e gateway
+#### ARP e gateway
 
 Se o destino estiver em outra rede:
 
@@ -693,7 +693,7 @@ O pacote IP continua tendo como destino:
 
 Mas o quadro Ethernet é enviado para o MAC do gateway.
 
-## Linux
+#### Linux
 
 ```bash
 ip neigh
@@ -709,7 +709,7 @@ O Linux moderno utiliza a tabela de **neighbor entries**, que também é usada p
 
 ---
 
-## 9. Gateway
+#### 9. Gateway
 
 O **default gateway** é o próximo salto utilizado quando o sistema não possui uma rota mais específica para o destino.
 
@@ -749,7 +749,7 @@ O gateway não precisa necessariamente ser um roteador físico dedicado. Pode se
 * equipamento virtual;
 * outro sistema configurado para encaminhamento.
 
-## Linux
+#### Linux
 
 ```bash
 ip route show default
@@ -763,7 +763,7 @@ default via 192.168.10.1 dev eth0
 
 ---
 
-## 10. Rotas
+#### 10. Rotas
 
 Uma rota informa ao sistema **onde e como alcançar determinado destino**.
 
@@ -786,9 +786,9 @@ Significa aproximadamente:
 
 > Para alcançar a rede `10.0.0.0/8`, envie o tráfego para o próximo salto `192.168.10.1` através da interface `eth0`.
 
-## Tipos comuns
+#### Tipos comuns
 
-### Rota conectada
+###### Rota conectada
 
 Criada automaticamente quando uma interface recebe um endereço.
 
@@ -796,7 +796,7 @@ Criada automaticamente quando uma interface recebe um endereço.
 192.168.10.0/24 dev eth0
 ```
 
-### Rota estática
+###### Rota estática
 
 Configurada manualmente:
 
@@ -804,7 +804,7 @@ Configurada manualmente:
 10.0.0.0/8 via 192.168.10.1
 ```
 
-### Rota dinâmica
+###### Rota dinâmica
 
 Aprendida através de protocolos como:
 
@@ -813,7 +813,7 @@ Aprendida através de protocolos como:
 * RIP;
 * IS-IS.
 
-### Rota padrão
+###### Rota padrão
 
 Representada em IPv4 por:
 
@@ -823,7 +823,7 @@ Representada em IPv4 por:
 
 Ela é utilizada quando não existe uma rota mais específica.
 
-## Longest Prefix Match
+#### Longest Prefix Match
 
 Quando várias rotas correspondem ao mesmo destino, normalmente é escolhida a rota com o **prefixo mais específico**.
 
@@ -843,7 +843,7 @@ Para:
 
 a rota `/24` é mais específica que `/16` e `/8`.
 
-## Linux
+#### Linux
 
 ```bash
 ip route
@@ -859,13 +859,13 @@ Esse comando é extremamente útil em troubleshooting.
 
 ---
 
-## 11. ICMP
+#### 11. ICMP
 
 ICMP (Internet Control Message Protocol) é utilizado para mensagens de controle, diagnóstico e sinalização de erros relacionados ao IP.
 
 Ele não é um protocolo de transporte como TCP ou UDP.
 
-## Ping
+#### Ping
 
 O `ping` normalmente utiliza:
 
@@ -896,7 +896,7 @@ Um firewall pode bloquear ICMP enquanto permite:
 TCP/443
 ```
 
-## Traceroute
+#### Traceroute
 
 O traceroute tenta descobrir os saltos intermediários entre origem e destino.
 
@@ -936,11 +936,11 @@ Isso permite identificar os saltos intermediários.
 
 ---
 
-## 12. TCP e UDP
+#### 12. TCP e UDP
 
 TCP e UDP pertencem à camada de Transporte.
 
-## TCP
+#### TCP
 
 TCP (Transmission Control Protocol) fornece comunicação orientada a conexão.
 
@@ -954,7 +954,7 @@ Características:
 * controle de congestionamento;
 * controle através de números de sequência e confirmações.
 
-## Three-Way Handshake
+#### Three-Way Handshake
 
 O estabelecimento tradicional de uma conexão TCP ocorre através de três etapas:
 
@@ -970,7 +970,7 @@ Cliente                         Servidor
 
 Depois disso, a comunicação pode começar.
 
-## TCP é utilizado em
+#### TCP é utilizado em
 
 Exemplos:
 
@@ -985,7 +985,7 @@ HTTPS não significa necessariamente TCP: **HTTP/3 utiliza QUIC sobre UDP**.
 
 ---
 
-## UDP
+#### UDP
 
 UDP (User Datagram Protocol) é um protocolo de transporte simples e sem conexão.
 
@@ -1007,7 +1007,7 @@ A própria aplicação pode implementar mecanismos de:
 
 O **QUIC**, por exemplo, utiliza UDP como transporte e implementa mecanismos avançados acima dele.
 
-## Comparação
+#### Comparação
 
 | Característica    | TCP         | UDP             |
 | ----------------- | ----------- | --------------- |
@@ -1019,7 +1019,7 @@ O **QUIC**, por exemplo, utiliza UDP como transporte e implementa mecanismos ava
 | Overhead          | Maior       | Menor           |
 | Exemplos          | SSH, HTTP/2 | DNS, QUIC, VoIP |
 
-## Linux
+#### Linux
 
 ```bash
 ss -tulpen
@@ -1038,7 +1038,7 @@ Exemplo de opções:
 
 ---
 
-## 13. Portas
+#### 13. Portas
 
 Portas identificam processos ou serviços dentro de um host.
 
@@ -1065,7 +1065,7 @@ Portas vão de:
 0 a 65535
 ```
 
-## Faixas
+#### Faixas
 
 | Faixa           | Classificação   |
 | --------------- | --------------- |
@@ -1075,7 +1075,7 @@ Portas vão de:
 
 Os limites de portas efêmeras podem variar conforme o sistema operacional.
 
-## Portas conhecidas
+#### Portas conhecidas
 
 | Porta | Protocolo | Serviço |
 | ----: | --------- | ------- |
@@ -1087,7 +1087,7 @@ Os limites de portas efêmeras podem variar conforme o sistema operacional.
 |   443 | TCP       | HTTPS   |
 |  3389 | TCP       | RDP     |
 
-## Socket
+#### Socket
 
 Uma comunicação TCP é identificada pelo conjunto:
 
@@ -1109,7 +1109,7 @@ Exemplo:
 
 A porta `51500` pode ser uma porta efêmera escolhida pelo cliente.
 
-## Verificando portas no Linux
+#### Verificando portas no Linux
 
 ```bash
 ss -lntp
@@ -1129,7 +1129,7 @@ nc -vz servidor.exemplo 443
 
 ---
 
-## 14. IPv6
+#### 14. IPv6
 
 IPv6 (Internet Protocol version 6) utiliza endereços de **128 bits**.
 
@@ -1155,7 +1155,7 @@ Os zeros podem ser abreviados.
 
 O `::` pode aparecer **uma única vez** em um endereço.
 
-## Loopback
+#### Loopback
 
 ```text
 ::1
@@ -1167,7 +1167,7 @@ Equivale conceitualmente ao:
 127.0.0.1
 ```
 
-## Link-local
+#### Link-local
 
 ```text
 fe80::/10
@@ -1175,7 +1175,7 @@ fe80::/10
 
 Endereços link-local são utilizados para comunicação no enlace local.
 
-## Unique Local Address
+#### Unique Local Address
 
 ```text
 fc00::/7
@@ -1191,7 +1191,7 @@ fd00::/8
 
 são comumente utilizados para redes locais.
 
-## Documentação
+#### Documentação
 
 ```text
 2001:db8::/32
@@ -1199,7 +1199,7 @@ são comumente utilizados para redes locais.
 
 é reservado para documentação e exemplos.
 
-## Diferenças importantes
+#### Diferenças importantes
 
 IPv6:
 
@@ -1211,7 +1211,7 @@ IPv6:
 * utiliza endereços muito maiores;
 * normalmente utiliza `/64` em segmentos LAN IPv6.
 
-## IPv6 e segurança
+#### IPv6 e segurança
 
 IPv6 não significa automaticamente tráfego criptografado.
 
@@ -1221,7 +1221,7 @@ IPsec é suportado pelo ecossistema IPv6, mas:
 
 Firewall continua sendo necessário.
 
-## Linux
+#### Linux
 
 ```bash
 ip -6 address
@@ -1241,13 +1241,13 @@ ip -6 neigh
 
 ---
 
-## 15. NAT
+#### 15. NAT
 
 NAT (Network Address Translation) altera endereços IP durante o encaminhamento dos pacotes.
 
 O uso mais comum em redes domésticas e corporativas é permitir que vários endereços privados compartilhem um endereço público.
 
-## PAT / NAT Overload
+#### PAT / NAT Overload
 
 Além do endereço IP, a porta pode ser traduzida.
 
@@ -1277,7 +1277,7 @@ corresponde a:
 
 Quando a resposta chega, o NAT realiza a tradução inversa.
 
-## Port forwarding
+#### Port forwarding
 
 Para publicar um serviço interno, pode existir uma regra como:
 
@@ -1295,7 +1295,7 @@ Isso normalmente envolve:
 * DNS;
 * política de segurança.
 
-## NAT não é firewall
+#### NAT não é firewall
 
 NAT e firewall são mecanismos diferentes.
 
@@ -1303,7 +1303,7 @@ Um firewall decide o que deve ser permitido ou bloqueado.
 
 O NAT modifica informações dos pacotes.
 
-## Linux
+#### Linux
 
 Em sistemas que utilizam nftables:
 
@@ -1319,7 +1319,7 @@ curl https://api.ipify.org
 
 ---
 
-## 16. DNS
+#### 16. DNS
 
 DNS (Domain Name System) é um sistema distribuído utilizado para associar nomes a informações, principalmente endereços IP.
 
@@ -1339,7 +1339,7 @@ DNS também pode armazenar:
 * políticas;
 * outros dados.
 
-## Resolvedor DNS
+#### Resolvedor DNS
 
 O cliente normalmente consulta um **resolvedor recursivo**.
 
@@ -1360,7 +1360,7 @@ O resolvedor pode:
 * seguir a hierarquia DNS;
 * retornar a resposta ao cliente.
 
-## Hierarquia DNS
+#### Hierarquia DNS
 
 De forma simplificada:
 
@@ -1384,7 +1384,7 @@ TLD
 Servidor autoritativo
 ```
 
-## Servidor autoritativo
+#### Servidor autoritativo
 
 O servidor autoritativo é aquele que possui autoridade sobre determinada zona DNS.
 
@@ -1396,7 +1396,7 @@ exemplo.com
 
 pode possuir servidores autoritativos que respondem pelos registros desse domínio.
 
-## Registros comuns
+#### Registros comuns
 
 | Registro | Função                              |
 | -------- | ----------------------------------- |
@@ -1409,7 +1409,7 @@ pode possuir servidores autoritativos que respondem pelos registros desse domín
 | `PTR`    | Resolução reversa                   |
 | `SOA`    | Informações administrativas da zona |
 
-## DNS reverso
+#### DNS reverso
 
 O DNS normalmente é utilizado:
 
@@ -1425,7 +1425,7 @@ IP → nome
 
 através de registros `PTR`.
 
-## DNS não é criptografia
+#### DNS não é criptografia
 
 DNS tradicional pode utilizar consultas sem criptografia no transporte.
 
@@ -1436,7 +1436,7 @@ Tecnologias como:
 
 protegem a comunicação entre cliente e resolvedor, mas não transformam DNS em um mecanismo geral de autenticação.
 
-## Linux
+#### Linux
 
 ```bash
 dig example.com
@@ -1474,7 +1474,7 @@ nslookup example.com
 
 ---
 
-## 17. DHCP
+#### 17. DHCP
 
 DHCP (Dynamic Host Configuration Protocol) permite configurar automaticamente parâmetros de rede nos dispositivos.
 
@@ -1487,7 +1487,7 @@ Entre os parâmetros que podem ser fornecidos estão:
 * tempo de concessão (lease);
 * outras opções de configuração.
 
-## Processo DORA
+#### Processo DORA
 
 O processo clássico de obtenção de um endereço IPv4 através do DHCP é conhecido como:
 
@@ -1512,7 +1512,7 @@ DHCP Request   ------------>
                <------------ DHCP ACK
 ```
 
-## DHCP não é apenas "dar IP"
+#### DHCP não é apenas "dar IP"
 
 O DHCP pode fornecer diversas informações necessárias para o funcionamento da rede.
 
@@ -1525,7 +1525,7 @@ Gateway:  192.168.10.1
 DNS:      192.168.10.53
 ```
 
-## Troubleshooting
+#### Troubleshooting
 
 No Linux:
 
@@ -1549,7 +1549,7 @@ Dependendo da distribuição e da configuração, a administração DHCP pode se
 
 ---
 
-## 18. VLAN
+#### 18. VLAN
 
 VLAN (Virtual Local Area Network) permite dividir logicamente uma rede Ethernet em diferentes domínios de broadcast.
 
@@ -1563,7 +1563,7 @@ VLAN 30 → Visitantes
 
 Cada VLAN normalmente possui sua própria sub-rede IP.
 
-## Access
+#### Access
 
 Uma porta **access** normalmente transporta uma única VLAN para o dispositivo conectado.
 
@@ -1577,7 +1577,7 @@ Switch
           └── Computador
 ```
 
-## Trunk
+#### Trunk
 
 Uma porta **trunk** pode transportar várias VLANs.
 
@@ -1598,7 +1598,7 @@ Switch A
 Switch B
 ```
 
-## Inter-VLAN Routing
+#### Inter-VLAN Routing
 
 Dispositivos em VLANs diferentes precisam de roteamento para se comunicar.
 
@@ -1623,7 +1623,7 @@ O roteamento pode ser realizado por:
 * switch de camada 3;
 * equipamento virtual.
 
-## VLAN não é segurança por si só
+#### VLAN não é segurança por si só
 
 Assim como subnetting, VLAN cria separação lógica e de broadcast, mas não deve ser confundida automaticamente com uma política de segurança.
 
@@ -1633,7 +1633,7 @@ O tráfego entre VLANs pode ser controlado por:
 * firewall;
 * políticas de roteamento.
 
-## Exemplo de planejamento
+#### Exemplo de planejamento
 
 ```text
 VLAN 10 - Usuários
@@ -1656,13 +1656,13 @@ Visitantes → Internet: permitido
 
 ---
 
-# 19. Troubleshooting de rede no Linux
+## 19. Troubleshooting de rede no Linux
 
 Para administração Linux, conhecer os conceitos anteriores é importante, mas é igualmente importante saber **diagnosticar problemas na prática**.
 
 Uma sequência útil é trabalhar das camadas mais básicas para as mais altas.
 
-## 19.1 Verificar a interface
+#### 19.1 Verificar a interface
 
 ```bash
 ip link
@@ -1688,7 +1688,7 @@ DOWN
 
 ---
 
-## 19.2 Verificar o endereço IP
+#### 19.2 Verificar o endereço IP
 
 ```bash
 ip address
@@ -1710,7 +1710,7 @@ Verifique:
 
 ---
 
-## 19.3 Verificar a rota
+#### 19.3 Verificar a rota
 
 ```bash
 ip route
@@ -1730,7 +1730,7 @@ default via 192.168.10.1 dev eth0
 
 ---
 
-## 19.4 Verificar a rota para um destino
+#### 19.4 Verificar a rota para um destino
 
 Uma das ferramentas mais úteis para troubleshooting:
 
@@ -1747,7 +1747,7 @@ Isso permite descobrir:
 
 ---
 
-## 19.5 Verificar vizinhos/ARP
+#### 19.5 Verificar vizinhos/ARP
 
 ```bash
 ip neigh
@@ -1773,7 +1773,7 @@ Uma entrada `FAILED`, por exemplo, pode indicar problemas para resolver o endere
 
 ---
 
-## 19.6 Testar o loopback
+#### 19.6 Testar o loopback
 
 ```bash
 ping -c 4 127.0.0.1
@@ -1783,7 +1783,7 @@ Se isso falhar, o problema está no próprio sistema e não na conexão externa.
 
 ---
 
-## 19.7 Testar o gateway
+#### 19.7 Testar o gateway
 
 ```bash
 ping -c 4 192.168.10.1
@@ -1802,7 +1802,7 @@ Se o gateway não responder, pode haver problemas em:
 
 ---
 
-## 19.8 Testar um IP externo
+#### 19.8 Testar um IP externo
 
 ```bash
 ping -c 4 8.8.8.8
@@ -1817,7 +1817,7 @@ Se o gateway responde, mas o IP externo não:
 
 ---
 
-## 19.9 Testar DNS
+#### 19.9 Testar DNS
 
 Primeiro:
 
@@ -1847,7 +1847,7 @@ resolvectl status
 
 ---
 
-## 19.10 Testar uma porta TCP
+#### 19.10 Testar uma porta TCP
 
 ```bash
 nc -vz servidor.exemplo 443
@@ -1872,7 +1872,7 @@ TCP/443 → bloqueado
 
 ---
 
-## 19.11 Verificar serviços escutando
+#### 19.11 Verificar serviços escutando
 
 ```bash
 ss -lntp
@@ -1894,7 +1894,7 @@ ss -lntp
 
 ---
 
-## 19.12 Verificar firewall
+#### 19.12 Verificar firewall
 
 Dependendo da distribuição:
 
@@ -1910,7 +1910,7 @@ sudo firewall-cmd --list-all
 
 ---
 
-## 19.13 Capturar tráfego
+#### 19.13 Capturar tráfego
 
 Uma das ferramentas mais importantes para troubleshooting é o `tcpdump`.
 
@@ -1942,7 +1942,7 @@ Uma captura de pacotes permite verificar o que **realmente está entrando e sain
 
 ---
 
-# Resumo mental para troubleshooting
+## Resumo mental para troubleshooting
 
 Quando um servidor Linux não consegue acessar determinado serviço, pense nesta sequência:
 
