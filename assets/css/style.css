@@ -226,13 +226,13 @@ main {
 .home-kicker {
   display: inline-flex;
   align-self: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #f5f5f5;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -241,8 +241,9 @@ main {
 .home-hero h1 {
   margin: 0;
   color: var(--texto-claro);
-  font-size: clamp(38px, 5vw, 60px);
-  line-height: 1.05;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
 }
 
 .home-hero p {
@@ -250,6 +251,7 @@ main {
   max-width: 680px;
   color: var(--texto);
   font-size: 18px;
+  line-height: 1.7;
 }
 
 .home-actions {
@@ -264,8 +266,8 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0 18px;
+  min-height: 46px;
+  padding: 0 20px;
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
@@ -275,17 +277,18 @@ main {
 .primary-action {
   background: #f5f5f5;
   color: #111;
-  box-shadow: 0 10px 22px rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 26px rgba(255, 255, 255, 0.1);
 }
 
 .primary-action:hover,
 .secondary-action:hover {
   transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
 }
 
 .secondary-action {
   border: 1px solid #2f3e35;
-  background: #1b1f1b;
+  background: rgba(25, 29, 27, 0.94);
   color: var(--texto);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
@@ -301,12 +304,14 @@ main {
   background: rgba(18, 20, 18, 0.86);
   border: 1px solid #22312a;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  min-height: 92px;
 }
 
 .home-hero-panel strong {
   display: block;
   color: var(--texto-claro);
   font-size: 30px;
+  line-height: 1.1;
 }
 
 .home-hero-panel span {
@@ -417,6 +422,11 @@ blockquote {
   border-color: rgba(255, 255, 255, 0.16);
   border-left-color: rgba(255, 255, 255, 0.22);
   background: linear-gradient(180deg, rgba(28, 34, 28, 0.98), rgba(20, 24, 20, 0.95));
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
 }
 
 .card h3 {

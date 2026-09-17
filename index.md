@@ -6,9 +6,9 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 
 <section class="home-hero">
   <div class="home-hero-content">
-    <span class="home-kicker">Base de conhecimento</span>
+    <span class="home-kicker">Infraestrutura & operações</span>
     <h1>Infra Linux</h1>
-    <p>Guia prático para administrar Linux, redes, containers, monitoramento e infraestrutura em produção.</p>
+    <p>Documentação prática para administração de Linux, redes, containers, monitoramento e infraestrutura em ambientes produtivos.</p>
 
     <div class="home-actions">
       <a class="primary-action" href="#areas-documentadas">Explorar áreas</a>
@@ -23,11 +23,11 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
     </div>
     <div>
       <strong>50+</strong>
-      <span>procedimentos e guias</span>
+      <span>guias e procedimentos</span>
     </div>
     <div>
-      <strong>Rápido</strong>
-      <span>acesso direto</span>
+      <strong>Prático</strong>
+      <span>referência rápida</span>
     </div>
   </div>
 </section>
@@ -37,16 +37,16 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 <section class="home-section">
 <h2>Sobre</h2>
 
-<p>O Infra Linux centraliza conhecimento técnico prático em um único lugar. Aqui você encontra:</p>
+<p>O Infra Linux organiza conhecimento técnico em um único ponto de referência para quem atua com sistemas, redes e infraestrutura.</p>
 
 <ul>
 - procedimentos objetivos,
 - comandos essenciais,
 - troubleshooting direto ao ponto,
-- boas práticas para ambientes Linux e infraestrutura.
+- boas práticas para ambientes Linux e produção.
 </ul>
 
-<p>A ideia é facilitar consultas rápidas e entregar conteúdo claro para quem opera sistemas e redes.</p>
+<p>A proposta é entregar conteúdo útil, objetivo e facilmente consultável para equipes que operam ambientes críticos.</p>
 </section>
 
 ---
