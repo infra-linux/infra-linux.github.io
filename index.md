@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Ninja Linux
-description: Ninja Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
+title: Infra Linux
+description: Infra Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
 ---
 
 <section class="home-hero">
   <div class="home-hero-content">
     <span class="home-kicker">Base de conhecimento</span>
-    <h1>Ninja Linux</h1>
-    <p>Guias diretos e procedimentos úteis para administrar Linux, redes, containers, monitoramento e infraestrutura em produção.</p>
+    <h1>Infra Linux</h1>
+    <p>Guia prático para administrar Linux, redes, containers, monitoramento e infraestrutura em produção.</p>
 
     <div class="home-actions">
       <a class="primary-action" href="#areas-documentadas">Explorar áreas</a>
@@ -37,7 +37,7 @@ description: Ninja Linux é a base de conhecimento prática para Linux, infraest
 <section class="home-section">
 <h2>Sobre</h2>
 
-<p>O Ninja Linux centraliza conhecimento técnico prático em um único lugar. Aqui você encontra:</p>
+<p>O Infra Linux centraliza conhecimento técnico prático em um único lugar. Aqui você encontra:</p>
 
 <ul>
 - procedimentos objetivos,

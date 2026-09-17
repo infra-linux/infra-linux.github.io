@@ -1087,13 +1087,13 @@ Vamos criar um playbook que:
 
     - name: Criar diretório
       ansible.builtin.file:
-        path: /opt/ninja-linux
+        path: /opt/infra-linux
         state: directory
         mode: '0755'
 
     - name: Criar arquivo
       ansible.builtin.file:
-        path: /opt/ninja-linux/servidor.txt
+        path: /opt/infra-linux/servidor.txt
         state: touch
         mode: '0644'
 
@@ -1596,8 +1596,8 @@ ansible servidores -m command -a "df -h"
 Crie um playbook que:
 
 * Instale `vim`
-* Crie `/opt/ninja-linux`
-* Crie `/opt/ninja-linux/teste.txt`
+* Crie `/opt/infra-linux`
+* Crie `/opt/infra-linux/teste.txt`
 * Mostre o hostname
 * Mostre a distribuição Linux
 

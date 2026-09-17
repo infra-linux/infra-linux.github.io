@@ -1,8 +1,8 @@
-# 🥷 Ninja Linux
+# Infra Linux
 
 Portal de documentação e estudos sobre Linux, DevOps, Kubernetes, redes, segurança e infraestrutura.
 
-O Ninja Linux nasceu para centralizar conhecimentos adquiridos na rotina de infraestrutura, servindo como base de consulta rápida para administração de servidores, containers, Kubernetes, redes e ferramentas corporativas.
+O Infra Linux reúne conhecimento prático da rotina de infraestrutura para servir como referência rápida em administração de servidores, containers, Kubernetes, redes e ferramentas corporativas.
 
 ---
 
@@ -52,7 +52,7 @@ O Ninja Linux nasceu para centralizar conhecimentos adquiridos na rotina de infr
 ## 📂 Estrutura do Projeto
 
 ```text
-ninja-linux/
+infra-linux/
 ├── linux/
 ├── devops/
 │   ├── kubernetes/

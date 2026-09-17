@@ -1,6 +1,6 @@
 # Como contribuir
 
-Obrigado por melhorar o Ninja Linux. Este guia ajuda a manter os procedimentos claros, seguros e fáceis de consultar.
+Obrigado por melhorar o Infra Linux. Este guia ajuda a manter os procedimentos claros, seguros e fáceis de consultar.
 
 ## Fluxo de contribuição
 
