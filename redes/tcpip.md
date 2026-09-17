@@ -21,14 +21,9 @@ title: TCP/IP
 12. [TCP e UDP](#12-tcp-e-udp)
 13. [Portas](#13-portas)
 14. [IPv6](#14-ipv6)
-
----
-
-## Tópicos complementares (opcionais)
-
-- **NAT** — sugerido logo após "IP Privado", explica como IPs privados acessam a internet.
-- **DNS** — se o escopo for mais amplo, pode fechar a sessão como tradução de nomes para IP.
-- **VLAN** — relevante para público de administração de redes corporativas, complementa "Rede, host e broadcast" e "Sub-redes".
+15. [NAT](#15-nat)
+16. [DNS](#16-dns)
+17. [VLAN](#17-vlan)
 
 ---
 
@@ -54,7 +49,9 @@ O TCP/IP é organizado em quatro camadas (em contraste com as sete camadas do mo
 | Aplicação | Fornece serviços diretamente aos programas do usuário | HTTP, HTTPS, FTP, SMTP, DNS, SSH |
 | Transporte | Garante (ou não) a entrega dos dados entre origem e destino | TCP, UDP |
 | Internet (Rede) | Endereça e roteia os pacotes entre redes diferentes | IP (IPv4/IPv6), ICMP |
-| Acesso à Rede (Enlace/Física) | Transmite os dados fisicamente no meio de rede | Ethernet, Wi-Fi (802.11), ARP |
+| Acesso à Rede (Enlace/Física) | Transmite quadros pelo meio físico e controla a entrega no enlace local | Ethernet, Wi-Fi (802.11) |
+
+O modelo em camadas é uma forma de organizar responsabilidades, não uma separação rígida de equipamentos. Por exemplo, um roteador normalmente trabalha com IP, mas também precisa participar do enlace local e pode executar funções de camadas superiores, como firewall e NAT. O ARP é um protocolo auxiliar que relaciona a camada Internet à camada de enlace em redes IPv4; ele não é um protocolo de transporte.
 
 ### Como os dados trafegam: encapsulamento
 
@@ -81,6 +78,16 @@ No destino, o processo inverso ocorre (desencapsulamento), removendo cada cabeç
 - IP cuida do endereçamento e roteamento; TCP garante entrega confiável dos dados.
 - Os próximos tópicos desta sessão vão detalhar cada peça desse quebra-cabeça, começando pelo endereçamento IP.
 
+### Exemplo prático: acessar um site
+
+Ao acessar `https://www.exemplo.com`:
+
+1. O DNS encontra o endereço IP associado ao nome.
+2. A aplicação abre uma comunicação na porta `443` usando TCP ou, em versões modernas do HTTP, QUIC sobre UDP.
+3. O IP verifica se o destino está na rede local. Se não estiver, entrega o pacote ao gateway.
+4. O ARP descobre o MAC do gateway, caso ele ainda não esteja no cache.
+5. Os dados são encapsulados em segmentos, pacotes e quadros até serem enviados pelo meio físico.
+
 ## 2. Endereço IP
 
 Um endereço IP é um identificador numérico atribuído a cada dispositivo conectado a uma rede que utiliza o protocolo IP. Ele funciona de forma semelhante a um endereço postal: permite que os dados saibam exatamente para onde ir e de onde voltar.
@@ -97,6 +104,8 @@ O IPv4 (Internet Protocol version 4) é a versão mais usada até hoje. Um ender
 
 Cada octeto vai de `0` a `255` (2⁸ = 256 valores possíveis), totalizando cerca de **4,3 bilhões de endereços únicos** possíveis — número que já se esgotou globalmente, o que motivou a criação do IPv6.
 
+O endereço, isoladamente, não informa o tamanho da rede. `192.168.0.10/24` e `192.168.0.10/16`, por exemplo, pertencem a redes diferentes porque a máscara muda a interpretação dos bits.
+
 Em binário, o exemplo acima seria:
 
 ```
@@ -106,7 +115,7 @@ Em binário, o exemplo acima seria:
 
 ### IP Público, IP Privado e Loopback
 
-- **IP Público**: endereço visível e roteável na internet, único no mundo. É o IP que seu provedor de internet atribui à sua conexão para que ela seja alcançável externamente.
+- **IP Público**: endereço visível e roteável na internet, único no mundo. É o IP que seu provedor de internet atribui à sua conexão. Um IP público pode estar protegido por firewall ou NAT e, portanto, não necessariamente aceita conexões iniciadas pela internet.
 
 - **IP Privado**: endereço usado dentro de redes locais (LANs), não roteável diretamente na internet. Várias redes diferentes podem usar os mesmos endereços privados sem conflito, já que eles não saem do ambiente local. As faixas reservadas para uso privado (definidas na RFC 1918) são:
 
@@ -119,6 +128,18 @@ Em binário, o exemplo acima seria:
   Para que dispositivos com IP privado acessem a internet, é necessário um processo de **NAT (Network Address Translation)**, geralmente feito pelo roteador, que traduz o IP privado para o IP público da rede.
 
 - **Loopback**: endereço especial que um dispositivo usa para se referir a si mesmo. Na faixa `127.0.0.0/8`, sendo `127.0.0.1` o mais comum (também chamado de `localhost`). É muito usado para testar serviços rodando localmente, sem depender da rede física.
+
+Outras faixas importantes são `169.254.0.0/16` (endereço automático local, normalmente usado quando o host não recebeu DHCP) e `0.0.0.0` (endereço não especificado, usado por exemplo para indicar "todas as interfaces" ao iniciar um serviço).
+
+### Exemplo prático
+
+```bash
+# Linux: exibe os endereços configurados
+ip address
+
+# Windows PowerShell
+Get-NetIPAddress -AddressFamily IPv4
+```
 
 ---
 
@@ -141,6 +162,18 @@ Máscara: 255.255.255.  0
 Aqui, `255.255.255.0` (em binário `11111111.11111111.11111111.00000000`) indica que os três primeiros octetos identificam a rede (`192.168.0`) e o último octeto identifica o host dentro dessa rede (de `0` a `255`).
 
 A máscara é o que permite ao dispositivo saber: *"esse outro IP está na minha rede local, ou preciso mandar esse pacote para o gateway?"*
+
+### Exemplo prático: descobrir a rede de um host
+
+Para `192.168.10.37` com máscara `255.255.255.0` (`/24`), os primeiros 24 bits são a rede. Portanto:
+
+```text
+Rede:      192.168.10.0
+Host:      37
+Broadcast: 192.168.10.255
+```
+
+Com máscara `/26` (`255.255.255.192`), o tamanho de cada bloco é 64. O endereço `192.168.10.37` fica no bloco `192.168.10.0/26`, com hosts de `.1` a `.62` e broadcast `.63`.
 
 ---
 
@@ -169,6 +202,8 @@ Tabela de referência rápida:
 | /30 | 255.255.255.252 | 2 |
 
 O CIDR surgiu para substituir o antigo sistema de classes fixas (A, B, C), permitindo criar redes de tamanhos mais flexíveis e usar o espaço de endereços de forma mais eficiente.
+
+Para calcular rapidamente os hosts utilizáveis em uma sub-rede IPv4 comum, use $2^h - 2$, onde $h$ é o número de bits de host. O desconto de dois endereços é para rede e broadcast. Há exceções, como `/31`, usado em alguns enlaces ponto a ponto, e `/32`, que representa um único endereço.
 
 ---
 
@@ -217,6 +252,12 @@ Exemplo prático: dividindo `192.168.0.0/24` em quatro sub-redes `/26`:
 
 Cada sub-rede passa a ter seu próprio endereço de rede, faixa de hosts e broadcast — funcionando como redes independentes, mas ainda dentro do bloco original.
 
+Dividir uma rede em sub-redes não cria isolamento de segurança por si só. Para impedir que a rede de usuários acesse a rede de servidores, por exemplo, ainda é necessário usar roteamento controlado, ACLs ou firewall. Em redes com VLANs, normalmente cada VLAN recebe uma sub-rede própria e o roteador ou switch de camada 3 faz o roteamento entre elas.
+
+### Exemplo prático: calcular sub-redes
+
+Para dividir `192.168.10.0/24` em redes com no máximo 30 hosts, são necessários 5 bits de host, pois $2^5 - 2 = 30$. A máscara será `/27` (`255.255.255.224`) e o incremento entre redes será 32: `.0`, `.32`, `.64`, `.96` e assim por diante.
+
 ---
 
 ## 7. MAC Address
@@ -233,6 +274,18 @@ Os primeiros 24 bits identificam o fabricante (OUI — Organizationally Unique I
 
 O MAC Address atua na **camada de Acesso à Rede** (camada de enlace) e é usado para a comunicação dentro do mesmo segmento de rede local — ao contrário do IP, que serve para comunicação entre redes diferentes.
 
+Em redes modernas, o MAC pode ser alterado por software e alguns sistemas usam endereços aleatórios em redes Wi-Fi para reduzir rastreamento. Portanto, ele não deve ser tratado como uma identidade permanente ou como mecanismo de autenticação.
+
+### Exemplo prático
+
+```bash
+# Linux
+ip link
+
+# Windows PowerShell
+Get-NetAdapter | Select-Object Name, MacAddress, Status
+```
+
 ---
 
 ## 8. ARP
@@ -246,6 +299,19 @@ Quando um dispositivo precisa enviar dados para outro na mesma rede, ele sabe o 
 3. O dispositivo de origem armazena essa informação em sua **tabela ARP** (cache), evitando repetir o processo a cada pacote.
 
 Esse mecanismo é essencial para o funcionamento local da rede e ocorre de forma transparente, sem intervenção do usuário.
+
+O ARP só é necessário para o próximo salto no enlace local. Se o destino estiver fora da sub-rede, o host não procura o MAC do servidor remoto: procura o MAC do gateway e envia o pacote IP original para ele.
+
+### Exemplo prático
+
+```bash
+# Linux: consultar e limpar o cache ARP de uma interface
+ip neigh show
+sudo ip neigh flush all
+
+# Windows
+arp -a
+```
 
 ---
 
@@ -265,6 +331,18 @@ Gateway: 192.168.0.1
 
 Aqui, `192.168.0.1` normalmente é o endereço do roteador da rede local, e todo tráfego destinado a fora da faixa `192.168.0.0/24` passa por ele.
 
+O gateway precisa estar em uma rede diretamente conectada ao host. Configurar um gateway inexistente ou fora da sub-rede normalmente impede a comunicação externa, mesmo que o endereço IP e a máscara estejam corretos.
+
+### Exemplo prático
+
+```bash
+# Linux: mostrar o gateway padrão
+ip route show default
+
+# Windows
+Get-NetRoute -DestinationPrefix '0.0.0.0/0'
+```
+
 ---
 
 ## 10. Rotas
@@ -283,6 +361,20 @@ Tipos comuns de rotas:
 - **Rota dinâmica**: aprendida automaticamente através de protocolos de roteamento (ex: OSPF, BGP, RIP), que trocam informações entre roteadores sobre os melhores caminhos disponíveis.
 - **Rota padrão (default route)**: usada quando nenhuma rota mais específica é encontrada para o destino — geralmente aponta para o gateway.
 
+Quando várias rotas correspondem ao mesmo destino, a tabela normalmente prefere a rota com o prefixo mais específico (por exemplo, `/24` vence `/16`). Se a especificidade for igual, a métrica e as regras do sistema ajudam a escolher o caminho.
+
+### Exemplo prático
+
+```bash
+# Linux: visualizar todas as rotas e a rota escolhida para um destino
+ip route
+ip route get 8.8.8.8
+
+# Windows
+route print
+Test-NetConnection 8.8.8.8
+```
+
 ---
 
 ## 11. ICMP
@@ -295,7 +387,21 @@ Duas ferramentas muito conhecidas são baseadas em ICMP:
 
 - **Traceroute** (ou `tracert` no Windows): usa mensagens ICMP (junto com manipulação do TTL — Time To Live dos pacotes) para descobrir o caminho, salto a salto, até um destino, ajudando a identificar onde um problema de rede está ocorrendo.
 
-Outros usos do ICMP incluem notificar quando um destino está inalcançável (`Destination Unreachable`) ou quando o tempo de vida de um pacote expirou (`Time Exceeded`).
+Outros usos do ICMP incluem notificar quando um destino está inalcançável (`Destination Unreachable`) ou quando o tempo de vida de um pacote expirou (`Time Exceeded`). Um firewall pode bloquear ICMP sem que o host esteja desligado; por isso, a ausência de resposta ao ping não prova sozinha que o serviço ou o computador está indisponível.
+
+O `traceroute` do Linux pode usar UDP, ICMP ou TCP, conforme as opções. O `tracert` do Windows usa ICMP Echo por padrão. Em ambos, respostas `Time Exceeded` revelam os saltos intermediários, quando os roteadores permitem esse diagnóstico.
+
+### Exemplo prático
+
+```bash
+# Linux
+ping -c 4 192.168.0.1
+traceroute example.com
+
+# Windows PowerShell
+Test-Connection 192.168.0.1 -Count 4
+tracert example.com
+```
 
 ---
 
@@ -310,15 +416,27 @@ TCP e UDP são os dois principais protocolos da **camada de Transporte**, respon
   2. **SYN-ACK** — o servidor confirma e também solicita sincronização.
   3. **ACK** — o cliente confirma, e a conexão é estabelecida.
 - **Confiável**: garante que os dados cheguem completos, na ordem correta, com confirmação de recebimento e retransmissão em caso de perda.
-- **Mais "pesado"**: todo esse controle adiciona overhead, tornando o TCP mais lento que o UDP.
+- **Mais controle**: cabeçalhos, confirmações, controle de fluxo e controle de congestionamento adicionam overhead. Isso não significa que TCP sempre tenha menor velocidade; a escolha depende da rede e da aplicação.
 - **Usado em**: navegação web (HTTP/HTTPS), e-mail (SMTP), transferência de arquivos (FTP), acesso remoto (SSH) — qualquer cenário onde a integridade dos dados é essencial.
 
 ### UDP (User Datagram Protocol)
 
 - **Não orientado a conexão**: envia os dados diretamente, sem estabelecer conexão prévia.
 - **Sem garantias**: não confirma recebimento, não garante ordem, não retransmite pacotes perdidos.
-- **Mais rápido e leve**: menor overhead, ideal para aplicações sensíveis a atraso.
-- **Usado em**: streaming de vídeo/áudio, chamadas VoIP, jogos online, DNS — cenários onde velocidade importa mais que garantia total de entrega.
+- **Menor overhead**: pode reduzir latência e consumo de recursos, ideal para aplicações sensíveis a atraso, mas não é automaticamente mais rápido em todas as redes.
+- **Usado em**: streaming de vídeo/áudio, chamadas VoIP, jogos online e DNS — cenários em que baixa latência ou mensagens pequenas podem ser mais importantes que retransmitir todos os dados. Aplicações modernas também podem implementar confiabilidade sobre UDP, como o QUIC.
+
+TCP trata os dados como um fluxo contínuo de bytes; UDP preserva os limites de cada datagrama. Nenhum dos dois, sozinho, cifra os dados: a proteção costuma vir de protocolos como TLS, SSH ou IPsec.
+
+### Exemplo prático: observar a conexão
+
+```bash
+# Linux: conexões TCP/UDP e processos associados
+ss -tulpen
+
+# Windows PowerShell
+Get-NetTCPConnection
+```
 
 ---
 
@@ -348,6 +466,18 @@ Algumas portas conhecidas:
 
 A combinação **IP + Porta** forma um **socket**, que identifica de forma única uma comunicação específica — por isso é possível, por exemplo, rodar vários serviços diferentes no mesmo servidor (mesmo IP), cada um respondendo em uma porta distinta.
 
+Em uma conexão TCP, o fluxo é identificado pelo conjunto origem (IP e porta) e destino (IP e porta), além do protocolo. A porta de origem costuma ser efêmera, enquanto o servidor escuta em uma porta conhecida. Uma porta aberta também pode estar acessível apenas na rede local, bloqueada pelo firewall ou sem nenhum serviço útil atrás dela.
+
+### Exemplo prático: testar uma porta
+
+```bash
+# Linux, se o netcat estiver instalado
+nc -vz servidor.exemplo 443
+
+# Windows PowerShell
+Test-NetConnection servidor.exemplo -Port 443
+```
+
 ---
 
 ## 14. IPv6
@@ -375,4 +505,98 @@ Outras diferenças em relação ao IPv4:
 - Simplifica o cabeçalho do pacote, tornando o roteamento mais eficiente.
 - Possui suporte nativo a configuração automática de endereços (SLAAC) e maior foco em segurança (IPsec previsto desde a especificação original).
 
+O IPv6 não elimina a necessidade de firewall. IPsec é suportado pelo protocolo, mas não significa que todo tráfego IPv6 seja automaticamente cifrado. Também não há ARP no IPv6: a descoberta de vizinhos usa ICMPv6 Neighbor Discovery.
+
+Faixas importantes incluem `::1` (loopback), `fe80::/10` (link-local, obrigatório em interfaces IPv6) e `fc00::/7` (endereços locais únicos, equivalentes em propósito geral aos endereços privados). A faixa `2001:db8::/32` é reservada para documentação e exemplos, não para uso em produção.
+
+### Exemplo prático
+
+```bash
+# Linux
+ip -6 address
+ping -6 -c 4 ::1
+
+# Windows PowerShell
+Get-NetIPAddress -AddressFamily IPv6
+Test-Connection -TargetName ::1 -Count 4
+```
+
 A adoção do IPv6 ainda coexiste com o IPv4 na maioria das redes atuais, em um modelo chamado **dual stack**, até que a transição completa aconteça.
+
+---
+
+## 15. NAT
+
+NAT (Network Address Translation) altera endereços IP, e às vezes portas, enquanto um pacote atravessa um roteador. O uso mais comum é permitir que vários dispositivos com endereços privados compartilhem um único IP público.
+
+No cenário mais comum, chamado **PAT** ou NAT overload, o roteador registra uma associação como:
+
+```text
+192.168.0.10:51500 -> 203.0.113.20:40001
+```
+
+Quando a resposta retorna para `203.0.113.20:40001`, o roteador consulta essa associação e entrega o tráfego ao host privado correto. Isso permite conexões de saída, mas normalmente impede conexões iniciadas da internet para dentro da rede. Para publicar um serviço, pode ser necessário configurar redirecionamento de porta (port forwarding), firewall e DNS.
+
+NAT não é um substituto para firewall. Ele pode dificultar conexões de entrada por causa do estado das traduções, mas a política de segurança deve ser definida explicitamente no firewall.
+
+### Exemplo prático
+
+```bash
+# Linux: observar conexões e regras NAT (requer permissões e ferramentas instaladas)
+sudo nft list ruleset
+
+# Ver o IP público percebido por um serviço externo
+curl https://api.ipify.org
+```
+
+---
+
+## 16. DNS
+
+DNS (Domain Name System) traduz nomes legíveis, como `www.exemplo.com`, em endereços IP. Ele também pode publicar outros dados, como servidores de e-mail e políticas de domínio.
+
+O cliente consulta um resolvedor DNS, normalmente fornecido pelo roteador, provedor ou organização. Se o resolvedor não tiver a resposta em cache, ele consulta a hierarquia DNS: servidores raiz, servidores do domínio de topo (como `.com`) e o servidor autoritativo do domínio.
+
+Registros comuns:
+
+| Registro | Função |
+|---|---|
+| `A` | Nome para endereço IPv4 |
+| `AAAA` | Nome para endereço IPv6 |
+| `CNAME` | Alias para outro nome |
+| `MX` | Servidor responsável por e-mail |
+| `NS` | Servidores autoritativos do domínio |
+| `TXT` | Texto e políticas, como SPF |
+
+DNS não é criptografia. Consultas tradicionais podem ser observadas ou alteradas no caminho; mecanismos como DoT e DoH protegem o transporte entre cliente e resolvedor, sem transformar o DNS em um mecanismo geral de autenticação.
+
+### Exemplo prático
+
+```bash
+# Linux e Windows com nslookup
+nslookup example.com
+nslookup -type=MX example.com
+
+# Linux, quando o dig estiver instalado
+dig example.com A
+```
+
+---
+
+## 17. VLAN
+
+VLAN (Virtual Local Area Network) divide logicamente uma rede Ethernet em vários domínios de broadcast, mesmo quando os dispositivos usam os mesmos switches físicos. Cada VLAN costuma representar uma rede IP diferente, como usuários, servidores, voz ou visitantes.
+
+Em um link **access**, o quadro pertence a uma única VLAN. Em um link **trunk**, quadros de várias VLANs são identificados com uma tag 802.1Q para atravessar o enlace entre switches, roteadores ou hipervisores.
+
+Dispositivos em VLANs diferentes não se comunicam apenas por estarem conectados ao mesmo switch. Para permitir comunicação entre elas, é necessário roteamento inter-VLAN, normalmente em um switch de camada 3 ou roteador, com ACLs ou firewall definindo o que é permitido.
+
+### Exemplo prático de planejamento
+
+```text
+VLAN 10 - Usuários:   192.168.10.0/24
+VLAN 20 - Servidores: 192.168.20.0/24
+VLAN 30 - Visitantes: 192.168.30.0/24
+```
+
+O planejamento acima cria separação de broadcast e organização de endereços. Ele só cria isolamento de segurança quando o equipamento de camada 3 aplica regras impedindo, por exemplo, que visitantes acessem servidores.
