@@ -4,148 +4,25 @@ title: Infra Linux
 description: Infra Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
 ---
 
-<section class="home-hero">
+<section class="home-hero home-hero-compact">
   <div class="home-hero-content">
     <span class="home-kicker">Infraestrutura & operações</span>
     <h1>Infra Linux</h1>
-    <p>Documentação prática para administração de Linux, redes, containers, monitoramento e infraestrutura em ambientes produtivos.</p>
+    <p>Base de conhecimento prática para Linux, redes, monitoramento, DevOps e infraestrutura.</p>
 
     <div class="home-actions">
       <a class="primary-action" href="#areas-documentadas">Explorar áreas</a>
-      <a class="secondary-action" href="troubleshooting/">Ver troubleshooting</a>
-    </div>
-  </div>
-
-  <div class="home-hero-panel" aria-label="Resumo do conteúdo">
-    <div>
-      <strong>10</strong>
-      <span>áreas técnicas</span>
-    </div>
-    <div>
-      <strong>50+</strong>
-      <span>guias e procedimentos</span>
-    </div>
-    <div>
-      <strong>Prático</strong>
-      <span>referência rápida</span>
+      <a class="secondary-action" href="troubleshooting/">Troubleshooting</a>
     </div>
   </div>
 </section>
 
 ---
 
-<section class="home-section home-trust">
-  <div class="home-trust-copy">
-    <span class="section-tag">Portal institucional</span>
-    <h2 class="section-heading">Referência prática para infraestrutura e operações</h2>
-    <p>O Infra Linux reúne conhecimentos de administração, automação, redes e monitoramento em um único ponto de consulta para quem trabalha com produção e ambientes críticos.</p>
-  </div>
-
-  <div class="trust-grid">
-    <div class="trust-item">
-      <strong>Linux</strong>
-      <span>Administração e hardening</span>
-    </div>
-    <div class="trust-item">
-      <strong>DevOps</strong>
-      <span>Git, Docker, Kubernetes e automação</span>
-    </div>
-    <div class="trust-item">
-      <strong>Redes</strong>
-      <span>DNS, TCP/IP e conectividade</span>
-    </div>
-    <div class="trust-item">
-      <strong>Operação</strong>
-      <span>Monitoramento e troubleshooting</span>
-    </div>
-  </div>
-</section>
-
 <section class="home-section">
-  <span class="section-tag">Sobre</span>
-  <h2 class="section-heading">Conhecimento técnico para operação real</h2>
-
-  <p>O Infra Linux organiza conhecimento técnico em um único ponto de referência para quem atua com sistemas, redes e infraestrutura.</p>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">⚙️</div>
-      <h3>Operação prática</h3>
-      <p>Procedimentos focados em ambientes reais, com execução direta e referências úteis no dia a dia.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">🛡️</div>
-      <h3>Confiabilidade</h3>
-      <p>Estrutura pensada para apoiar troubleshooting, análise e manutenção em infraestruturas críticas.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">📚</div>
-      <h3>Base de conhecimento</h3>
-      <p>Conteúdo organizado por área, com consulta rápida e navegação simples para uso contínuo.</p>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon">📈</div>
-      <h3>Escalabilidade</h3>
-      <p>Estratégias e boas práticas para ambientes que crescem e exigem mais previsibilidade e eficiência.</p>
-    </div>
-  </div>
-</section>
-
-<section class="home-showcase">
-  <div class="showcase-header">
-    <span class="section-tag">Pilares</span>
-    <h2>Uma base para decisões e execução</h2>
-  </div>
-
-  <div class="showcase-grid">
-    <article class="showcase-item">
-      <span class="showcase-number">01</span>
-      <h3>Documentação confiável</h3>
-      <p>Conteúdo estruturado para consulta rápida em cenários de suporte, operação e implantação.</p>
-    </article>
-
-    <article class="showcase-item">
-      <span class="showcase-number">02</span>
-      <h3>Automação e eficiência</h3>
-      <p>Guias práticos para Git, Docker, Kubernetes, Ansible e processos de entrega contínua.</p>
-    </article>
-
-    <article class="showcase-item">
-      <span class="showcase-number">03</span>
-      <h3>Visão operacional</h3>
-      <p>Recursos para monitoramento, diagnóstico, segurança e manutenção proativa em ambiente real.</p>
-    </article>
-  </div>
-</section>
-
-<section class="home-showcase">
-  <div class="showcase-header">
-    <span class="section-tag">Pilares</span>
-    <h2>Uma base para decisões e execução</h2>
-  </div>
-
-  <div class="showcase-grid">
-    <article class="showcase-item">
-      <span class="showcase-number">01</span>
-      <h3>Documentação confiável</h3>
-      <p>Conteúdo estruturado para consulta rápida em cenários de suporte, operação e implantação.</p>
-    </article>
-
-    <article class="showcase-item">
-      <span class="showcase-number">02</span>
-      <h3>Automação e eficiência</h3>
-      <p>Guias práticos para Git, Docker, Kubernetes, Ansible e processos de entrega contínua.</p>
-    </article>
-
-    <article class="showcase-item">
-      <span class="showcase-number">03</span>
-      <h3>Visão operacional</h3>
-      <p>Recursos para monitoramento, diagnóstico, segurança e manutenção proativa em ambiente real.</p>
-    </article>
-  </div>
+  <h2>Sobre</h2>
+  <p>O Infra Linux reúne documentação técnica e procedimentos práticos para apoiar estudos, operação e solução de problemas em ambientes Linux e infraestrutura.</p>
+  <p>O foco é facilitar a consulta rápida, manter informação útil organizada e servir como referência para quem trabalha com sistemas, redes e automação.</p>
 </section>
 
 ---

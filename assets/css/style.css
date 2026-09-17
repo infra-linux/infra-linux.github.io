@@ -227,14 +227,18 @@ main {
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) 280px;
-  gap: 30px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
   align-items: center;
-  padding: 42px 36px;
-  border-radius: 28px;
-  background: radial-gradient(circle at top right, rgba(124, 203, 94, 0.18), transparent 28%), linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01) 40%, transparent 100%), #131b18;
-  border: 1px solid rgba(124, 203, 94, 0.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 22px 40px rgba(0, 0, 0, 0.22);
+  padding: 28px 28px 24px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(20, 27, 24, 0.96), rgba(13, 17, 15, 0.98));
+  border: 1px solid rgba(124, 203, 94, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.home-hero-compact {
+  margin-bottom: 8px;
 }
 
 .home-hero-content {
@@ -312,30 +316,7 @@ main {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
-.home-hero-panel {
-  display: grid;
-  gap: 14px;
-}
-
-.home-hero-panel div {
-  padding: 18px 18px 16px;
-  border-radius: 16px;
-  background: rgba(14, 18, 16, 0.9);
-  border: 1px solid rgba(124, 203, 94, 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  min-height: 92px;
-}
-
-.home-hero-panel strong {
-  display: block;
-  color: var(--texto-claro);
-  font-size: 30px;
-  line-height: 1.1;
-}
-
-.home-hero-panel span {
-  color: var(--texto-suave);
-}
+/* Reaproveitamento: blocos de resumo removidos para manter a home mais enxuta e parecida com wiki. */
 
 h1, h2, h3, h4, h5 {
   color: var(--texto-claro);
@@ -449,7 +430,7 @@ blockquote {
 }
 
 .home-section {
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 .section-tag {
@@ -470,124 +451,8 @@ blockquote {
   margin-bottom: 18px;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
 
-.feature-card {
-  padding: 24px 22px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(18, 24, 21, 0.98), rgba(13, 17, 15, 0.96));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
 
-.feature-card .feature-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  background: rgba(124, 203, 94, 0.08);
-  border: 1px solid rgba(124, 203, 94, 0.18);
-  color: var(--accent-stronger);
-  font-size: 20px;
-}
-
-.feature-card h3 {
-  margin: 0 0 10px;
-  font-size: 1.15rem;
-}
-
-.feature-card p {
-  margin: 0;
-  color: var(--texto-suave);
-}
-
-.home-trust {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 22px;
-  align-items: center;
-  padding: 20px 0 0;
-}
-
-.home-trust-copy {
-  padding-right: 10px;
-}
-
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.trust-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 18px 16px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(19, 25, 22, 0.98), rgba(12, 16, 14, 0.98));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.trust-item strong {
-  color: var(--texto-claro);
-  font-size: 1rem;
-}
-
-.trust-item span {
-  color: var(--texto-suave);
-  line-height: 1.5;
-}
-
-.home-showcase {
-  margin-top: 36px;
-  padding: 28px 0 8px;
-}
-
-.showcase-header {
-  margin-bottom: 18px;
-}
-
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.showcase-item {
-  padding: 26px 22px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, rgba(17, 23, 20, 0.98), rgba(12, 16, 14, 0.98));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-.showcase-number {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: var(--accent-stronger);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.showcase-item h3 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-}
-
-.showcase-item p {
-  margin: 0;
-  color: var(--texto-suave);
-}
 
 @media (max-width: 900px) {
   .showcase-grid,
@@ -601,18 +466,18 @@ blockquote {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 36px;
-  padding: 26px 28px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, rgba(124, 203, 94, 0.08), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(124, 203, 94, 0.16);
+  margin-top: 24px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  background: rgba(15, 20, 17, 0.9);
+  border: 1px solid rgba(124, 203, 94, 0.1);
 }
 
 .home-cta h2 {
   margin: 0;
   border: 0;
   padding: 0;
-  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 
 .home-actions-cta {
