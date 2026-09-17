@@ -37,4 +37,3 @@ Seu objetivo é reduzir o tempo entre o desenvolvimento e a disponibilização d
 ---
 
 > 💡 Esta seção reúne conceitos, procedimentos, automações e troubleshooting relacionados ao universo DevOps.
-<!-- Teste de edição local -->
