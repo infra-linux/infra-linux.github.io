@@ -34,20 +34,38 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 
 ---
 
+<section class="home-section home-trust">
+  <div class="home-trust-copy">
+    <span class="section-tag">Portal institucional</span>
+    <h2 class="section-heading">Referência prática para infraestrutura e operações</h2>
+    <p>O Infra Linux reúne conhecimentos de administração, automação, redes e monitoramento em um único ponto de consulta para quem trabalha com produção e ambientes críticos.</p>
+  </div>
+
+  <div class="trust-grid">
+    <div class="trust-item">
+      <strong>Linux</strong>
+      <span>Administração e hardening</span>
+    </div>
+    <div class="trust-item">
+      <strong>DevOps</strong>
+      <span>Git, Docker, Kubernetes e automação</span>
+    </div>
+    <div class="trust-item">
+      <strong>Redes</strong>
+      <span>DNS, TCP/IP e conectividade</span>
+    </div>
+    <div class="trust-item">
+      <strong>Operação</strong>
+      <span>Monitoramento e troubleshooting</span>
+    </div>
+  </div>
+</section>
+
 <section class="home-section">
   <span class="section-tag">Sobre</span>
   <h2 class="section-heading">Conhecimento técnico para operação real</h2>
 
   <p>O Infra Linux organiza conhecimento técnico em um único ponto de referência para quem atua com sistemas, redes e infraestrutura.</p>
-
-  <ul>
-  - procedimentos objetivos,
-  - comandos essenciais,
-  - troubleshooting direto ao ponto,
-  - boas práticas para ambientes Linux e produção.
-  </ul>
-
-  <p>A proposta é entregar conteúdo útil, objetivo e facilmente consultável para equipes que operam ambientes críticos.</p>
 
   <div class="feature-grid">
     <div class="feature-card">
@@ -66,6 +84,12 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
       <div class="feature-icon">📚</div>
       <h3>Base de conhecimento</h3>
       <p>Conteúdo organizado por área, com consulta rápida e navegação simples para uso contínuo.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <h3>Escalabilidade</h3>
+      <p>Estratégias e boas práticas para ambientes que crescem e exigem mais previsibilidade e eficiência.</p>
     </div>
   </div>
 </section>

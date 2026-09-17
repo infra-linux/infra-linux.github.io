@@ -492,6 +492,44 @@ blockquote {
   color: var(--texto-suave);
 }
 
+.home-trust {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 22px;
+  align-items: center;
+  padding: 20px 0 0;
+}
+
+.home-trust-copy {
+  padding-right: 10px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(19, 25, 22, 0.98), rgba(12, 16, 14, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.trust-item strong {
+  color: var(--texto-claro);
+  font-size: 1rem;
+}
+
+.trust-item span {
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+
 .card h3 {
   margin: 0 0 10px;
   color: var(--texto-claro);
