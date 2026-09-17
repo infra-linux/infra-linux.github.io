@@ -6,7 +6,6 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 
 <section class="home-hero home-hero-compact">
   <div class="home-hero-content">
-    <span class="home-kicker">Infraestrutura & operações</span>
     <h1>Infra Linux</h1>
     <p>Base de conhecimento prática para Linux, redes, monitoramento, DevOps e infraestrutura.</p>
   </div>
@@ -77,21 +76,5 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
   </a>
 </div>
 </section>
-
----
-
-<section class="home-cta">
-  <div>
-    <span class="section-tag">Contato</span>
-    <h2>Construindo uma base sólida de conhecimento técnico</h2>
-  </div>
-
-  <div class="home-actions home-actions-cta">
-    <a class="primary-action" href="https://github.com/infra-linux/infra-linux.github.io" target="_blank" rel="noopener">GitHub</a>
-    <a class="secondary-action" href="https://www.linkedin.com/in/jo%C3%A3o-santos-67a17685/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</section>
-
----
 
 <sub>Última atualização: {{ site.time | date: "%d/%m/%Y" }}</sub>
