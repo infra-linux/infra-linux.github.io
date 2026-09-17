@@ -589,6 +589,13 @@ blockquote {
   color: var(--texto-suave);
 }
 
+@media (max-width: 900px) {
+  .showcase-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .home-cta {
   display: flex;
   align-items: center;

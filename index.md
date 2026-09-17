@@ -121,6 +121,33 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
   </div>
 </section>
 
+<section class="home-showcase">
+  <div class="showcase-header">
+    <span class="section-tag">Pilares</span>
+    <h2>Uma base para decisões e execução</h2>
+  </div>
+
+  <div class="showcase-grid">
+    <article class="showcase-item">
+      <span class="showcase-number">01</span>
+      <h3>Documentação confiável</h3>
+      <p>Conteúdo estruturado para consulta rápida em cenários de suporte, operação e implantação.</p>
+    </article>
+
+    <article class="showcase-item">
+      <span class="showcase-number">02</span>
+      <h3>Automação e eficiência</h3>
+      <p>Guias práticos para Git, Docker, Kubernetes, Ansible e processos de entrega contínua.</p>
+    </article>
+
+    <article class="showcase-item">
+      <span class="showcase-number">03</span>
+      <h3>Visão operacional</h3>
+      <p>Recursos para monitoramento, diagnóstico, segurança e manutenção proativa em ambiente real.</p>
+    </article>
+  </div>
+</section>
+
 ---
 
 <section class="home-section" id="areas-documentadas">
