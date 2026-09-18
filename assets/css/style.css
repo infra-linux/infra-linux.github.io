@@ -46,6 +46,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 16;
   width: 260px;
   height: 100vh;
   display: flex;
