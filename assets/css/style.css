@@ -365,6 +365,13 @@ pre.flow-diagram {
   line-height: 1.25;
 }
 
+pre.flow-horizontal code {
+  display: block;
+  white-space: normal;
+  line-height: 1.6;
+  word-spacing: 0.08em;
+}
+
 code {
   font-family: Consolas, monospace;
   background: #171d18;

@@ -94,6 +94,17 @@
         const code = pre.querySelector('code');
         if (code && /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)) {
           pre.classList.add('flow-diagram');
+
+          const lines = code.textContent.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+          const isLinearFlow = lines.length >= 5 && lines.every((line, index) => {
+            if (index % 2 === 1) return /^[↓→←↔\s]+$/.test(line);
+            return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(line);
+          });
+
+          if (isLinearFlow) {
+            code.textContent = lines.filter((_, index) => index % 2 === 0).join(' → ');
+            pre.classList.add('flow-horizontal');
+          }
         }
 
         const button = document.createElement('button');
