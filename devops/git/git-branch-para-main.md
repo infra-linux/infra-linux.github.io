@@ -35,7 +35,7 @@ Esse processo é especialmente útil em projetos que utilizam **GitHub Pages, Je
 20. [Se ocorrer um conflito no merge](#20-se-ocorrer-um-conflito-no-merge)
 21. [Boas práticas](#21-boas-práticas)
 22. [Comandos essenciais](#22-comandos-essenciais)
-23. [Regra prática para o Ninja Linux](#23-regra-prática-para-o-ninja-linux)
+23. [Regra prática para o Infra Linux](#23-regra-prática-para-o-ninja-linux)
 
 ---
 
