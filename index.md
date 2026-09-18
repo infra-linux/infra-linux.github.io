@@ -24,57 +24,57 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 <section class="home-section" id="areas-documentadas">
 <h2>Áreas documentadas</h2>
 
-<div class="cards-container">
-  <a class="card" href="linux/">
-    <h3>Linux</h3>
-    <p>Administração, comandos, LVM e certificados.</p>
+<nav class="wiki-topic-list" aria-label="Áreas documentadas">
+  <a class="wiki-topic" href="linux/">
+    <span class="wiki-topic-title">Linux</span>
+    <span class="wiki-topic-description">Administração, comandos, LVM e certificados.</span>
   </a>
 
-  <a class="card" href="devops/">
-    <h3>DevOps</h3>
-    <p>Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</p>
+  <a class="wiki-topic" href="devops/">
+    <span class="wiki-topic-title">DevOps</span>
+    <span class="wiki-topic-description">Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</span>
   </a>
 
-  <a class="card" href="redes/">
-    <h3>Redes</h3>
-    <p>DNS, TCP/IP, proxy e conectividade.</p>
+  <a class="wiki-topic" href="redes/">
+    <span class="wiki-topic-title">Redes</span>
+    <span class="wiki-topic-description">DNS, TCP/IP, proxy e conectividade.</span>
   </a>
 
-  <a class="card" href="monitoramento/">
-    <h3>Monitoramento</h3>
-    <p>Zabbix, Grafana, métricas e alertas.</p>
+  <a class="wiki-topic" href="monitoramento/">
+    <span class="wiki-topic-title">Monitoramento</span>
+    <span class="wiki-topic-description">Zabbix, Grafana, métricas e alertas.</span>
   </a>
 
-  <a class="card" href="squid/">
-    <h3>Squid</h3>
-    <p>Proxy, ACLs, autenticação e logs.</p>
+  <a class="wiki-topic" href="squid/">
+    <span class="wiki-topic-title">Squid</span>
+    <span class="wiki-topic-description">Proxy, ACLs, autenticação e logs.</span>
   </a>
 
-  <a class="card" href="watchguard/">
-    <h3>WatchGuard</h3>
-    <p>Firewall, políticas, VPN e troubleshooting.</p>
+  <a class="wiki-topic" href="watchguard/">
+    <span class="wiki-topic-title">WatchGuard</span>
+    <span class="wiki-topic-description">Firewall, políticas, VPN e troubleshooting.</span>
   </a>
 
-  <a class="card" href="nutanix/">
-    <h3>Nutanix</h3>
-    <p>Virtualização, Prism e infraestrutura.</p>
+  <a class="wiki-topic" href="nutanix/">
+    <span class="wiki-topic-title">Nutanix</span>
+    <span class="wiki-topic-description">Virtualização, Prism e infraestrutura.</span>
   </a>
 
-  <a class="card" href="vmware/">
-    <h3>VMware</h3>
-    <p>ESXi, iDRAC, RAID e hosts físicos.</p>
+  <a class="wiki-topic" href="vmware/">
+    <span class="wiki-topic-title">VMware</span>
+    <span class="wiki-topic-description">ESXi, iDRAC, RAID e hosts físicos.</span>
   </a>
 
-  <a class="card" href="windows/">
-    <h3>Windows</h3>
-    <p>Estações, ferramentas e administração.</p>
+  <a class="wiki-topic" href="windows/">
+    <span class="wiki-topic-title">Windows</span>
+    <span class="wiki-topic-description">Estações, ferramentas e administração.</span>
   </a>
 
-  <a class="card" href="troubleshooting/">
-    <h3>Troubleshooting</h3>
-    <p>Erros, diagnósticos e soluções práticas.</p>
+  <a class="wiki-topic" href="troubleshooting/">
+    <span class="wiki-topic-title">Troubleshooting</span>
+    <span class="wiki-topic-description">Erros, diagnósticos e soluções práticas.</span>
   </a>
-</div>
+</nav>
 </section>
 
 <sub>Última atualização: {{ site.time | date: "%d/%m/%Y" }}</sub>
