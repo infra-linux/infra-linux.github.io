@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Editar uma branch e publicar na branch principal
--------------------------------------------------------
+---
 
 # Como editar uma branch e publicar na branch principal
 
@@ -11,7 +11,7 @@ Esse processo é especialmente útil em projetos que utilizam **GitHub Pages, Je
 
 ---
 
-## Sumário  
+## Sumário
 
 1. [Entendendo o fluxo](#1-entendendo-o-fluxo)
 2. [Verificar a situação atual](#2-verificar-a-situação-atual)

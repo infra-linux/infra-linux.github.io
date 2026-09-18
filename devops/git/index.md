@@ -15,7 +15,7 @@ Git é o sistema de controle de versão utilizado para registrar mudanças, cola
 
 * [Guia prático de Git](guia-pratico.md)
 * [Tutorial: Branch e publicação na main](git-branch-para-main.md)
-* [Tutorial: Clone, Branch, Pull Request e Merge] ()
+* [Tutorial: Clone, Branch, Pull Request e Merge] (git-clone-branch-pull-request.md)
 
 ---
 
