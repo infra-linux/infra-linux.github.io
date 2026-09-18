@@ -97,8 +97,3 @@ A sequência recomendada é:
 10. Avançar para GitOps e estratégias de deploy.
 
 ```
-
-**Minha recomendação:** não crie todos esses documentos agora. Comece com **`fundamentos-cicd.html`**, depois faça um tutorial prático de **GitHub Actions ou Jenkins**, e a partir dele evoluímos para Docker → Kubernetes → monitoramento.
-
-Isso deixa o Ninja Linux organizado e evita transformar a seção CI/CD em uma página enorme difícil de estudar.
-```
