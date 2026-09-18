@@ -60,7 +60,8 @@ Feedback
 
 ### Containers
 
-* [Docker](docker/index.md)
+- [Docker](docker/index.md)
+  - [Imagens Docker](docker/docker-image.md)
 
 ### Orquestração
 
