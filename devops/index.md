@@ -62,6 +62,13 @@ Feedback
 
 - [Docker](docker/index.md)
   - [Imagens Docker](docker/docker-image.md)
+  - [Containers](docker/docker-compose.md)
+  - [Dockerfile](docker/docker-compose.md)
+  - [Volumes](docker/docker-volume.md)
+  - [Redes Docker](docker/docker-container.md)
+  - [Docker Compose](docker/docker-compose.md)
+  - [Registries privados](docker/docker-registry.md)
+  - [Troubleshooting de containers](docker/docker-troubleshooting.md)
 
 ### Orquestração
 
