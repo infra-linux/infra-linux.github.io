@@ -5,6 +5,24 @@ title: LVM
 
 # LVM
 
+
+## Sumário
+
+1. [Como criar e montar um novo volume LVM](#como-criar-e-montar-um-novo-volume-lvm)
+2. [Pré-requisitos](#pre-requisitos)
+3. [Identificar o disco](#identificar-o-disco)
+4. [Criar o Physical Volume (PV)](#criar-o-physical-volume-pv)
+5. [Criar o Volume Group (VG)](#criar-o-volume-group-vg)
+6. [Criar o Logical Volume (LV)](#criar-o-logical-volume-lv)
+7. [Criar o filesystem](#criar-o-filesystem)
+8. [Criar o ponto de montagem](#criar-o-ponto-de-montagem)
+9. [Montar o volume](#montar-o-volume)
+10. [Configurar montagem automática](#configurar-montagem-automatica)
+11. [Validar o resultado](#validar-o-resultado)
+12. [Estrutura criada](#estrutura-criada)
+13. [Resumo](#resumo)
+
+---
 ## Como criar e montar um novo volume LVM
 
 Este procedimento cria um novo volume LVM utilizando um disco já conectado ao servidor.

@@ -5,6 +5,21 @@ title: Nutanix Files e FSVM
 
 # Nutanix Files e FSVM
 
+
+## Sumário
+
+1. [O que é Nutanix Files?](#o-que-e-nutanix-files)
+2. [FSVM](#fsvm)
+3. [CVM versus FSVM](#cvm-versus-fsvm)
+4. [Fluxo de acesso](#fluxo-de-acesso)
+5. [Compartilhamento SMB](#compartilhamento-smb)
+6. [Export NFS](#export-nfs)
+7. [Alta disponibilidade](#alta-disponibilidade)
+8. [Relação com o Data Lens](#relacao-com-o-data-lens)
+9. [Pontos importantes de administração](#pontos-importantes-de-administracao)
+10. [Resumo](#resumo)
+
+---
 ## O que é Nutanix Files?
 
 O **Nutanix Files** é o serviço distribuído de armazenamento de arquivos da Nutanix.

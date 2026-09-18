@@ -7,6 +7,19 @@ title: Git — guia prático
 
 Este guia reúne o fluxo essencial e os recursos de colaboração do Git para administrar a documentação e outros projetos.
 
+
+## Sumário
+
+1. [Antes de começar](#antes-de-comecar)
+2. [Fluxo diário](#fluxo-diario)
+3. [Comandos de consulta](#comandos-de-consulta)
+4. [Branches e integração](#branches-e-integracao)
+5. [Atualizações, conflitos e rebase](#atualizacoes-conflitos-e-rebase)
+6. [Desfazer com segurança](#desfazer-com-seguranca)
+7. [Recursos úteis](#recursos-uteis)
+8. [Checklist antes do push](#checklist-antes-do-push)
+
+---
 ## Antes de começar
 
 Verifique a instalação e identifique seus commits:

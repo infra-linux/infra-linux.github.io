@@ -5,6 +5,20 @@ title: Storage Pool, Container e vDisk
 
 # Storage Pool, Container e vDisk
 
+
+## Sumário
+
+1. [Visão geral](#visao-geral)
+2. [Storage Pool](#storage-pool)
+3. [Storage Container](#storage-container)
+4. [vDisk](#vdisk)
+5. [Comparação](#comparacao)
+6. [Exemplo completo](#exemplo-completo)
+7. [Capacidade lógica e física](#capacidade-logica-e-fisica)
+8. [Boas práticas](#boas-praticas)
+9. [Resumo](#resumo)
+
+---
 ## Visão geral
 
 O armazenamento Nutanix é organizado em camadas lógicas.

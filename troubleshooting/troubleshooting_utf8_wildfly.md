@@ -5,6 +5,22 @@ title: Troubleshooting Aplicação de Exemplo
 
 # Troubleshooting – Correção de Caracteres Especiais (UTF-8) em Aplicação WildFly no Kubernetes
 
+
+## Sumário
+
+1. [Problema](#problema)
+2. [Ambiente](#ambiente)
+3. [Diagnóstico](#diagnostico)
+4. [Verificação do Locale dentro do Container](#verificacao-do-locale-dentro-do-container)
+5. [Verificação da JVM](#verificacao-da-jvm)
+6. [Solução](#solucao)
+7. [Comando aplicado](#comando-aplicado)
+8. [Validação](#validacao)
+9. [Verificar variáveis de ambiente](#verificar-variaveis-de-ambiente)
+10. [Verificar encoding da JVM](#verificar-encoding-da-jvm)
+11. [Conclusão](#conclusao)
+
+---
 ## Problema
 
 A aplicação de exemplo apresentava problemas com caracteres especiais (acentuação e cedilha) na interface web.

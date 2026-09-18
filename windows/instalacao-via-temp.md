@@ -5,6 +5,15 @@ title: Instalação de Aplicativos (.exe) via C:\Temp
 
 # Instalação de Aplicativos (.exe) via C:\Temp
 
+
+## Sumário
+
+1. [Objetivo](#objetivo)
+2. [Procedimento](#procedimento)
+3. [Exemplo](#exemplo)
+4. [Observação](#observacao)
+
+---
 ## Objetivo
 
 Instalar aplicativos quando a execução direta pela pasta **Downloads** apresentar erro de acesso.

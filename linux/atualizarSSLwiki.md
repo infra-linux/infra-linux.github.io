@@ -5,6 +5,27 @@ title: Atualização de Certificado SSL da Wiki da Empresa Exemplo
 
 # Atualização de Certificado SSL da Wiki da Empresa Exemplo (WikiJS + Docker + Nginx)
 
+
+## Sumário
+
+1. [Objetivo](#objetivo)
+2. [Ambiente](#ambiente)
+3. [1. Verificar validade do certificado atual](#1-verificar-validade-do-certificado-atual)
+4. [2. Localizar novo certificado](#2-localizar-novo-certificado)
+5. [3. Validar se certificado e chave correspondem](#3-validar-se-certificado-e-chave-correspondem)
+6. [4. Realizar backup do certificado atual](#4-realizar-backup-do-certificado-atual)
+7. [5. Atualizar arquivos](#5-atualizar-arquivos)
+8. [6. Validar configuração do Nginx](#6-validar-configuracao-do-nginx)
+9. [7. Recarregar Nginx](#7-recarregar-nginx)
+10. [8. Validar novo certificado publicado](#8-validar-novo-certificado-publicado)
+11. [9. Verificar cadeia de certificação](#9-verificar-cadeia-de-certificacao)
+12. [Troubleshooting](#troubleshooting)
+13. [Certificado e chave incompatíveis](#certificado-e-chave-incompativeis)
+14. [Certificado expirado](#certificado-expirado)
+15. [Navegador exibindo "Inseguro"](#navegador-exibindo-inseguro)
+16. [Evidência de sucesso](#evidencia-de-sucesso)
+
+---
 ## Objetivo
 
 Atualizar o certificado SSL utilizado pela Wiki da Empresa Exemplo (`wiki.corp.example.com`) hospedada em containers Docker utilizando Nginx como proxy reverso.

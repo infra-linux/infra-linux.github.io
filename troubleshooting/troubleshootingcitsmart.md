@@ -7,6 +7,23 @@ title: Troubleshooting Aplicação ITSM de Exemplo
 
 ---
 
+
+## Sumário
+
+1. [Solução de Contorno](#solucao-de-contorno)
+2. [Sintoma](#sintoma)
+3. [Verificar status dos containers](#verificar-status-dos-containers)
+4. [Verificar consumo de recursos](#verificar-consumo-de-recursos)
+5. [Verificar erros de memória](#verificar-erros-de-memoria)
+6. [Identificar processo Java](#identificar-processo-java)
+7. [Verificar utilização da Heap](#verificar-utilizacao-da-heap)
+8. [Verificar parâmetros da JVM](#verificar-parametros-da-jvm)
+9. [Coletar logs da aplicação](#coletar-logs-da-aplicacao)
+10. [Verificar trilha de auditoria](#verificar-trilha-de-auditoria)
+11. [Evidências encontradas no incidente de DD/MM/AAAA](#evidencias-encontradas-no-incidente-de-ddmmaaaa)
+12. [Conclusão Preliminar](#conclusao-preliminar)
+
+---
 ## Solução de Contorno
 
 Reiniciar os serviços da aplicação ITSM de exemplo.

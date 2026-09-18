@@ -27,7 +27,7 @@ Pull Request
 Merge
 ```
 
-Esse fluxo é bastante utilizado em projetos profissionais e é especialmente útil para projetos como o **Ninja Linux**.
+Esse fluxo é bastante utilizado em projetos profissionais e é especialmente útil para projetos como o **Infra Linux**.
 
 ---
 
@@ -106,7 +106,7 @@ Revisão
 main
 ```
 
-> 💡 **Quando usar este fluxo em vez do merge local:** se você já conhece o fluxo de merge local (branch → commit → push → `git merge` → `git push`), este tutorial ensina uma variação mais segura para projetos com revisão, colaboração ou histórico auditável: em vez de mesclar localmente, você abre um **Pull Request** no GitHub e faz o merge por lá.
+> **Quando usar este fluxo em vez do merge local:** se você já conhece o fluxo de merge local (branch → commit → push → `git merge` → `git push`), este tutorial ensina uma variação mais segura para projetos com revisão, colaboração ou histórico auditável: em vez de mesclar localmente, você abre um **Pull Request** no GitHub e faz o merge por lá.
 
 ---
 
@@ -168,7 +168,7 @@ Entre nela:
 cd infra-linux.github.io
 ```
 
-> 🔑 Se você já configurou uma chave SSH com o GitHub, pode usar **Code → SSH** em vez de HTTPS. A vantagem é não precisar digitar usuário/senha (ou token) a cada `push`/`pull`:
+> Se você já configurou uma chave SSH com o GitHub, pode usar **Code → SSH** em vez de HTTPS. A vantagem é não precisar digitar usuário/senha (ou token) a cada `push`/`pull`:
 >
 > ```powershell
 > git clone git@github.com:infra-linux/infra-linux.github.io.git
@@ -222,7 +222,7 @@ git pull origin main
 
 Isso garante que você esteja trabalhando com a versão mais recente disponível no GitHub.
 
-> 🧹 Se o projeto já teve outras branches mescladas e excluídas no GitHub, rode também `git fetch --prune` para limpar as referências locais de branches remotas que não existem mais.
+> Se o projeto já teve outras branches mescladas e excluídas no GitHub, rode também `git fetch --prune` para limpar as referências locais de branches remotas que não existem mais.
 
 ---
 
@@ -268,7 +268,7 @@ nova-home
 
 Agora você está trabalhando na branch de desenvolvimento.
 
-> 🏷️ Para deixar o propósito da branch ainda mais claro, considere usar prefixos como `feature/nova-home`, `fix/corrige-menu` ou `docs/adiciona-tcp-ip`.
+> Para deixar o propósito da branch ainda mais claro, considere usar prefixos como `feature/nova-home`, `fix/corrige-menu` ou `docs/adiciona-tcp-ip`.
 
 ---
 
@@ -468,7 +468,7 @@ nova-home
     main
 ```
 
-> 📝 Se a alteração ainda não estiver pronta para revisão final, você pode marcar o PR como **Draft pull request** — isso avisa que o trabalho está em andamento, mas já permite acompanhar o histórico e receber comentários antecipados.
+> Se a alteração ainda não estiver pronta para revisão final, você pode marcar o PR como **Draft pull request** — isso avisa que o trabalho está em andamento, mas já permite acompanhar o histórico e receber comentários antecipados.
 
 ---
 
@@ -511,7 +511,7 @@ Adicione um título claro.
 Exemplo:
 
 ```text
-Atualiza página inicial do Ninja Linux
+Atualiza página inicial do Infra Linux
 ```
 
 Na descrição, explique o que foi feito.
@@ -692,7 +692,7 @@ git push origin --delete nova-home
 
 # 22. Fluxo completo na prática
 
-Suponha que você queira alterar a página inicial do Ninja Linux.
+Suponha que você queira alterar a página inicial do Infra Linux.
 
 ## Clone
 
@@ -1001,7 +1001,7 @@ Se o Pull Request ficar aberto por muito tempo, outras alterações podem ser me
 
 # 26. Regra de ouro
 
-Para o Ninja Linux, memorize:
+Para o Infra Linux, memorize:
 
 ```text
 CLONE

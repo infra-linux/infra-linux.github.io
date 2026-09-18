@@ -35,7 +35,7 @@ Esse processo é especialmente útil em projetos que utilizam **GitHub Pages, Je
 20. [Se ocorrer um conflito no merge](#20-se-ocorrer-um-conflito-no-merge)
 21. [Boas práticas](#21-boas-práticas)
 22. [Comandos essenciais](#22-comandos-essenciais)
-23. [Regra prática para o Infra Linux](#23-regra-prática-para-o-ninja-linux)
+23. [Regra prática para o Infra Linux](#23-regra-prática-para-o-infra-linux)
 
 ---
 
@@ -67,7 +67,7 @@ A ideia é simples:
 
 > **Desenvolva em uma branch separada, teste e somente depois faça o merge para a `main`.**
 
-> 💡 **Alternativa:** em vez de fazer o merge localmente (seção 11), você também pode abrir um **Pull Request** da sua branch para a `main` diretamente no GitHub. Isso dá um histórico visual da alteração, permite revisão antes de publicar e é o padrão usado em projetos colaborativos. O fluxo local ensinado aqui continua sendo perfeitamente válido para projetos individuais como o Ninja Linux.
+> **Alternativa:** em vez de fazer o merge localmente (seção 11), você também pode abrir um **Pull Request** da sua branch para a `main` diretamente no GitHub. Isso dá um histórico visual da alteração, permite revisão antes de publicar e é o padrão usado em projetos colaborativos. O fluxo local ensinado aqui continua sendo perfeitamente válido para projetos individuais como o Infra Linux.
 
 ---
 
@@ -117,7 +117,7 @@ git pull origin main
 
 Isso garante que a sua `main` local esteja sincronizada com o GitHub.
 
-> 🧹 Se quiser também limpar referências de branches remotas que já foram excluídas no GitHub, rode `git fetch --prune` antes do `pull`.
+> Se quiser também limpar referências de branches remotas que já foram excluídas no GitHub, rode `git fetch --prune` antes do `pull`.
 
 ---
 
@@ -155,7 +155,7 @@ nova-home
 
 A partir desse momento, as alterações serão feitas na branch de desenvolvimento.
 
-> 🏷️ **Convenção de nomes:** conforme o projeto cresce, ajuda usar prefixos que indiquem o tipo de alteração, por exemplo `feature/nova-home`, `fix/menu-quebrado` ou `docs/tcp-ip`. Isso facilita identificar o propósito da branch só pelo nome.
+> **Convenção de nomes:** conforme o projeto cresce, ajuda usar prefixos que indiquem o tipo de alteração, por exemplo `feature/nova-home`, `fix/menu-quebrado` ou `docs/tcp-ip`. Isso facilita identificar o propósito da branch só pelo nome.
 
 ---
 
@@ -320,7 +320,7 @@ O GitHub Pages passará a publicar a versão existente na `nova-home`.
 
 Isso permite verificar a versão que está no GitHub antes de colocá-la na `main`.
 
-> ⚠️ **Atenção:** enquanto o GitHub Pages estiver apontando para `nova-home`, alterações feitas somente na `main` **não** alterarão o site publicado. Não esqueça de reverter esta configuração na seção 15 assim que terminar o teste — esse é o erro mais comum ao usar essa técnica.
+> **Atenção:** enquanto o GitHub Pages estiver apontando para `nova-home`, alterações feitas somente na `main` **não** alterarão o site publicado. Não esqueça de reverter esta configuração na seção 15 assim que terminar o teste — esse é o erro mais comum ao usar essa técnica.
 
 ---
 
@@ -489,7 +489,7 @@ Também é possível comparar as branches diretamente pelo GitHub.
 
 ## 18. Exemplo completo
 
-Suponha que você queira criar uma nova versão da página inicial do Ninja Linux.
+Suponha que você queira criar uma nova versão da página inicial do Infra Linux.
 
 Primeiro:
 
@@ -784,9 +784,9 @@ Depois que uma branch é mesclada e publicada, exclua-a (seção 14) para manter
 
 ---
 
-## 23. Regra prática para o Ninja Linux
+## 23. Regra prática para o Infra Linux
 
-Para o projeto **Ninja Linux**, pense sempre neste fluxo:
+Para o projeto **Infra Linux**, pense sempre neste fluxo:
 
 ```text
 ┌──────────────────────┐

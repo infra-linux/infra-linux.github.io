@@ -24,6 +24,43 @@ Service
 
 ---
 
+
+## Sumário
+
+1. [Por que usar um Service?](#por-que-usar-um-service)
+2. [Relação entre Deployment, Pod e Service](#relacao-entre-deployment-pod-e-service)
+3. [Tipos de Service](#tipos-de-service)
+4. [ClusterIP](#clusterip)
+5. [NodePort](#nodeport)
+6. [LoadBalancer](#loadbalancer)
+7. [ExternalName](#externalname)
+8. [Exemplo completo com Deployment e Service](#exemplo-completo-com-deployment-e-service)
+9. [Entendendo portas do Service](#entendendo-portas-do-service)
+10. [Service com múltiplas portas](#service-com-multiplas-portas)
+11. [DNS interno do Service](#dns-interno-do-service)
+12. [Verificando Endpoints](#verificando-endpoints)
+13. [Descrevendo um Service](#descrevendo-um-service)
+14. [Testando acesso interno](#testando-acesso-interno)
+15. [Service e Ingress](#service-e-ingress)
+16. [Comandos úteis](#comandos-uteis)
+17. [Problemas comuns](#problemas-comuns)
+18. [Service sem Endpoints](#service-sem-endpoints)
+19. [Porta errada](#porta-errada)
+20. [NodePort não acessa externamente](#nodeport-nao-acessa-externamente)
+21. [LoadBalancer fica pending](#loadbalancer-fica-pending)
+22. [DNS interno não resolve](#dns-interno-nao-resolve)
+23. [Boas práticas](#boas-praticas)
+24. [Checklist antes de aplicar](#checklist-antes-de-aplicar)
+25. [Fluxo recomendado](#fluxo-recomendado)
+26. [1. Verificar Pods e labels](#1-verificar-pods-e-labels)
+27. [2. Aplicar o Service](#2-aplicar-o-service)
+28. [3. Verificar o Service](#3-verificar-o-service)
+29. [4. Verificar Endpoints](#4-verificar-endpoints)
+30. [5. Descrever o Service](#5-descrever-o-service)
+31. [6. Testar acesso interno](#6-testar-acesso-interno)
+32. [Resumo](#resumo)
+
+---
 ## Por que usar um Service?
 
 Use um Service quando você precisa:

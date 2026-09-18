@@ -9,6 +9,29 @@ title: Servidor NFS no Rocky Linux 9
 
 ---
 
+
+## Sumário
+
+1. [Objetivo](#objetivo)
+2. [Cenário](#cenario)
+3. [Instalar o servidor NFS](#instalar-o-servidor-nfs)
+4. [Habilitar os serviços](#habilitar-os-servicos)
+5. [Criar o diretório compartilhado](#criar-o-diretorio-compartilhado)
+6. [Criar arquivos de teste](#criar-arquivos-de-teste)
+7. [Configurar o compartilhamento](#configurar-o-compartilhamento)
+8. [Exportar o compartilhamento](#exportar-o-compartilhamento)
+9. [Verificar os compartilhamentos](#verificar-os-compartilhamentos)
+10. [Configurar o Firewall](#configurar-o-firewall)
+11. [Configurar SELinux](#configurar-selinux)
+12. [Verificar os serviços](#verificar-os-servicos)
+13. [Verificar portas abertas](#verificar-portas-abertas)
+14. [Testar localmente](#testar-localmente)
+15. [Estrutura criada](#estrutura-criada)
+16. [Comandos úteis](#comandos-uteis)
+17. [Arquivos importantes](#arquivos-importantes)
+18. [Próximos passos](#proximos-passos)
+
+---
 # Objetivo
 
 Ao final deste tutorial o servidor será capaz de compartilhar um diretório via NFS para clientes Linux e Windows.

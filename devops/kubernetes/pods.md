@@ -5,6 +5,35 @@ title: O que é Pod?
 
 # Pods no Kubernetes
 
+
+## Sumário
+
+1. [O que é um Pod?](#o-que-e-um-pod)
+2. [Como funciona um Pod](#como-funciona-um-pod)
+3. [Características dos Pods](#caracteristicas-dos-pods)
+4. [IP próprio](#ip-proprio)
+5. [Efêmeros](#efemeros)
+6. [Compartilhamento de recursos](#compartilhamento-de-recursos)
+7. [Ciclo de Vida de um Pod](#ciclo-de-vida-de-um-pod)
+8. [Pending](#pending)
+9. [Running](#running)
+10. [Succeeded](#succeeded)
+11. [Failed](#failed)
+12. [Unknown](#unknown)
+13. [Criando um Pod Simples](#criando-um-pod-simples)
+14. [Consultando Pods](#consultando-pods)
+15. [Ver Detalhes de um Pod](#ver-detalhes-de-um-pod)
+16. [Ver Logs de um Pod](#ver-logs-de-um-pod)
+17. [Acessar um Container Dentro do Pod](#acessar-um-container-dentro-do-pod)
+18. [Excluir um Pod](#excluir-um-pod)
+19. [Problemas Comuns](#problemas-comuns)
+20. [Pod em Pending](#pod-em-pending)
+21. [CrashLoopBackOff](#crashloopbackoff)
+22. [ImagePullBackOff](#imagepullbackoff)
+23. [Boas Práticas](#boas-praticas)
+24. [Resumo](#resumo)
+
+---
 ## O que é um Pod?
 
 O Pod é a menor unidade de execução do Kubernetes.

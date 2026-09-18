@@ -9,6 +9,35 @@ title: Cliente NFS no Windows 10/11
 
 ---
 
+
+## Sumário
+
+1. [Objetivo](#objetivo)
+2. [Cenário](#cenario)
+3. [Pré-requisitos](#pre-requisitos)
+4. [Verificar conectividade](#verificar-conectividade)
+5. [Instalar o Cliente NFS](#instalar-o-cliente-nfs)
+6. [Reiniciar o Windows](#reiniciar-o-windows)
+7. [Confirmar a instalação](#confirmar-a-instalacao)
+8. [Verificar o serviço](#verificar-o-servico)
+9. [Montar o compartilhamento](#montar-o-compartilhamento)
+10. [Confirmar a montagem](#confirmar-a-montagem)
+11. [Ler arquivos](#ler-arquivos)
+12. [Criar um arquivo](#criar-um-arquivo)
+13. [Criar um diretório](#criar-um-diretorio)
+14. [Remover um arquivo](#remover-um-arquivo)
+15. [Desmontar o compartilhamento](#desmontar-o-compartilhamento)
+16. [Comandos úteis](#comandos-uteis)
+17. [Solução de problemas](#solucao-de-problemas)
+18. [A porta do NFS não responde](#a-porta-do-nfs-nao-responde)
+19. [Erro:](#erro)
+20. [Erro:](#erro)
+21. [Erro:](#erro)
+22. [Unidade Z: não existe](#unidade-z-nao-existe)
+23. [Estrutura final](#estrutura-final)
+24. [Próximos passos](#proximos-passos)
+
+---
 # Objetivo
 
 Ao final deste tutorial, o Windows será capaz de acessar um compartilhamento NFS exportado por um servidor Rocky Linux.

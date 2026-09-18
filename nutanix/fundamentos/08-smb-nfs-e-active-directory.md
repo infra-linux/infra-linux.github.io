@@ -5,6 +5,25 @@ title: SMB, NFS e Active Directory
 
 # SMB, NFS e Active Directory
 
+
+## Sumário
+
+1. [SMB](#smb)
+2. [NFS](#nfs)
+3. [Comparação](#comparacao)
+4. [Active Directory](#active-directory)
+5. [Autenticação e autorização](#autenticacao-e-autorizacao)
+6. [Autenticação](#autenticacao)
+7. [Autorização](#autorizacao)
+8. [Integração do Files com o AD](#integracao-do-files-com-o-ad)
+9. [Dependências importantes](#dependencias-importantes)
+10. [DNS](#dns)
+11. [NTP](#ntp)
+12. [Rede](#rede)
+13. [Diagnóstico de acesso negado](#diagnostico-de-acesso-negado)
+14. [Resumo](#resumo)
+
+---
 ## SMB
 
 **SMB**, ou *Server Message Block*, é muito utilizado em ambientes Windows.

@@ -5,6 +5,17 @@ title: Introdução ao Nutanix
 
 # Introdução ao Nutanix
 
+
+## Sumário
+
+1. [Visão geral](#visao-geral)
+2. [Nó e cluster](#no-e-cluster)
+3. [Principais componentes](#principais-componentes)
+4. [Exemplo de uso](#exemplo-de-uso)
+5. [Relação com o Data Lens](#relacao-com-o-data-lens)
+6. [Resumo](#resumo)
+
+---
 ## Visão geral
 
 Nutanix é uma plataforma de infraestrutura hiperconvergente, conhecida como **HCI** (*Hyperconverged Infrastructure*). Ela reúne computação, armazenamento, virtualização e gerenciamento em uma arquitetura distribuída.

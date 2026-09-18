@@ -7,6 +7,23 @@ title: Instalação do Zabbix Server com PostgreSQL no Rocky Linux 9
 
 Este tutorial mostra uma instalação básica do Zabbix Server utilizando PostgreSQL como banco de dados.
 
+
+## Sumário
+
+1. [Adicionar o repositório do Zabbix](#adicionar-o-repositorio-do-zabbix)
+2. [Instalar os pacotes](#instalar-os-pacotes)
+3. [Instalar PostgreSQL](#instalar-postgresql)
+4. [Criar banco de dados](#criar-banco-de-dados)
+5. [Importar o schema do Zabbix](#importar-o-schema-do-zabbix)
+6. [Configurar o Zabbix Server](#configurar-o-zabbix-server)
+7. [Iniciar serviços](#iniciar-servicos)
+8. [Liberar firewall](#liberar-firewall)
+9. [Acessar interface Web](#acessar-interface-web)
+10. [Login padrão](#login-padrao)
+11. [Verificações úteis](#verificacoes-uteis)
+12. [Serviços principais](#servicos-principais)
+
+---
 ## Adicionar o repositório do Zabbix
 
 ```bash

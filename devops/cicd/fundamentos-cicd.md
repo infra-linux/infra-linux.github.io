@@ -5,6 +5,23 @@ title: CI/CD
 
 # CI/CD
 
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [O que é CI?](#o-que-e-ci)
+3. [Fluxo de CI](#fluxo-de-ci)
+4. [Benefícios](#beneficios)
+5. [O que é CD?](#o-que-e-cd)
+6. [Continuous Delivery](#continuous-delivery)
+7. [Continuous Deployment](#continuous-deployment)
+8. [Exemplo Prático](#exemplo-pratico)
+9. [Ferramentas Utilizadas](#ferramentas-utilizadas)
+10. [Pipeline](#pipeline)
+11. [Vantagens do CI/CD](#vantagens-do-cicd)
+12. [Resumo](#resumo)
+
+---
 ## Introdução
 
 CI/CD é um conjunto de práticas utilizadas para automatizar a integração, teste, entrega e implantação de aplicações.

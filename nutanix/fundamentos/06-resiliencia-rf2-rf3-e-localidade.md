@@ -5,6 +5,23 @@ title: Resiliência, RF2, RF3 e localidade
 
 # Resiliência, RF2, RF3 e localidade
 
+
+## Sumário
+
+1. [Resiliência de dados](#resiliencia-de-dados)
+2. [RF2](#rf2)
+3. [RF3](#rf3)
+4. [Capacidade](#capacidade)
+5. [Localidade dos dados](#localidade-dos-dados)
+6. [Leitura local](#leitura-local)
+7. [Leitura remota](#leitura-remota)
+8. [Falha de disco](#falha-de-disco)
+9. [Falha de nó](#falha-de-no)
+10. [Disponibilidade das VMs](#disponibilidade-das-vms)
+11. [Resiliência dos dados](#resiliencia-dos-dados)
+12. [Resumo](#resumo)
+
+---
 ## Resiliência de dados
 
 O cluster Nutanix protege os dados mantendo cópias ou utilizando outros mecanismos de resiliência, conforme a configuração.

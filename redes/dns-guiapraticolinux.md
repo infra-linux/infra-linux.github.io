@@ -5,6 +5,61 @@ title: Redes-DNS
 
 # DNS
 
+
+## Sumário
+
+1. [1. O que é DNS?](#1-o-que-e-dns)
+2. [Exemplo](#exemplo)
+3. [2. O que acontece quando você acessa um site?](#2-o-que-acontece-quando-voce-acessa-um-site)
+4. [3. Como descobrir qual DNS o Linux está usando?](#3-como-descobrir-qual-dns-o-linux-esta-usando)
+5. [4. `dig` — principal ferramenta para diagnóstico DNS](#4-dig-principal-ferramenta-para-diagnostico-dns)
+6. [5. Descobrir qual DNS respondeu](#5-descobrir-qual-dns-respondeu)
+7. [6. Consultar um DNS específico](#6-consultar-um-dns-especifico)
+8. [7. Exemplo real de resolução interna](#7-exemplo-real-de-resolucao-interna)
+9. [8. Consultar registros específicos](#8-consultar-registros-especificos)
+10. [9. DNS reverso](#9-dns-reverso)
+11. [10. Principais tipos de registros DNS](#10-principais-tipos-de-registros-dns)
+12. [11. CNAME](#11-cname)
+13. [12. MX](#12-mx)
+14. [13. NS](#13-ns)
+15. [14. SOA](#14-soa)
+16. [15. TTL](#15-ttl)
+17. [16. Caches DNS](#16-caches-dns)
+18. [17. DNS recursivo x autoritativo](#17-dns-recursivo-x-autoritativo)
+19. [DNS recursivo](#dns-recursivo)
+20. [DNS autoritativo](#dns-autoritativo)
+21. [18. Testando DNS com `nslookup`](#18-testando-dns-com-nslookup)
+22. [19. `resolvectl`](#19-resolvectl)
+23. [20. DNS não significa conectividade](#20-dns-nao-significa-conectividade)
+24. [21. Testando conectividade com `ping`](#21-testando-conectividade-com-ping)
+25. [22. Testando uma porta TCP](#22-testando-uma-porta-tcp)
+26. [23. Testando HTTP/HTTPS com `curl`](#23-testando-httphttps-com-curl)
+27. [24. Entendendo `curl`](#24-entendendo-curl)
+28. [25. Diagnóstico em camadas](#25-diagnostico-em-camadas)
+29. [26. Diagnóstico de erro DNS](#26-diagnostico-de-erro-dns)
+30. [`NXDOMAIN`](#nxdomain)
+31. [`SERVFAIL`](#servfail)
+32. [`REFUSED`](#refused)
+33. [Timeout](#timeout)
+34. [27. Comparando DNS interno e externo](#27-comparando-dns-interno-e-externo)
+35. [28. Arquivo `/etc/hosts`](#28-arquivo-etchosts)
+36. [29. Troubleshooting rápido de DNS](#29-troubleshooting-rapido-de-dns)
+37. [1. Verifique a configuração DNS](#1-verifique-a-configuracao-dns)
+38. [2. Resolva o nome](#2-resolva-o-nome)
+39. [3. Consulte diretamente o DNS](#3-consulte-diretamente-o-dns)
+40. [4. Teste o IP](#4-teste-o-ip)
+41. [5. Teste a porta](#5-teste-a-porta)
+42. [6. Teste a aplicação](#6-teste-a-aplicacao)
+43. [30. Exemplo completo de diagnóstico](#30-exemplo-completo-de-diagnostico)
+44. [DNS](#dns)
+45. [Conectividade](#conectividade)
+46. [Porta](#porta)
+47. [HTTP](#http)
+48. [31. Checklist de DNS](#31-checklist-de-dns)
+49. [Comandos essenciais](#comandos-essenciais)
+50. [Regra de ouro](#regra-de-ouro)
+
+---
 ## 1. O que é DNS?
 
 **DNS (Domain Name System)** é o sistema responsável por traduzir nomes de domínio em endereços IP.

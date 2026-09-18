@@ -5,6 +5,18 @@ title: Configurando Volumes Nutanix
 
 # Configurando Volumes Nutanix
 
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [O que é Nutanix Volumes?](#o-que-e-nutanix-volumes)
+3. [Conceitos principais](#conceitos-principais)
+4. [Passos de configuração](#passos-de-configuracao)
+5. [Requisitos importantes](#requisitos-importantes)
+6. [Boas práticas](#boas-praticas)
+7. [Resumo](#resumo)
+
+---
 ## Introdução
 
 Este guia reúne os principais conceitos e passos para configurar o Nutanix Volumes.

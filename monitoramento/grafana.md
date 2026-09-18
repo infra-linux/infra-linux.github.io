@@ -5,6 +5,32 @@ title: Instalação do Grafana no Rocky Linux 9
 
 # Instalação do Grafana no Rocky Linux 9
 
+
+## Sumário
+
+1. [Objetivo](#objetivo)
+2. [Ambiente](#ambiente)
+3. [Adicionando o repositório oficial](#adicionando-o-repositorio-oficial)
+4. [Instalando o Grafana](#instalando-o-grafana)
+5. [Habilitando o serviço](#habilitando-o-servico)
+6. [Verificando a porta de escuta](#verificando-a-porta-de-escuta)
+7. [Configurando o Firewall](#configurando-o-firewall)
+8. [Obtendo o IP do servidor](#obtendo-o-ip-do-servidor)
+9. [Acessando o Grafana](#acessando-o-grafana)
+10. [Credenciais padrão](#credenciais-padrao)
+11. [Comandos úteis](#comandos-uteis)
+12. [Verificar status](#verificar-status)
+13. [Reiniciar serviço](#reiniciar-servico)
+14. [Parar serviço](#parar-servico)
+15. [Iniciar serviço](#iniciar-servico)
+16. [Ver logs](#ver-logs)
+17. [Troubleshooting](#troubleshooting)
+18. [Serviço não inicia](#servico-nao-inicia)
+19. [Porta 3000 não responde](#porta-3000-nao-responde)
+20. [Acesso recusado pelo navegador](#acesso-recusado-pelo-navegador)
+21. [Resultado esperado](#resultado-esperado)
+
+---
 ## Objetivo
 
 Instalar o Grafana em um servidor Rocky Linux 9 para criação de dashboards e visualização de métricas.

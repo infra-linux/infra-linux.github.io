@@ -5,6 +5,15 @@ title: Questionário Volumes Nutanix
 
 # Questionário Volumes Nutanix
 
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Perguntas](#perguntas)
+3. [Gabarito rápido](#gabarito-rapido)
+4. [Revisão](#revisao)
+
+---
 ## Introdução
 
 Este questionário ajuda a revisar conceitos importantes sobre Nutanix Volumes, iSCSI e Volume Groups.

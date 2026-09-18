@@ -21,6 +21,60 @@ Deployment
 
 ---
 
+
+## Sumário
+
+1. [Pré-requisitos](#pre-requisitos)
+2. [Quando usar um Deployment?](#quando-usar-um-deployment)
+3. [Estrutura básica de um Deployment](#estrutura-basica-de-um-deployment)
+4. [Explicando o YAML](#explicando-o-yaml)
+5. [apiVersion](#apiversion)
+6. [kind](#kind)
+7. [metadata](#metadata)
+8. [replicas](#replicas)
+9. [selector](#selector)
+10. [template](#template)
+11. [containers](#containers)
+12. [Aplicando o Deployment](#aplicando-o-deployment)
+13. [Verificando logs](#verificando-logs)
+14. [Atualizando a imagem](#atualizando-a-imagem)
+15. [Histórico de versões](#historico-de-versoes)
+16. [Rollback](#rollback)
+17. [Pausar e retomar rollout](#pausar-e-retomar-rollout)
+18. [Escalando réplicas](#escalando-replicas)
+19. [Removendo o Deployment](#removendo-o-deployment)
+20. [Exemplo mais completo](#exemplo-mais-completo)
+21. [Deployment completo](#deployment-completo)
+22. [Service](#service)
+23. [Ingress](#ingress)
+24. [Arquivo único com Deployment, Service e Ingress](#arquivo-unico-com-deployment-service-e-ingress)
+25. [Comandos úteis](#comandos-uteis)
+26. [Listar recursos](#listar-recursos)
+27. [Listar tudo no namespace](#listar-tudo-no-namespace)
+28. [Ver detalhes de um Pod](#ver-detalhes-de-um-pod)
+29. [Ver eventos do namespace](#ver-eventos-do-namespace)
+30. [Acessar shell dentro do Pod](#acessar-shell-dentro-do-pod)
+31. [Checklist antes de aplicar em produção](#checklist-antes-de-aplicar-em-producao)
+32. [Problemas comuns](#problemas-comuns)
+33. [Pods não sobem](#pods-nao-sobem)
+34. [ImagePullBackOff](#imagepullbackoff)
+35. [CrashLoopBackOff](#crashloopbackoff)
+36. [Service não acessa o Pod](#service-nao-acessa-o-pod)
+37. [Ingress não funciona](#ingress-nao-funciona)
+38. [Boas práticas](#boas-praticas)
+39. [Fluxo recomendado de deploy](#fluxo-recomendado-de-deploy)
+40. [1. Validar contexto atual](#1-validar-contexto-atual)
+41. [2. Validar namespace](#2-validar-namespace)
+42. [3. Aplicar manifesto](#3-aplicar-manifesto)
+43. [4. Acompanhar rollout](#4-acompanhar-rollout)
+44. [5. Conferir Pods](#5-conferir-pods)
+45. [6. Verificar Service](#6-verificar-service)
+46. [7. Verificar Ingress](#7-verificar-ingress)
+47. [8. Testar aplicação](#8-testar-aplicacao)
+48. [Exemplo com namespace separado](#exemplo-com-namespace-separado)
+49. [Resumo](#resumo)
+
+---
 ## Pré-requisitos
 
 Antes de aplicar um Deployment, valide se o `kubectl` está apontando para o cluster correto:

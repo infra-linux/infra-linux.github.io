@@ -16,7 +16,7 @@ Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados
 ## Temas da seção
 
 * Instalação do WatchGuard NDR Collection Agent.
-* [Coleta de Logs do Collection Agent](watchguardndrcollectionagent)
+* [Coleta de Logs do Collection Agent](watchguardndrcollectionagent.md)
 * Troubleshooting de Heartbeat Offline.
 * Troubleshooting de NetFlow e sFlow.
 * Integração com Firebox.
