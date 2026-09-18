@@ -1,10 +1,19 @@
 ---
-
 layout: default
 title: CI/CD
 ------------
 
 # CI/CD
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Conteúdo](#conteudo)
+3. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+
+---
+
 
 ## Introdução
 
@@ -19,7 +28,6 @@ Código → Build → Testes → Imagem → Deploy → Monitoramento
 ```
 
 ---
-
 ## Conteúdo
 
 ### Fundamentos
@@ -55,7 +63,6 @@ Código → Build → Testes → Imagem → Deploy → Monitoramento
 * [GitOps](gitops.html)
 
 ---
-
 ## Fluxo recomendado de estudo
 
 ```text

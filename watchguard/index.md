@@ -2,8 +2,18 @@
 layout: default
 title: WatchGuard
 ---
-
 # WatchGuard
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Temas da seção](#temas-da-secao)
+3. [Checklist de análise](#checklist-de-analise)
+4. [Boas práticas](#boas-praticas)
+
+---
+
 
 ## Introdução
 
@@ -12,7 +22,6 @@ WatchGuard é uma solução de firewall e segurança de rede usada para controla
 Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados à administração de firewalls WatchGuard.
 
 ---
-
 ## Temas da seção
 
 * Instalação do WatchGuard NDR Collection Agent.
@@ -23,7 +32,6 @@ Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados
 * Entendendo os logs ndr_nf_aggregator.log.
 * Como interpretar heartbeat upload status.
 ---
-
 ## Checklist de análise
 
 * Identificar origem, destino, porta e protocolo.
@@ -34,7 +42,6 @@ Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados
 * Confirmar se há proxy, rota ou DNS envolvido.
 
 ---
-
 ## Boas práticas
 
 * Documente regras criadas ou alteradas.
@@ -44,5 +51,4 @@ Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados
 * Valide logs após cada mudança.
 
 ---
-
 > Esta seção serve como ponto de entrada para documentação de firewall, VPN, NAT e políticas WatchGuard.

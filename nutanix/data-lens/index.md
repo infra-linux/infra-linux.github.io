@@ -2,8 +2,18 @@
 layout: default
 title: Introdução ao Nutanix Data Lens
 ---
-
 # Introdução ao Nutanix Data Lens
+
+
+## Sumário
+
+1. [O que é Data Lens?](#o-que-e-data-lens)
+2. [Principais funcionalidades](#principais-funcionalidades)
+3. [Objetivo](#objetivo)
+4. [Resumo](#resumo)
+
+---
+
 
 ## O que é Data Lens?
 

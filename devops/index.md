@@ -2,7 +2,6 @@
 layout: default
 title: DevOps
 ---
-
 # DevOps
 
 ## Sumário
@@ -13,7 +12,6 @@ title: DevOps
 4. [Fluxo de estudo](#fluxo-de-estudo)
 
 ---
-
 ## Introdução
 
 DevOps é um conjunto de práticas e princípios que aproxima o desenvolvimento de software e as operações de infraestrutura.
@@ -42,7 +40,6 @@ Feedback
 ```
 
 ---
-
 ## Conteúdo
 
 ### Comece aqui
@@ -70,7 +67,6 @@ Feedback
 * [Kubernetes](kubernetes/index.md)
 
 ---
-
 ## Conceitos e tecnologias
 
 Ao longo dos estudos, os seguintes conceitos e ferramentas serão abordados:
@@ -88,7 +84,6 @@ Ao longo dos estudos, os seguintes conceitos e ferramentas serão abordados:
 | GitOps                     | Argo CD / Flux              |
 
 ---
-
 ## Fluxo de estudo
 
 Uma sequência recomendada para estudar DevOps é:
@@ -122,5 +117,4 @@ Observabilidade
 O objetivo não é apenas aprender ferramentas individualmente, mas entender como elas se integram em um fluxo de entrega e operação.
 
 ---
-
 > Esta seção reúne conceitos, procedimentos, automações e troubleshooting relacionados ao universo DevOps.

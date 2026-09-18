@@ -2,8 +2,17 @@
 layout: default
 title: Kubernetes
 ---
-
 # Kubernetes
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Conteúdo](#conteudo)
+3. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+
+---
+
 
 ## Introdução
 
@@ -16,7 +25,6 @@ Permite executar aplicações de forma distribuída, resiliente e altamente disp
 > Execute comandos `kubectl` somente após confirmar o contexto com `kubectl config current-context`. Em produção, valide namespace, recurso e impacto antes de aplicar ou remover manifestos.
 
 ---
-
 ## Conteúdo
 
 * [KUBECONFIG](kubeconfig.md)
@@ -30,7 +38,6 @@ Permite executar aplicações de forma distribuída, resiliente e altamente disp
 * [Troubleshooting Kubernetes](troubleshooting.md)
 
 ---
-
 ## Fluxo recomendado de estudo
 
 ```text
@@ -38,5 +45,4 @@ KUBECONFIG --> Kubectl --> Instalação do Cluster --> Pods --> Deployments --> 
 ```
 
 ---
-
 > Recomenda-se iniciar pelos tópicos KUBECONFIG, Kubectl e Pods antes de avançar para Deployments, Services, Ingress e Troubleshooting.

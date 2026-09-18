@@ -2,21 +2,29 @@
 layout: default
 title: VMware
 ---
-
 # VMware
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Conteúdo](#conteudo)
+3. [Temas da seção](#temas-da-secao)
+4. [Checklist de operação](#checklist-de-operacao)
+
+---
+
 
 ## Introdução
 
 Esta seção reúne procedimentos, anotações e boas práticas para administração de ambientes VMware, com foco em ESXi, instalação de hypervisors, configuração inicial, storage local e suporte a hosts físicos.
 
 ---
-
 ## Conteúdo
 
 * [Instalação do VMware ESXi 7.0.3 em Dell PowerEdge R830 via iDRAC](instalacao-esxi-7-dell-r830-idrac.md)
 
 ---
-
 ## Temas da seção
 
 * VMware ESXi
@@ -29,7 +37,6 @@ Esta seção reúne procedimentos, anotações e boas práticas para administra�
 * troubleshooting de boot e instalação
 
 ---
-
 ## Checklist de operação
 
 * Validar acesso ao iDRAC antes da intervenção.
@@ -41,5 +48,4 @@ Esta seção reúne procedimentos, anotações e boas práticas para administra�
 * Registrar dados de rede, hostname, datastore e credenciais conforme o padrão do ambiente.
 
 ---
-
 > Esta seção centraliza procedimentos práticos para instalação, administração e suporte de hosts VMware ESXi.

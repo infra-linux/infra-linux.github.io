@@ -2,8 +2,18 @@
 layout: default
 title: Troubleshooting
 ---
-
 # Troubleshooting
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Artigos](#artigos)
+3. [Fluxo recomendado](#fluxo-recomendado)
+4. [Boas práticas](#boas-praticas)
+
+---
+
 
 ## Introdução
 
@@ -12,7 +22,6 @@ Esta seção reúne procedimentos de investigação, análise de incidentes e co
 O objetivo é registrar sintomas, comandos, evidências e ações de correção para facilitar atendimentos futuros.
 
 ---
-
 ## Artigos
 
 * [Wiki indisponível](troubleshootingwiki.md)
@@ -20,7 +29,6 @@ O objetivo é registrar sintomas, comandos, evidências e ações de correção 
 * [utf8 wildfly](troubleshooting_utf8_wildfly.md)
 
 ---
-
 ## Fluxo recomendado
 
 ```text
@@ -28,7 +36,6 @@ Sintoma --> Impacto --> Evidências --> Causa provável --> Ação corretiva -->
 ```
 
 ---
-
 ## Boas práticas
 
 * Registre horário do incidente.
@@ -39,5 +46,4 @@ Sintoma --> Impacto --> Evidências --> Causa provável --> Ação corretiva -->
 * Inclua comandos úteis para recorrência.
 
 ---
-
 > Use esta seção como base para procedimentos de suporte e análise de incidentes.

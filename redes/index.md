@@ -2,8 +2,18 @@
 layout: default
 title: Redes
 ---
-
 # Redes
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Temas da seção](#temas-da-secao)
+3. [Comandos de consulta rápida](#comandos-de-consulta-rapida)
+4. [Boas práticas](#boas-praticas)
+
+---
+
 
 ## Introdução
 
@@ -12,7 +22,6 @@ Redes são a base da comunicação entre servidores, estações, aplicações, c
 Esta seção reúne conceitos, comandos e procedimentos relacionados a conectividade, DNS, portas, rotas, proxy e troubleshooting de comunicação.
 
 ---
-
 ## Temas da seção
 
 * [DNS](dns-guiapraticolinux.md)
@@ -25,7 +34,6 @@ Esta seção reúne conceitos, comandos e procedimentos relacionados a conectivi
 * análise de indisponibilidade
 
 ---
-
 ## Comandos de consulta rápida
 
 ```bash
@@ -48,7 +56,6 @@ traceroute destino
 ```
 
 ---
-
 ## Boas práticas
 
 * Valide DNS antes de investigar aplicação.
@@ -58,5 +65,4 @@ traceroute destino
 * Diferencie problema de rede, proxy, DNS e aplicação.
 
 ---
-
 > Esta seção serve como base para diagnósticos de conectividade em ambientes Linux, Windows, containers e Kubernetes.

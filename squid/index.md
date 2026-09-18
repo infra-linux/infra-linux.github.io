@@ -2,8 +2,19 @@
 layout: default
 title: Squid
 ---
-
 # Squid
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Temas da seção](#temas-da-secao)
+3. [Arquivos importantes](#arquivos-importantes)
+4. [Comandos de consulta rápida](#comandos-de-consulta-rapida)
+5. [Boas práticas](#boas-praticas)
+
+---
+
 
 ## Introdução
 
@@ -12,7 +23,6 @@ Squid é um servidor proxy utilizado para controlar, registrar e otimizar o aces
 Ele pode ser usado para aplicar ACLs, autenticação, filtros de acesso, cache e auditoria de navegação.
 
 ---
-
 ## Temas da seção
 
 * instalação do Squid
@@ -24,7 +34,6 @@ Ele pode ser usado para aplicar ACLs, autenticação, filtros de acesso, cache e
 * troubleshooting de acesso
 
 ---
-
 ## Arquivos importantes
 
 ```bash
@@ -34,7 +43,6 @@ Ele pode ser usado para aplicar ACLs, autenticação, filtros de acesso, cache e
 ```
 
 ---
-
 ## Comandos de consulta rápida
 
 ```bash
@@ -46,7 +54,6 @@ tail -f /var/log/squid/cache.log
 ```
 
 ---
-
 ## Boas práticas
 
 * Valide a configuração com `squid -k parse` antes de reiniciar.
@@ -56,5 +63,4 @@ tail -f /var/log/squid/cache.log
 * Separe regras por finalidade para facilitar manutenção.
 
 ---
-
 > Esta seção centraliza procedimentos de configuração, análise de logs e troubleshooting do Squid Proxy.

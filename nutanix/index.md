@@ -2,8 +2,16 @@
 layout: default
 title: Nutanix
 ---
-
 # Nutanix
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Conteúdo](#conteudo)
+
+---
+
 
 ## Introdução
 
@@ -17,7 +25,6 @@ Esta seção foi reorganizada para apresentar:
 - Visibilidade e governança com Nutanix Data Lens.
 
 ---
-
 ## Conteúdo
 
 ### Fundamentos
@@ -42,5 +49,4 @@ Esta seção foi reorganizada para apresentar:
 - [Introdução ao Nutanix Data Lens](data-lens/index.md)
 
 ---
-
 > Esta seção reúne os principais tópicos de Nutanix em um formato organizado e fácil de navegar.

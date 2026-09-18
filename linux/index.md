@@ -2,8 +2,16 @@
 layout: default
 title: Linux
 ---
-
 # Linux
+
+
+## Sumário
+
+1. [Introdução](#introducao)
+2. [Conteúdo](#conteudo)
+
+---
+
 
 ## Introdução
 
@@ -12,7 +20,6 @@ O Linux é um sistema operacional de código aberto amplamente utilizado em serv
 Sua flexibilidade, estabilidade e segurança fazem dele uma das principais plataformas para administração de infraestrutura e aplicações.
 
 ---
-
 ## Conteúdo
 
 * [DNS - Configurar DNS com BIND, Forwarders Corporativos e Zona Interna](configuracaodns.md)
@@ -27,5 +34,4 @@ Sua flexibilidade, estabilidade e segurança fazem dele uma das principais plata
 * [SSH - Configurar chave pública no Linux](ssh_key.md)
 
 ---
-
 > Esta seção reúne conceitos, comandos e procedimentos práticos relacionados ao Linux.
