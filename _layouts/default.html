@@ -91,6 +91,11 @@
       });
 
       document.querySelectorAll('pre').forEach(pre => {
+        const code = pre.querySelector('code');
+        if (code && /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)) {
+          pre.classList.add('flow-diagram');
+        }
+
         const button = document.createElement('button');
         button.className = 'copy-btn';
         button.type = 'button';
