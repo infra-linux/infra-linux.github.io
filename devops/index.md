@@ -8,6 +8,12 @@ title: DevOps
 
 1. [Introdução](#introdução)
 2. [Conteúdo](#conteúdo)
+   - [Comece aqui](#comece-aqui)
+   - [Controle de versão](#controle-de-versão)
+   - [Automação](#automação)
+   - [Containers](#containers)
+   - [Orquestração](#orquestração)
+   
 3. [Conceitos e tecnologias](#conceitos-e-tecnologias)
 4. [Fluxo de estudo](#fluxo-de-estudo)
 
