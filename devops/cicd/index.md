@@ -30,35 +30,7 @@ Código → Build → Testes → Imagem → Deploy → Monitoramento
 ---
 ## Conteúdo
 
-### Fundamentos
-
 * [Fundamentos de CI/CD](fundamentos-cicd.md)
-
-### Git e pipelines
-
-* [Guia prático de Git](../git/guia-pratico.md)
-
-### Build e testes
-
-* [Fundamentos de CI/CD](fundamentos-cicd.md)
-
-### Containers
-
-* [Imagens Docker](../docker/docker-image.md)
-* [Containers Docker](../docker/docker-container.md)
-
-### Deploy
-
-* [Kubernetes](../kubernetes/index.md)
-
-### Ferramentas
-
-* [Fundamentos de CI/CD](fundamentos-cicd.md)
-
-### Operação
-
-* [Monitoramento](../../monitoramento/index.md)
-* [DevOps — início rápido](../inicio-rapido/index.md)
 
 ---
 ## Fluxo recomendado de estudo
