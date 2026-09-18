@@ -73,6 +73,15 @@ Feedback
 ### Orquestração
 
 * [Kubernetes](kubernetes/index.md)
+  - [KUBECONFIG](kubernetes/kubeconfig.md)
+  - [Kubectl](kubernetes/kubectl.md)
+  - [Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico](kubernetes/instalacao-cluster-rocky-containerd-calico.md)
+  - [Instalação do Kubernetes (kubeadm) no Rocky Linux](kubernetes/tutorial-kubernetes-rocky-linux.md)
+  - [Pods](kubernetes/pods.md)
+  - [Deployments](kubernetes/deployments.md)
+  - [Services](kubernetes/services.md)
+  - [Ingress](kubernetes/ingress.md)
+  - [Troubleshooting](kubernetes/troubleshooting.md)
 
 ---
 ## Conceitos e tecnologias
