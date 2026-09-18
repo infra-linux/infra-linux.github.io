@@ -30,7 +30,7 @@ Ele ajuda a padronizar ambientes, reduzir diferenças entre desenvolvimento e pr
 
 Esta seção reúne os principais conceitos e procedimentos relacionados ao Docker:
 
-* Imagens Docker
+* [Imagens Docker](docker-image.md)
 * [Containers](docker-container.md)
 * Dockerfile
 * Volumes
