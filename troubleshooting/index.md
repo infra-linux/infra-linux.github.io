@@ -3,7 +3,7 @@ layout: default
 title: Troubleshooting
 ---
 
-# 🛠️ Troubleshooting
+# Troubleshooting
 
 ## Introdução
 
@@ -40,4 +40,4 @@ Sintoma --> Impacto --> Evidências --> Causa provável --> Ação corretiva -->
 
 ---
 
-> 💡 Use esta seção como base para procedimentos de suporte e análise de incidentes.
+> Use esta seção como base para procedimentos de suporte e análise de incidentes.

@@ -3,7 +3,7 @@ layout: default
 title: Troubleshooting Wiki da Empresa Exemplo
 ---
 
-# 📊 Troubleshooting Completo – Wiki da Empresa Exemplo Indisponível (Docker, WikiJS, Nginx e Certificados)
+# Troubleshooting Completo – Wiki da Empresa Exemplo Indisponível (Docker, WikiJS, Nginx e Certificados)
 
 ## Objetivo
 

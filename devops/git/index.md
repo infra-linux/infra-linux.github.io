@@ -3,7 +3,7 @@ layout: default
 title: Git
 ---
 
-# 🐙 Git
+# Git
 
 ## Introdução
 

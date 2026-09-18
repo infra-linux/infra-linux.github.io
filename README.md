@@ -6,7 +6,7 @@ O Infra Linux reúne conhecimento prático da rotina de infraestrutura para serv
 
 ---
 
-## 📚 Conteúdo
+## Conteúdo
 
 | Área | Conteúdo principal |
 | --- | --- |
@@ -23,7 +23,7 @@ O Infra Linux reúne conhecimento prático da rotina de infraestrutura para serv
 
 ---
 
-## ✨ Destaques
+## Destaques
 
 - Navegação organizada por área técnica.
 - Exemplos práticos e comandos prontos para consulta.
@@ -31,7 +31,7 @@ O Infra Linux reúne conhecimento prático da rotina de infraestrutura para serv
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
 - Consolidar conhecimento técnico.
 - Compartilhar documentação.
@@ -41,7 +41,7 @@ O Infra Linux reúne conhecimento prático da rotina de infraestrutura para serv
 
 ---
 
-## 🚀 Tecnologias
+## Tecnologias
 
 - Markdown
 - HTML
@@ -49,7 +49,7 @@ O Infra Linux reúne conhecimento prático da rotina de infraestrutura para serv
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 infra-linux/
@@ -74,7 +74,7 @@ infra-linux/
 
 ---
 
-## 🧭 Padrão de documentação
+## Padrão de documentação
 
 Cada página deve seguir, sempre que fizer sentido, esta estrutura:
 
@@ -90,12 +90,12 @@ Consulte o [padrão completo de documentação](docs/padrao-de-documentacao.md),
 
 ---
 
-## 📌 Observação
+## Observação
 
 Este repositório é uma base viva de conhecimento. Os conteúdos podem evoluir conforme novos procedimentos, incidentes e aprendizados forem documentados.
 
 ---
 
-## 🚧 Como contribuir
+## Como contribuir
 
 Siga o guia de [contribuição](CONTRIBUTING.md).

@@ -3,7 +3,7 @@ layout: default
 title: Instalação do Zabbix Server com PostgreSQL no Rocky Linux 9
 ---
 
-# 📊 Instalação do Zabbix Server com PostgreSQL no Rocky Linux 9
+# Instalação do Zabbix Server com PostgreSQL no Rocky Linux 9
 
 Este tutorial mostra uma instalação básica do Zabbix Server utilizando PostgreSQL como banco de dados.
 

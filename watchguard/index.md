@@ -3,7 +3,7 @@ layout: default
 title: WatchGuard
 ---
 
-# 🔥 WatchGuard
+# WatchGuard
 
 ## Introdução
 
@@ -45,4 +45,4 @@ Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados
 
 ---
 
-> 💡 Esta seção serve como ponto de entrada para documentação de firewall, VPN, NAT e políticas WatchGuard.
+> Esta seção serve como ponto de entrada para documentação de firewall, VPN, NAT e políticas WatchGuard.

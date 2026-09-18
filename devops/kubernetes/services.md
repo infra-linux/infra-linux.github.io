@@ -3,7 +3,7 @@ layout: default
 title: Services
 ---
 
-# ☸️ Services no Kubernetes
+# Services no Kubernetes
 
 Um **Service** no Kubernetes é o recurso usado para expor Pods de forma estável dentro ou fora do cluster.
 

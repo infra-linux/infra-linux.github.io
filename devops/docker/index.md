@@ -3,7 +3,7 @@ layout: default
 title: Docker
 ---
 
-# 🐳 Docker
+# Docker
 
 ## Introdução
 

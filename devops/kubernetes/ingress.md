@@ -3,7 +3,7 @@ layout: default
 title: Ingress
 ---
 
-# ☸️ Ingress no Kubernetes
+# Ingress no Kubernetes
 
 Um **Ingress** no Kubernetes é o recurso usado para expor aplicações HTTP e HTTPS para fora do cluster usando nomes de domínio e regras de roteamento.
 

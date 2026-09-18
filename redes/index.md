@@ -3,7 +3,7 @@ layout: default
 title: Redes
 ---
 
-# 🌐 Redes
+# Redes
 
 ## Introdução
 
@@ -59,4 +59,4 @@ traceroute destino
 
 ---
 
-> 💡 Esta seção serve como base para diagnósticos de conectividade em ambientes Linux, Windows, containers e Kubernetes.
+> Esta seção serve como base para diagnósticos de conectividade em ambientes Linux, Windows, containers e Kubernetes.

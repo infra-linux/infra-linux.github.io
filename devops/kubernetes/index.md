@@ -3,7 +3,7 @@ layout: default
 title: Kubernetes
 ---
 
-# ☸️ Kubernetes
+# Kubernetes
 
 ## Introdução
 
@@ -13,7 +13,7 @@ Atualmente é uma das principais tecnologias utilizadas em ambientes corporativo
 
 Permite executar aplicações de forma distribuída, resiliente e altamente disponível.
 
-> ⚠️ Execute comandos `kubectl` somente após confirmar o contexto com `kubectl config current-context`. Em produção, valide namespace, recurso e impacto antes de aplicar ou remover manifestos.
+> Execute comandos `kubectl` somente após confirmar o contexto com `kubectl config current-context`. Em produção, valide namespace, recurso e impacto antes de aplicar ou remover manifestos.
 
 ---
 
@@ -39,4 +39,4 @@ KUBECONFIG --> Kubectl --> Instalação do Cluster --> Pods --> Deployments --> 
 
 ---
 
-> 💡 Recomenda-se iniciar pelos tópicos KUBECONFIG, Kubectl e Pods antes de avançar para Deployments, Services, Ingress e Troubleshooting.
+> Recomenda-se iniciar pelos tópicos KUBECONFIG, Kubectl e Pods antes de avançar para Deployments, Services, Ingress e Troubleshooting.

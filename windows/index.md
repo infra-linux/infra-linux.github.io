@@ -3,7 +3,7 @@ layout: default
 title: Windows
 ---
 
-# 🪟 Windows
+# Windows
 
 ## Introdução
 
@@ -44,4 +44,4 @@ Centralizar procedimentos e anotações utilizados no dia a dia da administraç�
 
 ---
 
-> 💡 Esta seção reúne procedimentos práticos para suporte, administração e troubleshooting de Windows em ambiente corporativo.
+> Esta seção reúne procedimentos práticos para suporte, administração e troubleshooting de Windows em ambiente corporativo.

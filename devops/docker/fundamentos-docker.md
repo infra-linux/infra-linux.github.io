@@ -3,7 +3,7 @@ layout: default
 title: Docker
 ---
 
-# 🐳 Docker
+# Docker
 
 ## Introdução
 
@@ -11,7 +11,7 @@ Docker é uma plataforma para criar, empacotar e executar aplicações em contai
 
 Ele ajuda a padronizar ambientes, reduzir diferenças entre desenvolvimento e produção e facilitar a distribuição de aplicações com suas dependências.
 
-> ⚠️ Antes de remover containers, imagens ou volumes, confirme o ambiente e o recurso-alvo. Volumes podem conter dados persistentes e nem sempre possuem recuperação simples.
+> Antes de remover containers, imagens ou volumes, confirme o ambiente e o recurso-alvo. Volumes podem conter dados persistentes e nem sempre possuem recuperação simples.
 
 ---
 
@@ -53,4 +53,4 @@ docker inspect nome-do-container
 
 ---
 
-> 💡 Esta seção concentra procedimentos e anotações sobre containers, imagens, volumes e execução de aplicações com Docker.
+> Esta seção concentra procedimentos e anotações sobre containers, imagens, volumes e execução de aplicações com Docker.

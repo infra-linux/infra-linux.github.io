@@ -3,7 +3,7 @@ layout: default
 title: DevOps-Ansible
 ---
 
-# 🤖 Ansible — Guia Prático
+# Ansible — Guia Prático
 
 ## Introdução
 
@@ -1521,7 +1521,7 @@ ansible-inventory -i hosts.ini --list
 
 ---
 
-# 🧠 O que estudar depois
+# O que estudar depois
 
 Depois de dominar os fundamentos, avance para:
 
@@ -1548,7 +1548,7 @@ Para administração Linux, **Roles + Jinja2 + Vault + Ansible Galaxy** são esp
 
 ---
 
-# 🎯 Exercícios práticos
+# Exercícios práticos
 
 ## Exercício 1 — Inventário
 
@@ -1632,7 +1632,7 @@ Somente depois aplique nos demais.
 
 ---
 
-# 📌 Resumo
+# Resumo
 
 O Ansible permite transformar tarefas repetitivas de administração em automações padronizadas.
 
@@ -1672,4 +1672,4 @@ ansible-playbook -i hosts.ini playbook.yml
 ansible-inventory -i hosts.ini --graph
 ```
 
-> 💡 **Regra de ouro:** primeiro aprenda a executar uma tarefa manualmente no Linux. Depois transforme essa tarefa em um comando Ansible. Por fim, transforme o comando em um playbook idempotente e reutilizável.
+> **Regra de ouro:** primeiro aprenda a executar uma tarefa manualmente no Linux. Depois transforme essa tarefa em um comando Ansible. Por fim, transforme o comando em um playbook idempotente e reutilizável.

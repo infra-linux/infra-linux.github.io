@@ -3,7 +3,7 @@ layout: default
 title: Nutanix
 ---
 
-# 🥜 Nutanix
+# Nutanix
 
 ## Introdução
 
@@ -43,4 +43,4 @@ Esta seção foi reorganizada para apresentar:
 
 ---
 
-> 💡 Esta seção reúne os principais tópicos de Nutanix em um formato organizado e fácil de navegar.
+> Esta seção reúne os principais tópicos de Nutanix em um formato organizado e fácil de navegar.

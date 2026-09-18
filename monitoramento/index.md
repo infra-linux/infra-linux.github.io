@@ -3,7 +3,7 @@ layout: default
 title: Monitoramento
 ---
 
-# 📊 Monitoramento
+# Monitoramento
 
 ## Introdução
 
@@ -20,4 +20,4 @@ Nesta seção estão reunidos procedimentos, conceitos e ferramentas utilizados 
 
 ---
 
-> 💡 Esta seção reúne conceitos, instalações, configurações e boas práticas relacionadas ao monitoramento de ambientes de infraestrutura.
+> Esta seção reúne conceitos, instalações, configurações e boas práticas relacionadas ao monitoramento de ambientes de infraestrutura.

@@ -3,7 +3,7 @@ layout: default
 title: DevOps — início rápido
 ---
 
-# ⚙️ DevOps — início rápido
+# DevOps — início rápido
 
 Siga esta trilha para entender o fluxo de entrega de aplicações, do versionamento à operação em Kubernetes.
 
@@ -19,4 +19,4 @@ Siga esta trilha para entender o fluxo de entrega de aplicações, do versioname
 Alteração em branch → revisão → validação automática → merge → build de imagem → deploy controlado → monitoramento
 ```
 
-> 💡 Pratique primeiro em um ambiente de desenvolvimento. Antes de qualquer alteração em produção, valide o alvo, tenha backup e defina o rollback.
+> Pratique primeiro em um ambiente de desenvolvimento. Antes de qualquer alteração em produção, valide o alvo, tenha backup e defina o rollback.

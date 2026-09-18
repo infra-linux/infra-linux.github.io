@@ -3,7 +3,7 @@ layout: default
 title: Active Directory
 ---
 
-# 🏢 Active Directory - Comandos Úteis para Suporte e Infraestrutura
+# Active Directory - Comandos Úteis para Suporte e Infraestrutura
 
 ## Verificar informações de um usuário
 

@@ -3,7 +3,7 @@ layout: default
 title: Git — guia prático
 ---
 
-# 🐙 Git — guia prático
+# Git — guia prático
 
 Este guia reúne o fluxo essencial e os recursos de colaboração do Git para administrar a documentação e outros projetos.
 

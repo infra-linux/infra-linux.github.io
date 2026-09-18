@@ -3,7 +3,7 @@ layout: default
 title: Troubleshooting Kubernetes
 ---
 
-# ☸️ Troubleshooting Kubernetes
+# Troubleshooting Kubernetes
 
 Troubleshooting no Kubernetes é o processo de investigar falhas em aplicações, Pods, Services, Ingress, DNS, permissões, recursos e comunicação dentro do cluster.
 

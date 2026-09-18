@@ -3,7 +3,7 @@ layout: default
 title: DevOps — início rápido
 ---
 
-# ⚙️ DevOps — início rápido
+# DevOps — início rápido
 
 ## Introdução
 

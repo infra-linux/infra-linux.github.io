@@ -3,7 +3,7 @@ layout: default
 title: Squid
 ---
 
-# 🦑 Squid
+# Squid
 
 ## Introdução
 
@@ -57,4 +57,4 @@ tail -f /var/log/squid/cache.log
 
 ---
 
-> 💡 Esta seção centraliza procedimentos de configuração, análise de logs e troubleshooting do Squid Proxy.
+> Esta seção centraliza procedimentos de configuração, análise de logs e troubleshooting do Squid Proxy.

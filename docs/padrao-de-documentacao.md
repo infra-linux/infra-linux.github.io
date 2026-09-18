@@ -35,4 +35,4 @@ Explique como reverter a alteração ou informe explicitamente quando não houve
 Registre riscos, dados sensíveis e cuidados operacionais.
 ```
 
-> ⚠️ Antes de comandos que removem dados, sobrescrevem configurações ou atuam em produção, informe o impacto, a confirmação do alvo e a alternativa de rollback.
+> Antes de comandos que removem dados, sobrescrevem configurações ou atuam em produção, informe o impacto, a confirmação do alvo e a alternativa de rollback.

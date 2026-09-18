@@ -3,7 +3,7 @@ layout: default
 title: O que é Pod?
 ---
 
-# 🟦 Pods no Kubernetes
+# Pods no Kubernetes
 
 ## O que é um Pod?
 

@@ -3,7 +3,7 @@ layout: default
 title: LVM
 ---
 
-# 💾 LVM
+# LVM
 ## Como criar um novo volume LVM
 
 Este procedimento cria um novo volume LVM utilizando um disco já conectado ao servidor.

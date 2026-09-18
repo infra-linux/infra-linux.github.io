@@ -3,7 +3,7 @@ layout: default
 title: Redes-portas-e-protocolos
 ---
 
-# 🔌 Portas e Protocolos
+# Portas e Protocolos
 
 ## Introdução
 
@@ -592,7 +592,7 @@ Get-NetTCPConnection -State Listen
 
 ---
 
-## 🧠 Resumo
+## Resumo
 
 ```text
 IP       → identifica o host
@@ -608,4 +608,4 @@ Para troubleshooting:
 DNS → IP → Rota → Firewall → Porta → Serviço → Aplicação
 ```
 
-> 💡 **Regra de ouro:** quando alguém disser "a aplicação está sem acesso", não assuma imediatamente que é problema da aplicação. Primeiro descubra **qual IP, qual porta e qual protocolo** estão envolvidos.
+> **Regra de ouro:** quando alguém disser "a aplicação está sem acesso", não assuma imediatamente que é problema da aplicação. Primeiro descubra **qual IP, qual porta e qual protocolo** estão envolvidos.

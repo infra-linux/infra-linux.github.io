@@ -3,7 +3,7 @@ layout: default
 title: Windows
 ---
 
-# 🪟 Windows como Proxy para VMs Linux usando Cntlm
+# Windows como Proxy para VMs Linux usando Cntlm
 
 ## Objetivo
 

@@ -4,7 +4,7 @@ layout: default
 title: KUBECONFIG
 -----------------
 
-# ☸️ KUBECONFIG - Guia Rápido
+# KUBECONFIG - Guia Rápido
 
 ## Introdução
 
@@ -256,4 +256,4 @@ https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeco
 
 ---
 
-> 💡 Sempre valide o KUBECONFIG carregado antes de iniciar qualquer operação em homologação ou produção.
+> Sempre valide o KUBECONFIG carregado antes de iniciar qualquer operação em homologação ou produção.

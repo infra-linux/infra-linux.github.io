@@ -3,7 +3,7 @@ layout: default
 title: Linux
 ---
 
-# 🐧 Linux
+# Linux
 
 ## Introdução
 
@@ -28,4 +28,4 @@ Sua flexibilidade, estabilidade e segurança fazem dele uma das principais plata
 
 ---
 
-> 💡 Esta seção reúne conceitos, comandos e procedimentos práticos relacionados ao Linux.
+> Esta seção reúne conceitos, comandos e procedimentos práticos relacionados ao Linux.

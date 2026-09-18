@@ -3,7 +3,7 @@ layout: default
 title: kubectl
 ---
 
-# ☸️ kubectl - Guia Prático
+# kubectl - Guia Prático
 
 ## Introdução
 
@@ -361,4 +361,4 @@ https://kubernetes.io/docs/reference/kubectl/
 
 ---
 
-> 💡 Em atividades de troubleshooting, normalmente a sequência mais eficiente é: get → describe → logs → exec.
+> Em atividades de troubleshooting, normalmente a sequência mais eficiente é: get → describe → logs → exec.

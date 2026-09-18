@@ -3,7 +3,7 @@ layout: default
 title: Deployments
 ---
 
-# ☸️ Deployments no Kubernetes
+# Deployments no Kubernetes
 
 Um **Deployment** no Kubernetes é o recurso usado para criar, atualizar e manter aplicações rodando em Pods.
 

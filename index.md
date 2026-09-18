@@ -26,37 +26,37 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 
 <div class="cards-container">
   <a class="card" href="linux/">
-    <h3>🐧 Linux</h3>
+    <h3> Linux</h3>
     <p>Administração, comandos, LVM e certificados.</p>
   </a>
 
-  <a class="card" href="devops/"> 
-    <h3>⚙️ DevOps</h3> 
-    <p>Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</p> 
+  <a class="card" href="devops/">
+    <h3> DevOps</h3>
+    <p>Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</p>
   </a>
 
   <a class="card" href="redes/">
-    <h3>🌐 Redes</h3>
+    <h3> Redes</h3>
     <p>DNS, TCP/IP, proxy e conectividade.</p>
   </a>
 
   <a class="card" href="monitoramento/">
-    <h3>📊 Monitoramento</h3>
+    <h3> Monitoramento</h3>
     <p>Zabbix, Grafana, métricas e alertas.</p>
   </a>
 
   <a class="card" href="squid/">
-    <h3>🦑 Squid</h3>
+    <h3> Squid</h3>
     <p>Proxy, ACLs, autenticação e logs.</p>
   </a>
 
   <a class="card" href="watchguard/">
-    <h3>🔥 WatchGuard</h3>
+    <h3> WatchGuard</h3>
     <p>Firewall, políticas, VPN e troubleshooting.</p>
   </a>
 
   <a class="card" href="nutanix/">
-    <h3>🥜 Nutanix</h3>
+    <h3> Nutanix</h3>
     <p>Virtualização, Prism e infraestrutura.</p>
   </a>
 
@@ -66,12 +66,12 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
   </a>
 
   <a class="card" href="windows/">
-    <h3>🪟 Windows</h3>
+    <h3> Windows</h3>
     <p>Estações, ferramentas e administração.</p>
   </a>
 
   <a class="card" href="troubleshooting/">
-    <h3>🛠️ Troubleshooting</h3>
+    <h3> Troubleshooting</h3>
     <p>Erros, diagnósticos e soluções práticas.</p>
   </a>
 </div>
