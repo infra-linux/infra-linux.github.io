@@ -8,7 +8,7 @@ title: DevOps — início rápido
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Trilha de estudo](#trilha-de-estudo)
+2. [Conteúdo](#conteúdo)
 3. [Rotina recomendada](#rotina-recomendada)
 4. [Boas práticas](#boas-praticas)
 
@@ -22,7 +22,7 @@ O objetivo é entender a relação entre as ferramentas antes de avançar para i
 
 ---
 
-## Trilha de estudo
+## Conteúdo
 
 Siga esta sequência para compreender o fluxo de entrega de aplicações, do versionamento à operação em Kubernetes.
 

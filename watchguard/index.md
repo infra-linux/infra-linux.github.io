@@ -8,7 +8,7 @@ title: WatchGuard
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Temas da seção](#temas-da-secao)
+2. [Conteúdo](#conteúdo)
 3. [Checklist de análise](#checklist-de-analise)
 4. [Boas práticas](#boas-praticas)
 
@@ -22,7 +22,7 @@ WatchGuard é uma solução de firewall e segurança de rede usada para controla
 Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados à administração de firewalls WatchGuard.
 
 ---
-## Temas da seção
+## Conteúdo
 
 * Instalação do WatchGuard NDR Collection Agent.
 * [Coleta de Logs do Collection Agent](watchguardndrcollectionagent.md)

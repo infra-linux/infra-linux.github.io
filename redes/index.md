@@ -8,7 +8,7 @@ title: Redes
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Temas da seção](#temas-da-secao)
+2. [Conteúdo](#conteúdo)
 3. [Comandos de consulta rápida](#comandos-de-consulta-rapida)
 4. [Boas práticas](#boas-praticas)
 
@@ -22,7 +22,7 @@ Redes são a base da comunicação entre servidores, estações, aplicações, c
 Esta seção reúne conceitos, comandos e procedimentos relacionados a conectividade, DNS, portas, rotas, proxy e troubleshooting de comunicação.
 
 ---
-## Temas da seção
+## Conteúdo
 
 * [DNS](dns-guiapraticolinux.md)
 * [TCP/IP](tcpip.md)

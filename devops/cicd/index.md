@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CI/CD
-------------
+---
 
 # CI/CD
 
@@ -36,31 +36,29 @@ Código → Build → Testes → Imagem → Deploy → Monitoramento
 
 ### Git e pipelines
 
-* [Git no CI/CD](git-no-cicd.md)
+* [Guia prático de Git](../git/guia-pratico.md)
 
 ### Build e testes
 
-* [Build e artefatos](build-e-artefatos.html)
-* [Testes em pipelines](testes-em-pipelines.html)
+* [Fundamentos de CI/CD](fundamentos-cicd.md)
 
 ### Containers
 
-* [Docker e imagens no CI/CD](docker-cicd.html)
+* [Imagens Docker](../docker/docker-image.md)
+* [Containers Docker](../docker/docker-container.md)
 
 ### Deploy
 
-* [Deploy](deploy.html)
-* [CI/CD com Kubernetes](cicd-kubernetes.html)
+* [Kubernetes](../kubernetes/index.md)
 
 ### Ferramentas
 
-* [Jenkins](jenkins.html)
-* [GitHub Actions](github-actions.html)
+* [Fundamentos de CI/CD](fundamentos-cicd.md)
 
 ### Operação
 
-* [Monitoramento e observabilidade](monitoramento-cicd.html)
-* [GitOps](gitops.html)
+* [Monitoramento](../../monitoramento/index.md)
+* [DevOps — início rápido](../inicio-rapido/index.md)
 
 ---
 ## Fluxo recomendado de estudo

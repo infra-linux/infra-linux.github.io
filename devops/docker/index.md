@@ -1,5 +1,4 @@
 ---
-
 layout: default
 title: Docker
 ---
@@ -9,7 +8,7 @@ title: Docker
 ## Sumário
 
 1. [Introdução](#introdução)
-2. [Conceitos principais](#conceitos-principais)
+2. [Conteúdo](#conteúdo)
 3. [Comandos de consulta rápida](#comandos-de-consulta-rápida)
 4. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
 5. [Boas práticas](#boas-práticas)
@@ -26,7 +25,7 @@ Ele ajuda a padronizar ambientes, reduzir diferenças entre desenvolvimento e pr
 
 ---
 
-## Conceitos principais
+## Conteúdo
 
 Esta seção reúne os principais conceitos e procedimentos relacionados ao Docker:
 

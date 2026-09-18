@@ -8,7 +8,7 @@ title: Squid
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Temas da seção](#temas-da-secao)
+2. [Conteúdo](#conteúdo)
 3. [Arquivos importantes](#arquivos-importantes)
 4. [Comandos de consulta rápida](#comandos-de-consulta-rapida)
 5. [Boas práticas](#boas-praticas)
@@ -23,7 +23,7 @@ Squid é um servidor proxy utilizado para controlar, registrar e otimizar o aces
 Ele pode ser usado para aplicar ACLs, autenticação, filtros de acesso, cache e auditoria de navegação.
 
 ---
-## Temas da seção
+## Conteúdo
 
 * instalação do Squid
 * configuração de proxy

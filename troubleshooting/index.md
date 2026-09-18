@@ -8,7 +8,7 @@ title: Troubleshooting
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Artigos](#artigos)
+2. [Conteúdo](#conteúdo)
 3. [Fluxo recomendado](#fluxo-recomendado)
 4. [Boas práticas](#boas-praticas)
 
@@ -22,7 +22,7 @@ Esta seção reúne procedimentos de investigação, análise de incidentes e co
 O objetivo é registrar sintomas, comandos, evidências e ações de correção para facilitar atendimentos futuros.
 
 ---
-## Artigos
+## Conteúdo
 
 * [Wiki indisponível](troubleshootingwiki.md)
 * [Aplicação ITSM de exemplo indisponível](troubleshootingcitsmart.md)

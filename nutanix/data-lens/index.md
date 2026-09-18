@@ -8,20 +8,26 @@ title: Introdução ao Nutanix Data Lens
 ## Sumário
 
 1. [O que é Data Lens?](#o-que-e-data-lens)
-2. [Principais funcionalidades](#principais-funcionalidades)
-3. [Objetivo](#objetivo)
+2. [Introdução](#introdução)
+3. [Conteúdo](#conteúdo)
 4. [Resumo](#resumo)
 
 ---
 
 
-## O que é Data Lens?
+## Introdução
+
+Esta página apresenta o Nutanix Data Lens e suas principais funções de visibilidade, governança e proteção de dados.
+
+## Conteúdo
+
+### O que é Data Lens?
 
 O **Nutanix Data Lens** é um serviço de visibilidade e governança de dados não estruturados.
 
 Ele ajuda a identificar informações sensíveis, riscos de segurança e padrões de uso em arquivos e compartilhamentos.
 
-## Principais funcionalidades
+### Principais funcionalidades
 
 - Auditoria de acesso a dados;
 - Análise de permissões;
@@ -30,7 +36,7 @@ Ele ajuda a identificar informações sensíveis, riscos de segurança e padrõe
 - Investigação de riscos;
 - Informações sobre ransomware.
 
-## Objetivo
+### Objetivo
 
 O Data Lens oferece suporte a equipes de segurança, compliance e operações para monitorar o uso de dados e priorizar ações de proteção.
 
