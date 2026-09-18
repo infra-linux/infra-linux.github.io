@@ -251,7 +251,7 @@ main {
 .home-hero h1 {
   margin: 0;
   color: var(--texto-claro);
-  font-size: clamp(32px, 4vw, 46px);
+  font-size: clamp(30px, 3.5vw, 42px);
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -308,14 +308,32 @@ h1, h2, h3, h4, h5 {
   color: var(--texto-claro);
 }
 
-h2 {
-  margin-top: 42px;
+h1 {
+  margin-top: 0;
   margin-bottom: 18px;
-  font-size: 2rem;
+  font-size: 1.65rem;
+  line-height: 1.25;
+}
+
+h2 {
+  margin-top: 32px;
+  margin-bottom: 14px;
+  font-size: 1.3rem;
+  line-height: 1.35;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  padding-bottom: 10px;
+  letter-spacing: 0;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+h4, h5 {
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
 p, li, td, th, blockquote {
@@ -685,7 +703,7 @@ body.menu-open .backdrop {
   }
 
   .home-hero h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .site-footer {

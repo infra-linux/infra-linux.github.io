@@ -4,9 +4,24 @@ title: LVM
 ---
 
 # LVM
-## Como criar um novo volume LVM
+
+## Como criar e montar um novo volume LVM
 
 Este procedimento cria um novo volume LVM utilizando um disco já conectado ao servidor.
+
+> Atenção: os comandos deste tutorial consideram que `/dev/sdb` é um disco novo e sem dados. Confirme o dispositivo antes de executar comandos que alteram discos.
+
+## Pré-requisitos
+
+- Disco conectado ao servidor
+- Acesso como `root` ou permissão para usar `sudo`
+- Pacotes `lvm2` instalados
+
+Instale o pacote, caso necessário:
+
+```bash
+dnf install -y lvm2
+```
 
 ## Identificar o disco
 
@@ -14,13 +29,14 @@ Este procedimento cria um novo volume LVM utilizando um disco já conectado ao s
 lsblk
 ```
 
-Exemplo:
-
-![Saída do comando lsblk](../images/lsblk.png)
-
 ```text
-sdb    10G disk
+NAME   SIZE TYPE MOUNTPOINTS
+sda     20G disk
+└─sda1  20G part /
+sdb     10G disk
 ```
+
+Confirme que o disco escolhido não possui partições ou dados que devam ser preservados.
 
 ---
 
@@ -29,15 +45,12 @@ sdb    10G disk
 ```bash
 pvcreate /dev/sdb
 ```
-![Saída do comando pvcreate](../images/pvcreate.png)
-
 
 Verificar:
 
 ```bash
 pvs
 ```
-![Saída do comando pvs](../images/pvs.png)
 
 ---
 
@@ -46,34 +59,40 @@ pvs
 ```bash
 vgcreate dados-vg /dev/sdb
 ```
-![Saída do comando vgcreate](../images/vgcreate.png)
 
 Verificar:
 
 ```bash
 vgs
 ```
-![Saída do comando vgs](../images/vgs.png)
+
+O grupo `dados-vg` deve aparecer com aproximadamente o tamanho disponível em `/dev/sdb`.
 ---
 
 ## Criar o Logical Volume (LV)
 
-Adicionando 5G do dico disponível:
+Para criar um volume de 5 GiB:
 
 ```bash
-lvcreate -l 5 -n dados-lv dados-vg
+lvcreate -L 5G -n dados-lv dados-vg
 ```
-![Saída do comando lvcreate](../images/lvcreate.png)
+
+Para utilizar todo o espaço livre do grupo, use:
+
+```bash
+lvcreate -l 100%FREE -n dados-lv dados-vg
+```
 
 Verificar:
 
 ```bash
 lvs
 ```
-![Saída do comando lvs](../images/lvs.png)
 ---
 
 ## Criar o filesystem
+
+Escolha apenas um dos filesystems abaixo.
 
 XFS:
 
@@ -86,14 +105,13 @@ ou EXT4:
 ```bash
 mkfs.ext4 /dev/dados-vg/dados-lv
 ```
-![Saída do comando mkfs](../images/mkfs.png)
 
 ---
 
 ## Criar o ponto de montagem
 
 ```bash
-mkdir /dados
+mkdir -p /dados
 ```
 
 ---
@@ -109,7 +127,12 @@ Validar:
 ```bash
 df -h
 ```
-![Saída do comando df-h](../images/df-h.png)
+
+Também é possível confirmar o volume montado com:
+
+```bash
+findmnt /dados
+```
 ---
 
 ## Configurar montagem automática
@@ -132,6 +155,8 @@ Adicionar:
 UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx /dados xfs defaults 0 0
 ```
 
+Se tiver escolhido EXT4, substitua `xfs` por `ext4`.
+
 Testar:
 
 ```bash
@@ -139,6 +164,17 @@ mount -a
 ```
 
 ---
+
+## Validar o resultado
+
+Verifique o espaço disponível e o filesystem:
+
+```bash
+df -hT /dados
+lsblk -f
+```
+
+O volume deve aparecer montado em `/dados` com o filesystem escolhido.
 
 ## Estrutura criada
 
@@ -161,21 +197,22 @@ Filesystem (XFS)
 ## Resumo
 
 ```bash
-pvcreate /dev/sdb
+lsblk
 
+pvcreate /dev/sdb
 vgcreate dados-vg /dev/sdb
 
-lvcreate -l 100%FREE -n dados-lv dados-vg
+lvcreate -L 5G -n dados-lv dados-vg
 
 mkfs.xfs /dev/dados-vg/dados-lv
 
-mkdir /dados
+mkdir -p /dados
 
 mount /dev/dados-vg/dados-lv /dados
 
-blkid
+findmnt /dados
 
-vi /etc/fstab
+blkid /dev/dados-vg/dados-lv
 
 mount -a
 ```
