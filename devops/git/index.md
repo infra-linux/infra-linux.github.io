@@ -7,15 +7,23 @@ title: Git
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [Para que serve](#para-que-serve)
-3. [Git e GitHub](#git-e-github)
-4. [Conceitos fundamentais](#conceitos-fundamentais)
-5. [As três áreas do Git](#as-tres-areas-do-git)
-6. [Fluxo básico na prática](#fluxo-basico-na-pratica)
-7. [Branches e equipe](#branches-e-equipe)
-8. [Boas práticas](#boas-praticas)
-9. [Conteúdo para aprofundamento](#conteudo-para-aprofundamento)
+2. [Conteúdo para aprofundamento](#conteudo-para-aprofundamento)
+3. [Para que serve](#para-que-serve)
+4. [Git e GitHub](#git-e-github)
+5. [Conceitos fundamentais](#conceitos-fundamentais)
+6. [As três áreas do Git](#as-tres-areas-do-git)
+7. [Fluxo básico na prática](#fluxo-basico-na-pratica)
+8. [Branches e equipe](#branches-e-equipe)
+9. [Boas práticas](#boas-praticas)
 10. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+
+---
+
+## Conteúdo para aprofundamento
+
+* [Guia prático de Git](guia-pratico.md)
+* [Tutorial: Branch e publicação na main](git-branch-para-main.md)
+* [Tutorial: Clone, Branch, Pull Request e Merge](git-clone-branch-pull-request.md)
 
 ---
 
@@ -147,14 +155,6 @@ Em equipes, prefira abrir um Pull Request para revisar as alterações antes do 
 - Revise `git diff --staged` antes do commit.
 - Nunca coloque senhas, tokens ou chaves de API no repositório.
 - Atualize a `main` antes de iniciar uma nova alteração.
-
----
-
-## Conteúdo para aprofundamento
-
-* [Guia prático de Git](guia-pratico.md)
-* [Tutorial: Branch e publicação na main](git-branch-para-main.md)
-* [Tutorial: Clone, Branch, Pull Request e Merge](git-clone-branch-pull-request.md)
 
 ---
 
