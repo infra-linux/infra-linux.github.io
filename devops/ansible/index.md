@@ -16,31 +16,17 @@ title: Ansible
 
 ## Introdução
 
-Um **Playbook Ansible** é um arquivo escrito em **YAML** que define, de forma organizada e automatizada, quais tarefas o Ansible deve executar em um ou mais servidores.
+Ansible é uma ferramenta de automação utilizada para administrar servidores, configurar sistemas, instalar pacotes, gerenciar serviços e executar tarefas repetitivas em vários hosts.
 
-Enquanto o comando `ansible` executa uma ação pontual, o Playbook transforma várias ações em um procedimento documentado, repetível e automatizado.
+A comunicação normalmente ocorre por SSH e não exige a instalação de um agente nos servidores gerenciados.
 
-Uma execução manual poderia ser:
-
-```bash
-ssh usuario@servidor
-systemctl status servico
-systemctl is-active servico
-```
-
-Com Ansible, essas verificações podem ser executadas de forma padronizada em vários servidores:
-
-```bash
-ansible-playbook -i inventory/hosts.ini playbooks/diagnostico.yml -k
-```
-
-O Playbook passa a funcionar como um procedimento operacional automatizado.
+O computador onde o Ansible está instalado é o **Control Node**. Os servidores administrados são os **Managed Nodes**.
 
 ---
 
 ## Conceitos principais
 
-Ansible é uma ferramenta de automação usada para:
+O Ansible pode ser usado para:
 
 - administrar servidores;
 - configurar sistemas;
@@ -60,7 +46,7 @@ Control Node
 Managed Nodes
 ```
 
-O **Control Node** é o computador onde o Ansible está instalado. Os **Managed Nodes** são os servidores administrados.
+Um Playbook é uma das principais formas de organizar e executar essas automações de maneira documentada e repetível.
 
 ---
 

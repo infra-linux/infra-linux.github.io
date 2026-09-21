@@ -99,11 +99,27 @@ title: Playbooks Ansible
 ---
 ## Introdução
 
-O **Ansible** é uma ferramenta de automação utilizada para administrar servidores, executar comandos, instalar pacotes, alterar configurações e realizar tarefas repetitivas em vários hosts.
+Um **Playbook Ansible** é um arquivo escrito em **YAML** que define, de forma organizada e automatizada, quais tarefas o Ansible deve executar em um ou mais servidores.
 
-Ele utiliza principalmente **SSH** para se comunicar com servidores Linux e permite transformar procedimentos manuais em automações reproduzíveis.
+Enquanto o comando `ansible` executa uma ação pontual, o Playbook transforma várias ações em um procedimento documentado, repetível e automatizado.
 
-Em ambientes de infraestrutura, o Ansible pode ser utilizado para:
+Uma execução manual poderia ser:
+
+```bash
+ssh usuario@servidor
+systemctl status servico
+systemctl is-active servico
+```
+
+Com Ansible, essas verificações podem ser executadas de forma padronizada:
+
+```bash
+ansible-playbook -i inventory/hosts.ini playbooks/diagnostico.yml -k
+```
+
+O Playbook passa a funcionar como um procedimento operacional automatizado.
+
+Um Playbook pode organizar tarefas de:
 
 * Administração de servidores Linux
 * Instalação e atualização de pacotes
@@ -118,7 +134,7 @@ Em ambientes de infraestrutura, o Ansible pode ser utilizado para:
 
 ---
 
-## O que é Ansible?
+## Como um Playbook funciona
 
 O Ansible trabalha com uma estrutura simples:
 
