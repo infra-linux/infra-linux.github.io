@@ -8,7 +8,8 @@ title: DevOps
 
 1. [Introdução](#introducao)
 2. [Conteúdo](#conteudo)
-3. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+3. [Rotina recomendada](#rotina-recomendada)
+4. [Boas práticas](#boas-praticas)
 
 ---
 
@@ -18,26 +19,57 @@ DevOps reúne práticas que aproximam o desenvolvimento de software e as operaç
 
 Esta seção apresenta versionamento, CI/CD, automação, containers, orquestração e observabilidade em um fluxo integrado de entrega e operação.
 
+O objetivo é entender a relação entre as ferramentas antes de avançar para implementações mais complexas.
+
 ---
 
 ## Conteúdo
 
-* [Início rápido em DevOps](inicio-rapido/index.md)
-* [CI/CD](cicd/index.md)
-* [Git](git/index.md)
-* [Ansible](ansible/index.md)
-* [Docker](docker/index.md)
-* [Kubernetes](kubernetes/index.md)
+Siga esta sequência para compreender o fluxo de entrega de aplicações, do versionamento à operação em Kubernetes.
+
+1. [Git](git/index.md): branches, revisão e colaboração segura.
+2. [Docker](docker/index.md): imagens, containers, volumes e redes.
+3. [Kubernetes](kubernetes/index.md): KUBECONFIG, kubectl, Pods, Deployments, Services e Ingress.
+4. [CI/CD](cicd/index.md): validação, criação de imagens e deploy.
+5. [Ansible](ansible/index.md): automação de configurações repetitivas de infraestrutura.
+
+O fluxo pode ser resumido assim:
+
+```text
+Git → Docker → Kubernetes → CI/CD → Ansible
+```
 
 ---
 
-## Fluxo recomendado de estudo
+## Rotina recomendada
+
+Depois de compreender os fundamentos, o trabalho diário costuma seguir este fluxo:
 
 ```text
-Linux → Git → Docker → CI/CD → Kubernetes → Ansible → Observabilidade
+Alteração em branch
+	↓
+Revisão
+	↓
+Validação automática
+	↓
+Merge
+	↓
+Build de imagem
+	↓
+Deploy controlado
+	↓
+Monitoramento
 ```
 
-O objetivo é compreender como as ferramentas se integram, e não estudá-las como componentes isolados.
+---
+
+## Boas práticas
+
+- Pratique primeiro em um ambiente de desenvolvimento.
+- Valide o alvo antes de executar alterações em produção.
+- Mantenha backup e defina o procedimento de rollback.
+- Use branches e Pull Requests para revisar alterações.
+- Registre logs e monitore o resultado do deploy.
 
 ---
 
