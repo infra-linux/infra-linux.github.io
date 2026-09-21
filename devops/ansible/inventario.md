@@ -5,6 +5,38 @@ title: Inventários Ansible
 
 # Inventários Ansible
 
+## Sumário
+
+- [Introdução](#introdução)
+- [1. Control Node e Managed Nodes](#1-control-node-e-managed-nodes)
+- [2. Para que serve o inventário?](#2-para-que-serve-o-inventário)
+- [3. Inventário no formato INI](#3-inventário-no-formato-ini)
+- [4. Grupos e múltiplos pertencimentos](#4-grupos-e-múltiplos-pertencimentos)
+- [5. Executando comandos ad-hoc no inventário](#5-executando-comandos-ad-hoc-no-inventário)
+- [6. Nome lógico × endereço real](#6-nome-lógico-endereço-real)
+- [7. Variáveis de conexão](#7-variáveis-de-conexão)
+- [8. Senhas no inventário](#8-senhas-no-inventário)
+- [9. Grupos de grupos (`:children`)](#9-grupos-de-grupos-children)
+- [10. Variáveis de grupo e de host no próprio inventário](#10-variáveis-de-grupo-e-de-host-no-próprio-inventário)
+- [11. Formato YAML](#11-formato-yaml)
+- [12. Formas de organizar o inventário](#12-formas-de-organizar-o-inventário)
+- [13. `group_vars` e `host_vars`](#13-group_vars-e-host_vars)
+- [14. Inventário estático × dinâmico](#14-inventário-estático-dinâmico)
+- [15. Selecionando hosts](#15-selecionando-hosts)
+- [16. Chaves SSH em vez de senha](#16-chaves-ssh-em-vez-de-senha)
+- [17. O comando `ansible-inventory`](#17-o-comando-ansible-inventory)
+- [18. Inventários separados ou único?](#18-inventários-separados-ou-único)
+- [19. Exemplo completo](#19-exemplo-completo)
+- [20. Inventário e Playbook trabalham juntos](#20-inventário-e-playbook-trabalham-juntos)
+- [21. Boas práticas](#21-boas-práticas)
+- [22. Fluxo recomendado ao adicionar um servidor](#22-fluxo-recomendado-ao-adicionar-um-servidor)
+- [23. Erros comuns](#23-erros-comuns)
+- [24. Exercícios](#24-exercícios)
+- [25. Checklist de estudo](#25-checklist-de-estudo)
+- [26. Resumo](#26-resumo)
+
+---
+
 ## Introdução
 
 O **inventário** é o arquivo (ou conjunto de arquivos) que diz ao Ansible **quais servidores existem, como agrupá-los e como acessá-los**.
@@ -33,7 +65,7 @@ O inventário responde **onde** executar. O Playbook responde **o que** executar
 
 ---
 
-# 1. Control Node e Managed Nodes
+## 1. Control Node e Managed Nodes
 
 ```text
                     CONTROL NODE
@@ -57,7 +89,7 @@ O inventário fica no Control Node. Exemplo:
 
 ---
 
-# 2. Para que serve o inventário?
+## 2. Para que serve o inventário?
 
 Imagine estes servidores:
 
@@ -91,7 +123,7 @@ Significa: *execute este Play somente nos hosts do grupo `squid`.*
 
 ---
 
-# 3. Inventário no formato INI
+## 3. Inventário no formato INI
 
 O formato INI é o mais simples para começar:
 
@@ -117,7 +149,7 @@ host
 
 **Regras para nomes de grupos:** use letras, números e underscore (`_`). Evite hífens e espaços. Prefira `sao_paulo` a `sao-paulo`.
 
-## Grupos implícitos
+### Grupos implícitos
 
 Mesmo sem declará-los, o Ansible sempre cria dois grupos:
 
@@ -126,7 +158,7 @@ Mesmo sem declará-los, o Ansible sempre cria dois grupos:
 
 Por isso **não é necessário** criar um grupo só para "todos os servidores": use `all`.
 
-## Faixas de hosts
+### Faixas de hosts
 
 Para muitos servidores com nomes sequenciais, use faixas:
 
@@ -140,7 +172,7 @@ web[01:05].exemplo.com.br    # web01 até web05
 
 ---
 
-# 4. Grupos e múltiplos pertencimentos
+## 4. Grupos e múltiplos pertencimentos
 
 Um servidor pode pertencer a **vários grupos**. Isso permite organizar o inventário por critérios diferentes ao mesmo tempo (função, ambiente, localidade):
 
@@ -165,9 +197,9 @@ O host `10.0.27.72` pertence a `squid`, `linux` e `producao`.
 
 ---
 
-# 5. Executando comandos ad-hoc no inventário
+## 5. Executando comandos ad-hoc no inventário
 
-## Sintaxe básica
+### Sintaxe básica
 
 ```bash
 ansible -i inventory/hosts.ini squid -m ping -k
@@ -186,13 +218,13 @@ ansible -i inventory/hosts.ini squid -m ping -k
 * O `-k` exige o pacote `sshpass` no Control Node. O recomendado a longo prazo é usar **chaves SSH** (seção 16).
 * O módulo `ping` do Ansible **não é um ICMP ping**: ele testa conexão SSH, Python e execução de módulo no host.
 
-## Todos os hosts
+### Todos os hosts
 
 ```bash
 ansible -i inventory/hosts.ini all -m ping -k
 ```
 
-## Listando os hosts sem executar nada
+### Listando os hosts sem executar nada
 
 ```bash
 ansible -i inventory/hosts.ini all --list-hosts
@@ -217,7 +249,7 @@ ansible -i inventory/hosts.ini squid --list-hosts
 
 ---
 
-# 6. Nome lógico × endereço real
+## 6. Nome lógico × endereço real
 
 O inventário não precisa usar somente IPs. Pode usar hostnames (se o DNS resolver):
 
@@ -244,12 +276,12 @@ proxy03 → 10.0.27.74
 
 Nomes lógicos deixam Playbooks, logs e relatórios muito mais legíveis, e o IP pode mudar sem alterar nada além do inventário.
 
-## Duas variáveis que não se confundem
+### Duas variáveis que não se confundem
 
 | Variável             | O que representa                             | Exemplo (`proxy01`) |
-| -------------------- | -------------------------------------------- | ------------------- |
-| `inventory_hostname` | nome do host **como aparece no inventário**  | `proxy01`           |
-| `ansible_host`       | endereço **usado na conexão**                | `10.0.27.72`        |
+| -------------------- | --------------------------------------------- | -------------------- |
+| `inventory_hostname` | nome do host **como aparece no inventário**  | `proxy01`            |
+| `ansible_host`       | endereço **usado na conexão**                | `10.0.27.72`         |
 
 Exemplo prático:
 
@@ -281,18 +313,18 @@ IP: 10.0.27.72
 
 ---
 
-# 7. Variáveis de conexão
+## 7. Variáveis de conexão
 
 São variáveis especiais que controlam **como** o Ansible se conecta.
 
 | Variável                    | Função                                        | Padrão                        |
-| --------------------------- | --------------------------------------------- | ----------------------------- |
+| ---------------------------- | --------------------------------------------- | ------------------------------ |
 | `ansible_host`              | endereço de conexão                           | nome do host                  |
 | `ansible_user`              | usuário SSH                                   | usuário local ou `ansible.cfg` |
-| `ansible_port`              | porta SSH                                     | `22`                          |
-| `ansible_ssh_private_key_file` | chave privada SSH                          | chave padrão do SSH           |
-| `ansible_become`            | elevar privilégio (sudo) nas tarefas          | `false`                       |
-| `ansible_python_interpreter`| caminho do Python no host remoto              | detecção automática           |
+| `ansible_port`              | porta SSH                                     | `22`                           |
+| `ansible_ssh_private_key_file` | chave privada SSH                          | chave padrão do SSH            |
+| `ansible_become`            | elevar privilégio (sudo) nas tarefas          | `false`                        |
+| `ansible_python_interpreter`| caminho do Python no host remoto              | detecção automática            |
 
 Exemplo combinando várias:
 
@@ -312,7 +344,7 @@ Em vez de `root`, é mais seguro usar um usuário comum com `ansible_become=true
 
 ---
 
-# 8. Senhas no inventário
+## 8. Senhas no inventário
 
 É possível escrever:
 
@@ -336,7 +368,7 @@ ansible-vault encrypt_string 'MinhaSenha' --name 'ansible_password'
 
 ---
 
-# 9. Grupos de grupos (`:children`)
+## 9. Grupos de grupos (`:children`)
 
 Um grupo pode conter **outros grupos**:
 
@@ -369,7 +401,7 @@ infra
 ansible -i inventory/hosts.ini infra -m ping -k
 ```
 
-## Hierarquia maior
+### Hierarquia maior
 
 Atenção à sintaxe: um grupo que contém outros grupos **sempre** usa o sufixo `:children`.
 
@@ -401,9 +433,9 @@ homologacao
 
 ---
 
-# 10. Variáveis de grupo e de host no próprio inventário
+## 10. Variáveis de grupo e de host no próprio inventário
 
-## Variáveis de grupo (`:vars`)
+### Variáveis de grupo (`:vars`)
 
 ```ini
 [web]
@@ -421,7 +453,7 @@ ambiente=producao
     msg: "Ambiente: {{ ambiente }}"
 ```
 
-## Variáveis de host
+### Variáveis de host
 
 ```ini
 [web]
@@ -438,7 +470,7 @@ web02 → porta 8080
 
 ---
 
-# 11. Formato YAML
+## 11. Formato YAML
 
 O Ansible também aceita inventários em YAML:
 
@@ -474,21 +506,21 @@ all
     └── web02
 ```
 
-## INI ou YAML?
+### INI ou YAML?
 
-| INI                                      | YAML                                            |
-| ---------------------------------------- | ----------------------------------------------- |
-| Mais curto e simples para começar        | Mais verboso, porém estruturado                 |
+| INI                                      | YAML                                             |
+| ----------------------------------------- | ------------------------------------------------- |
+| Mais curto e simples para começar        | Mais verboso, porém estruturado                  |
 | Tipos de variáveis menos previsíveis     | Tipos de dados claros (listas, dicionários etc.) |
-| Ótimo para estudo e ambientes pequenos   | Bom para inventários maiores e complexos        |
+| Ótimo para estudo e ambientes pequenos   | Bom para inventários maiores e complexos         |
 
 O mais importante é **manter consistência** no projeto.
 
 ---
 
-# 12. Formas de organizar o inventário
+## 12. Formas de organizar o inventário
 
-## Por função
+### Por função
 
 ```ini
 [proxy]
@@ -509,7 +541,7 @@ O mais importante é **manter consistência** no projeto.
 
 Permite criar Playbooks por função: `diagnostico_proxy.yml`, `diagnostico_web.yml`, `diagnostico_banco.yml`...
 
-## Por ambiente
+### Por ambiente
 
 ```ini
 [producao]
@@ -525,7 +557,7 @@ Permite criar Playbooks por função: `diagnostico_proxy.yml`, `diagnostico_web.
 ansible-playbook playbook.yml --limit producao
 ```
 
-## Por localização
+### Por localização
 
 ```ini
 [brasilia]
@@ -541,13 +573,13 @@ ansible-playbook playbook.yml --limit producao
 10.0.31.73
 ```
 
-## Combinando critérios
+### Combinando critérios
 
 O poder do inventário está em **cruzar** esses critérios: um mesmo host é `squid` (função), `producao` (ambiente) e `brasilia` (local). Depois, use padrões de seleção (seção 15) para escolher exatamente o recorte desejado.
 
 ---
 
-# 13. `group_vars` e `host_vars`
+## 13. `group_vars` e `host_vars`
 
 Conforme o projeto cresce, mantenha as variáveis **fora** do arquivo de hosts:
 
@@ -566,7 +598,7 @@ inventory/
 
 O nome do arquivo deve ser igual ao nome do **grupo** ou do **host** (como aparece no inventário, ou seja, `inventory_hostname`).
 
-## `group_vars/squid.yml`
+### `group_vars/squid.yml`
 
 ```yaml
 memoria_alerta: 80
@@ -581,7 +613,7 @@ Todos os hosts do grupo `squid` enxergam essas variáveis:
     msg: "CPU: {{ cpu_alerta }}%"
 ```
 
-## `host_vars/proxy01.yml`
+### `host_vars/proxy01.yml`
 
 ```yaml
 ambiente: producao
@@ -590,7 +622,7 @@ prioridade: alta
 
 Somente `proxy01` recebe essas variáveis.
 
-## Precedência (visão simplificada)
+### Precedência (visão simplificada)
 
 Quando a mesma variável é definida em vários lugares, vence o de **maior precedência**:
 
@@ -612,9 +644,9 @@ Há muitas outras camadas na lista oficial de precedência. A recomendação pr�
 
 ---
 
-# 14. Inventário estático × dinâmico
+## 14. Inventário estático × dinâmico
 
-## Estático
+### Estático
 
 Arquivo escrito e mantido manualmente:
 
@@ -624,7 +656,7 @@ Arquivo escrito e mantido manualmente:
 10.0.27.81
 ```
 
-## Dinâmico
+### Dinâmico
 
 Em nuvem ou grandes datacenters, os servidores mudam o tempo todo. O inventário é obtido de uma fonte externa via **plugin**:
 
@@ -642,9 +674,9 @@ Em ambientes pequenos e estáveis, o estático costuma bastar. Em ambientes gran
 
 ---
 
-# 15. Selecionando hosts
+## 15. Selecionando hosts
 
-## Grupos e hosts individuais
+### Grupos e hosts individuais
 
 ```bash
 ansible -i inventory/hosts.ini all   -m ping -k
@@ -652,14 +684,14 @@ ansible -i inventory/hosts.ini squid -m ping -k
 ansible -i inventory/hosts.ini proxy01 -m ping -k
 ```
 
-## Padrões de seleção
+### Padrões de seleção
 
-| Padrão               | Significado                                 |
-| -------------------- | ------------------------------------------- |
-| `'squid:web'`        | união: hosts de `squid` **ou** `web`        |
+| Padrão               | Significado                                  |
+| ---------------------- | ---------------------------------------------- |
+| `'squid:web'`        | união: hosts de `squid` **ou** `web`         |
 | `'linux:&producao'`  | interseção: hosts em `linux` **e** `producao` |
-| `'all:!homologacao'` | exclusão: todos **menos** `homologacao`     |
-| `'web*'`             | curinga em nomes                            |
+| `'all:!homologacao'` | exclusão: todos **menos** `homologacao`      |
+| `'web*'`             | curinga em nomes                              |
 
 ```bash
 ansible -i inventory/hosts.ini 'linux:&producao' -m ping -k
@@ -667,7 +699,7 @@ ansible -i inventory/hosts.ini 'linux:&producao' -m ping -k
 
 > Use aspas simples nos padrões para o shell não interpretar `!` e `&`.
 
-## `--limit` em Playbooks
+### `--limit` em Playbooks
 
 O Playbook define `hosts:`, e o `--limit` **restringe ainda mais** onde ele executa:
 
@@ -681,7 +713,7 @@ Ele **não amplia** a seleção: só reduz o que o `hosts:` do Playbook já perm
 
 ---
 
-# 16. Chaves SSH em vez de senha
+## 16. Chaves SSH em vez de senha
 
 Para não depender de `-k` nem de senhas no inventário:
 
@@ -705,17 +737,17 @@ ansible -i inventory/hosts.ini squid -m ping
 
 ---
 
-# 17. O comando `ansible-inventory`
+## 17. O comando `ansible-inventory`
 
 Permite **consultar e validar** o inventário sem tocar nos servidores.
 
-## Estrutura em JSON
+### Estrutura em JSON
 
 ```bash
 ansible-inventory -i inventory/hosts.ini --list
 ```
 
-## Árvore de grupos
+### Árvore de grupos
 
 ```bash
 ansible-inventory -i inventory/hosts.ini --graph
@@ -732,7 +764,7 @@ ansible-inventory -i inventory/hosts.ini --graph
   |  |--web02
 ```
 
-## Variáveis de um host (já resolvidas, incluindo `group_vars`/`host_vars`)
+### Variáveis de um host (já resolvidas, incluindo `group_vars`/`host_vars`)
 
 ```bash
 ansible-inventory -i inventory/hosts.ini --host proxy01
@@ -746,9 +778,9 @@ ansible-inventory -i inventory/hosts.ini --graph --vars
 
 ---
 
-# 18. Inventários separados ou único?
+## 18. Inventários separados ou único?
 
-## Um arquivo por ambiente
+### Um arquivo por ambiente
 
 ```text
 inventory/
@@ -764,7 +796,7 @@ ansible-playbook -i inventory/homologacao.ini playbooks/diagnostico.yml
 
 Reduz o risco de rodar uma automação no ambiente errado, pois é preciso indicar explicitamente o arquivo.
 
-## Um único inventário com grupos de ambiente
+### Um único inventário com grupos de ambiente
 
 ```ini
 [producao]
@@ -786,7 +818,7 @@ Mais prático, mas exige mais atenção ao `--limit`. Em ambientes críticos, a 
 
 ---
 
-# 19. Exemplo completo
+## 19. Exemplo completo
 
 ```ini
 [squid]
@@ -813,7 +845,7 @@ linux
     └── web02
 ```
 
-## Estrutura de projeto sugerida (Infra Linux)
+### Estrutura de projeto sugerida (Infra Linux)
 
 ```text
 /opt/ansible/
@@ -843,7 +875,7 @@ Comece simples e cresça aos poucos:
 
 ---
 
-# 20. Inventário e Playbook trabalham juntos
+## 20. Inventário e Playbook trabalham juntos
 
 ```text
 inventory
@@ -883,7 +915,7 @@ Ambiente
 
 ---
 
-# 21. Boas práticas
+## 21. Boas práticas
 
 * **Nomes significativos:** `proxy01`, `web01`, em vez de `servidores1`.
 * **Organize por função** (`squid`, `web`, `banco`) e **cruze** com ambiente e localidade.
@@ -896,7 +928,7 @@ Ambiente
 
 ---
 
-# 22. Fluxo recomendado ao adicionar um servidor
+## 22. Fluxo recomendado ao adicionar um servidor
 
 ```text
 1. Adicionar ao inventário
@@ -933,22 +965,22 @@ ansible-playbook -i inventory/hosts.ini playbooks/diagnostico_squid.yml --list-h
 
 ---
 
-# 23. Erros comuns
+## 23. Erros comuns
 
-| Sintoma                                      | Causa provável                                                    |
-| -------------------------------------------- | ----------------------------------------------------------------- |
-| `skipping: no hosts matched`                 | grupo digitado errado, ou `-i` apontando para o arquivo errado    |
-| `UNREACHABLE! ... Permission denied`         | usuário/senha/chave incorretos                                     |
-| `UNREACHABLE! ... Connection timed out`      | IP errado, firewall, porta SSH diferente (`ansible_port`)          |
-| `sshpass` não encontrado ao usar `-k`        | instalar `sshpass` no Control Node                                 |
-| Host tratado como nome em vez de grupo       | faltou `:children` na declaração do grupo                          |
-| Variável com valor "inesperado"              | mesma variável definida em vários lugares (precedência)            |
-| Nome do host não resolve                     | falta DNS; use `ansible_host=IP`                                   |
-| Erro de Python no host remoto                | ajustar `ansible_python_interpreter`                               |
+| Sintoma                                      | Causa provável                                                     |
+| ---------------------------------------------- | ---------------------------------------------------------------------- |
+| `skipping: no hosts matched`                 | grupo digitado errado, ou `-i` apontando para o arquivo errado     |
+| `UNREACHABLE! ... Permission denied`         | usuário/senha/chave incorretos                                      |
+| `UNREACHABLE! ... Connection timed out`      | IP errado, firewall, porta SSH diferente (`ansible_port`)           |
+| `sshpass` não encontrado ao usar `-k`        | instalar `sshpass` no Control Node                                  |
+| Host tratado como nome em vez de grupo       | faltou `:children` na declaração do grupo                           |
+| Variável com valor "inesperado"              | mesma variável definida em vários lugares (precedência)             |
+| Nome do host não resolve                     | falta DNS; use `ansible_host=IP`                                    |
+| Erro de Python no host remoto                | ajustar `ansible_python_interpreter`                                |
 
 ---
 
-# 24. Exercícios
+## 24. Exercícios
 
 **1. Inventário básico.** Crie `inventory/estudo.ini`:
 
@@ -1009,7 +1041,7 @@ ansible -i inventory/estudo.ini infra --list-hosts
 
 ---
 
-# 25. Checklist de estudo
+## 25. Checklist de estudo
 
 Antes de avançar, você deve conseguir explicar:
 
@@ -1030,7 +1062,7 @@ Antes de avançar, você deve conseguir explicar:
 
 ---
 
-# 26. Resumo
+## 26. Resumo
 
 A estrutura mais simples:
 
