@@ -6,8 +6,8 @@ title: Git
 
 ## Sumário
 
-1. [Introdução](#introducao)
-2. [Conteúdo para aprofundamento](#conteudo-para-aprofundamento)
+1. [Conteúdo para aprofundamento](#conteudo-para-aprofundamento)
+2. [Introdução](#introducao)
 3. [Para que serve](#para-que-serve)
 4. [Git e GitHub](#git-e-github)
 5. [Conceitos fundamentais](#conceitos-fundamentais)
