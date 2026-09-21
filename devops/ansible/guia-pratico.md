@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DevOps-Ansible
+title: Playbooks Ansible
 ---
 
 # Ansible — Guia Prático
