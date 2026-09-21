@@ -9,7 +9,7 @@ title: Playbooks Ansible
 ## Sumário
 
 1. [Introdução](#introducao)
-2. [O que é Ansible?](#o-que-e-ansible)
+2. [Como um Playbook funciona](#como-um-playbook-funciona)
 3. [Instalação](#instalacao)
 4. [Red Hat / Rocky / AlmaLinux](#red-hat-rocky-almalinux)
 5. [Debian / Ubuntu](#debian-ubuntu)
