@@ -7,10 +7,16 @@ title: Ansible
 
 ## Sumário
 
-1. [Introdução](#introducao)
-2. [Conceitos principais](#conceitos-principais)
-3. [Conteúdo](#conteudo)
+1. [Conteúdo](#conteudo)
+2. [Introdução](#introducao)
+3. [Conceitos principais](#conceitos-principais)
 4. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+
+---
+
+## Conteúdo
+
+* [Playbooks Ansible — guia completo](guia-pratico.md)
 
 ---
 
@@ -50,11 +56,6 @@ Um Playbook é uma das principais formas de organizar e executar essas automaç�
 
 ---
 
-## Conteúdo
-
-* [Playbooks Ansible — guia completo](guia-pratico.md)
-
----
 ## Fluxo recomendado de estudo
 
 ```text
