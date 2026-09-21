@@ -7,19 +7,15 @@ title: Inventários Ansible
 
 ## Introdução
 
-O **inventário Ansible** é o arquivo que define os servidores que serão administrados pelo Ansible.
+O **inventário** é o arquivo (ou conjunto de arquivos) que diz ao Ansible **quais servidores existem, como agrupá-los e como acessá-los**.
 
 Ele informa, principalmente:
 
 * quais servidores existem;
-* quais servidores pertencem a cada grupo;
-* endereço ou hostname dos servidores;
-* usuário utilizado na conexão;
-* porta SSH;
-* variáveis específicas de hosts ou grupos;
-* outras informações necessárias para a automação.
-
-De forma simples:
+* a quais grupos cada servidor pertence;
+* endereço ou hostname de cada servidor;
+* usuário e porta usados na conexão SSH;
+* variáveis específicas de hosts ou grupos.
 
 ```text
 Inventário
@@ -31,13 +27,13 @@ Quais pertencem a cada grupo?
 Como o Ansible deve acessá-los?
 ```
 
-O inventário é uma das primeiras coisas que devemos entender antes de trabalhar com Playbooks.
+O inventário responde **onde** executar. O Playbook responde **o que** executar. Por isso, ele é uma das primeiras coisas a entender antes de escrever Playbooks.
+
+> **Como usar este material:** as seções 1 a 8 são o básico. As seções 9 a 14 tratam de organização e variáveis. As seções 15 em diante são práticas e de aprofundamento. Ao final há exercícios e um checklist.
 
 ---
 
 # 1. Control Node e Managed Nodes
-
-Em uma estrutura Ansible temos normalmente:
 
 ```text
                     CONTROL NODE
@@ -50,13 +46,10 @@ Em uma estrutura Ansible temos normalmente:
           01             02             03
 ```
 
-O computador onde o Ansible está instalado é o **Control Node**.
+* **Control Node:** máquina onde o Ansible está instalado e de onde os comandos são executados.
+* **Managed Nodes:** servidores administrados (não precisam ter o Ansible instalado; em geral só precisam de SSH e Python).
 
-Os servidores administrados são os **Managed Nodes**.
-
-O inventário fica no Control Node.
-
-Exemplo:
+O inventário fica no Control Node. Exemplo:
 
 ```text
 /opt/ansible/inventory/hosts.ini
@@ -66,7 +59,7 @@ Exemplo:
 
 # 2. Para que serve o inventário?
 
-Imagine que existam os seguintes servidores:
+Imagine estes servidores:
 
 ```text
 10.0.27.72
@@ -76,15 +69,7 @@ Imagine que existam os seguintes servidores:
 10.0.27.81
 ```
 
-Podemos criar grupos:
-
-```text
-Squid
-Web
-Linux
-```
-
-O inventário permite organizar esses servidores:
+Podemos organizá-los em grupos:
 
 ```text
                 Linux
@@ -96,25 +81,19 @@ O inventário permite organizar esses servidores:
   .72 .73 .74             .80 .81
 ```
 
-Assim, um Playbook pode executar somente nos servidores desejados.
-
-Por exemplo:
+Assim, um Playbook pode executar somente nos servidores desejados:
 
 ```yaml
 hosts: squid
 ```
 
-significa:
-
-> Execute este Play somente nos hosts pertencentes ao grupo `squid`.
+Significa: *execute este Play somente nos hosts do grupo `squid`.*
 
 ---
 
 # 3. Inventário no formato INI
 
-O formato INI é um dos formatos mais simples e comuns para começar a estudar Ansible.
-
-Exemplo:
+O formato INI é o mais simples para começar:
 
 ```ini
 [squid]
@@ -127,7 +106,7 @@ Exemplo:
 10.0.27.81
 ```
 
-A estrutura é:
+Estrutura:
 
 ```text
 [nome_do_grupo]
@@ -136,61 +115,34 @@ host
 host
 ```
 
----
+**Regras para nomes de grupos:** use letras, números e underscore (`_`). Evite hífens e espaços. Prefira `sao_paulo` a `sao-paulo`.
 
-# 4. Grupos
+## Grupos implícitos
 
-Os nomes entre colchetes representam grupos.
+Mesmo sem declará-los, o Ansible sempre cria dois grupos:
 
-Exemplo:
+* `all`: todos os hosts do inventário;
+* `ungrouped`: hosts que não pertencem a nenhum outro grupo.
 
-```ini
-[squid]
-10.0.27.72
-10.0.27.73
-10.0.27.74
-```
+Por isso **não é necessário** criar um grupo só para "todos os servidores": use `all`.
 
-O grupo é:
+## Faixas de hosts
 
-```text
-squid
-```
-
-E seus hosts são:
-
-```text
-10.0.27.72
-10.0.27.73
-10.0.27.74
-```
-
-Podemos criar quantos grupos forem necessários.
-
-Exemplo:
+Para muitos servidores com nomes sequenciais, use faixas:
 
 ```ini
-[squid]
-10.0.27.72
-10.0.27.73
-10.0.27.74
-
 [web]
-10.0.27.80
-10.0.27.81
+web[01:05].exemplo.com.br    # web01 até web05
 
-[banco]
-10.0.27.90
-10.0.27.91
+[proxy]
+10.0.27.[72:74]              # .72, .73 e .74
 ```
 
 ---
 
-# 5. Um host pode pertencer a vários grupos
+# 4. Grupos e múltiplos pertencimentos
 
-Um mesmo servidor pode participar de vários grupos.
-
-Exemplo:
+Um servidor pode pertencer a **vários grupos**. Isso permite organizar o inventário por critérios diferentes ao mesmo tempo (função, ambiente, localidade):
 
 ```ini
 [squid]
@@ -207,116 +159,44 @@ Exemplo:
 10.0.27.80
 ```
 
-O servidor:
+O host `10.0.27.72` pertence a `squid`, `linux` e `producao`.
 
-```text
-10.0.27.72
-```
-
-pertence aos três grupos:
-
-```text
-squid
-linux
-producao
-```
-
-Isso permite organizar o inventário por diferentes critérios.
+> Repetir IPs em vários grupos funciona, mas gera retrabalho. Na seção 9 veremos "grupos de grupos", que evitam isso.
 
 ---
 
-# 6. Grupo geral
+# 5. Executando comandos ad-hoc no inventário
 
-Podemos criar um grupo contendo todos os servidores Linux.
-
-Por exemplo:
-
-```ini
-[linux]
-10.0.27.72
-10.0.27.73
-10.0.27.74
-10.0.27.80
-10.0.27.81
-```
-
-Agora podemos executar:
-
-```bash
-ansible -i inventory/hosts.ini linux -m ping -k
-```
-
-O Ansible tentará acessar todos os servidores desse grupo.
-
----
-
-# 7. Executando um comando em um grupo
-
-Podemos utilizar o comando:
+## Sintaxe básica
 
 ```bash
 ansible -i inventory/hosts.ini squid -m ping -k
 ```
 
-Nesse caso:
+| Parte                    | Significado                          |
+| ------------------------ | ------------------------------------ |
+| `-i inventory/hosts.ini` | qual inventário usar                 |
+| `squid`                  | grupo (ou padrão) de hosts alvo      |
+| `-m ping`                | módulo a executar                    |
+| `-k`                     | solicita a senha SSH interativamente |
 
-```text
--i inventory/hosts.ini
-```
+**Observações importantes:**
 
-define o inventário.
+* Sem `-i`, o Ansible usa o inventário padrão (normalmente `/etc/ansible/hosts`). Em projetos, prefira sempre informar `-i` ou configurar `inventory` no `ansible.cfg`.
+* O `-k` exige o pacote `sshpass` no Control Node. O recomendado a longo prazo é usar **chaves SSH** (seção 16).
+* O módulo `ping` do Ansible **não é um ICMP ping**: ele testa conexão SSH, Python e execução de módulo no host.
 
-```text
-squid
-```
-
-define o grupo.
-
-```text
--m ping
-```
-
-define o módulo.
-
-```text
--k
-```
-
-solicita a senha SSH.
-
----
-
-# 8. Executando em todos os hosts
-
-Podemos utilizar:
+## Todos os hosts
 
 ```bash
 ansible -i inventory/hosts.ini all -m ping -k
 ```
 
-`all` representa todos os hosts do inventário.
-
-Exemplo:
-
-```text
-10.0.27.72
-10.0.27.73
-10.0.27.74
-10.0.27.80
-10.0.27.81
-```
-
----
-
-# 9. Listando os hosts
-
-Podemos pedir ao Ansible para mostrar os hosts existentes:
+## Listando os hosts sem executar nada
 
 ```bash
 ansible -i inventory/hosts.ini all --list-hosts
 ```
-
-Exemplo:
 
 ```text
 hosts (5):
@@ -327,47 +207,27 @@ hosts (5):
     10.0.27.81
 ```
 
-Também podemos consultar somente um grupo:
+Também funciona para um grupo:
 
 ```bash
 ansible -i inventory/hosts.ini squid --list-hosts
 ```
 
-Resultado:
-
-```text
-hosts (3):
-    10.0.27.72
-    10.0.27.73
-    10.0.27.74
-```
-
-Esse comando é muito útil para verificar se o inventário está correto antes de executar um Playbook.
+`--list-hosts` é excelente para conferir **onde** algo vai rodar antes de executar.
 
 ---
 
-# 10. Hostnames em vez de IPs
+# 6. Nome lógico × endereço real
 
-O inventário não precisa utilizar somente endereços IP.
-
-Podemos usar nomes:
+O inventário não precisa usar somente IPs. Pode usar hostnames (se o DNS resolver):
 
 ```ini
 [squid]
 s-sesu2772
 s-sesu2773
-s-sesu2775
 ```
 
-Se o DNS resolver esses nomes, o Ansible poderá utilizá-los diretamente.
-
----
-
-# 11. Nome do inventário x endereço real
-
-Podemos criar um nome lógico para o host.
-
-Exemplo:
+Também é possível dar um **nome lógico** ao host e informar o endereço real com `ansible_host`:
 
 ```ini
 [squid]
@@ -376,168 +236,109 @@ proxy02 ansible_host=10.0.27.73
 proxy03 ansible_host=10.0.27.74
 ```
 
-Agora o Ansible conhece:
-
-```text
-proxy01
-proxy02
-proxy03
-```
-
-mas se conecta aos respectivos IPs:
-
 ```text
 proxy01 → 10.0.27.72
 proxy02 → 10.0.27.73
 proxy03 → 10.0.27.74
 ```
 
-Isso é muito útil porque permite usar nomes mais fáceis de entender nos Playbooks.
+Nomes lógicos deixam Playbooks, logs e relatórios muito mais legíveis, e o IP pode mudar sem alterar nada além do inventário.
 
----
+## Duas variáveis que não se confundem
 
-# 12. ansible_host
+| Variável             | O que representa                             | Exemplo (`proxy01`) |
+| -------------------- | -------------------------------------------- | ------------------- |
+| `inventory_hostname` | nome do host **como aparece no inventário**  | `proxy01`           |
+| `ansible_host`       | endereço **usado na conexão**                | `10.0.27.72`        |
 
-A variável:
-
-```text
-ansible_host
-```
-
-define o endereço real utilizado para conexão.
-
-Exemplo:
+Exemplo prático:
 
 ```ini
 [squid]
 proxy01 ansible_host=10.0.27.72
 ```
 
-No Playbook:
-
 ```yaml
-hosts: squid
-```
+---
+- name: Teste
+  hosts: squid
+  gather_facts: false
 
-O Ansible encontrará:
+  tasks:
+    - name: Mostrar informações
+      ansible.builtin.debug:
+        msg:
+          - "Nome: {{ inventory_hostname }}"
+          - "IP: {{ ansible_host }}"
+```
 
 ```text
-proxy01
+Nome: proxy01
+IP: 10.0.27.72
 ```
 
-e utilizará:
-
-```text
-10.0.27.72
-```
-
-para estabelecer a conexão.
+> Se um host **não** tiver `ansible_host`, a variável `ansible_host` assume o próprio nome do host.
 
 ---
 
-# 13. ansible_user
+# 7. Variáveis de conexão
 
-Podemos definir o usuário SSH no inventário.
+São variáveis especiais que controlam **como** o Ansible se conecta.
 
-Exemplo:
+| Variável                    | Função                                        | Padrão                        |
+| --------------------------- | --------------------------------------------- | ----------------------------- |
+| `ansible_host`              | endereço de conexão                           | nome do host                  |
+| `ansible_user`              | usuário SSH                                   | usuário local ou `ansible.cfg` |
+| `ansible_port`              | porta SSH                                     | `22`                          |
+| `ansible_ssh_private_key_file` | chave privada SSH                          | chave padrão do SSH           |
+| `ansible_become`            | elevar privilégio (sudo) nas tarefas          | `false`                       |
+| `ansible_python_interpreter`| caminho do Python no host remoto              | detecção automática           |
 
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72 ansible_user=root
-```
-
-Assim o Ansible utilizará:
-
-```text
-root
-```
-
-na conexão.
-
-Sem isso, o Ansible normalmente utilizará o usuário local ou uma configuração definida em outro local.
-
----
-
-# 14. ansible_port
-
-Podemos especificar uma porta SSH diferente da padrão.
-
-A porta padrão é:
-
-```text
-22
-```
-
-Exemplo:
-
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72 ansible_port=2222
-```
-
-Nesse caso:
-
-```text
-SSH → 10.0.27.72:2222
-```
-
----
-
-# 15. Exemplo completo de host
-
-Podemos combinar várias variáveis:
+Exemplo combinando várias:
 
 ```ini
 [squid]
 proxy01 ansible_host=10.0.27.72 ansible_user=root ansible_port=22
 ```
 
-Temos:
-
 ```text
-Nome lógico:
-proxy01
-
-Endereço:
-10.0.27.72
-
-Usuário:
-root
-
-Porta:
-22
+Nome lógico: proxy01
+Endereço:    10.0.27.72
+Usuário:     root
+Porta:       22
 ```
+
+Em vez de `root`, é mais seguro usar um usuário comum com `ansible_become=true` (sudo).
 
 ---
 
-# 16. ansible_password
+# 8. Senhas no inventário
 
-Também é possível definir uma senha no inventário:
+É possível escrever:
 
 ```ini
-[squid]
 proxy01 ansible_host=10.0.27.72 ansible_user=root ansible_password=senha
 ```
 
-Porém, **não é recomendado armazenar senhas diretamente no inventário**.
+Mas **não faça isso** em arquivos que possam ser versionados (Git) ou compartilhados.
 
-Senhas devem ser protegidas utilizando mecanismos como **Ansible Vault** ou outros métodos seguros de gerenciamento de credenciais.
+Alternativas, da melhor para a mais simples:
 
-No ambiente de estudo, podemos utilizar:
+1. **Chaves SSH** (recomendado);
+2. **Ansible Vault** para criptografar valores ou arquivos;
+3. `-k` (pergunta a senha na execução): aceitável em estudo e testes.
+
+Exemplo de valor criptografado com Vault:
 
 ```bash
--k
+ansible-vault encrypt_string 'MinhaSenha' --name 'ansible_password'
 ```
-
-para solicitar a senha durante a execução.
 
 ---
 
-# 17. Grupos de grupos
+# 9. Grupos de grupos (`:children`)
 
-O Ansible permite criar grupos que agrupam outros grupos.
-
-Exemplo:
+Um grupo pode conter **outros grupos**:
 
 ```ini
 [squid]
@@ -553,8 +354,6 @@ squid
 web
 ```
 
-Agora:
-
 ```text
 infra
 ├── squid
@@ -566,19 +365,13 @@ infra
     └── 10.0.27.81
 ```
 
-Podemos executar:
-
 ```bash
 ansible -i inventory/hosts.ini infra -m ping -k
 ```
 
-O comando será executado nos servidores dos grupos `squid` e `web`.
+## Hierarquia maior
 
----
-
-# 18. Estrutura hierárquica
-
-Uma organização maior pode ser:
+Atenção à sintaxe: um grupo que contém outros grupos **sempre** usa o sufixo `:children`.
 
 ```ini
 [producao_squid]
@@ -593,10 +386,10 @@ Uma organização maior pode ser:
 producao_squid
 homologacao_squid
 
-[producao]
+[producao:children]
 producao_squid
 
-[homologacao]
+[homologacao:children]
 homologacao_squid
 
 [infra:children]
@@ -604,15 +397,13 @@ producao
 homologacao
 ```
 
-Isso permite trabalhar com diferentes níveis de organização.
+> **Erro comum:** escrever `[producao]` seguido do nome de um grupo. Sem `:children`, o Ansible trata `producao_squid` como se fosse um **hostname**.
 
 ---
 
-# 19. Variáveis de grupo
+# 10. Variáveis de grupo e de host no próprio inventário
 
-Podemos associar variáveis a um grupo.
-
-Exemplo:
+## Variáveis de grupo (`:vars`)
 
 ```ini
 [web]
@@ -624,29 +415,13 @@ porta_http=80
 ambiente=producao
 ```
 
-Os hosts do grupo `web` receberão essas variáveis.
-
-No Playbook:
-
 ```yaml
 - name: Mostrar ambiente
   ansible.builtin.debug:
     msg: "Ambiente: {{ ambiente }}"
 ```
 
-Resultado:
-
-```text
-Ambiente: producao
-```
-
----
-
-# 20. Variáveis de host
-
-Também podemos definir variáveis específicas para um host.
-
-Exemplo:
+## Variáveis de host
 
 ```ini
 [web]
@@ -654,312 +429,18 @@ web01 ansible_host=10.0.27.80 porta_http=80
 web02 ansible_host=10.0.27.81 porta_http=8080
 ```
 
-Agora cada servidor possui um valor diferente.
-
 ```text
 web01 → porta 80
 web02 → porta 8080
 ```
 
----
-
-# 21. inventory_hostname
-
-O Ansible possui uma variável especial chamada:
-
-```text
-inventory_hostname
-```
-
-Ela representa o nome do host conforme aparece no inventário.
-
-Exemplo:
-
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72
-```
-
-No Playbook:
-
-```yaml
-- name: Mostrar host
-  ansible.builtin.debug:
-    msg: "{{ inventory_hostname }}"
-```
-
-Resultado:
-
-```text
-proxy01
-```
+> No formato INI, valores tendem a ser interpretados como texto ou literais simples. Para listas, dicionários e tipos bem definidos, prefira `group_vars/` e `host_vars/` (seção 13).
 
 ---
 
-# 22. ansible_host
+# 11. Formato YAML
 
-Já:
-
-```text
-ansible_host
-```
-
-representa o endereço utilizado para conexão.
-
-Exemplo:
-
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72
-```
-
-Podemos ter:
-
-```text
-inventory_hostname = proxy01
-ansible_host       = 10.0.27.72
-```
-
-Essa diferença é importante.
-
----
-
-# 23. Exemplo prático
-
-Inventário:
-
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72
-```
-
-Playbook:
-
-```yaml
----
-- name: Teste
-  hosts: squid
-  gather_facts: false
-
-  tasks:
-
-    - name: Mostrar informações
-      ansible.builtin.debug:
-        msg:
-          - "Nome: {{ inventory_hostname }}"
-          - "IP: {{ ansible_host }}"
-```
-
-Resultado:
-
-```text
-Nome: proxy01
-IP: 10.0.27.72
-```
-
----
-
-# 24. Inventário baseado em funções
-
-Uma boa forma de organizar infraestrutura é utilizar a função do servidor.
-
-Exemplo:
-
-```ini
-[proxy]
-10.0.27.72
-10.0.27.73
-
-[web]
-10.0.27.80
-10.0.27.81
-
-[banco]
-10.0.27.90
-10.0.27.91
-
-[monitoramento]
-10.0.27.100
-```
-
-Isso permite criar Playbooks específicos:
-
-```text
-diagnostico_proxy.yml
-diagnostico_web.yml
-diagnostico_banco.yml
-diagnostico_monitoramento.yml
-```
-
----
-
-# 25. Inventário baseado em ambiente
-
-Outra possibilidade é organizar por ambiente:
-
-```ini
-[producao]
-10.0.27.72
-10.0.27.80
-10.0.27.90
-
-[homologacao]
-10.0.28.72
-10.0.28.80
-10.0.28.90
-
-[desenvolvimento]
-10.0.29.72
-10.0.29.80
-10.0.29.90
-```
-
-Isso facilita executar uma automação em somente um ambiente.
-
-Exemplo:
-
-```bash
-ansible-playbook playbook.yml --limit producao
-```
-
----
-
-# 26. Inventário baseado em localização
-
-Também podemos organizar servidores por localidade.
-
-Exemplo:
-
-```ini
-[brasilia]
-10.0.27.72
-10.0.27.73
-
-[sao_paulo]
-10.0.30.72
-10.0.30.73
-
-[rio]
-10.0.31.72
-10.0.31.73
-```
-
-Podemos combinar grupos.
-
-```ini
-[linux]
-10.0.27.72
-10.0.27.73
-10.0.30.72
-10.0.30.73
-10.0.31.72
-10.0.31.73
-```
-
----
-
-# 27. Selecionando hosts
-
-O comando `ansible` permite selecionar grupos.
-
-Todos:
-
-```bash
-ansible all -m ping
-```
-
-Somente Squid:
-
-```bash
-ansible squid -m ping
-```
-
-Somente Web:
-
-```bash
-ansible web -m ping
-```
-
-Podemos utilizar `--limit` em Playbooks:
-
-```bash
-ansible-playbook playbook.yml --limit squid
-```
-
----
-
-# 28. Limiting
-
-Imagine que o grupo tenha:
-
-```text
-proxy01
-proxy02
-proxy03
-proxy04
-```
-
-Podemos testar somente:
-
-```bash
-ansible-playbook playbook.yml --limit proxy01
-```
-
-Isso é uma excelente prática durante desenvolvimento.
-
-Fluxo recomendado:
-
-```text
-Playbook
-   ↓
---limit proxy01
-   ↓
-teste
-   ↓
---limit squid
-   ↓
-teste em grupo
-   ↓
-produção
-```
-
----
-
-# 29. Padrões de seleção
-
-O Ansible possui padrões para selecionar hosts.
-
-Exemplo:
-
-```bash
-ansible 'squid:web' -m ping
-```
-
-Seleciona hosts de `squid` ou `web`.
-
-Para interseção:
-
-```bash
-ansible 'linux:&producao' -m ping
-```
-
-Seleciona hosts que pertencem aos dois grupos.
-
-Para exclusão:
-
-```bash
-ansible 'all:!homologacao' -m ping
-```
-
-Seleciona todos, exceto os hosts de `homologacao`.
-
----
-
-# 30. Inventário YAML
-
-Além do formato INI, o Ansible também suporta inventários em YAML.
-
-Exemplo:
+O Ansible também aceita inventários em YAML:
 
 ```yaml
 all:
@@ -978,9 +459,9 @@ all:
           ansible_host: 10.0.27.80
         web02:
           ansible_host: 10.0.27.81
+      vars:
+        porta_http: 80
 ```
-
-Visualmente:
 
 ```text
 all
@@ -993,36 +474,281 @@ all
     └── web02
 ```
 
+## INI ou YAML?
+
+| INI                                      | YAML                                            |
+| ---------------------------------------- | ----------------------------------------------- |
+| Mais curto e simples para começar        | Mais verboso, porém estruturado                 |
+| Tipos de variáveis menos previsíveis     | Tipos de dados claros (listas, dicionários etc.) |
+| Ótimo para estudo e ambientes pequenos   | Bom para inventários maiores e complexos        |
+
+O mais importante é **manter consistência** no projeto.
+
 ---
 
-# 31. INI ou YAML?
+# 12. Formas de organizar o inventário
 
-Para começar, o formato INI costuma ser mais simples:
+## Por função
+
+```ini
+[proxy]
+10.0.27.72
+10.0.27.73
+
+[web]
+10.0.27.80
+10.0.27.81
+
+[banco]
+10.0.27.90
+10.0.27.91
+
+[monitoramento]
+10.0.27.100
+```
+
+Permite criar Playbooks por função: `diagnostico_proxy.yml`, `diagnostico_web.yml`, `diagnostico_banco.yml`...
+
+## Por ambiente
+
+```ini
+[producao]
+10.0.27.72
+10.0.27.80
+
+[homologacao]
+10.0.28.72
+10.0.28.80
+```
+
+```bash
+ansible-playbook playbook.yml --limit producao
+```
+
+## Por localização
+
+```ini
+[brasilia]
+10.0.27.72
+10.0.27.73
+
+[sao_paulo]
+10.0.30.72
+10.0.30.73
+
+[rio]
+10.0.31.72
+10.0.31.73
+```
+
+## Combinando critérios
+
+O poder do inventário está em **cruzar** esses critérios: um mesmo host é `squid` (função), `producao` (ambiente) e `brasilia` (local). Depois, use padrões de seleção (seção 15) para escolher exatamente o recorte desejado.
+
+---
+
+# 13. `group_vars` e `host_vars`
+
+Conforme o projeto cresce, mantenha as variáveis **fora** do arquivo de hosts:
+
+```text
+inventory/
+├── hosts.ini
+├── group_vars/
+│   ├── all.yml        # vale para todos os hosts
+│   ├── linux.yml
+│   ├── squid.yml
+│   └── web.yml
+└── host_vars/
+    ├── proxy01.yml
+    └── proxy02.yml
+```
+
+O nome do arquivo deve ser igual ao nome do **grupo** ou do **host** (como aparece no inventário, ou seja, `inventory_hostname`).
+
+## `group_vars/squid.yml`
+
+```yaml
+memoria_alerta: 80
+cpu_alerta: 90
+```
+
+Todos os hosts do grupo `squid` enxergam essas variáveis:
+
+```yaml
+- name: Mostrar limite
+  ansible.builtin.debug:
+    msg: "CPU: {{ cpu_alerta }}%"
+```
+
+## `host_vars/proxy01.yml`
+
+```yaml
+ambiente: producao
+prioridade: alta
+```
+
+Somente `proxy01` recebe essas variáveis.
+
+## Precedência (visão simplificada)
+
+Quando a mesma variável é definida em vários lugares, vence o de **maior precedência**:
+
+```text
+group_vars/all            (menor)
+     ↓
+group_vars de grupo pai
+     ↓
+group_vars de grupo filho
+     ↓
+host_vars
+     ↓
+... play, tasks, etc.
+     ↓
+-e / --extra-vars         (maior)
+```
+
+Há muitas outras camadas na lista oficial de precedência. A recomendação prática é: **defina cada variável em um só lugar** sempre que possível.
+
+---
+
+# 14. Inventário estático × dinâmico
+
+## Estático
+
+Arquivo escrito e mantido manualmente:
+
+```ini
+[web]
+10.0.27.80
+10.0.27.81
+```
+
+## Dinâmico
+
+Em nuvem ou grandes datacenters, os servidores mudam o tempo todo. O inventário é obtido de uma fonte externa via **plugin**:
+
+```text
+fonte externa (AWS, Azure, GCP, VMware, Nutanix, Kubernetes, CMDB, API)
+        ↓
+plugin de inventário
+        ↓
+inventário gerado automaticamente
+        ↓
+Ansible
+```
+
+Em ambientes pequenos e estáveis, o estático costuma bastar. Em ambientes grandes, o dinâmico reduz muito a manutenção manual. Também é possível **misturar** ambos no mesmo diretório de inventário.
+
+---
+
+# 15. Selecionando hosts
+
+## Grupos e hosts individuais
+
+```bash
+ansible -i inventory/hosts.ini all   -m ping -k
+ansible -i inventory/hosts.ini squid -m ping -k
+ansible -i inventory/hosts.ini proxy01 -m ping -k
+```
+
+## Padrões de seleção
+
+| Padrão               | Significado                                 |
+| -------------------- | ------------------------------------------- |
+| `'squid:web'`        | união: hosts de `squid` **ou** `web`        |
+| `'linux:&producao'`  | interseção: hosts em `linux` **e** `producao` |
+| `'all:!homologacao'` | exclusão: todos **menos** `homologacao`     |
+| `'web*'`             | curinga em nomes                            |
+
+```bash
+ansible -i inventory/hosts.ini 'linux:&producao' -m ping -k
+```
+
+> Use aspas simples nos padrões para o shell não interpretar `!` e `&`.
+
+## `--limit` em Playbooks
+
+O Playbook define `hosts:`, e o `--limit` **restringe ainda mais** onde ele executa:
+
+```bash
+ansible-playbook -i inventory/hosts.ini playbook.yml --limit squid
+ansible-playbook -i inventory/hosts.ini playbook.yml --limit proxy01
+ansible-playbook -i inventory/hosts.ini playbook.yml --limit 'squid:&producao'
+```
+
+Ele **não amplia** a seleção: só reduz o que o `hosts:` do Playbook já permitia.
+
+---
+
+# 16. Chaves SSH em vez de senha
+
+Para não depender de `-k` nem de senhas no inventário:
+
+```bash
+ssh-keygen -t ed25519
+ssh-copy-id usuario@10.0.27.72
+```
+
+E no inventário:
 
 ```ini
 [squid]
-10.0.27.72
-10.0.27.73
+proxy01 ansible_host=10.0.27.72 ansible_user=ansible ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
 
-O YAML pode ser interessante em inventários maiores:
+Com chaves configuradas, o teste fica simplesmente:
 
-```yaml
-all:
-  children:
-    squid:
-      hosts:
-        proxy01:
-          ansible_host: 10.0.27.72
+```bash
+ansible -i inventory/hosts.ini squid -m ping
 ```
-
-O mais importante é manter consistência no projeto.
 
 ---
 
-# 32. Inventários separados
+# 17. O comando `ansible-inventory`
 
-Em ambientes maiores, podemos utilizar inventários diferentes:
+Permite **consultar e validar** o inventário sem tocar nos servidores.
+
+## Estrutura em JSON
+
+```bash
+ansible-inventory -i inventory/hosts.ini --list
+```
+
+## Árvore de grupos
+
+```bash
+ansible-inventory -i inventory/hosts.ini --graph
+```
+
+```text
+@all:
+  |--@squid:
+  |  |--proxy01
+  |  |--proxy02
+  |--@ungrouped:
+  |--@web:
+  |  |--web01
+  |  |--web02
+```
+
+## Variáveis de um host (já resolvidas, incluindo `group_vars`/`host_vars`)
+
+```bash
+ansible-inventory -i inventory/hosts.ini --host proxy01
+```
+
+Para ver também as variáveis:
+
+```bash
+ansible-inventory -i inventory/hosts.ini --graph --vars
+```
+
+---
+
+# 18. Inventários separados ou único?
+
+## Um arquivo por ambiente
 
 ```text
 inventory/
@@ -1031,29 +757,14 @@ inventory/
 └── desenvolvimento.ini
 ```
 
-Executar produção:
-
 ```bash
-ansible-playbook \
-  -i inventory/producao.ini \
-  playbooks/diagnostico.yml
+ansible-playbook -i inventory/producao.ini   playbooks/diagnostico.yml
+ansible-playbook -i inventory/homologacao.ini playbooks/diagnostico.yml
 ```
 
-Executar homologação:
+Reduz o risco de rodar uma automação no ambiente errado, pois é preciso indicar explicitamente o arquivo.
 
-```bash
-ansible-playbook \
-  -i inventory/homologacao.ini \
-  playbooks/diagnostico.yml
-```
-
-Isso reduz o risco de executar uma automação no ambiente errado.
-
----
-
-# 33. Um inventário para vários ambientes
-
-Também podemos manter tudo em um único inventário:
+## Um único inventário com grupos de ambiente
 
 ```ini
 [producao]
@@ -1067,281 +778,29 @@ web02
 db02
 ```
 
-E selecionar:
-
 ```bash
 ansible-playbook playbook.yml --limit producao
 ```
 
-ou:
-
-```bash
-ansible-playbook playbook.yml --limit homologacao
-```
+Mais prático, mas exige mais atenção ao `--limit`. Em ambientes críticos, a separação por arquivo é mais segura.
 
 ---
 
-# 34. Variáveis em arquivos separados
-
-À medida que o projeto cresce, pode ser melhor separar as variáveis do inventário.
-
-Uma estrutura comum é:
-
-```text
-inventory/
-├── hosts.ini
-├── group_vars/
-└── host_vars/
-```
-
-Por exemplo:
-
-```text
-group_vars/
-├── linux.yml
-├── squid.yml
-└── web.yml
-```
-
-E:
-
-```text
-host_vars/
-├── proxy01.yml
-└── proxy02.yml
-```
-
----
-
-# 35. group_vars
-
-Imagine:
-
-```text
-inventory/
-├── hosts.ini
-└── group_vars/
-    └── squid.yml
-```
-
-Arquivo:
-
-```yaml
-memoria_alerta: 80
-cpu_alerta: 90
-```
-
-Todos os hosts do grupo `squid` poderão utilizar essas variáveis.
-
-No Playbook:
-
-```yaml
-- name: Mostrar limite
-  ansible.builtin.debug:
-    msg: "CPU: {{ cpu_alerta }}%"
-```
-
----
-
-# 36. host_vars
-
-Podemos definir valores específicos para um servidor.
-
-Estrutura:
-
-```text
-inventory/
-├── hosts.ini
-└── host_vars/
-    └── proxy01.yml
-```
-
-Arquivo:
-
-```yaml
-ambiente: producao
-prioridade: alta
-```
-
-Somente `proxy01` receberá essas variáveis.
-
----
-
-# 37. Precedência de variáveis
-
-Em projetos grandes, é possível definir a mesma variável em vários lugares.
-
-Por isso é importante entender que o Ansible possui regras de precedência.
-
-De forma simplificada:
-
-```text
-valores gerais
-     ↓
-variáveis de grupo
-     ↓
-variáveis de host
-     ↓
-variáveis passadas na execução
-```
-
-Existem várias outras categorias e regras de precedência.
-
-A recomendação é evitar definir a mesma variável em muitos lugares sem necessidade.
-
----
-
-# 38. Inventário dinâmico
-
-Até aqui utilizamos inventários estáticos.
-
-Exemplo:
-
-```ini
-[web]
-10.0.27.80
-10.0.27.81
-```
-
-Em ambientes de nuvem ou grandes datacenters, a infraestrutura pode mudar constantemente.
-
-Nesse cenário, podemos utilizar **inventário dinâmico**.
-
-A fonte pode ser:
-
-```text
-AWS
-Azure
-Google Cloud
-VMware
-Nutanix
-Kubernetes
-CMDB
-API
-```
-
-O inventário é então obtido automaticamente da infraestrutura.
-
----
-
-# 39. Inventário estático x dinâmico
-
-## Estático
-
-```text
-arquivo
-   ↓
-hosts definidos manualmente
-```
-
-Exemplo:
-
-```ini
-[web]
-10.0.27.80
-10.0.27.81
-```
-
-## Dinâmico
-
-```text
-fonte externa
-   ↓
-API/plugin
-   ↓
-inventário
-   ↓
-Ansible
-```
-
-Em ambientes pequenos, inventário estático costuma ser suficiente.
-
-Em ambientes grandes e dinâmicos, o inventário dinâmico pode reduzir bastante a manutenção manual.
-
----
-
-# 40. ansible-inventory
-
-O comando:
-
-```bash
-ansible-inventory
-```
-
-permite consultar o inventário.
-
-Exemplo:
-
-```bash
-ansible-inventory \
-  -i inventory/hosts.ini \
-  --list
-```
-
-Ele apresenta a estrutura do inventário em JSON.
-
----
-
-# 41. Visualizando a árvore
-
-Um comando muito útil:
-
-```bash
-ansible-inventory \
-  -i inventory/hosts.ini \
-  --graph
-```
-
-Exemplo:
-
-```text
-@all:
-  |--@squid:
-  |  |--proxy01
-  |  |--proxy02
-  |
-  |--@web:
-     |--web01
-     |--web02
-```
-
-Esse comando é excelente para estudar e validar a organização do inventário.
-
----
-
-# 42. Consultando um host
-
-Também podemos utilizar:
-
-```bash
-ansible-inventory \
-  -i inventory/hosts.ini \
-  --host proxy01
-```
-
-Isso mostra as variáveis associadas ao host.
-
----
-
-# 43. Exemplo completo
-
-Inventário:
+# 19. Exemplo completo
 
 ```ini
 [squid]
-proxy01 ansible_host=10.0.27.72 ansible_user=root
-proxy02 ansible_host=10.0.27.73 ansible_user=root
+proxy01 ansible_host=10.0.27.72 ansible_user=ansible
+proxy02 ansible_host=10.0.27.73 ansible_user=ansible
 
 [web]
-web01 ansible_host=10.0.27.80 ansible_user=root
-web02 ansible_host=10.0.27.81 ansible_user=root
+web01 ansible_host=10.0.27.80 ansible_user=ansible
+web02 ansible_host=10.0.27.81 ansible_user=ansible
 
 [linux:children]
 squid
 web
 ```
-
-Estrutura:
 
 ```text
 linux
@@ -1354,71 +813,26 @@ linux
     └── web02
 ```
 
----
-
-# 44. Testando o inventário
-
-Primeiro:
-
-```bash
-ansible-inventory \
-  -i inventory/hosts.ini \
-  --graph
-```
-
-Depois:
-
-```bash
-ansible \
-  -i inventory/hosts.ini \
-  linux \
-  -m ping \
-  -k
-```
-
-Depois:
-
-```bash
-ansible \
-  -i inventory/hosts.ini \
-  squid \
-  -m ping \
-  -k
-```
-
-Somente depois de validar:
-
-```bash
-ansible-playbook \
-  -i inventory/hosts.ini \
-  playbooks/diagnostico_squid.yml \
-  -k
-```
-
----
-
-# 45. Inventário utilizado no projeto Infra Linux
-
-Uma estrutura prática para o projeto pode ser:
+## Estrutura de projeto sugerida (Infra Linux)
 
 ```text
 /opt/ansible/
+├── ansible.cfg
 ├── inventory/
-│   └── hosts.ini
-│
+│   ├── hosts.ini
+│   ├── group_vars/
+│   └── host_vars/
 └── playbooks/
     ├── diagnostico_squid.yml
     └── diagnostico_watchguard.yml
 ```
 
-O inventário pode começar simples:
+Comece simples e cresça aos poucos:
 
 ```ini
 [squid]
 10.0.27.72
 ```
-
-Depois podemos adicionar outros hosts:
 
 ```ini
 [squid]
@@ -1427,21 +841,9 @@ Depois podemos adicionar outros hosts:
 10.0.27.74
 ```
 
-E futuramente organizar grupos maiores.
-
 ---
 
-# 46. Inventário e Playbook trabalham juntos
-
-O inventário responde:
-
-> **Onde executar?**
-
-O Playbook responde:
-
-> **O que executar?**
-
-Exemplo:
+# 20. Inventário e Playbook trabalham juntos
 
 ```text
 inventory
@@ -1459,21 +861,12 @@ inventory
        diagnóstico do Squid
 ```
 
-Essa separação é fundamental.
+* **Inventário = onde**
+* **Playbook = o que**
+* **Task = ação**
+* **Módulo = ferramenta que executa a ação**
 
----
-
-# 47. Inventário não é apenas uma lista de IPs
-
-Um inventário simples pode parecer:
-
-```ini
-[squid]
-10.0.27.72
-10.0.27.73
-```
-
-Mas ele pode representar toda a organização lógica da infraestrutura:
+Um inventário pode ir além de uma lista de IPs e representar a **visão lógica da infraestrutura**:
 
 ```text
 Ambiente
@@ -1488,153 +881,76 @@ Ambiente
     └── Banco
 ```
 
-Portanto, o inventário pode funcionar como uma **visão lógica da infraestrutura**.
+---
+
+# 21. Boas práticas
+
+* **Nomes significativos:** `proxy01`, `web01`, em vez de `servidores1`.
+* **Organize por função** (`squid`, `web`, `banco`) e **cruze** com ambiente e localidade.
+* **Use grupos de grupos** (`[linux:children]`) em vez de repetir hosts.
+* **Nunca deixe senhas em texto puro** no inventário: use SSH keys e Ansible Vault.
+* **Mantenha variáveis em `group_vars`/`host_vars`** quando o projeto crescer.
+* **Defina cada variável em um só lugar.**
+* **Versione o inventário** (Git), mas sem segredos.
+* **Valide antes de executar:** `--graph`, `--list-hosts`, `ping`, `--limit`.
 
 ---
 
-# 48. Boas práticas
-
-## Utilize nomes significativos
-
-Prefira:
-
-```ini
-[squid]
-proxy01
-proxy02
-```
-
-em vez de grupos genéricos como:
-
-```ini
-[servidores1]
-```
-
----
-
-## Organize por função
-
-Exemplo:
-
-```ini
-[squid]
-[web]
-[banco]
-[monitoramento]
-```
-
----
-
-## Utilize grupos de grupos
-
-Quando necessário:
-
-```ini
-[linux:children]
-squid
-web
-banco
-```
-
----
-
-## Evite senhas no inventário
-
-Não faça:
-
-```ini
-ansible_password=MinhaSenha
-```
-
-em um arquivo que possa ser versionado ou compartilhado.
-
-Prefira mecanismos seguros como:
-
-```text
-Ansible Vault
-SSH keys
-secret management
-```
-
----
-
-## Teste o inventário antes do Playbook
-
-Utilize:
-
-```bash
-ansible-inventory -i inventory/hosts.ini --graph
-```
-
-e:
-
-```bash
-ansible -i inventory/hosts.ini all -m ping -k
-```
-
----
-
-# 49. Fluxo recomendado
-
-Quando adicionar um novo servidor:
+# 22. Fluxo recomendado ao adicionar um servidor
 
 ```text
 1. Adicionar ao inventário
         ↓
-2. Verificar --graph
+2. ansible-inventory --graph
         ↓
-3. Verificar --list-hosts
+3. --list-hosts
         ↓
-4. Testar ansible ping
+4. ansible -m ping
         ↓
-5. Executar Playbook com --limit
+5. Playbook com --limit (um host)
         ↓
 6. Validar resultado
         ↓
 7. Liberar execução no grupo
 ```
 
-Exemplo:
-
 ```bash
 ansible-inventory -i inventory/hosts.ini --graph
-```
-
-Depois:
-
-```bash
 ansible -i inventory/hosts.ini squid --list-hosts
-```
-
-Depois:
-
-```bash
 ansible -i inventory/hosts.ini squid -m ping -k
-```
-
-Depois:
-
-```bash
 ansible-playbook \
   -i inventory/hosts.ini \
   playbooks/diagnostico_squid.yml \
-  --limit 10.0.27.72 \
+  --limit proxy01 \
   -k
+```
+
+Para ainda mais segurança, use antes `--check` (simulação) e `--list-hosts` no próprio `ansible-playbook`:
+
+```bash
+ansible-playbook -i inventory/hosts.ini playbooks/diagnostico_squid.yml --list-hosts
 ```
 
 ---
 
-# 50. Exercícios
+# 23. Erros comuns
 
-## Exercício 1 — Inventário básico
+| Sintoma                                      | Causa provável                                                    |
+| -------------------------------------------- | ----------------------------------------------------------------- |
+| `skipping: no hosts matched`                 | grupo digitado errado, ou `-i` apontando para o arquivo errado    |
+| `UNREACHABLE! ... Permission denied`         | usuário/senha/chave incorretos                                     |
+| `UNREACHABLE! ... Connection timed out`      | IP errado, firewall, porta SSH diferente (`ansible_port`)          |
+| `sshpass` não encontrado ao usar `-k`        | instalar `sshpass` no Control Node                                 |
+| Host tratado como nome em vez de grupo       | faltou `:children` na declaração do grupo                          |
+| Variável com valor "inesperado"              | mesma variável definida em vários lugares (precedência)            |
+| Nome do host não resolve                     | falta DNS; use `ansible_host=IP`                                   |
+| Erro de Python no host remoto                | ajustar `ansible_python_interpreter`                               |
 
-Crie:
+---
 
-```text
-inventory/estudo.ini
-```
+# 24. Exercícios
 
-com:
+**1. Inventário básico.** Crie `inventory/estudo.ini`:
 
 ```ini
 [linux]
@@ -1643,31 +959,17 @@ com:
 10.0.27.74
 ```
 
-Execute:
-
 ```bash
 ansible-inventory -i inventory/estudo.ini --graph
 ```
 
----
-
-## Exercício 2 — Teste de conexão
-
-Execute:
+**2. Teste de conexão.**
 
 ```bash
-ansible \
-  -i inventory/estudo.ini \
-  linux \
-  -m ping \
-  -k
+ansible -i inventory/estudo.ini linux -m ping -k
 ```
 
----
-
-## Exercício 3 — Criar grupos
-
-Crie:
+**3. Criar grupos.** Adicione:
 
 ```ini
 [squid]
@@ -1679,17 +981,9 @@ Crie:
 10.0.27.81
 ```
 
-Depois visualize:
+Visualize com `--graph`. O que aparece em `@ungrouped`?
 
-```bash
-ansible-inventory -i inventory/estudo.ini --graph
-```
-
----
-
-## Exercício 4 — Grupo de grupos
-
-Adicione:
+**4. Grupo de grupos.** Adicione:
 
 ```ini
 [infra:children]
@@ -1697,116 +991,56 @@ squid
 web
 ```
 
-Execute:
-
 ```bash
-ansible \
-  -i inventory/estudo.ini \
-  infra \
-  --list-hosts
+ansible -i inventory/estudo.ini infra --list-hosts
 ```
+
+**5. Nome lógico.** Transforme `10.0.27.72` em `proxy01 ansible_host=10.0.27.72` e rode `--graph` novamente.
+
+**6. Variável de grupo.** Adicione `[squid:vars]` com `ambiente=producao` e crie um Playbook que mostre `inventory_hostname` e `ambiente`.
+
+**7. Variável de host.** Crie `host_vars/proxy01.yml` com `funcao: proxy` e mostre a variável no Playbook.
+
+**8. Padrões.** Teste `'squid:web'`, `'infra:!web'` e `'linux:&squid'` com `--list-hosts`. Explique o resultado de cada um.
+
+**9. Precedência.** Defina `ambiente` em `group_vars/squid.yml` e em `host_vars/proxy01.yml` com valores diferentes. Use `ansible-inventory --host proxy01` para ver qual vence.
+
+**10. SSH key.** Configure uma chave SSH para um host e execute o `ping` **sem** `-k`.
 
 ---
 
-## Exercício 5 — Nome lógico
-
-Transforme:
-
-```ini
-[squid]
-10.0.27.72
-```
-
-em:
-
-```ini
-[squid]
-proxy01 ansible_host=10.0.27.72
-```
-
-Depois:
-
-```bash
-ansible-inventory -i inventory/estudo.ini --graph
-```
-
----
-
-## Exercício 6 — Variável
-
-Adicione:
-
-```ini
-[squid:vars]
-ambiente=producao
-```
-
-Crie um Playbook que mostre:
-
-```text
-Servidor
-Ambiente
-```
-
----
-
-## Exercício 7 — Host específico
-
-Crie:
-
-```text
-host_vars/proxy01.yml
-```
-
-e defina:
-
-```yaml
-funcao: proxy
-```
-
-Depois mostre a variável no Playbook.
-
----
-
-# 51. Checklist de estudo
+# 25. Checklist de estudo
 
 Antes de avançar, você deve conseguir explicar:
 
 * [ ] O que é um inventário;
-* [ ] O que é um host;
-* [ ] O que é um grupo;
-* [ ] O que é `all`;
-* [ ] O que é `ansible_host`;
-* [ ] O que é `ansible_user`;
-* [ ] O que é `ansible_port`;
-* [ ] O que é `inventory_hostname`;
-* [ ] Como criar grupos;
-* [ ] Como colocar um host em vários grupos;
-* [ ] Como criar grupos de grupos;
-* [ ] Como usar `--limit`;
-* [ ] Como utilizar `ansible-inventory`;
-* [ ] Como visualizar `--graph`;
+* [ ] O que são host e grupo;
+* [ ] O que são `all` e `ungrouped`;
+* [ ] `ansible_host`, `ansible_user`, `ansible_port`;
+* [ ] Diferença entre `inventory_hostname` e `ansible_host`;
+* [ ] Como criar grupos e colocar um host em vários grupos;
+* [ ] Como criar grupos de grupos (`:children`);
+* [ ] Como usar `--limit` e padrões (`:`, `:&`, `:!`);
+* [ ] Como usar `ansible-inventory --graph`, `--list` e `--host`;
 * [ ] Como testar com `ansible -m ping`;
 * [ ] Diferença entre inventário estático e dinâmico;
 * [ ] Diferença entre `group_vars` e `host_vars`;
-* [ ] Por que não colocar senhas diretamente no inventário.
+* [ ] Noção de precedência de variáveis;
+* [ ] Por que não colocar senhas no inventário e quais alternativas existem.
 
 ---
 
-# 52. Resumo
+# 26. Resumo
 
-O inventário é a representação dos servidores que o Ansible administra.
-
-A estrutura mais simples é:
+A estrutura mais simples:
 
 ```ini
 [grupo]
 host1
 host2
-host3
 ```
 
-Podemos evoluir para:
+Evoluindo:
 
 ```ini
 [squid]
@@ -1822,30 +1056,19 @@ squid
 web
 ```
 
-E então utilizar:
+Validar:
 
 ```bash
 ansible-inventory -i inventory/hosts.ini --graph
 ```
 
-para visualizar a estrutura.
-
-Para testar:
+Testar:
 
 ```bash
 ansible -i inventory/hosts.ini linux -m ping -k
 ```
 
-Para executar um Playbook:
-
-```bash
-ansible-playbook \
-  -i inventory/hosts.ini \
-  playbooks/diagnostico.yml \
-  -k
-```
-
-E para testar primeiro em um único servidor:
+Executar um Playbook, primeiro em um único servidor:
 
 ```bash
 ansible-playbook \
@@ -1854,8 +1077,6 @@ ansible-playbook \
   --limit proxy01 \
   -k
 ```
-
-A ideia principal é:
 
 ```text
                  INVENTÁRIO
@@ -1875,12 +1096,6 @@ A ideia principal é:
    O que executar?
 ```
 
-**Inventário = onde**
-
-**Playbook = o que**
-
-**Task = ação**
-
-**Module = ferramenta usada para executar a ação**
+**Inventário = onde · Playbook = o que · Task = ação · Módulo = ferramenta**
 
 Essa separação é um dos fundamentos para construir automações Ansible organizadas e escaláveis.
