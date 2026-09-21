@@ -17,6 +17,7 @@ title: Ansible
 ## Conteúdo
 
 * [Playbooks Ansible — guia completo](guia-pratico.md)
+* [Inventários Ansible](inventario.md)
 
 ---
 
