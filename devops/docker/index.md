@@ -45,6 +45,7 @@ Esta seção reúne os principais conceitos e procedimentos relacionados ao Dock
 ### Containers
 
 ```bash
+
 docker ps
 docker ps -a
 docker start nome-do-container
