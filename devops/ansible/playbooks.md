@@ -5,44 +5,45 @@ title: Playbooks Ansible
 
 # Ansible — Guia Prático
 
+> Parte da trilha de estudo Ansible: [Índice](index.md) · [Inventários](inventarios.md) · [Módulos](modulos.md) · **Playbooks (você está aqui)**
 
 ## Sumário
 
-1. [Introdução](#introducao)
+1. [Introdução](#introdução)
 2. [Como um Playbook funciona](#como-um-playbook-funciona)
-3. [Instalação](#instalacao)
+3. [Instalação](#instalação)
 4. [Red Hat / Rocky / AlmaLinux](#red-hat-rocky-almalinux)
 5. [Debian / Ubuntu](#debian-ubuntu)
-6. [Estrutura básica](#estrutura-basica)
-7. [Inventário](#inventario)
+6. [Estrutura básica](#estrutura-básica)
+7. [Inventário](#inventário)
 8. [Grupos](#grupos)
-9. [Variáveis do inventário](#variaveis-do-inventario)
-10. [Testando a comunicação](#testando-a-comunicacao)
+9. [Variáveis do inventário](#variáveis-do-inventário)
+10. [Testando a comunicação](#testando-a-comunicação)
 11. [Ad-Hoc Commands](#ad-hoc-commands)
-12. [Módulos](#modulos)
+12. [Módulos](#módulos)
 13. [command](#command)
 14. [shell](#shell)
-15. [Regra prática](#regra-pratica)
+15. [Regra prática](#regra-prática)
 16. [become](#become)
 17. [Playbooks](#playbooks)
 18. [Estrutura de um Playbook](#estrutura-de-um-playbook)
 19. [Tasks](#tasks)
-20. [Módulo package](#modulo-package)
+20. [Módulo package](#módulo-package)
 21. [DNF](#dnf)
 22. [APT](#apt)
-23. [Gerenciamento de serviços](#gerenciamento-de-servicos)
+23. [Gerenciamento de serviços](#gerenciamento-de-serviços)
 24. [Criando arquivos](#criando-arquivos)
 25. [Copiando arquivos](#copiando-arquivos)
-26. [Usuários](#usuarios)
-27. [Variáveis](#variaveis)
+26. [Usuários](#usuários)
+27. [Variáveis](#variáveis)
 28. [Register](#register)
 29. [Debug](#debug)
 30. [Facts](#facts)
-31. [gather_facts](#gatherfacts)
+31. [gather_facts](#gather_facts)
 32. [Condicionais](#condicionais)
 33. [Loops](#loops)
 34. [Handlers](#handlers)
-35. [Idempotência](#idempotencia)
+35. [Idempotência](#idempotência)
 36. [changed, ok, failed e skipped](#changed-ok-failed-e-skipped)
 37. [ok](#ok)
 38. [changed](#changed)
@@ -50,50 +51,50 @@ title: Playbooks Ansible
 40. [skipped](#skipped)
 41. [Check Mode](#check-mode)
 42. [Diff](#diff)
-43. [Limitar a execução](#limitar-a-execucao)
+43. [Limitar a execução](#limitar-a-execução)
 44. [Tags](#tags)
 45. [Ansible Vault](#ansible-vault)
 46. [ansible.cfg](#ansiblecfg)
-47. [Exemplo prático](#exemplo-pratico)
-48. [Executando comandos em vários servidores](#executando-comandos-em-varios-servidores)
+47. [Exemplo prático](#exemplo-prático)
+48. [Executando comandos em vários servidores](#executando-comandos-em-vários-servidores)
 49. [Serial](#serial)
 50. [Troubleshooting](#troubleshooting)
-51. [Teste 1 — Resolução DNS](#teste-1-resolucao-dns)
+51. [Teste 1 — Resolução DNS](#teste-1-resolução-dns)
 52. [Teste 2 — Conectividade](#teste-2-conectividade)
 53. [Teste 3 — SSH](#teste-3-ssh)
 54. [Teste 4 — Porta SSH](#teste-4-porta-ssh)
 55. [Teste 5 — Ansible Ping](#teste-5-ansible-ping)
-56. [Teste 6 — Verificar configuração](#teste-6-verificar-configuracao)
+56. [Teste 6 — Verificar configuração](#teste-6-verificar-configuração)
 57. [Erros comuns](#erros-comuns)
 58. [Permission denied](#permission-denied)
 59. [UNREACHABLE](#unreachable)
 60. [sudo password required](#sudo-password-required)
 61. [Python ausente](#python-ausente)
-62. [Boas práticas](#boas-praticas)
+62. [Boas práticas](#boas-práticas)
 63. [Use nomes claros](#use-nomes-claros)
-64. [Prefira módulos](#prefira-modulos)
+64. [Prefira módulos](#prefira-módulos)
 65. [Teste primeiro](#teste-primeiro)
-66. [Evite credenciais no código](#evite-credenciais-no-codigo)
-67. [Faça mudanças graduais](#faca-mudancas-graduais)
-68. [Fluxo recomendado para execução](#fluxo-recomendado-para-execucao)
+66. [Evite credenciais no código](#evite-credenciais-no-código)
+67. [Faça mudanças graduais](#faça-mudanças-graduais)
+68. [Fluxo recomendado para execução](#fluxo-recomendado-para-execução)
 69. [Comandos essenciais](#comandos-essenciais)
-70. [Ver versão](#ver-versao)
+70. [Ver versão](#ver-versão)
 71. [Testar hosts](#testar-hosts)
 72. [Executar comando](#executar-comando)
 73. [Executar playbook](#executar-playbook)
-74. [Especificar inventário](#especificar-inventario)
-75. [Simular alterações](#simular-alteracoes)
-76. [Mostrar diferenças](#mostrar-diferencas)
-77. [Limitar execução](#limitar-execucao)
-78. [Ver inventário](#ver-inventario)
-79. [Listar inventário](#listar-inventario)
+74. [Especificar inventário](#especificar-inventário)
+75. [Simular alterações](#simular-alterações)
+76. [Mostrar diferenças](#mostrar-diferenças)
+77. [Limitar execução](#limitar-execução)
+78. [Ver inventário](#ver-inventário)
+79. [Listar inventário](#listar-inventário)
 80. [O que estudar depois](#o-que-estudar-depois)
-81. [Exercícios práticos](#exercicios-praticos)
-82. [Exercício 1 — Inventário](#exercicio-1-inventario)
-83. [Exercício 2 — Informações do sistema](#exercicio-2-informacoes-do-sistema)
-84. [Exercício 3 — Playbook](#exercicio-3-playbook)
-85. [Exercício 4 — Serviço](#exercicio-4-servico)
-86. [Exercício 5 — Alteração controlada](#exercicio-5-alteracao-controlada)
+81. [Exercícios práticos](#exercícios-práticos)
+82. [Exercício 1 — Inventário](#exercício-1-inventário)
+83. [Exercício 2 — Informações do sistema](#exercício-2-informações-do-sistema)
+84. [Exercício 3 — Playbook](#exercício-3-playbook)
+85. [Exercício 4 — Serviço](#exercício-4-serviço)
+86. [Exercício 5 — Alteração controlada](#exercício-5-alteração-controlada)
 87. [Resumo](#resumo)
 
 ---
@@ -247,7 +248,7 @@ Para começar, a segunda opção é suficiente.
 
 O **inventário** define quais servidores serão administrados pelo Ansible.
 
-Exemplo:
+Exemplo mínimo:
 
 ```ini
 [servidores]
@@ -256,14 +257,7 @@ server02
 server03
 ```
 
-Também é possível informar IPs:
-
-```ini
-[servidores]
-10.0.0.10
-10.0.0.11
-10.0.0.12
-```
+> 📖 Este guia usa apenas o essencial do inventário para poder avançar logo para playbooks. Para o assunto completo — grupos de grupos, `group_vars`/`host_vars`, inventário dinâmico, padrões de seleção de hosts, `ansible_host` × `inventory_hostname`, boas práticas e exercícios — veja **[Inventários Ansible](inventarios.md)**.
 
 ---
 
@@ -296,32 +290,21 @@ Ou:
 ansible banco -m ping
 ```
 
+(Detalhes sobre grupos de grupos e múltiplos pertencimentos: [Inventários Ansible, seções 3 e 4](inventarios.md#4-grupos-e-múltiplos-pertencimentos).)
+
 ---
 
 # Variáveis do inventário
 
-É possível definir informações específicas para os hosts.
-
-```ini
-[servidores]
-server01 ansible_host=10.0.0.10
-server02 ansible_host=10.0.0.11
-```
-
-Também é possível definir o usuário:
-
-```ini
-[servidores]
-server01 ansible_host=10.0.0.10 ansible_user=root
-```
-
-Outro exemplo:
+É possível definir informações específicas para os hosts, como o IP real (`ansible_host`) e o usuário de conexão (`ansible_user`):
 
 ```ini
 [servidores]
 server01 ansible_host=10.0.0.10 ansible_user=ansible
 server02 ansible_host=10.0.0.11 ansible_user=ansible
 ```
+
+(Guia completo de variáveis de conexão, senhas e precedência: [Inventários Ansible, seção 7](inventarios.md#7-variáveis-de-conexão).)
 
 ---
 

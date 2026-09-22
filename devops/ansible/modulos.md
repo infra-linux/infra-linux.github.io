@@ -5,6 +5,8 @@ title: Módulos Ansible
 
 # Módulos Ansible
 
+> Parte da trilha de estudo Ansible: [Índice](index.md) · [Inventários](inventarios.md) · **Módulos (você está aqui)** · [Playbooks](playbooks.md)
+
 ## Sumário
 
 - [Introdução](#introdução)

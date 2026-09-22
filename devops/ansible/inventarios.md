@@ -5,6 +5,8 @@ title: Inventários Ansible
 
 # Inventários Ansible
 
+> Parte da trilha de estudo Ansible: [Índice](index.md) · **Inventários (você está aqui)** · [Módulos](modulos.md) · [Playbooks](playbooks.md)
+
 ## Sumário
 
 - [Introdução](#introdução)

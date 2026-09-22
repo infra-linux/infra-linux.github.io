@@ -5,10 +5,12 @@ title: Ansible
 
 # Ansible
 
+> Trilha de estudo: **Índice (você está aqui)** · [Inventários](inventarios.md) · [Módulos](modulos.md) · [Playbooks](playbooks.md)
+
 ## Sumário
 
-1. [Conteúdo](#conteudo)
-2. [Introdução](#introducao)
+1. [Conteúdo](#conteúdo)
+2. [Introdução](#introdução)
 3. [Conceitos principais](#conceitos-principais)
 4. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
 
