@@ -1,150 +1,223 @@
----
-layout: default
-title: Git — guia prático
----
-
-# Git — guia prático
-
-Este guia reúne o fluxo essencial e os recursos de colaboração do Git para administrar a documentação e outros projetos.
-
+# Guia Prático de Git
 
 ## Sumário
 
-1. [Antes de começar](#antes-de-comecar)
-2. [Fluxo diário](#fluxo-diario)
-3. [Comandos de consulta](#comandos-de-consulta)
-4. [Branches e integração](#branches-e-integracao)
-5. [Atualizações, conflitos e rebase](#atualizacoes-conflitos-e-rebase)
-6. [Desfazer com segurança](#desfazer-com-seguranca)
-7. [Recursos úteis](#recursos-uteis)
-8. [Checklist antes do push](#checklist-antes-do-push)
+1. [O que é o Git?](#o-que-é-o-git)
+2. [Para que serve?](#para-que-serve)
+3. [Git não é GitHub](#git-não-é-github)
+4. [Conceitos fundamentais](#conceitos-fundamentais)
+5. [Os três "lugares" do Git](#os-três-lugares-do-git)
+6. [Fluxo básico na prática](#fluxo-básico-na-prática)
+7. [Ignorando arquivos (.gitignore)](#ignorando-arquivos-gitignore)
+8. [Trabalhando com branches e equipe](#trabalhando-com-branches-e-equipe)
+9. [Desfazendo erros](#desfazendo-erros-o-que-mais-gera-dúvida)
+10. [Resolvendo conflitos de merge](#resolvendo-conflitos-de-merge)
+11. [Boas práticas desde o início](#boas-práticas-desde-o-início)
+12. [Resumindo](#resumindo)
 
 ---
-## Antes de começar
 
-Verifique a instalação e identifique seus commits:
+## O que é o Git?
 
-```bash
-git --version
-git config --global user.name "Seu Nome"
-git config --global user.email "voce@exemplo.com"
+Git é um **sistema de controle de versão**. Ele guarda o histórico completo de um projeto, registrando quem mudou o quê, quando e por quê, e permite voltar no tempo se algo der errado.
+
+### Uma analogia
+
+Pense em um documento de texto em que você salva versões assim:
+
+```
+trabalho.docx
+trabalho_v2.docx
+trabalho_final.docx
+trabalho_final_agora_vai.docx
+trabalho_final_agora_vai_revisado.docx
 ```
 
-Nunca versione senhas, tokens, chaves privadas ou arquivos de configuração com dados sensíveis. Use um `.gitignore` para evitar inclusões acidentais.
+Isso é bagunçado e não mostra o que mudou entre uma versão e outra. O Git resolve esse problema: você tem **um único projeto**, e ele guarda cada versão como um "ponto de salvamento" organizado — como os checkpoints de um videogame.
 
-## Fluxo diário
+[⬆ Voltar ao sumário](#sumário)
 
-Para trabalhar em um repositório existente, clone-o uma vez e entre no diretório:
+---
 
-```bash
-git clone https://github.com/usuario/repositorio.git
-cd repositorio
+## Para que serve?
+
+1. **Registrar mudanças**: cada alteração fica salva com autor, data e uma mensagem explicando o motivo.
+2. **Desfazer erros**: quebrou algo? Volte para a versão que funcionava.
+3. **Colaborar com segurança**: várias pessoas trabalham no mesmo projeto ao mesmo tempo sem sobrescrever o trabalho umas das outras.
+4. **Experimentar sem medo**: você testa ideias novas em uma "cópia paralela" (branch) e só junta ao projeto principal se der certo.
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Git não é GitHub
+
+| | O que é |
+|---|---|
+| **Git** | A ferramenta que roda no seu computador e controla as versões |
+| **GitHub / GitLab / Bitbucket** | Serviços online que hospedam repositórios Git e facilitam o trabalho em equipe |
+
+Você pode usar o Git sozinho, sem internet e sem GitHub. Os serviços online servem para compartilhar, fazer backup e colaborar via Pull Requests.
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Conceitos fundamentais
+
+| Termo | Significado |
+|---|---|
+| **Repositório (repo)** | A pasta do projeto monitorada pelo Git, com todo o histórico |
+| **Commit** | Um "retrato" do projeto em um momento, com mensagem explicativa |
+| **Branch** | Linha paralela de desenvolvimento (a principal costuma ser `main`) |
+| **Merge** | Juntar as mudanças de uma branch em outra |
+| **Remoto (remote)** | Cópia do repositório em um servidor, como o GitHub |
+| **HEAD** | Ponteiro que indica em qual commit/branch você está agora |
+| **.gitignore** | Arquivo que lista o que o Git deve ignorar (ex: senhas, `node_modules`) |
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Os três "lugares" do Git
+
+Este é o ponto que mais confunde no começo. Seus arquivos passam por três áreas:
+
+```
+Diretório de trabalho  →  Área de staging  →  Repositório
+   (você edita)          (você escolhe        (histórico
+                          o que vai salvar)     salvo)
+        git add ────────────►  git commit ────────►
 ```
 
-Antes de iniciar uma alteração, atualize sua cópia e crie uma branch com um nome descritivo:
+Pense em uma **mudança de casa**:
+- **Diretório de trabalho:** os objetos espalhados pela casa.
+- **Staging:** os objetos que você colocou dentro da caixa.
+- **Commit:** a caixa fechada, etiquetada e guardada.
+
+Você escolhe o que entra na caixa — o que permite salvar só parte das suas alterações.
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Fluxo básico na prática
 
 ```bash
-git switch main
-git pull --ff-only origin main
-git switch -c docs/tutorial-git
-```
+# 1. Iniciar um repositório
+git init
 
-Depois de editar os arquivos, revise exatamente o que será enviado, registre a alteração e publique a branch:
-
-```bash
+# 2. Ver o que mudou
 git status
+
+# 3. Ver exatamente O QUE mudou linha a linha
 git diff
-git add arquivo.md
-git diff --staged
-git commit -m "docs: adiciona tutorial de Git"
-git push -u origin docs/tutorial-git
+
+# 4. Colocar arquivos na "caixa" (staging)
+git add arquivo.txt        # um arquivo
+git add .                  # todos os arquivos alterados
+
+# 5. Salvar o ponto no histórico
+git commit -m "Adiciona página inicial"
+
+# 6. Ver o histórico
+git log --oneline --graph
 ```
 
-Abra um Pull Request para revisão. Após a aprovação e o merge, atualize sua `main` local antes de começar a próxima tarefa.
+> 💡 `git diff` costuma faltar em guias básicos, mas é essencial: mostra exatamente o que vai entrar no commit antes de você confirmar.
 
-> `git add .` é útil apenas quando você conferiu o `git status` e sabe que todos os arquivos modificados devem entrar no commit.
+[⬆ Voltar ao sumário](#sumário)
 
-## Comandos de consulta
+---
 
-| Comando | Uso |
-| --- | --- |
-| `git status` | Exibe arquivos alterados e o estado da branch. |
-| `git diff` | Mostra alterações ainda fora da área de stage. |
-| `git diff --staged` | Mostra o conteúdo que irá para o próximo commit. |
-| `git log --oneline --graph --decorate` | Exibe um histórico compacto. |
-| `git fetch origin` | Atualiza referências remotas sem alterar seus arquivos. |
-| `git branch -a` | Lista branches locais e remotas. |
-| `git remote -v` | Confirma os endereços dos repositórios remotos. |
+## Ignorando arquivos (.gitignore)
 
-## Branches e integração
+Nem tudo deve ir para o histórico — senhas, arquivos temporários, dependências. Crie um arquivo `.gitignore` na raiz do projeto:
 
-Liste branches com `git branch`; o asterisco indica a atual. Para alternar, prefira:
+```
+node_modules/
+.env
+*.log
+dist/
+```
+
+Isso evita vazar credenciais e mantém o repositório limpo.
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Trabalhando com branches e equipe
 
 ```bash
-git switch nome-da-branch
-git switch -c nova-branch
+git branch nova-funcao          # cria uma branch
+git switch nova-funcao          # muda para ela
+# ...faz alterações e commits...
+git switch main                 # volta para a principal
+git merge nova-funcao           # junta o trabalho
+
+git clone <url>                 # baixa um projeto remoto
+git pull                        # traz novidades do remoto
+git push                        # envia seus commits ao remoto
 ```
 
-Para integrar uma branch concluída localmente:
+[⬆ Voltar ao sumário](#sumário)
 
-```bash
-git switch main
-git pull --ff-only origin main
-git merge nome-da-branch
-git push origin main
+---
+
+## Desfazendo erros (o que mais gera dúvida)
+
+| Situação | Comando | Efeito |
+|---|---|---|
+| Descartar mudanças não commitadas em um arquivo | `git restore arquivo.txt` | Volta o arquivo ao último commit |
+| Tirar um arquivo do staging (sem perder a edição) | `git restore --staged arquivo.txt` | Sai da "caixa", mas mantém a mudança |
+| Desfazer o **último commit**, mantendo as mudanças no diretório | `git reset --soft HEAD~1` | Commit desfeito, arquivos intactos |
+| Apagar o último commit e as mudanças (cuidado!) | `git reset --hard HEAD~1` | Perde tudo daquele commit |
+| Desfazer um commit **já enviado** ao remoto, sem reescrever histórico | `git revert <hash>` | Cria um novo commit que anula o anterior |
+
+> ⚠️ Regra de ouro: use `revert` para commits já compartilhados com outras pessoas, e `reset` só localmente, antes do `push`.
+
+[⬆ Voltar ao sumário](#sumário)
+
+---
+
+## Resolvendo conflitos de merge
+
+Quando duas pessoas alteram a mesma linha, o Git não sabe qual manter e mostra algo assim no arquivo:
+
+```
+<<<<<<< HEAD
+minha versão da linha
+=======
+versão da outra pessoa
+>>>>>>> nova-funcao
 ```
 
-Em equipes, prefira o Pull Request como caminho de merge. Remova a branch somente depois de confirmar que ela foi integrada:
+Passo a passo:
+1. Edite o arquivo manualmente, decidindo o que fica.
+2. Apague as marcações (`<<<<<<<`, `=======`, `>>>>>>>`).
+3. `git add arquivo.txt`
+4. `git commit` (o Git já sugere uma mensagem de merge).
 
-```bash
-git branch -d nome-da-branch
-git push origin --delete nome-da-branch
-```
+[⬆ Voltar ao sumário](#sumário)
 
-## Atualizações, conflitos e rebase
+---
 
-`git pull` obtém alterações remotas e as integra. `git fetch` apenas as baixa, permitindo inspecioná-las antes. O uso de `git pull --ff-only` evita criar merges inesperados.
+## Boas práticas desde o início
 
-Se houver conflito, o Git marca os trechos envolvidos. Edite o arquivo, mantenha a versão correta, remova os marcadores `<<<<<<<`, `=======` e `>>>>>>>`, então conclua:
+- Faça **commits pequenos e frequentes**, cada um com um propósito claro.
+- Escreva **mensagens descritivas**, de preferência no imperativo: "Corrige erro no cálculo do frete" em vez de "ajustes".
+- Use **branches** para novas funcionalidades (`feature/nome`, `fix/nome`).
+- Rode `git status` com frequência para saber onde você está.
+- Nunca coloque senhas ou chaves de API no repositório — use `.gitignore`.
+- Antes de `git push`, rode `git pull` para evitar conflitos desnecessários.
 
-```bash
-git add arquivo-com-conflito.md
-git commit
-```
+[⬆ Voltar ao sumário](#sumário)
 
-`git rebase main` reaplica os commits da sua branch sobre a `main`, deixando o histórico linear. Use-o apenas em commits que ainda não são compartilhados, ou combine-o previamente com a equipe. Não use `git push --force` em uma branch compartilhada; se for indispensável numa branch própria, prefira `git push --force-with-lease`.
+---
 
-## Desfazer com segurança
+## Resumindo
 
-| Situação | Comando |
-| --- | --- |
-| Descartar alterações não adicionadas em um arquivo | `git restore arquivo.md` |
-| Retirar um arquivo da área de stage, mantendo a edição | `git restore --staged arquivo.md` |
-| Guardar trabalho temporariamente | `git stash` |
-| Restaurar o último stash | `git stash pop` |
-| Reverter um commit já publicado | `git revert ID_DO_COMMIT` |
+> Git é uma máquina do tempo para o seu projeto: registra cada passo, deixa você voltar quando errar e permite que várias pessoas construam algo juntas sem pisar no trabalho umas das outras.
 
-`git reset --hard` apaga alterações locais e pode causar perda de trabalho. Use-o somente quando tiver certeza do alvo e não houver conteúdo a preservar.
-
-## Recursos úteis
-
-Marque versões estáveis com tags:
-
-```bash
-git tag -a v1.0 -m "Versão 1.0"
-git push origin v1.0
-```
-
-Para descobrir a origem de uma linha:
-
-```bash
-git blame arquivo.md
-```
-
-## Checklist antes do push
-
-- Confirme a branch com `git status`.
-- Revise `git diff --staged`.
-- Use uma mensagem de commit curta e objetiva.
-- Não envie credenciais ou arquivos gerados sem necessidade.
-- Atualize a branch e resolva conflitos antes de abrir o Pull Request.
+[⬆ Voltar ao sumário](#sumário)
