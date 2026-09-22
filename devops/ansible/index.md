@@ -16,7 +16,7 @@ title: Ansible
 
 ## Conteúdo
 
-* [Inventários Ansible](inventario.md)
+* [Inventários Ansible](inventarios.md)
 * [Módulos Ansible](modulos.md)
 * [Playbooks Ansible](playbooks.md)
 
