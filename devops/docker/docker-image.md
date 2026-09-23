@@ -161,9 +161,11 @@ docker image inspect nginx:1.28
 
 Também é possível consultar um campo específico:
 
+{% raw %}
 ```bash
 docker image inspect nginx:1.28 --format '{{.Architecture}}'
 ```
+{% endraw %}
 
 ---
 

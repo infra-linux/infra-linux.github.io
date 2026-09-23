@@ -34,7 +34,6 @@ Documentação sobre o gerador de sites estáticos utilizado pelo Infra Linux.
 ### Conteúdos
 
 * [Jekyll — Guia Completo](jekyll.md)
-* [Estrutura de um Projeto Jekyll](jekyll-estrutura.md)
 * [Layouts](jekyll-layouts.md)
 * [Liquid](jekyll-liquid.md)
 * [Includes](jekyll-includes.md)

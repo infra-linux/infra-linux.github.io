@@ -646,10 +646,11 @@ Existem três elementos fundamentais:
 ```liquid
 {{ }}
 ```
-
+{% raw %}
 ```liquid
 {% %}
 ```
+{% endraw %}
 
 ```liquid
 {# #}
