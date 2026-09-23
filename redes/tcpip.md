@@ -5,32 +5,11 @@ title: TCP/IP
 ---
 
 # 1. TCP/IP
+{:.no_toc}
 
-## Sumário
-
-1. [TCP/IP](#1-tcpip)
-2. [Endereço IP](#2-endereço-ip)
-
-   * IPv4
-   * IP público, IP privado e loopback
-   * Endereços especiais
-3. [Máscara de Rede](#3-máscara-de-rede)
-4. [CIDR](#4-cidr)
-5. [Rede, Host e Broadcast](#5-rede-host-e-broadcast)
-6. [Sub-redes (Subnetting)](#6-sub-redes-subnetting)
-7. [MAC Address](#7-mac-address)
-8. [ARP](#8-arp)
-9. [Gateway](#9-gateway)
-10. [Rotas](#10-rotas)
-11. [ICMP](#11-icmp)
-12. [TCP e UDP](#12-tcp-e-udp)
-13. [Portas](#13-portas)
-14. [IPv6](#14-ipv6)
-15. [NAT](#15-nat)
-16. [DNS](#16-dns)
-17. [DHCP](#17-dhcp)
-18. [VLAN](#18-vlan)
-19. [Troubleshooting de rede no Linux](#19-troubleshooting-de-rede-no-linux)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

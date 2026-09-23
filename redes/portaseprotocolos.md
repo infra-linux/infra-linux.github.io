@@ -4,38 +4,11 @@ title: Redes-portas-e-protocolos
 ---
 
 # Portas e Protocolos
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [1. O que é uma porta?](#1-o-que-e-uma-porta)
-3. [2. O que é um protocolo?](#2-o-que-e-um-protocolo)
-4. [3. TCP](#3-tcp)
-5. [4. UDP](#4-udp)
-6. [5. TCP x UDP](#5-tcp-x-udp)
-7. [6. IP + porta + protocolo](#6-ip-porta-protocolo)
-8. [7. Como verificar portas abertas no Linux](#7-como-verificar-portas-abertas-no-linux)
-9. [Mostrar portas TCP e UDP em escuta](#mostrar-portas-tcp-e-udp-em-escuta)
-10. [Entendendo as opções](#entendendo-as-opcoes)
-11. [8. Descobrir qual processo utiliza uma porta](#8-descobrir-qual-processo-utiliza-uma-porta)
-12. [9. Testar uma porta TCP](#9-testar-uma-porta-tcp)
-13. [Importante](#importante)
-14. [10. Testar TCP com Telnet](#10-testar-tcp-com-telnet)
-15. [11. Testar UDP](#11-testar-udp)
-16. [12. Portas comuns de infraestrutura](#12-portas-comuns-de-infraestrutura)
-17. [13. Troubleshooting de uma porta](#13-troubleshooting-de-uma-porta)
-18. [14. Diferenciando os problemas](#14-diferenciando-os-problemas)
-19. [DNS não resolve](#dns-nao-resolve)
-20. [IP não é alcançável](#ip-nao-e-alcancavel)
-21. [Porta TCP bloqueada](#porta-tcp-bloqueada)
-22. [Porta recusada](#porta-recusada)
-23. [Porta aberta, aplicação com problema](#porta-aberta-aplicacao-com-problema)
-24. [15. Exemplo prático](#15-exemplo-pratico)
-25. [16. Comandos de consulta rápida](#16-comandos-de-consulta-rapida)
-26. [Linux](#linux)
-27. [Windows PowerShell](#windows-powershell)
-28. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Introdução
