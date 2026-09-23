@@ -32,7 +32,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 3. [Kubernetes](kubernetes/index.md): KUBECONFIG, kubectl, Pods, Deployments, Services e Ingress.
 4. [CI/CD](cicd/index.md): validação, criação de imagens e deploy.
 5. [Ansible](ansible/index.md): automação de configurações repetitivas de infraestrutura.
-6. [Documentações](documentacao/index.md): Documentaçãoes Markdown e jekyll.
+6. [Documentações](documentacao/index.md): Markdown, Jekyll e boas práticas de documentação.
 
 
 O fluxo pode ser resumido assim:
