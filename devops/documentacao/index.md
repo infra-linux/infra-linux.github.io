@@ -18,8 +18,7 @@ Documentação sobre a linguagem de marcação utilizada para escrever os conte�
 
 ### Conteúdos
 
-* [Markdown — Guia Pratico](markdown.md)
-* [Markdown - Profissional](markdownprof.md)
+* [Markdown — Guia Completo](markdown.md)
 * [Blocos de Código](markdown-blocos-de-codigo.md)
 * [Tabelas](markdown-tabelas.md)
 * [Links e Imagens](markdown-links-e-imagens.md)
