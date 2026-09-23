@@ -1919,18 +1919,23 @@ Correto:
 
 Errado:
 
+{% raw %}
 ```liquid
 {% if page.toc %}
 ```
+{% endraw %}
 
 sem:
 
+{% raw %}
 ```liquid
 {% endif %}
 ```
+{% endraw %}
 
 Correto:
 
+{% raw %}
 ```liquid
 {% if page.toc %}
 
@@ -1938,7 +1943,7 @@ Correto:
 
 {% endif %}
 ```
-
+{% endraw %}
 ---
 
 # 55. YAML e indentação
