@@ -706,6 +706,8 @@ body.menu-open .backdrop {
   }
 }
 
+
+
 /* Sumário automático do kramdown */
 #markdown-toc {
   box-sizing: border-box;
@@ -714,37 +716,52 @@ body.menu-open .backdrop {
   margin: 1.5rem 0 2rem;
   padding: 0.75rem 0 0.75rem 1.25rem;
 
-  /* Mantém o fundo normal da página */
+  /* Sem preenchimento: preserva o fundo do tema */
   background: transparent;
 
-  /* Azul somente como destaque lateral */
+  /* Verde suave como destaque lateral */
   border: 0;
-  border-left: 4px solid #2563eb;
+  border-left: 3px solid #74a892;
 
   list-style: none;
 }
 
-/* Espaçamento dos títulos principais */
+/* Itens principais */
 #markdown-toc > li {
   margin: 0.4rem 0;
   line-height: 1.5;
 }
 
-/* Subníveis: ###, #### etc. */
+/* Subníveis: títulos ###, #### etc. */
 #markdown-toc ul {
-  margin: 0.4rem 0 0.4rem 1.25rem;
+  margin: 0.35rem 0 0.35rem 1.2rem;
   padding-left: 1rem;
   list-style: disc;
 }
 
-/* Azul somente nos links do índice */
+/* Links do sumário */
 #markdown-toc a {
-  color: #2563eb;
+  color: #4f7f6b;
   text-decoration: none;
 }
 
+/* Hover mais escuro, mas ainda suave */
 #markdown-toc a:hover,
 #markdown-toc a:focus {
-  color: #1d4ed8;
+  color: #2f5d4a;
   text-decoration: underline;
+}
+
+/* Navegação por teclado */
+#markdown-toc a:focus-visible {
+  outline: 2px solid #a8d5ba;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.toc-title {
+  margin: 1.5rem 0 -0.2rem;
+  color: #3f705c;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
