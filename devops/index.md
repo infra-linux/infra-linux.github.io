@@ -3,11 +3,10 @@ layout: default
 title: DevOps
 ---
 # DevOps
-
-## Índice
 {:.no_toc}
 
-* Índice gerado automaticamente
+<div class="toc-title">Sumário</div>
+* Sumário:
 {:toc}
 
 ---
