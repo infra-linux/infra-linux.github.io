@@ -721,7 +721,7 @@ body.menu-open .backdrop {
 
   /* Verde suave como destaque lateral */
   border: 0;
-  border-left: 3px solid #b6ffc2;
+  border-left: 3px solid #949494;
 
   list-style: none;
 }
