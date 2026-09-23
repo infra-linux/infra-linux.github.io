@@ -7,12 +7,6 @@ description: Guia Completo de Markdown - da sintaxe à documentação profission
 # Guia Completo de Markdown
 {:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
-
-{% raw %}
-
 Este guia junta em um só material o *Guia Prático de Markdown* (a **sintaxe**) e o *Markdown para Documentação Profissional* (a **escrita técnica de qualidade**). Ele foi organizado para estudo, do básico ao avançado.
 
 ## Como usar este guia
@@ -35,6 +29,12 @@ Este guia junta em um só material o *Guia Prático de Markdown* (a **sintaxe**)
 - Blocos `markdown` mostram o **código-fonte**.
 - O que vem logo depois, sem bloco, é o **resultado renderizado**.
 - Os endereços IP, hostnames e domínios dos exemplos são **fictícios** (faixa `192.0.2.0/24`, reservada para documentação, e domínio `exemplo.local`). Veja o motivo na seção 41.
+
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
+
+{% raw %}
 
 ---
 
