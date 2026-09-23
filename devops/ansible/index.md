@@ -7,12 +7,11 @@ title: Ansible
 
 > Trilha de estudo: **Índice (você está aqui)** · [Inventários](inventarios.md) · [Módulos](modulos.md) · [Playbooks](playbooks.md)
 
-## Sumário
+## Índice
+{:.no_toc}
 
-1. [Conteúdo](#conteúdo)
-2. [Introdução](#introdução)
-3. [Conceitos principais](#conceitos-principais)
-4. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+* Índice gerado automaticamente
+{:toc}
 
 ---
 

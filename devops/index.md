@@ -4,12 +4,11 @@ title: DevOps
 ---
 # DevOps
 
-## Sumário
+## Índice
+{:.no_toc}
 
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteudo)
-3. [Rotina recomendada](#rotina-recomendada)
-4. [Boas práticas](#boas-praticas)
+* Índice gerado automaticamente
+{:toc}
 
 ---
 

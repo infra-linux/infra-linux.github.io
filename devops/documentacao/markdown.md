@@ -1,56 +1,20 @@
-{% raw %}
+---
+layout: default
+title: Markdonw-pratico
+description: Guia Prático de Markdown
+---
+
+
 
 # Guia Prático de Markdown
-## Índice
 
-- [1. O que é Markdown?](#1-o-que-é-markdown)
-- [2. Parágrafos e quebras de linha](#2-parágrafos-e-quebras-de-linha)
-- [3. Títulos](#3-títulos)
-- [4. Ênfase: negrito, itálico e riscado](#4-ênfase-negrito-itálico-e-riscado)
-- [5. Código dentro de uma linha](#5-código-dentro-de-uma-linha)
-- [6. Blocos de código](#6-blocos-de-código)
-  - [6.1 Principais identificadores de linguagem](#61-principais-identificadores-de-linguagem)
-  - [6.2 bash x text](#62-bash-x-text)
-  - [6.3 Exemplos por linguagem](#63-exemplos-por-linguagem)
-  - [6.4 Boas práticas em blocos de código](#64-boas-práticas-em-blocos-de-código)
-- [7. Listas](#7-listas)
-  - [7.1 Lista não ordenada](#71-lista-não-ordenada)
-  - [7.2 Lista numerada](#72-lista-numerada)
-  - [7.3 Listas aninhadas](#73-listas-aninhadas)
-  - [7.4 Listas com blocos de código](#74-listas-com-blocos-de-código)
-  - [7.5 Checklists](#75-checklists)
-- [8. Links](#8-links)
-  - [8.1 Sintaxe básica](#81-sintaxe-básica)
-  - [8.2 Links entre páginas do mesmo projeto](#82-links-entre-páginas-do-mesmo-projeto)
-  - [8.3 Âncoras (links internos na mesma página)](#83-âncoras-links-internos-na-mesma-página)
-  - [8.4 Links de referência](#84-links-de-referência)
-  - [8.5 Links automáticos](#85-links-automáticos)
-- [9. Imagens](#9-imagens)
-- [10. Tabelas](#10-tabelas)
-  - [10.1 Alinhamento](#101-alinhamento)
-  - [10.2 Cuidados](#102-cuidados)
-- [11. Citações](#11-citações)
-- [12. Linha horizontal](#12-linha-horizontal)
-- [13. Escape de caracteres](#13-escape-de-caracteres)
-- [14. Mostrando Markdown dentro de Markdown](#14-mostrando-markdown-dentro-de-markdown)
-- [15. Avisos e observações](#15-avisos-e-observações)
-  - [15.1 Citação com rótulo (funciona em qualquer lugar)](#151-citação-com-rótulo-funciona-em-qualquer-lugar)
-  - [15.2 Alertas do GitHub](#152-alertas-do-github)
-  - [15.3 Citação com classe CSS (kramdown/Jekyll)](#153-citação-com-classe-css-kramdownjekyll)
-- [16. HTML, comentários e emojis](#16-html-comentários-e-emojis)
-  - [16.1 HTML dentro do Markdown](#161-html-dentro-do-markdown)
-  - [16.2 Comentários](#162-comentários)
-  - [16.3 Emojis](#163-emojis)
-- [17. Compatibilidade: GitHub x GitHub Pages/Jekyll](#17-compatibilidade-github-x-github-pagesjekyll)
-- [18. Diagramas com Mermaid](#18-diagramas-com-mermaid)
-- [19. Boas práticas de documentação técnica](#19-boas-práticas-de-documentação-técnica)
-  - [19.1 Estrutura recomendada](#191-estrutura-recomendada)
-  - [19.2 Não coloque tudo em um único bloco de código](#192-não-coloque-tudo-em-um-único-bloco-de-código)
-  - [19.3 Perguntas que uma boa página responde](#193-perguntas-que-uma-boa-página-responde)
-  - [19.4 Checklist de qualidade](#194-checklist-de-qualidade)
-- [20. Exemplo completo de página técnica](#20-exemplo-completo-de-página-técnica)
-- [21. Referência rápida](#21-referência-rápida)
-- [22. Exercício prático](#22-exercício-prático)
+## Índice
+{:.no_toc}
+
+* Índice gerado automaticamente
+{:toc}
+
+{% raw %}
 
 Este guia reúne a sintaxe de Markdown que você realmente usa em documentação técnica, com exemplos prontos para copiar e observações sobre o que **funciona no GitHub** e o que **funciona no GitHub Pages/Jekyll**.
 

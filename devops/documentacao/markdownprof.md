@@ -1,53 +1,17 @@
-{% raw %}
+---
+layout: default
+title: Markdown-profissional
+description: Markdown para Documentação Profissional
+---
 
 # Markdown para Documentação Profissional
 ## Índice
+{:.no_toc}
 
-- [1. Objetivo](#1-objetivo)
-- [2. Princípio central](#2-princípio-central)
-- [3. Tipos de página](#3-tipos-de-página)
-- [4. Estrutura recomendada](#4-estrutura-recomendada)
-- [5. Títulos e hierarquia](#5-títulos-e-hierarquia)
-- [6. Código deve ser tratado como código](#6-código-deve-ser-tratado-como-código)
-  - [6.1 Comando x resultado](#61-comando-x-resultado)
-  - [6.2 Use a linguagem correta](#62-use-a-linguagem-correta)
-  - [6.3 Comandos longos](#63-comandos-longos)
-  - [6.4 Não copie o prompt](#64-não-copie-o-prompt)
-  - [6.5 Placeholders](#65-placeholders)
-- [7. Avisos de risco](#7-avisos-de-risco)
-- [8. Procedimentos passo a passo](#8-procedimentos-passo-a-passo)
-- [9. Checklists](#9-checklists)
-- [10. Tabelas](#10-tabelas)
-- [11. Links e navegação](#11-links-e-navegação)
-  - [11.1 Links .md x .html no Jekyll](#111-links-md-x-html-no-jekyll)
-  - [11.2 Índice da página](#112-índice-da-página)
-  - [11.3 Textos de link](#113-textos-de-link)
-- [12. Imagens](#12-imagens)
-- [13. Diagramas com Mermaid](#13-diagramas-com-mermaid)
-- [14. Modelos de páginas](#14-modelos-de-páginas)
-  - [14.1 Troubleshooting](#141-troubleshooting)
-  - [14.2 Referência de comandos](#142-referência-de-comandos)
-  - [14.3 Documentando arquivos de configuração](#143-documentando-arquivos-de-configuração)
-  - [14.4 Estrutura de diretórios](#144-estrutura-de-diretórios)
-  - [14.5 Comandos de diagnóstico](#145-comandos-de-diagnóstico)
-  - [14.6 README.md](#146-readmemd)
-- [15. Organização dos arquivos](#15-organização-dos-arquivos)
-  - [15.1 Um assunto por arquivo](#151-um-assunto-por-arquivo)
-  - [15.2 Nomes de arquivos](#152-nomes-de-arquivos)
-- [16. Versionamento e histórico](#16-versionamento-e-histórico)
-- [17. Documentação x registro de mudanças](#17-documentação-x-registro-de-mudanças)
-  - [17.1 Evite informações temporárias](#171-evite-informações-temporárias)
-- [18. Informações sensíveis](#18-informações-sensíveis)
-- [19. Exemplos reais e completos](#19-exemplos-reais-e-completos)
-- [20. Markdown + Jekyll + GitHub Pages](#20-markdown--jekyll--github-pages)
-  - [20.1 Front matter](#201-front-matter)
-  - [20.2 Diferenças que você precisa conhecer](#202-diferenças-que-você-precisa-conhecer)
-  - [20.3 Cuidado com o Liquid em exemplos de código](#203-cuidado-com-o-liquid-em-exemplos-de-código)
-  - [20.4 Teste antes de publicar](#204-teste-antes-de-publicar)
-- [21. Organização sugerida para o Infra Linux](#21-organização-sugerida-para-o-infra-linux)
-- [22. Manutenção](#22-manutenção)
-- [23. Checklist de qualidade](#23-checklist-de-qualidade)
-- [24. Resumo](#24-resumo)
+* Índice gerado automaticamente
+{:toc}
+
+{% raw %}
 
 ## 1. Objetivo
 

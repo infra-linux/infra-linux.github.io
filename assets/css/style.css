@@ -705,3 +705,23 @@ body.menu-open .backdrop {
     justify-content: center;
   }
 }
+
+#markdown-toc {
+  background: #f6f8fa;
+  border-left: 4px solid #2563eb;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+}
+
+#markdown-toc ul {
+  margin: 0.5rem 0 0 1.25rem;
+}
+
+#markdown-toc a {
+  text-decoration: none;
+}
+
+#markdown-toc a:hover {
+  text-decoration: underline;
+}

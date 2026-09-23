@@ -1,3 +1,9 @@
+---
+layout: default
+title: Jekyll
+description: Jekyll — Guia Completo e Didático
+---
+
 # Jekyll — Guia Completo e Didático
 
 > Guia prático para aprender Jekyll e aplicar o conhecimento no projeto **Infra Linux**.

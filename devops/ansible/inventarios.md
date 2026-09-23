@@ -7,35 +7,11 @@ title: Inventários Ansible
 
 > Parte da trilha de estudo Ansible: [Índice](index.md) · **Inventários (você está aqui)** · [Módulos](modulos.md) · [Playbooks](playbooks.md)
 
-## Sumário
+## Índice
+{:.no_toc}
 
-- [Introdução](#introdução)
-- [1. Control Node e Managed Nodes](#1-control-node-e-managed-nodes)
-- [2. Para que serve o inventário?](#2-para-que-serve-o-inventário)
-- [3. Inventário no formato INI](#3-inventário-no-formato-ini)
-- [4. Grupos e múltiplos pertencimentos](#4-grupos-e-múltiplos-pertencimentos)
-- [5. Executando comandos ad-hoc no inventário](#5-executando-comandos-ad-hoc-no-inventário)
-- [6. Nome lógico × endereço real](#6-nome-lógico-endereço-real)
-- [7. Variáveis de conexão](#7-variáveis-de-conexão)
-- [8. Senhas no inventário](#8-senhas-no-inventário)
-- [9. Grupos de grupos (`:children`)](#9-grupos-de-grupos-children)
-- [10. Variáveis de grupo e de host no próprio inventário](#10-variáveis-de-grupo-e-de-host-no-próprio-inventário)
-- [11. Formato YAML](#11-formato-yaml)
-- [12. Formas de organizar o inventário](#12-formas-de-organizar-o-inventário)
-- [13. `group_vars` e `host_vars`](#13-group_vars-e-host_vars)
-- [14. Inventário estático × dinâmico](#14-inventário-estático-dinâmico)
-- [15. Selecionando hosts](#15-selecionando-hosts)
-- [16. Chaves SSH em vez de senha](#16-chaves-ssh-em-vez-de-senha)
-- [17. O comando `ansible-inventory`](#17-o-comando-ansible-inventory)
-- [18. Inventários separados ou único?](#18-inventários-separados-ou-único)
-- [19. Exemplo completo](#19-exemplo-completo)
-- [20. Inventário e Playbook trabalham juntos](#20-inventário-e-playbook-trabalham-juntos)
-- [21. Boas práticas](#21-boas-práticas)
-- [22. Fluxo recomendado ao adicionar um servidor](#22-fluxo-recomendado-ao-adicionar-um-servidor)
-- [23. Erros comuns](#23-erros-comuns)
-- [24. Exercícios](#24-exercícios)
-- [25. Checklist de estudo](#25-checklist-de-estudo)
-- [26. Resumo](#26-resumo)
+* Índice gerado automaticamente
+{:toc}
 
 ---
 
