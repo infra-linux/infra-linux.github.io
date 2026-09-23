@@ -706,84 +706,49 @@ body.menu-open .backdrop {
   }
 }
 
-/* Sumário automático gerado pelo kramdown */
+/* Sumário automático do kramdown */
 #markdown-toc {
   box-sizing: border-box;
   width: 100%;
   max-width: 900px;
   margin: 1.5rem 0 2rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 0 0.75rem 1.25rem;
+
+  /* Mantém o fundo normal da página */
+  background: transparent;
+
+  /* Azul somente como destaque lateral */
+  border: 0;
+  border-left: 4px solid #2563eb;
 
   list-style: none;
-  background: #f6f8fa;
-  border: 1px solid #d0d7de;
-  border-left: 4px solid #2563eb;
-  border-radius: 6px;
 }
 
-/* Itens principais do sumário */
+/* Espaçamento dos títulos principais */
 #markdown-toc > li {
   margin: 0.4rem 0;
   line-height: 1.5;
 }
 
-/* Subníveis: títulos ###, #### etc. */
+/* Subníveis: ###, #### etc. */
 #markdown-toc ul {
   margin: 0.4rem 0 0.4rem 1.25rem;
   padding-left: 1rem;
   list-style: disc;
 }
 
-/* Links */
+/* Azul somente nos links do índice */
 #markdown-toc a {
-  color: #1d4ed8;
+  color: #2563eb;
   text-decoration: none;
 }
 
 #markdown-toc a:hover,
 #markdown-toc a:focus {
-  color: #1e40af;
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
-/* Destaque visível ao navegar com Tab */
-#markdown-toc a:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-/* Tema escuro automático, caso o navegador esteja em dark mode */
-@media (prefers-color-scheme: dark) {
-  #markdown-toc {
-    background: #161b22;
-    border-color: #30363d;
-    border-left-color: #58a6ff;
-  }
-
-  #markdown-toc a {
-    color: #79c0ff;
-  }
-
-  #markdown-toc a:hover,
-  #markdown-toc a:focus {
-    color: #a5d6ff;
-  }
-}
-
-/* Ajuste para celular */
-@media (max-width: 600px) {
-  #markdown-toc {
-    margin: 1rem 0 1.5rem;
-    padding: 0.85rem 1rem;
-    font-size: 0.95rem;
-  }
-
-  #markdown-toc ul {
-    margin-left: 0.75rem;
-    padding-left: 0.85rem;
-  }
-}
 
 .toc-title {
   margin: 1.5rem 0 -1.5rem;
