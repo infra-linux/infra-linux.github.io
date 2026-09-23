@@ -1,3 +1,5 @@
+{% raw %}
+
 # Guia Prático de Markdown
 ## Índice
 
@@ -958,3 +960,5 @@ Crie um arquivo `teste.md` e reproduza uma página sobre um serviço que você a
 6. Um link para outra página do site e uma âncora interna.
 
 Publique no GitHub Pages e compare com a visualização do GitHub. As diferenças que encontrar são o melhor ponto de partida para o próximo guia: **Markdown profissional com Jekyll/Liquid**.
+
+{% endraw %}

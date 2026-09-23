@@ -1,3 +1,5 @@
+{% raw %}
+
 # Markdown para Documentação Profissional
 ## Índice
 
@@ -1067,3 +1069,5 @@ O que é? → Como instalar? → Como configurar? → Como usar? → Como valida
 ```
 
 Esse padrão transforma um conjunto de páginas Markdown em uma verdadeira **base de conhecimento de infraestrutura**.
+
+{% endraw %}
