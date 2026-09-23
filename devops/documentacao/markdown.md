@@ -10,6 +10,7 @@ description: Guia Completo de Markdown - da sintaxe à documentação profission
 Este guia junta em um só material o *Guia Prático de Markdown* (a **sintaxe**) e o *Markdown para Documentação Profissional* (a **escrita técnica de qualidade**). Ele foi organizado para estudo, do básico ao avançado.
 
 ## Como usar este guia
+{:.no_toc}
 
 **Trilha de estudo sugerida:**
 
