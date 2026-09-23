@@ -12,7 +12,7 @@ description: Jekyll — Guia Completo e Didático
 ---
 
 <div class="toc-title">Sumário</div>
-* Sumário
+* Sumário:
 {:toc}
 
 {% raw %}

@@ -4,13 +4,13 @@ title: Inventários Ansible
 ---
 
 # Inventários Ansible
+{:.no_toc}
 
 > Parte da trilha de estudo Ansible: [Índice](index.md) · **Inventários (você está aqui)** · [Módulos](modulos.md) · [Playbooks](playbooks.md)
 
-## Índice
-{:.no_toc}
 
-* Índice gerado automaticamente
+<div class="toc-title">Sumário</div>
+* Sumário:
 {:toc}
 
 ---
