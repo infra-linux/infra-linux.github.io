@@ -13,7 +13,7 @@ description: Jekyll — Guia Completo e Didático
 ## Índice
 {:.no_toc}
 
-* Índice gerado automaticamente
+* Índice
 {:toc}
 
 {% raw %}
