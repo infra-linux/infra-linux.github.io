@@ -12,7 +12,7 @@ Documentação e estudos sobre **DNS (Domain Name System)**, com foco em adminis
 ## Conteúdo
 
 * [BIND — Encaminhamento Condicional de DNS para um Domínio Externo](bind-encaminhamentodns.md)
-* [DNS - Guia Prático de Linux](guia-pratico-linux-dns.md)
+* [DNS - Guia Prático de Linux](dns-guiapraticolinux.md)
 
 ---
 
