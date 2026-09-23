@@ -3,14 +3,11 @@ layout: default
 title: Redes
 ---
 # Redes
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteúdo)
-3. [Comandos de consulta rápida](#comandos-de-consulta-rapida)
-4. [Boas práticas](#boas-praticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 
