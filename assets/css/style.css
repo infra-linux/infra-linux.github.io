@@ -741,14 +741,14 @@ body.menu-open .backdrop {
 
 /* Links do sumário */
 #markdown-toc a {
-  color: #949494;
+  color: #d1d1d1;
   text-decoration: none;
 }
 
 /* Hover mais escuro, mas ainda suave */
 #markdown-toc a:hover,
 #markdown-toc a:focus {
-  color: #949494;
+  color: #d1d1d1;
   text-decoration: underline;
 }
 
@@ -761,7 +761,7 @@ body.menu-open .backdrop {
 
 .toc-title {
   margin: 1.5rem 0 -0.2rem;
-  color: #949494;
+  color: #d1d1d1;
   font-size: 1.1rem;
   font-weight: 700;
 }
