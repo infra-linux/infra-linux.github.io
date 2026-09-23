@@ -4,54 +4,13 @@ title: Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico
 ---
 
 # Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico
+{:.no_toc}
 
 > As seções de limpeza deste guia removem componentes do Kubernetes e dados locais do nó. Confirme o hostname, o contexto e a necessidade de descomissionar o nó antes de executar comandos `rm -rf` ou `kubeadm reset`.
 
-
-## Sumário
-
-1. [1. Objetivo](#1-objetivo)
-2. [2. Pré-requisitos](#2-pre-requisitos)
-3. [3. Configuração dos nomes dos servidores](#3-configuracao-dos-nomes-dos-servidores)
-4. [4. Atualização do sistema](#4-atualizacao-do-sistema)
-5. [5. Desabilitar a swap](#5-desabilitar-a-swap)
-6. [6. Configuração do SELinux](#6-configuracao-do-selinux)
-7. [7. Configuração do firewall](#7-configuracao-do-firewall)
-8. [8. Carregamento dos módulos do kernel](#8-carregamento-dos-modulos-do-kernel)
-9. [9. Configuração dos parâmetros de rede](#9-configuracao-dos-parametros-de-rede)
-10. [10. Instalação do containerd](#10-instalacao-do-containerd)
-11. [11. Instalação do Kubernetes](#11-instalacao-do-kubernetes)
-12. [12. Inicialização do Control Plane](#12-inicializacao-do-control-plane)
-13. [13. Configuração do kubectl](#13-configuracao-do-kubectl)
-14. [14. Instalação do Calico](#14-instalacao-do-calico)
-15. [15. Adição dos workers ao cluster](#15-adicao-dos-workers-ao-cluster)
-16. [16. Validação dos nós](#16-validacao-dos-nos)
-17. [17. Validação dos componentes](#17-validacao-dos-componentes)
-18. [17.1 Ver todos os pods](#171-ver-todos-os-pods)
-19. [17.2 Ver os pods do Calico](#172-ver-os-pods-do-calico)
-20. [17.3 Ver os pods do Kubernetes](#173-ver-os-pods-do-kubernetes)
-21. [17.4 Ver os pods do Tigera Operator](#174-ver-os-pods-do-tigera-operator)
-22. [18. Teste de criação de pod](#18-teste-de-criacao-de-pod)
-23. [19. Teste com Deployment](#19-teste-com-deployment)
-24. [20. Criação de um Service](#20-criacao-de-um-service)
-25. [21. Teste de comunicação entre pods](#21-teste-de-comunicacao-entre-pods)
-26. [22. Comandos de diagnóstico](#22-comandos-de-diagnostico)
-27. [Ver os nós](#ver-os-nos)
-28. [Ver todos os pods](#ver-todos-os-pods)
-29. [Ver eventos recentes](#ver-eventos-recentes)
-30. [Descrever um pod](#descrever-um-pod)
-31. [Ver logs](#ver-logs)
-32. [Ver logs do container anterior](#ver-logs-do-container-anterior)
-33. [Ver logs do kubelet](#ver-logs-do-kubelet)
-34. [Ver logs do containerd](#ver-logs-do-containerd)
-35. [Ver imagens locais](#ver-imagens-locais)
-36. [23. Reinicialização dos serviços](#23-reinicializacao-dos-servicos)
-37. [24. Configuração opcional do kubectl nos workers](#24-configuracao-opcional-do-kubectl-nos-workers)
-38. [25. Remoção de um pod de teste](#25-remocao-de-um-pod-de-teste)
-39. [26. Remoção de um worker do cluster](#26-remocao-de-um-worker-do-cluster)
-40. [27. Reinicialização completa do laboratório](#27-reinicializacao-completa-do-laboratorio)
-41. [28. Checklist final](#28-checklist-final)
-42. [29. Resultado esperado](#29-resultado-esperado)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## 1. Objetivo

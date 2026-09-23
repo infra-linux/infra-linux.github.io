@@ -4,13 +4,11 @@ title: CI/CD
 ---
 
 # CI/CD
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteudo)
-3. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

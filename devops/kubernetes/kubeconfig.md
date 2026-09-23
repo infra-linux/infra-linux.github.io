@@ -5,34 +5,11 @@ title: KUBECONFIG
 ---
 
 # KUBECONFIG - Guia Rápido
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Estrutura de um KUBECONFIG](#estrutura-de-um-kubeconfig)
-3. [Definindo o KUBECONFIG](#definindo-o-kubeconfig)
-4. [NKE](#nke)
-5. [Desenvolvimento](#desenvolvimento)
-6. [Homologação](#homologacao)
-7. [Produção](#producao)
-8. [Infraestrutura](#infraestrutura)
-9. [RKE](#rke)
-10. [Desenvolvimento](#desenvolvimento)
-11. [Homologação](#homologacao)
-12. [Produção](#producao)
-13. [Verificando o contexto atual](#verificando-o-contexto-atual)
-14. [Listando os contextos](#listando-os-contextos)
-15. [Testando acesso ao cluster](#testando-acesso-ao-cluster)
-16. [Comandos úteis](#comandos-uteis)
-17. [Troubleshooting](#troubleshooting)
-18. [Verificar KUBECONFIG carregado](#verificar-kubeconfig-carregado)
-19. [Erro: Forbidden](#erro-forbidden)
-20. [Erro: system:unauthenticated](#erro-systemunauthenticated)
-21. [Causa](#causa)
-22. [Caso real](#caso-real)
-23. [Solução](#solucao)
-24. [Referências](#referencias)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Introdução

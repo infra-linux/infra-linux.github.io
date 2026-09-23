@@ -4,8 +4,16 @@ title: Imagens Docker
 ---
 
 # Imagens Docker
+{:.no_toc}
+
 
 Este tutorial apresenta os conceitos e comandos básicos para baixar, inspecionar, construir, versionar e publicar imagens Docker.
+
+
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
+
 
 ## Pré-requisitos
 
@@ -20,28 +28,6 @@ Verifique a instalação:
 docker --version
 docker info
 ```
-
-## Sumário
-
-1. [O que é uma imagem Docker](#1-o-que-e-uma-imagem-docker)
-2. [Relação entre imagem e container](#2-relacao-entre-imagem-e-container)
-3. [Estrutura de uma imagem](#3-estrutura-de-uma-imagem)
-4. [Listar imagens](#4-listar-imagens)
-5. [Baixar uma imagem](#5-baixar-uma-imagem)
-6. [Inspecionar uma imagem](#6-inspecionar-uma-imagem)
-7. [Histórico de uma imagem](#7-historico-de-uma-imagem)
-8. [Criar um Dockerfile](#8-criar-um-dockerfile)
-9. [Construir uma imagem](#9-construir-uma-imagem)
-10. [Executar a imagem construída](#10-executar-a-imagem-construida)
-11. [Criar tags para a imagem](#11-criar-tags-para-a-imagem)
-12. [Publicar em um registry](#12-publicar-em-um-registry)
-13. [Imagens locais e registries](#13-imagens-locais-e-registries)
-14. [Remover imagens](#14-remover-imagens)
-15. [Limpar imagens não utilizadas](#15-limpar-imagens-nao-utilizadas)
-16. [Exercício prático](#16-exercicio-pratico)
-17. [Comandos essenciais](#17-comandos-essenciais)
-18. [Boas práticas](#18-boas-praticas)
-19. [Próximos passos](#19-proximos-passos)
 
 ---
 

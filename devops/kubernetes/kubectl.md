@@ -4,28 +4,11 @@ title: kubectl
 ---
 
 # kubectl - Guia Prático
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Pré-requisitos](#pre-requisitos)
-3. [Informações do Cluster](#informacoes-do-cluster)
-4. [Trabalhando com Pods](#trabalhando-com-pods)
-5. [Logs](#logs)
-6. [Acesso ao Container](#acesso-ao-container)
-7. [Deployments](#deployments)
-8. [Services](#services)
-9. [Ingress](#ingress)
-10. [Aplicando Alterações](#aplicando-alteracoes)
-11. [Troubleshooting](#troubleshooting)
-12. [Verificar eventos](#verificar-eventos)
-13. [Pod não inicia](#pod-nao-inicia)
-14. [ImagePullBackOff](#imagepullbackoff)
-15. [CrashLoopBackOff](#crashloopbackoff)
-16. [Pending](#pending)
-17. [Comandos Mais Utilizados](#comandos-mais-utilizados)
-18. [Referências](#referencias)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Introdução

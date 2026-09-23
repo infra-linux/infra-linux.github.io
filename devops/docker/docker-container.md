@@ -4,8 +4,14 @@ title: Docker — containers
 ---
 
 # Containers
+{:.no_toc}
 
 Este tutorial apresenta os conceitos e comandos básicos para criar, executar, inspecionar e remover containers Docker.
+
+
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ## Pré-requisitos
 
@@ -19,27 +25,6 @@ Verifique se o Docker está instalado e em execução:
 docker --version
 docker info
 ```
-
-## Sumário
-
-1. [O que é um container?](#1-o-que-e-um-container)
-2. [Verificar se o Docker está instalado](#2-verificar-se-o-docker-esta-instalado)
-3. [Criar o primeiro container](#3-criar-o-primeiro-container)
-4. [Executar um container Nginx](#4-executar-um-container-nginx)
-5. [Verificar os containers em execução](#5-verificar-os-containers-em-execucao)
-6. [Listar todos os containers](#6-listar-todos-os-containers)
-7. [Verificar o container pelo navegador](#7-verificar-o-container-pelo-navegador)
-8. [Visualizar os logs](#8-visualizar-os-logs)
-9. [Executar comandos dentro do container](#9-executar-comandos-dentro-do-container)
-10. [Parar um container](#10-parar-um-container)
-11. [Iniciar novamente um container parado](#11-iniciar-novamente-um-container-parado)
-12. [Reiniciar um container](#12-reiniciar-um-container)
-13. [Remover um container](#13-remover-um-container)
-14. [Remover um container em execução](#14-remover-um-container-em-execucao)
-15. [Ciclo de vida básico](#15-ciclo-de-vida-basico)
-16. [Comandos essenciais](#16-comandos-essenciais)
-17. [Exercício prático](#17-exercicio-pratico)
-18. [O que aprender depois?](#18-o-que-aprender-depois)
 
 ---
 

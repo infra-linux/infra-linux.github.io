@@ -4,14 +4,11 @@ title: Markdonw-pratico
 description: Guia Prático de Markdown
 ---
 
-
-
 # Guia Prático de Markdown
-
-## Índice
 {:.no_toc}
 
-* Índice gerado automaticamente
+<div class="toc-title">Sumário</div>
+* Sumário:
 {:toc}
 
 {% raw %}

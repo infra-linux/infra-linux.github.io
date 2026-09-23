@@ -4,68 +4,11 @@ title: Fundamentos de CI/CD
 ---
 
 # Fundamentos de CI/CD
+{:.no_toc}
 
-## Sumário
-
-1. [1. Introdução](#1-introducao)
-2. [2. O que significa CI/CD?](#2-o-que-significa-cicd)
-3. [3. Continuous Integration — CI](#3-continuous-integration-ci)
-4. [4. Continuous Delivery — Entrega Contínua](#4-continuous-delivery-entrega-continua)
-5. [5. Continuous Deployment — Implantação Contínua](#5-continuous-deployment-implantacao-continua)
-6. [6. CI, Continuous Delivery e Continuous Deployment](#6-ci-continuous-delivery-e-continuous-deployment)
-7. [7. O pipeline CI/CD](#7-o-pipeline-cicd)
-8. [8. Código-fonte](#8-codigo-fonte)
-9. [9. Git no CI/CD](#9-git-no-cicd)
-10. [10. Branches e CI/CD](#10-branches-e-cicd)
-11. [11. Build](#11-build)
-12. [12. Testes](#12-testes)
-13. [13. Análise de código](#13-analise-de-codigo)
-14. [14. Artefatos](#14-artefatos)
-15. [15. Containers e CI/CD](#15-containers-e-cicd)
-16. [16. Tags de imagens](#16-tags-de-imagens)
-17. [17. Container Registry](#17-container-registry)
-18. [18. Deploy](#18-deploy)
-19. [19. CI/CD com Kubernetes](#19-cicd-com-kubernetes)
-20. [20. Rolling Update](#20-rolling-update)
-21. [21. Jenkins](#21-jenkins)
-22. [22. Exemplo de Jenkinsfile](#22-exemplo-de-jenkinsfile)
-23. [23. GitHub Actions](#23-github-actions)
-24. [24. Jenkins x GitHub Actions](#24-jenkins-x-github-actions)
-25. [25. Secrets](#25-secrets)
-26. [26. Variáveis de ambiente](#26-variaveis-de-ambiente)
-27. [27. Ambientes](#27-ambientes)
-28. [28. Estratégia de promoção](#28-estrategia-de-promocao)
-29. [29. Rollback](#29-rollback)
-30. [30. Health Check](#30-health-check)
-31. [31. Smoke Test](#31-smoke-test)
-32. [32. Monitoramento](#32-monitoramento)
-33. [33. Observabilidade](#33-observabilidade)
-34. [34. Pipeline completo](#34-pipeline-completo)
-35. [35. Exemplo prático de pipeline](#35-exemplo-pratico-de-pipeline)
-36. [36. Falhas no pipeline](#36-falhas-no-pipeline)
-37. [37. Idempotência](#37-idempotencia)
-38. [38. Infrastructure as Code](#38-infrastructure-as-code)
-39. [39. CI/CD e DevOps](#39-cicd-e-devops)
-40. [40. CI/CD e Linux](#40-cicd-e-linux)
-41. [41. Boas práticas](#41-boas-praticas)
-42. [42. Segurança no CI/CD](#42-seguranca-no-cicd)
-43. [43. Supply Chain](#43-supply-chain)
-44. [44. Blue/Green Deployment](#44-bluegreen-deployment)
-45. [45. Canary Deployment](#45-canary-deployment)
-46. [46. GitOps](#46-gitops)
-47. [47. CI/CD tradicional x GitOps](#47-cicd-tradicional-x-gitops)
-48. [48. Métricas de CI/CD](#48-metricas-de-cicd)
-49. [49. Troubleshooting de uma pipeline](#49-troubleshooting-de-uma-pipeline)
-50. [50. Fluxo de troubleshooting](#50-fluxo-de-troubleshooting)
-51. [51. Laboratório sugerido](#51-laboratorio-sugerido)
-52. [52. Laboratório 1 — Pipeline básica](#52-laboratorio-1-pipeline-basica)
-53. [53. Laboratório 2 — GitHub Actions](#53-laboratorio-2-github-actions)
-54. [54. Laboratório 3 — Jenkins](#54-laboratorio-3-jenkins)
-55. [55. Laboratório 4 — Kubernetes](#55-laboratorio-4-kubernetes)
-56. [56. O que estudar primeiro?](#56-o-que-estudar-primeiro)
-57. [57. Resumo](#57-resumo)
-58. [58. Checklist de conhecimento](#58-checklist-de-conhecimento)
-59. [59. Próximos estudos](#59-proximos-estudos)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

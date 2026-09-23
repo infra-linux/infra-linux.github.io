@@ -4,6 +4,7 @@ title: Fluxo GitHub - Clone, Branch, Pull Request e Merge
 ---
 
 # Fluxo GitHub: Clone → Branch → Alteração → Revisão → Commit → Pull Request → Merge
+{:.no_toc}
 
 Este tutorial apresenta um fluxo completo para trabalhar em um projeto hospedado no GitHub.
 
@@ -31,34 +32,10 @@ Esse fluxo é bastante utilizado em projetos profissionais e é especialmente ú
 
 ---
 
-## Sumário
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
-1. [Entendendo o fluxo](#1-entendendo-o-fluxo)
-2. [Pré-requisitos](#2-pré-requisitos)
-3. [Clone o repositório](#3-clone-o-repositório)
-4. [Verifique o repositório](#4-verifique-o-repositório)
-5. [Atualize a main](#5-atualize-a-main)
-6. [Crie uma branch](#6-crie-uma-branch)
-7. [Faça as alterações](#7-faça-as-alterações)
-8. [Faça a revisão local](#8-faça-a-revisão-local)
-9. [Teste o projeto](#9-teste-o-projeto)
-10. [Verifique novamente as alterações](#10-verifique-novamente-as-alterações)
-11. [Prepare o commit](#11-prepare-o-commit)
-12. [Envie a branch para o GitHub](#12-envie-a-branch-para-o-github)
-13. [Abra o Pull Request](#13-abra-o-pull-request)
-14. [Revise o Pull Request](#14-revise-o-pull-request)
-15. [Crie o Pull Request](#15-crie-o-pull-request)
-16. [Revisão do Pull Request](#16-revisão-do-pull-request)
-17. [Fazer alterações depois do Pull Request](#17-fazer-alterações-depois-do-pull-request)
-18. [Se houver conflitos no Pull Request](#18-se-houver-conflitos-no-pull-request)
-19. [Fazer o Merge](#19-fazer-o-merge)
-20. [Atualizar a cópia local](#20-atualizar-a-cópia-local)
-21. [Excluir a branch](#21-excluir-a-branch)
-22. [Fluxo completo na prática](#22-fluxo-completo-na-prática)
-23. [Fluxo visual completo](#23-fluxo-visual-completo)
-24. [Comandos essenciais](#24-comandos-essenciais)
-25. [Boas práticas](#25-boas-práticas)
-26. [Regra de ouro](#26-regra-de-ouro)
 
 ---
 

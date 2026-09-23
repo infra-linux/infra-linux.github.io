@@ -4,6 +4,7 @@ title: Editar uma branch e publicar na branch principal
 ---
 
 # Como editar uma branch e publicar na branch principal
+{:.no_toc}
 
 Este tutorial apresenta um fluxo seguro para desenvolver alterações em uma **branch de desenvolvimento**, testar as mudanças e depois publicá-las na **branch principal (`main`)**.
 
@@ -11,32 +12,9 @@ Esse processo é especialmente útil em projetos que utilizam **GitHub Pages, Je
 
 ---
 
-## Sumário
-
-1. [Entendendo o fluxo](#1-entendendo-o-fluxo)
-2. [Verificar a situação atual](#2-verificar-a-situação-atual)
-3. [Atualizar a branch principal](#3-atualizar-a-branch-principal)
-4. [Criar uma branch de desenvolvimento](#4-criar-uma-branch-de-desenvolvimento)
-5. [Editar os arquivos](#5-editar-os-arquivos)
-6. [Testar a alteração localmente](#6-testar-a-alteração-localmente)
-7. [Criar o commit](#7-criar-o-commit)
-8. [Enviar a branch para o GitHub](#8-enviar-a-branch-para-o-github)
-9. [Testar a branch usando o GitHub Pages](#9-testar-a-branch-usando-o-github-pages)
-10. [Voltar para a `main`](#10-voltar-para-a-main)
-11. [Fazer o merge](#11-fazer-o-merge)
-12. [Verificar o resultado](#12-verificar-o-resultado)
-13. [Publicar a `main` no GitHub](#13-publicar-a-main-no-github)
-14. [Excluir a branch de desenvolvimento](#14-excluir-a-branch-de-desenvolvimento)
-15. [Voltar o GitHub Pages para a `main`](#15-voltar-o-github-pages-para-a-main)
-16. [Conferir as branches](#16-conferir-as-branches)
-17. [Comparar a branch de desenvolvimento com a `main`](#17-comparar-a-branch-de-desenvolvimento-com-a-main)
-18. [Exemplo completo](#18-exemplo-completo)
-19. [Fluxo resumido](#19-fluxo-resumido)
-20. [Se ocorrer um conflito no merge](#20-se-ocorrer-um-conflito-no-merge)
-21. [Boas práticas](#21-boas-práticas)
-22. [Comandos essenciais](#22-comandos-essenciais)
-23. [Regra prática para o Infra Linux](#23-regra-prática-para-o-infra-linux)
-
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 ---
 
 ## 1. Entendendo o fluxo

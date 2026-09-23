@@ -5,13 +5,11 @@ description: Markdown para Documentação Profissional
 ---
 
 # Markdown para Documentação Profissional
-## Índice
 {:.no_toc}
 
-* Índice gerado automaticamente
+<div class="toc-title">Sumário</div>
+* Sumário:
 {:toc}
-
-{% raw %}
 
 ## 1. Objetivo
 

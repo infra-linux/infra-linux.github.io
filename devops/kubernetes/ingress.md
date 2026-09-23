@@ -4,6 +4,7 @@ title: Ingress
 ---
 
 # Ingress no Kubernetes
+{:.no_toc}
 
 Um **Ingress** no Kubernetes é o recurso usado para expor aplicações HTTP e HTTPS para fora do cluster usando nomes de domínio e regras de roteamento.
 
@@ -37,47 +38,9 @@ Pods
 
 ---
 
-
-## Sumário
-
-1. [Para que serve um Ingress?](#para-que-serve-um-ingress)
-2. [Ingress não funciona sozinho](#ingress-nao-funciona-sozinho)
-3. [Ingress, Service e Deployment](#ingress-service-e-deployment)
-4. [Exemplo básico](#exemplo-basico)
-5. [Explicando o YAML do Ingress](#explicando-o-yaml-do-ingress)
-6. [apiVersion](#apiversion)
-7. [kind](#kind)
-8. [metadata](#metadata)
-9. [rules](#rules)
-10. [paths](#paths)
-11. [backend](#backend)
-12. [pathType](#pathtype)
-13. [Roteamento por host](#roteamento-por-host)
-14. [Roteamento por caminho](#roteamento-por-caminho)
-15. [Ingress com TLS](#ingress-com-tls)
-16. [IngressClass](#ingressclass)
-17. [Annotations](#annotations)
-18. [DNS](#dns)
-19. [Testando o Ingress](#testando-o-ingress)
-20. [Comandos úteis](#comandos-uteis)
-21. [Troubleshooting](#troubleshooting)
-22. [Ingress não recebe ADDRESS](#ingress-nao-recebe-address)
-23. [Erro 404](#erro-404)
-24. [Erro 502 ou 503](#erro-502-ou-503)
-25. [Certificado TLS não funciona](#certificado-tls-nao-funciona)
-26. [Domínio não resolve](#dominio-nao-resolve)
-27. [Redirecionamento HTTPS inesperado](#redirecionamento-https-inesperado)
-28. [Boas práticas](#boas-praticas)
-29. [Checklist antes de aplicar](#checklist-antes-de-aplicar)
-30. [Fluxo recomendado](#fluxo-recomendado)
-31. [1. Verificar Ingress Controller](#1-verificar-ingress-controller)
-32. [2. Verificar endereço externo do controller](#2-verificar-endereco-externo-do-controller)
-33. [3. Aplicar Deployment, Service e Ingress](#3-aplicar-deployment-service-e-ingress)
-34. [4. Verificar Service e Endpoints](#4-verificar-service-e-endpoints)
-35. [5. Verificar Ingress](#5-verificar-ingress)
-36. [6. Testar com domínio](#6-testar-com-dominio)
-37. [7. Testar usando header Host](#7-testar-usando-header-host)
-38. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Para que serve um Ingress?

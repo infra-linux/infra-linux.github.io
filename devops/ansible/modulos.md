@@ -4,13 +4,13 @@ title: Módulos Ansible
 ---
 
 # Módulos Ansible
+{:.no_toc}
 
 > Parte da trilha de estudo Ansible: [Índice](index.md) · [Inventários](inventarios.md) · **Módulos (você está aqui)** · [Playbooks](playbooks.md)
 
-## Índice
-{:.no_toc}
 
-* Índice gerado automaticamente
+<div class="toc-title">Sumário</div>
+* Sumário:
 {:toc}
 
 ---

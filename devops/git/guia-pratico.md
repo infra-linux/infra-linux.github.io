@@ -1,20 +1,14 @@
+---
+layout: default
+title: Guia Prático Git
+---
+
 # Guia Prático de Git
+{:.no_toc}
 
-## Sumário
-
-1. [O que é o Git?](#o-que-é-o-git)
-2. [Para que serve?](#para-que-serve)
-3. [Git não é GitHub](#git-não-é-github)
-4. [Conceitos fundamentais](#conceitos-fundamentais)
-5. [Os três "lugares" do Git](#os-três-lugares-do-git)
-6. [Fluxo básico na prática](#fluxo-básico-na-prática)
-7. [Ignorando arquivos (.gitignore)](#ignorando-arquivos-gitignore)
-8. [Trabalhando com branches e equipe](#trabalhando-com-branches-e-equipe)
-9. [Desfazendo erros](#desfazendo-erros-o-que-mais-gera-dúvida)
-10. [Resolvendo conflitos de merge](#resolvendo-conflitos-de-merge)
-11. [Boas práticas desde o início](#boas-práticas-desde-o-início)
-12. [Resumindo](#resumindo)
-
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 ---
 
 ## O que é o Git?

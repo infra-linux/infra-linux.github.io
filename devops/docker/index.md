@@ -4,14 +4,11 @@ title: Docker
 ---
 
 # Docker
+{:.no_toc}
 
-## Sumário
-
-1. [Introdução](#introdução)
-2. [Conteúdo](#conteúdo)
-3. [Comandos de consulta rápida](#comandos-de-consulta-rápida)
-4. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
-5. [Boas práticas](#boas-práticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

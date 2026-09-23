@@ -4,6 +4,7 @@ title: Instalação do Kubernetes
 ---
 
 # Tutorial: Instalação do Kubernetes (kubeadm) no Rocky Linux
+{:.no_toc}
 
 Cenário: 2 VMs no VirtualBox
 - `vm-01` (control-plane) — 10.0.97.55
@@ -13,23 +14,9 @@ Cenário: 2 VMs no VirtualBox
 
 ---
 
-
-## Sumário
-
-1. [1. Preparar o /etc/hosts **[AMBAS]**](#1-preparar-o-etchosts-ambas)
-2. [2. Atualizar o sistema **[AMBAS]**](#2-atualizar-o-sistema-ambas)
-3. [3. Desabilitar swap **[AMBAS]**](#3-desabilitar-swap-ambas)
-4. [4. Ajustar SELinux **[AMBAS]**](#4-ajustar-selinux-ambas)
-5. [5. Configurar firewall **[AMBAS]**](#5-configurar-firewall-ambas)
-6. [6. Módulos de kernel e parâmetros de rede **[AMBAS]**](#6-modulos-de-kernel-e-parametros-de-rede-ambas)
-7. [7. Instalar containerd (runtime de containers) **[AMBAS]**](#7-instalar-containerd-runtime-de-containers-ambas)
-8. [8. Instalar kubeadm, kubelet e kubectl **[AMBAS]**](#8-instalar-kubeadm-kubelet-e-kubectl-ambas)
-9. [9. Inicializar o control plane **[vm-01]**](#9-inicializar-o-control-plane-vm-01)
-10. [10. Instalar o CNI (rede de pods) **[vm-01]**](#10-instalar-o-cni-rede-de-pods-vm-01)
-11. [11. Adicionar o worker ao cluster **[vm-02]**](#11-adicionar-o-worker-ao-cluster-vm-02)
-12. [12. Validar o cluster **[vm-01]**](#12-validar-o-cluster-vm-01)
-13. [Problemas comuns](#problemas-comuns)
-14. [Dica para o VirtualBox](#dica-para-o-virtualbox)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## 1. Preparar o /etc/hosts **[AMBAS]**

@@ -4,6 +4,7 @@ title: Troubleshooting Kubernetes
 ---
 
 # Troubleshooting Kubernetes
+{:.no_toc}
 
 Troubleshooting no Kubernetes é o processo de investigar falhas em aplicações, Pods, Services, Ingress, DNS, permissões, recursos e comunicação dentro do cluster.
 
@@ -29,56 +30,10 @@ Em problemas reais, é importante seguir uma ordem lógica para não perder temp
 
 ---
 
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
-## Sumário
-
-1. [Fluxo rápido de diagnóstico](#fluxo-rapido-de-diagnostico)
-2. [1. Validar contexto atual](#1-validar-contexto-atual)
-3. [2. Ver namespaces](#2-ver-namespaces)
-4. [3. Ver recursos principais](#3-ver-recursos-principais)
-5. [4. Ver Pods](#4-ver-pods)
-6. [5. Ver detalhes do Pod com problema](#5-ver-detalhes-do-pod-com-problema)
-7. [6. Ver logs](#6-ver-logs)
-8. [7. Ver eventos](#7-ver-eventos)
-9. [Comandos essenciais](#comandos-essenciais)
-10. [Ver contexto atual](#ver-contexto-atual)
-11. [Ver informações do cluster](#ver-informacoes-do-cluster)
-12. [Ver Nodes](#ver-nodes)
-13. [Ver recursos de um namespace](#ver-recursos-de-um-namespace)
-14. [Ver eventos ordenados](#ver-eventos-ordenados)
-15. [Ver Pods com labels](#ver-pods-com-labels)
-16. [Ver YAML de um recurso](#ver-yaml-de-um-recurso)
-17. [Pod em Pending](#pod-em-pending)
-18. [ImagePullBackOff](#imagepullbackoff)
-19. [ErrImagePull](#errimagepull)
-20. [CrashLoopBackOff](#crashloopbackoff)
-21. [Pod em Running, mas aplicação não responde](#pod-em-running-mas-aplicacao-nao-responde)
-22. [ReadinessProbe falhando](#readinessprobe-falhando)
-23. [LivenessProbe derrubando o container](#livenessprobe-derrubando-o-container)
-24. [Deployment não cria Pods](#deployment-nao-cria-pods)
-25. [Rollout travado](#rollout-travado)
-26. [Service sem Endpoints](#service-sem-endpoints)
-27. [Service responde na porta errada](#service-responde-na-porta-errada)
-28. [Ingress retorna 404](#ingress-retorna-404)
-29. [Ingress retorna 502 ou 503](#ingress-retorna-502-ou-503)
-30. [DNS interno não resolve](#dns-interno-nao-resolve)
-31. [DNS externo não resolve](#dns-externo-nao-resolve)
-32. [Falha de comunicação entre Pods](#falha-de-comunicacao-entre-pods)
-33. [Node NotReady](#node-notready)
-34. [Evicted Pods](#evicted-pods)
-35. [OOMKilled](#oomkilled)
-36. [Forbidden ou erro de permissão](#forbidden-ou-erro-de-permissao)
-37. [ConfigMap ou Secret ausente](#configmap-ou-secret-ausente)
-38. [PVC Pending](#pvc-pending)
-39. [Namespace errado](#namespace-errado)
-40. [Checklist geral](#checklist-geral)
-41. [Sequência recomendada por sintoma](#sequencia-recomendada-por-sintoma)
-42. [Aplicação não abre pelo navegador](#aplicacao-nao-abre-pelo-navegador)
-43. [Pod não sobe](#pod-nao-sobe)
-44. [Service não responde](#service-nao-responde)
-45. [Deployment travado](#deployment-travado)
-46. [Boas práticas para facilitar troubleshooting](#boas-praticas-para-facilitar-troubleshooting)
-47. [Resumo](#resumo)
 
 ---
 ## Fluxo rápido de diagnóstico

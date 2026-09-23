@@ -3,19 +3,11 @@ layout: default
 title: Git
 ---
 # Git
+{:.no_toc}
 
-## Sumário
-
-1. [Conteúdo para aprofundamento](#conteudo-para-aprofundamento)
-2. [Introdução](#introducao)
-3. [Para que serve](#para-que-serve)
-4. [Git e GitHub](#git-e-github)
-5. [Conceitos fundamentais](#conceitos-fundamentais)
-6. [As três áreas do Git](#as-tres-areas-do-git)
-7. [Fluxo básico na prática](#fluxo-basico-na-pratica)
-8. [Branches e equipe](#branches-e-equipe)
-9. [Boas práticas](#boas-praticas)
-10. [Fluxo recomendado de estudo](#fluxo-recomendado-de-estudo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 
