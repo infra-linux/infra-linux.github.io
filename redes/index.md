@@ -21,7 +21,7 @@ Esta seção reúne conceitos, comandos e procedimentos relacionados a conectivi
 ---
 ## Conteúdo
 
-* [DNS](dns/index.md.md)
+* [DNS](dns/index.md)
 * [TCP/IP](tcpip.md)
 * [Portas e Protocolos](portaseprotocolos.md)
 * rotas
