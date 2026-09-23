@@ -1,10 +1,16 @@
-{% raw %}
-
 # Jekyll — Guia Completo e Didático
 
 > Guia prático para aprender Jekyll e aplicar o conhecimento no projeto **Infra Linux**.
 
 ---
+
+## Índice
+{:.no_toc}
+
+* Índice gerado automaticamente
+{:toc}
+
+{% raw %}
 
 ## 1. O que é Jekyll?
 
