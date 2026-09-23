@@ -1915,35 +1915,38 @@ Correto:
 
 ---
 
+{% raw %}
 # 54. Erro com `{% %}`
+{% endraw %}
 
 Errado:
 
 {% raw %}
 ```liquid
 {% if page.toc %}
-```
+
 {% endraw %}
 
 sem:
 
 {% raw %}
-```liquid
+
 {% endif %}
-```
+
 {% endraw %}
 
 Correto:
 
 {% raw %}
-```liquid
+
 {% if page.toc %}
 
 ...
 
 {% endif %}
-```
+
 {% endraw %}
+
 ---
 
 # 55. YAML e indentação
