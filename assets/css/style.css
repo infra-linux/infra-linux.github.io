@@ -748,19 +748,3 @@ body.menu-open .backdrop {
   color: #1d4ed8;
   text-decoration: underline;
 }
-
-
-.toc-title {
-  margin: 1.5rem 0 -1.5rem;
-  padding: 0.85rem 1.25rem 0;
-  color: #1f2937;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .toc-title {
-    color: #f0f6fc;
-  }
-}
