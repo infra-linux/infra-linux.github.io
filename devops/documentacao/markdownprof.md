@@ -11,6 +11,7 @@ description: Markdown para Documentação Profissional
 * Sumário:
 {:toc}
 
+{% raw %}
 ## 1. Objetivo
 
 Este guia mostra como usar Markdown para criar documentação técnica **organizada, legível e fácil de manter**, com foco em infraestrutura:
