@@ -4,57 +4,15 @@ title: Troubleshooting NFS (Rocky Linux e Windows)
 ---
 
 # Troubleshooting NFS (Rocky Linux e Windows)
+{:.no_toc}
 
 > Guia de diagnóstico para resolver os problemas mais comuns encontrados em ambientes NFS.
 
 ---
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Cenário](#cenario)
-3. [1. Verificar conectividade](#1-verificar-conectividade)
-4. [Linux](#linux)
-5. [Windows](#windows)
-6. [2. Verificar porta 2049](#2-verificar-porta-2049)
-7. [Linux](#linux)
-8. [Windows](#windows)
-9. [3. Verificar serviços no servidor](#3-verificar-servicos-no-servidor)
-10. [4. Reiniciar serviços](#4-reiniciar-servicos)
-11. [5. Conferir compartilhamentos exportados](#5-conferir-compartilhamentos-exportados)
-12. [6. Recarregar exportações](#6-recarregar-exportacoes)
-13. [7. Consultar compartilhamentos disponíveis](#7-consultar-compartilhamentos-disponiveis)
-14. [Linux](#linux)
-15. [Erro](#erro)
-16. [8. Verificar firewall](#8-verificar-firewall)
-17. [9. Verificar SELinux](#9-verificar-selinux)
-18. [10. Verificar portas RPC](#10-verificar-portas-rpc)
-19. [11. Confirmar montagem no cliente Linux](#11-confirmar-montagem-no-cliente-linux)
-20. [12. Confirmar montagem no Windows](#12-confirmar-montagem-no-windows)
-21. [13. Erro: Permission denied](#13-erro-permission-denied)
-22. [14. Verificar ACL](#14-verificar-acl)
-23. [15. Verificar proprietário](#15-verificar-proprietario)
-24. [16. Verificar usuários](#16-verificar-usuarios)
-25. [17. Testar escrita](#17-testar-escrita)
-26. [18. Verificar montagem](#18-verificar-montagem)
-27. [19. Confirmar arquivo criado](#19-confirmar-arquivo-criado)
-28. [20. Verificar `/etc/exports`](#20-verificar-etcexports)
-29. [21. Conferir configuração aplicada](#21-conferir-configuracao-aplicada)
-30. [22. Desmontar compartilhamento](#22-desmontar-compartilhamento)
-31. [23. Montar novamente](#23-montar-novamente)
-32. [24. Verificar serviço NFS no Windows](#24-verificar-servico-nfs-no-windows)
-33. [25. Confirmar instalação do cliente NFS](#25-confirmar-instalacao-do-cliente-nfs)
-34. [26. Consultar eventos do Windows](#26-consultar-eventos-do-windows)
-35. [27. Verificar Identity Mapping](#27-verificar-identity-mapping)
-36. [28. Verificar configuração do cliente](#28-verificar-configuracao-do-cliente)
-37. [29. Verificar o registro (UID/GID anônimo)](#29-verificar-o-registro-uidgid-anonimo)
-38. [30. Fluxo recomendado de diagnóstico](#30-fluxo-recomendado-de-diagnostico)
-39. [Comandos mais utilizados](#comandos-mais-utilizados)
-40. [Servidor](#servidor)
-41. [Cliente Linux](#cliente-linux)
-42. [Cliente Windows](#cliente-windows)
-43. [Boas práticas](#boas-praticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 # Objetivo

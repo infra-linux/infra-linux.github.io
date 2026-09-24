@@ -3,12 +3,11 @@ layout: default
 title: Monitoramento
 ---
 # Monitoramento
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteudo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

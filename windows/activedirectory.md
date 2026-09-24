@@ -4,34 +4,11 @@ title: Active Directory
 ---
 
 # Active Directory - Comandos Úteis para Suporte e Infraestrutura
+{:.no_toc}
 
-
-## Sumário
-
-1. [Verificar informações de um usuário](#verificar-informacoes-de-um-usuario)
-2. [Verificar grupos de um usuário](#verificar-grupos-de-um-usuario)
-3. [Verificar membros de um grupo](#verificar-membros-de-um-grupo)
-4. [Adicionar usuário a um grupo](#adicionar-usuario-a-um-grupo)
-5. [Remover usuário de um grupo](#remover-usuario-de-um-grupo)
-6. [Verificar se usuário está bloqueado](#verificar-se-usuario-esta-bloqueado)
-7. [Desbloquear usuário](#desbloquear-usuario)
-8. [Verificar data da última troca de senha](#verificar-data-da-ultima-troca-de-senha)
-9. [Forçar troca de senha no próximo logon](#forcar-troca-de-senha-no-proximo-logon)
-10. [Redefinir senha](#redefinir-senha)
-11. [Verificar computadores no domínio](#verificar-computadores-no-dominio)
-12. [Procurar computador específico](#procurar-computador-especifico)
-13. [Verificar informações do computador](#verificar-informacoes-do-computador)
-14. [Pesquisar usuário por nome](#pesquisar-usuario-por-nome)
-15. [Pesquisar computador por nome](#pesquisar-computador-por-nome)
-16. [Descobrir em qual OU está o usuário](#descobrir-em-qual-ou-esta-o-usuario)
-17. [Verificar usuário logado na máquina local](#verificar-usuario-logado-na-maquina-local)
-18. [Verificar grupos recebidos no logon](#verificar-grupos-recebidos-no-logon)
-19. [Atualizar tickets Kerberos](#atualizar-tickets-kerberos)
-20. [Verificar informações do domínio](#verificar-informacoes-do-dominio)
-21. [Verificar controladores de domínio](#verificar-controladores-de-dominio)
-22. [Verificar conectividade com o AD](#verificar-conectividade-com-o-ad)
-23. [Verificar replicação do AD (Admins)](#verificar-replicacao-do-ad-admins)
-24. [Comandos RSAT](#comandos-rsat)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Verificar informações de um usuário

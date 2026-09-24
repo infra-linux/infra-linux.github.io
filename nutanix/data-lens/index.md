@@ -3,14 +3,11 @@ layout: default
 title: Introdução ao Nutanix Data Lens
 ---
 # Introdução ao Nutanix Data Lens
+{:.no_toc}
 
-
-## Sumário
-
-1. [O que é Data Lens?](#o-que-e-data-lens)
-2. [Introdução](#introdução)
-3. [Conteúdo](#conteúdo)
-4. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

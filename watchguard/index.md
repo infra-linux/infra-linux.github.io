@@ -2,15 +2,13 @@
 layout: default
 title: WatchGuard
 ---
+
 # WatchGuard
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteúdo)
-3. [Checklist de análise](#checklist-de-analise)
-4. [Boas práticas](#boas-praticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 

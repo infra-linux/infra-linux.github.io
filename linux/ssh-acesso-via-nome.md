@@ -4,34 +4,15 @@ title: Acessando VMs VirtualBox por nome
 ---
 
 # Acessando VMs do VirtualBox via SSH por nome (em vez de IP)
+{:.no_toc}
 
 Este tutorial mostra como configurar suas VMs (Rocky/RHEL/CentOS/Fedora) para serem acessadas via SSH usando um nome amigável (`vm-01.local`) em vez do IP, usando **mDNS/Avahi**. Também cobre uma alternativa via `~/.ssh/config` e um roteiro de troubleshooting para quando o mDNS não funciona.
 
 ---
 
-
-## Sumário
-
-1. [O que é o Avahi?](#o-que-e-o-avahi)
-2. [Pré-requisitos](#pre-requisitos)
-3. [1. Instalar o Avahi na VM](#1-instalar-o-avahi-na-vm)
-4. [Debian/Ubuntu](#debianubuntu)
-5. [RHEL / CentOS / Rocky / Alma / Fedora](#rhel-centos-rocky-alma-fedora)
-6. [2. Habilitar e iniciar o serviço](#2-habilitar-e-iniciar-o-servico)
-7. [3. Definir/checar o hostname](#3-definirchecar-o-hostname)
-8. [4. Firewall (se aplicável)](#4-firewall-se-aplicavel)
-9. [5. Acessar a partir do host](#5-acessar-a-partir-do-host)
-10. [Testar resolução de nome](#testar-resolucao-de-nome)
-11. [Conectar via SSH](#conectar-via-ssh)
-12. [Observações por sistema operacional do host](#observacoes-por-sistema-operacional-do-host)
-13. [Alternativa: SSH Config (funciona com qualquer modo de rede)](#alternativa-ssh-config-funciona-com-qualquer-modo-de-rede)
-14. [Se a VM estiver em modo NAT](#se-a-vm-estiver-em-modo-nat)
-15. [Troubleshooting: mDNS funciona em uma VM mas não em outra](#troubleshooting-mdns-funciona-em-uma-vm-mas-nao-em-outra)
-16. [1. Confirme que incluiu o `.local`](#1-confirme-que-incluiu-o-local)
-17. [2. Teste a conectividade básica por IP](#2-teste-a-conectividade-basica-por-ip)
-18. [3. Teste a resolução localmente, dentro da própria VM](#3-teste-a-resolucao-localmente-dentro-da-propria-vm)
-19. [4. Restrinja o Avahi à interface de rede correta](#4-restrinja-o-avahi-a-interface-de-rede-correta)
-20. [Resumo rápido](#resumo-rapido)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## O que é o Avahi?

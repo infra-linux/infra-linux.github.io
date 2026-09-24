@@ -3,17 +3,13 @@ layout: default
 title: Troubleshooting
 ---
 # Troubleshooting
+{:.no_toc}
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteúdo)
-3. [Fluxo recomendado](#fluxo-recomendado)
-4. [Boas práticas](#boas-praticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
-
 
 ## Introdução
 

@@ -4,30 +4,11 @@ title: Instalação do VMware ESXi 7.0.3 em Dell PowerEdge R830 via iDRAC
 ---
 
 # Instalação do VMware ESXi 7.0.3 em Dell PowerEdge R830 via iDRAC
+{:.no_toc}
 
-
-## Sumário
-
-1. [1. Objetivo](#1-objetivo)
-2. [2. Pré-requisitos](#2-pre-requisitos)
-3. [3. Acesso ao iDRAC](#3-acesso-ao-idrac)
-4. [4. Montar o ISO do VMware ESXi](#4-montar-o-iso-do-vmware-esxi)
-5. [5. Configuração RAID](#5-configuracao-raid)
-6. [5.1 Acessar o utilitário RAID](#51-acessar-o-utilitario-raid)
-7. [5.2 Limpar configuração RAID antiga](#52-limpar-configuracao-raid-antiga)
-8. [5.3 Criar RAID 5 para datastore](#53-criar-raid-5-para-datastore)
-9. [5.4 Criar RAID 1 para instalação do ESXi](#54-criar-raid-1-para-instalacao-do-esxi)
-10. [5.5 Conferir configuração RAID](#55-conferir-configuracao-raid)
-11. [6. Boot pelo instalador do ESXi](#6-boot-pelo-instalador-do-esxi)
-12. [7. Instalação do VMware ESXi](#7-instalacao-do-vmware-esxi)
-13. [7.1 Selecionar disco de instalação](#71-selecionar-disco-de-instalacao)
-14. [7.2 Selecionar layout de teclado](#72-selecionar-layout-de-teclado)
-15. [7.3 Definir senha do root](#73-definir-senha-do-root)
-16. [7.4 Confirmar instalação](#74-confirmar-instalacao)
-17. [8. Primeiro boot do ESXi](#8-primeiro-boot-do-esxi)
-18. [9. Configuração de rede](#9-configuracao-de-rede)
-19. [10. Checklist final](#10-checklist-final)
-20. [11. Observações importantes](#11-observacoes-importantes)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## 1. Objetivo

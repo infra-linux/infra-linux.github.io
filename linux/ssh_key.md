@@ -4,35 +4,10 @@ title: Windows
 ---
 
 # Configurar acesso SSH por chave pública no Rocky Linux
-
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Ambiente utilizado](#ambiente-utilizado)
-3. [1. Verificar se existe uma chave no Windows](#1-verificar-se-existe-uma-chave-no-windows)
-4. [2. Criar uma chave ED25519](#2-criar-uma-chave-ed25519)
-5. [3. Copiar a chave pública para o Rocky Linux](#3-copiar-a-chave-publica-para-o-rocky-linux)
-6. [4. Verificar a fingerprint da chave](#4-verificar-a-fingerprint-da-chave)
-7. [5. Verificar a configuração do SSH](#5-verificar-a-configuracao-do-ssh)
-8. [6. Verificar `AuthenticationMethods`](#6-verificar-authenticationmethods)
-9. [Localizar a configuração](#localizar-a-configuracao)
-10. [7. Remover a exigência de senha](#7-remover-a-exigencia-de-senha)
-11. [8. Validar a configuração](#8-validar-a-configuracao)
-12. [9. Recarregar o SSH](#9-recarregar-o-ssh)
-13. [10. Testar o acesso por chave](#10-testar-o-acesso-por-chave)
-14. [11. Diagnóstico detalhado](#11-diagnostico-detalhado)
-15. [Se aparecer:](#se-aparecer)
-16. [12. Monitorar o log do SSH](#12-monitorar-o-log-do-ssh)
-17. [13. Verificar o SELinux](#13-verificar-o-selinux)
-18. [14. Verificar permissões](#14-verificar-permissoes)
-19. [15. Configuração mais segura](#15-configuracao-mais-segura)
-20. [Atenção](#atencao)
-21. [16. Fluxo de diagnóstico](#16-fluxo-de-diagnostico)
-22. [17. Comandos essenciais](#17-comandos-essenciais)
-23. [Windows](#windows)
-24. [Rocky Linux](#rocky-linux)
-25. [Resultado esperado](#resultado-esperado)
+{:.no_toc}
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

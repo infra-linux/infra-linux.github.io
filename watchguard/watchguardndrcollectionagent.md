@@ -4,6 +4,7 @@ title: WatchGuard_Collection
 ---
 
 # Coleta de Logs do WatchGuard NDR Collection Agent (Linux)
+{:.no_toc}
 
 Este procedimento descreve como gerar o pacote oficial de diagnóstico do **WatchGuard NDR Collection Agent** em servidores Linux. O pacote é utilizado pelo suporte da WatchGuard para análise de falhas de comunicação, heartbeat, captura de fluxos e conectividade.
 
@@ -13,22 +14,9 @@ Este procedimento descreve como gerar o pacote oficial de diagnóstico do **Watc
 
 ---
 
-
-## Sumário
-
-1. [1. Acessar o servidor](#1-acessar-o-servidor)
-2. [2. Confirmar o host](#2-confirmar-o-host)
-3. [3. Gerar o pacote de diagnóstico](#3-gerar-o-pacote-de-diagnostico)
-4. [4. Localizar o pacote gerado](#4-localizar-o-pacote-gerado)
-5. [5. Baixar o arquivo para o computador](#5-baixar-o-arquivo-para-o-computador)
-6. [Verificações opcionais](#verificacoes-opcionais)
-7. [Verificar os processos do Collection Agent](#verificar-os-processos-do-collection-agent)
-8. [Verificar o Heartbeat](#verificar-o-heartbeat)
-9. [Procurar erros de Heartbeat](#procurar-erros-de-heartbeat)
-10. [Verificar os logs disponíveis](#verificar-os-logs-disponiveis)
-11. [Envio ao suporte](#envio-ao-suporte)
-12. [Checklist](#checklist)
-13. [Referências](#referencias)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 # 1. Acessar o servidor

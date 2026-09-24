@@ -4,18 +4,11 @@ title: Prism Element e Prism Central
 ---
 
 # Prism Element e Prism Central
+{:.no_toc}
 
-
-## Sumário
-
-1. [O que é o Prism?](#o-que-e-o-prism)
-2. [Prism Element](#prism-element)
-3. [Prism Central](#prism-central)
-4. [Comparação](#comparacao)
-5. [Navegação inicial](#navegacao-inicial)
-6. [Alertas e tarefas](#alertas-e-tarefas)
-7. [Boas práticas](#boas-praticas)
-8. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## O que é o Prism?

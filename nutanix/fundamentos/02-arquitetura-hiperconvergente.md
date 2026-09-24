@@ -4,18 +4,11 @@ title: Arquitetura hiperconvergente
 ---
 
 # Arquitetura hiperconvergente
+{:.no_toc}
 
-
-## Sumário
-
-1. [Infraestrutura tradicional](#infraestrutura-tradicional)
-2. [Infraestrutura hiperconvergente](#infraestrutura-hiperconvergente)
-3. [Arquitetura distribuída](#arquitetura-distribuida)
-4. [Escalabilidade horizontal](#escalabilidade-horizontal)
-5. [Separação lógica das camadas](#separacao-logica-das-camadas)
-6. [Benefícios operacionais](#beneficios-operacionais)
-7. [Ponto de atenção](#ponto-de-atencao)
-8. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Infraestrutura tradicional

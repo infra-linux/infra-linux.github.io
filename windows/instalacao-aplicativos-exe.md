@@ -4,20 +4,11 @@ title: Instalação de Aplicativos (.exe) no Windows
 ---
 
 # Instalação de Aplicativos (.exe) no Windows
+{:.no_toc}
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [1. Baixar o instalador](#1-baixar-o-instalador)
-3. [2. Abrir PowerShell como Administrador](#2-abrir-powershell-como-administrador)
-4. [3. Acessar a pasta do instalador](#3-acessar-a-pasta-do-instalador)
-5. [4. Executar o instalador](#4-executar-o-instalador)
-6. [5. Concluir a instalação](#5-concluir-a-instalacao)
-7. [6. Validar a instalação](#6-validar-a-instalacao)
-8. [7. Executar o aplicativo](#7-executar-o-aplicativo)
-9. [Exemplo](#exemplo)
-10. [Boas práticas](#boas-praticas)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

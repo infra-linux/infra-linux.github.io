@@ -4,16 +4,11 @@ title: Introdução ao Nutanix
 ---
 
 # Introdução ao Nutanix
+{:.no_toc}
 
-
-## Sumário
-
-1. [Visão geral](#visao-geral)
-2. [Nó e cluster](#no-e-cluster)
-3. [Principais componentes](#principais-componentes)
-4. [Exemplo de uso](#exemplo-de-uso)
-5. [Relação com o Data Lens](#relacao-com-o-data-lens)
-6. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Visão geral

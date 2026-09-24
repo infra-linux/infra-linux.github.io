@@ -4,39 +4,11 @@ title: Troubleshooting Wiki da Empresa Exemplo
 ---
 
 # Troubleshooting Completo – Wiki da Empresa Exemplo Indisponível (Docker, WikiJS, Nginx e Certificados)
+{:.no_toc}
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Ambiente](#ambiente)
-3. [Sintoma Inicial](#sintoma-inicial)
-4. [Etapa 1 – Validar DNS](#etapa-1-validar-dns)
-5. [Conclusão](#conclusao)
-6. [Etapa 2 – Validar conectividade HTTPS](#etapa-2-validar-conectividade-https)
-7. [Conclusão](#conclusao)
-8. [Etapa 3 – Acessar o servidor da Wiki](#etapa-3-acessar-o-servidor-da-wiki)
-9. [Conclusão](#conclusao)
-10. [Etapa 4 – Verificar portas abertas](#etapa-4-verificar-portas-abertas)
-11. [Conclusão](#conclusao)
-12. [Etapa 5 – Verificar serviços com falha](#etapa-5-verificar-servicos-com-falha)
-13. [Conclusão](#conclusao)
-14. [Etapa 6 – Verificar status do Docker](#etapa-6-verificar-status-do-docker)
-15. [Conclusão](#conclusao)
-16. [Etapa 7 – Verificar módulos do kernel](#etapa-7-verificar-modulos-do-kernel)
-17. [Conclusão](#conclusao)
-18. [Etapa 8 – Verificar kernel instalado](#etapa-8-verificar-kernel-instalado)
-19. [Conclusão](#conclusao)
-20. [Etapa 9 – Reconstruir dependências dos módulos](#etapa-9-reconstruir-dependencias-dos-modulos)
-21. [Conclusão](#conclusao)
-22. [Etapa 10 – Carregar módulos necessários](#etapa-10-carregar-modulos-necessarios)
-23. [Conclusão](#conclusao)
-24. [Etapa 11 – Reiniciar Docker](#etapa-11-reiniciar-docker)
-25. [Conclusão](#conclusao)
-26. [Etapa 12 – Verificar containers](#etapa-12-verificar-containers)
-27. [Conclusão](#conclusao)
-28. [Etapa 13 – Validar aplicação](#etapa-13-validar-aplicacao)
-29. [Conclusão](#conclusao)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

@@ -4,47 +4,11 @@ title: Windows
 ---
 
 # Windows como Proxy para VMs Linux usando Cntlm
+{:.no_toc}
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [1. Pré-requisitos](#1-pre-requisitos)
-3. [2. Instalação do Cntlm no Windows](#2-instalacao-do-cntlm-no-windows)
-4. [3. Configuração do Cntlm](#3-configuracao-do-cntlm)
-5. [4. Gerar o hash da senha](#4-gerar-o-hash-da-senha)
-6. [5. Testar o Cntlm manualmente](#5-testar-o-cntlm-manualmente)
-7. [6. Testar o proxy no próprio Windows](#6-testar-o-proxy-no-proprio-windows)
-8. [7. Instalar o Cntlm como serviço do Windows](#7-instalar-o-cntlm-como-servico-do-windows)
-9. [8. Configurar o serviço para iniciar automaticamente](#8-configurar-o-servico-para-iniciar-automaticamente)
-10. [9. Verificar se a porta 3128 está aberta](#9-verificar-se-a-porta-3128-esta-aberta)
-11. [10. Liberar a porta no Firewall do Windows](#10-liberar-a-porta-no-firewall-do-windows)
-12. [11. Descobrir o IP do Windows](#11-descobrir-o-ip-do-windows)
-13. [12. Configurar a VM Linux](#12-configurar-a-vm-linux)
-14. [13. Configurar variáveis de ambiente](#13-configurar-variaveis-de-ambiente)
-15. [14. Tornar o proxy permanente](#14-tornar-o-proxy-permanente)
-16. [15. Testar a comunicação entre Linux e Windows](#15-testar-a-comunicacao-entre-linux-e-windows)
-17. [16. Testar acesso à Internet através do proxy](#16-testar-acesso-a-internet-atraves-do-proxy)
-18. [17. Configurar DNF/YUM](#17-configurar-dnfyum)
-19. [18. Configurar Docker](#18-configurar-docker)
-20. [19. Configurar Git](#19-configurar-git)
-21. [20. Configurar wget](#20-configurar-wget)
-22. [21. Configurar repositórios e ferramentas adicionais](#21-configurar-repositorios-e-ferramentas-adicionais)
-23. [22. Verificação completa](#22-verificacao-completa)
-24. [Windows](#windows)
-25. [Linux](#linux)
-26. [23. Utilização com clones da VM](#23-utilizacao-com-clones-da-vm)
-27. [24. Atenção ao IP da VM](#24-atencao-ao-ip-da-vm)
-28. [25. Solução de problemas](#25-solucao-de-problemas)
-29. [Cntlm não inicia](#cntlm-nao-inicia)
-30. [Porta 3128 não está aberta](#porta-3128-nao-esta-aberta)
-31. [Linux não consegue conectar ao Windows](#linux-nao-consegue-conectar-ao-windows)
-32. [Cntlm funciona no Windows, mas não na VM](#cntlm-funciona-no-windows-mas-nao-na-vm)
-33. [26. Comandos rápidos](#26-comandos-rapidos)
-34. [Windows](#windows)
-35. [Linux](#linux)
-36. [27. Resumo da arquitetura](#27-resumo-da-arquitetura)
-37. [Configuração final](#configuracao-final)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

@@ -4,33 +4,10 @@ title: Atualização de Certificado SSL no Harbor
 ---
 
 # Atualização de Certificado SSL no Harbor (Docker) - Rocky Linux
-
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Ambiente](#ambiente)
-3. [1. Identificar os certificados configurados](#1-identificar-os-certificados-configurados)
-4. [2. Criar backup dos certificados atuais](#2-criar-backup-dos-certificados-atuais)
-5. [3. Arquivos recebidos](#3-arquivos-recebidos)
-6. [4. Validar o certificado do site](#4-validar-o-certificado-do-site)
-7. [5. Validar certificado e chave privada](#5-validar-certificado-e-chave-privada)
-8. [6. Criar o arquivo PEM completo](#6-criar-o-arquivo-pem-completo)
-9. [7. Atualizar os certificados do sistema](#7-atualizar-os-certificados-do-sistema)
-10. [8. Atualizar certificados utilizados pelo Harbor](#8-atualizar-certificados-utilizados-pelo-harbor)
-11. [9. Executar o prepare do Harbor](#9-executar-o-prepare-do-harbor)
-12. [10. Identificar os serviços do Docker Compose](#10-identificar-os-servicos-do-docker-compose)
-13. [11. Recriar o serviço proxy](#11-recriar-o-servico-proxy)
-14. [12. Validar a configuração do Nginx](#12-validar-a-configuracao-do-nginx)
-15. [13. Validar o certificado publicado](#13-validar-o-certificado-publicado)
-16. [14. Teste HTTPS](#14-teste-https)
-17. [Certificado apresentado](#certificado-apresentado)
-18. [Emissor](#emissor)
-19. [Validação da cadeia](#validacao-da-cadeia)
-20. [Compatibilidade do host](#compatibilidade-do-host)
-21. [Resposta HTTP](#resposta-http)
-22. [Validações finais](#validacoes-finais)
-23. [Lições Aprendidas](#licoes-aprendidas)
+{:.no_toc}
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

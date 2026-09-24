@@ -4,14 +4,11 @@ title: Instalação de Aplicativos (.exe) via C:\Temp
 ---
 
 # Instalação de Aplicativos (.exe) via C:\Temp
+{:.no_toc}
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Procedimento](#procedimento)
-3. [Exemplo](#exemplo)
-4. [Observação](#observacao)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Objetivo

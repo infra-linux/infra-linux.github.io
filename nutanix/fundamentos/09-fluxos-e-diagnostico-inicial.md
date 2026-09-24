@@ -4,19 +4,11 @@ title: Fluxos e diagnóstico inicial
 ---
 
 # Fluxos e diagnóstico inicial
+{:.no_toc}
 
-
-## Sumário
-
-1. [Fluxo de gravação de uma VM](#fluxo-de-gravacao-de-uma-vm)
-2. [Fluxo de leitura](#fluxo-de-leitura)
-3. [Fluxo de acesso ao Files](#fluxo-de-acesso-ao-files)
-4. [Diagnóstico de lentidão](#diagnostico-de-lentidao)
-5. [Diagnóstico de acesso SMB](#diagnostico-de-acesso-smb)
-6. [Diagnóstico de NFS](#diagnostico-de-nfs)
-7. [Diagnóstico orientado por camadas](#diagnostico-orientado-por-camadas)
-8. [Registro da investigação](#registro-da-investigacao)
-9. [Resumo](#resumo)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 ## Fluxo de gravação de uma VM

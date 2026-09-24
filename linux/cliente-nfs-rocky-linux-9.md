@@ -4,38 +4,15 @@ title: Cliente NFS no Rocky Linux 9
 ---
 
 # Cliente NFS no Rocky Linux 9
+{:.no_toc}
 
 > Tutorial para instalação e configuração de um cliente NFS no Rocky Linux 9.
 
 ---
 
-
-## Sumário
-
-1. [Objetivo](#objetivo)
-2. [Cenário](#cenario)
-3. [Verificar conectividade](#verificar-conectividade)
-4. [Instalar o cliente NFS](#instalar-o-cliente-nfs)
-5. [Verificar os compartilhamentos disponíveis](#verificar-os-compartilhamentos-disponiveis)
-6. [Criar o ponto de montagem](#criar-o-ponto-de-montagem)
-7. [Montar o compartilhamento](#montar-o-compartilhamento)
-8. [Confirmar a montagem](#confirmar-a-montagem)
-9. [Verificar o conteúdo](#verificar-o-conteudo)
-10. [Testar leitura](#testar-leitura)
-11. [Testar escrita](#testar-escrita)
-12. [Verificar informações da montagem](#verificar-informacoes-da-montagem)
-13. [Desmontar o compartilhamento](#desmontar-o-compartilhamento)
-14. [Configurar montagem automática](#configurar-montagem-automatica)
-15. [Testar o arquivo fstab](#testar-o-arquivo-fstab)
-16. [Reiniciar o cliente](#reiniciar-o-cliente)
-17. [Comandos úteis](#comandos-uteis)
-18. [Solução de problemas](#solucao-de-problemas)
-19. [Compartilhamento não aparece](#compartilhamento-nao-aparece)
-20. [Erro:](#erro)
-21. [Erro:](#erro)
-22. [Confirmar exportações do servidor](#confirmar-exportacoes-do-servidor)
-23. [Estrutura final](#estrutura-final)
-24. [Próximos passos](#proximos-passos)
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
 
 ---
 # Objetivo
