@@ -3,41 +3,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0f0d">
-  <meta name="description" content="{{ page.description | default: site.description | escape }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}Infra Linux">
-  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+
+  <meta name="theme-color" content="#1c1c1a">
+  <meta
+    name="description"
+    content="{{ page.description | default: site.description | escape }}"
+  >
+
+  <meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title }} · {% endif %}Infra Linux"
+  >
+  <meta
+    property="og:description"
+    content="{{ page.description | default: site.description | escape }}"
+  >
   <meta property="og:type" content="website">
+
   <title>{% if page.title %}{{ page.title }} · {% endif %}Infra Linux</title>
+
   <link rel="icon" href="{{ '/images/favicon.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
+
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <button class="menu-toggle" id="menuToggle" aria-controls="sidebar" aria-expanded="false" aria-label="Abrir menu">☰</button>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-controls="sidebar"
+    aria-expanded="false"
+    aria-label="Abrir menu"
+  >
+    Menu
+  </button>
+
   <div class="backdrop" id="backdrop" hidden></div>
 
   <aside class="sidebar" id="sidebar">
-    <a class="brand" href="{{ '/' | relative_url }}">
-      <span class="brand-mark">IL</span>
-      <span><strong>Infra Linux</strong></span>
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Página inicial do Infra Linux">
+      <span class="brand-mark" aria-hidden="true">IL</span>
+      <span class="brand-name">Infra Linux</span>
     </a>
 
     <div class="search-box">
       <label for="sidebarSearchInput">Buscar nos tópicos</label>
-      <input id="sidebarSearchInput" type="search" placeholder="Ex.: DevOps, Linux..." autocomplete="off">
+
+      <input
+        id="sidebarSearchInput"
+        type="search"
+        placeholder="Ex.: DevOps, Linux..."
+        autocomplete="off"
+      >
     </div>
 
     <nav class="sidebar-menu" aria-label="Navegação principal">
-      {% assign sections = "linux:◉ Linux,devops:⚙ DevOps,redes:◎ Redes,squid:◉ Squid,monitoramento:▥ Monitoramento,nutanix:◇ Nutanix,vmware:▣ VMware,watchguard:◈ WatchGuard,windows:⊞ Windows,troubleshooting:◆ Troubleshooting" | split: "," %}
+      {% assign sections = "linux:Linux,devops:DevOps,redes:Redes,squid:Squid,monitoramento:Monitoramento,nutanix:Nutanix,vmware:VMware,watchguard:WatchGuard,windows:Windows,troubleshooting:Troubleshooting" | split: "," %}
+
       {% for item in sections %}
         {% assign parts = item | split: ":" %}
-        <a href="{{ parts[0] | append: '/' | relative_url }}">{{ parts[1] }}</a>
+
+        <a
+          href="{{ parts[0] | append: '/' | relative_url }}"
+          data-section="{{ parts[0] }}"
+        >
+          <span class="nav-marker" aria-hidden="true"></span>
+          <span>{{ parts[1] }}</span>
+        </a>
       {% endfor %}
     </nav>
 
     <div class="sidebar-footer">
-      <a href="https://github.com/infra-linux/infra-linux.github.io" target="_blank" rel="noopener">Ver no GitHub ↗</a>
+      <a
+        href="https://github.com/infra-linux/infra-linux.github.io"
+        target="_blank"
+        rel="noopener"
+      >
+        Ver no GitHub
+      </a>
     </div>
   </aside>
 
@@ -45,6 +90,10 @@
     <main id="conteudo" tabindex="-1">
       {{ content }}
     </main>
+
+    <footer class="site-footer">
+      <span>Atualizado em {{ site.time | date: "%d/%m/%Y" }}</span>
+    </footer>
   </div>
 
   <script>
@@ -52,77 +101,118 @@
       const body = document.body;
       const toggle = document.getElementById('menuToggle');
       const backdrop = document.getElementById('backdrop');
+      const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+      const search = document.getElementById('sidebarSearchInput');
+
       const closeMenu = () => {
         body.classList.remove('menu-open');
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu');
         backdrop.hidden = true;
       };
+
       toggle.addEventListener('click', () => {
         const open = !body.classList.contains('menu-open');
+
         body.classList.toggle('menu-open', open);
         toggle.setAttribute('aria-expanded', String(open));
         toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
         backdrop.hidden = !open;
       });
+
       backdrop.addEventListener('click', closeMenu);
 
-      const current = location.pathname.replace(/index\.html$/, '');
-      document.querySelectorAll('.sidebar-menu a').forEach(link => {
-        const path = new URL(link.href).pathname.replace(/index\.html$/, '');
-        if (path === current) link.classList.add('active');
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && body.classList.contains('menu-open')) {
+          closeMenu();
+        }
       });
 
-      const search = document.getElementById('sidebarSearchInput');
-      search.addEventListener('input', () => {
-        const term = search.value.trim().toLocaleLowerCase('pt-BR');
-        document.querySelectorAll('.sidebar-menu a').forEach(link => {
-          link.hidden = Boolean(term) && !link.textContent.toLocaleLowerCase('pt-BR').includes(term);
+      const currentPath = location.pathname.replace(/index\.html$/, '');
+
+      sidebarLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname.replace(/index\.html$/, '');
+
+        if (linkPath === currentPath) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        }
+
+        link.addEventListener('click', () => {
+          if (body.classList.contains('menu-open')) {
+            closeMenu();
+          }
         });
       });
 
-      document.querySelectorAll('.sidebar-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (body.classList.contains('menu-open')) closeMenu();
+      search.addEventListener('input', () => {
+        const term = search.value.trim().toLocaleLowerCase('pt-BR');
+
+        sidebarLinks.forEach(link => {
+          const label = link.textContent.toLocaleLowerCase('pt-BR');
+          link.hidden = Boolean(term) && !label.includes(term);
         });
       });
 
       document.querySelectorAll('pre').forEach(pre => {
         const code = pre.querySelector('code');
-        if (code && /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)) {
+
+        if (
+          code &&
+          /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)
+        ) {
           pre.classList.add('flow-diagram');
 
-          const lines = code.textContent.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
-          const isLinearFlow = lines.length >= 5 && lines.every((line, index) => {
-            if (index % 2 === 1) return /^[↓→←↔\s]+$/.test(line);
-            return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(line);
-          });
+          const lines = code.textContent
+            .split(/\r?\n/)
+            .map(line => line.trim())
+            .filter(Boolean);
+
+          const isLinearFlow =
+            lines.length >= 5 &&
+            lines.every((line, index) => {
+              if (index % 2 === 1) {
+                return /^[↓→←↔\s]+$/.test(line);
+              }
+
+              return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(line);
+            });
 
           if (isLinearFlow) {
-            code.textContent = lines.filter((_, index) => index % 2 === 0).join(' → ');
+            code.textContent = lines
+              .filter((_, index) => index % 2 === 0)
+              .join(' → ');
+
             pre.classList.add('flow-horizontal');
           }
         }
 
         const button = document.createElement('button');
+
         button.className = 'copy-btn';
         button.type = 'button';
         button.textContent = 'Copiar';
+        button.setAttribute('aria-label', 'Copiar conteúdo do bloco de código');
+
         button.addEventListener('click', async () => {
           try {
-            await navigator.clipboard.writeText(pre.querySelector('code')?.innerText || pre.innerText);
-            button.textContent = 'Copiado ✓';
+            const content = pre.querySelector('code')?.innerText || pre.innerText;
+
+            await navigator.clipboard.writeText(content);
+
+            button.textContent = 'Copiado';
           } catch (_) {
             button.textContent = 'Selecione e copie';
           }
-          setTimeout(() => { button.textContent = 'Copiar'; }, 1800);
+
+          setTimeout(() => {
+            button.textContent = 'Copiar';
+          }, 1800);
         });
+
         pre.appendChild(button);
       });
     });
   </script>
 </body>
 </html>
-
-    <footer class="site-footer">
-      <span>Atualizado em {{ site.time | date: "%d/%m/%Y" }}</span>
-    </footer>
