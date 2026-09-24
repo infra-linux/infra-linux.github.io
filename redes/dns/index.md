@@ -9,10 +9,14 @@ Documentação e estudos sobre **DNS (Domain Name System)**, com foco em adminis
 
 ---
 
+<div class="toc-title">Sumário</div>
+* Sumário:
+{:toc}
+
 ## Conteúdo
 
-* [BIND — Encaminhamento Condicional de DNS para um Domínio Externo](bind-encaminhamentodns.md)
-* [DNS - Guia Prático de Linux](dns-guiapraticolinux.md)
+* [BIND — Guia Completo Encaminhamento Condicional de DNS](bind-encaminhamentodns.md)
+* [Encaminhamento Condicional - Rápido](bindencaminhamento.md)
 
 ---
 
@@ -22,7 +26,6 @@ Documentação e estudos sobre **DNS (Domain Name System)**, com foco em adminis
 * Registros DNS
 * Zonas DNS
 * Forwarders
-* Encaminhamento condicional
 * Diagnóstico e troubleshooting
 
 ---
