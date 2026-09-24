@@ -8,10 +8,12 @@ title: WatchGuard_Collection
 
 Este procedimento descreve como gerar o pacote oficial de diagnóstico do **WatchGuard NDR Collection Agent** em servidores Linux. O pacote é utilizado pelo suporte da WatchGuard para análise de falhas de comunicação, heartbeat, captura de fluxos e conectividade.
 
+
 > **Importante**
 >
-> O script **não coleta logs de uma data específica**. Ele gera um pacote contendo o estado atual do Collection Agent, incluindo logs existentes, configurações, testes de conectividade e uma captura temporária de rede.
-
+> O script **não coleta logs de uma data específica**. Ele gera um pacote contendo o estado atual do Collection Agent, incluindo logs existentes, configurações, testes de conectividade e uma captura temporária de rede.<br>
+ <br>
+ 
 ---
 
 <div class="toc-title">Sumário</div>
@@ -24,29 +26,7 @@ Este procedimento descreve como gerar o pacote oficial de diagnóstico do **Watc
 Conecte-se via SSH ao servidor desejado.
 
 ```bash
-ssh root@<hostname>
-```
-
-Exemplo:
-
-```bash
 ssh root@s-sdsn224.infraero.gov.br
-```
-
----
-
-# 2. Confirmar o host
-
-Verifique se você está conectado ao servidor correto.
-
-```bash
-hostname -f
-```
-
-Exemplo:
-
-```text
-s-sdsn224.infraero.gov.br
 ```
 
 ---
@@ -68,7 +48,7 @@ O script executa automaticamente:
 - Coleta dos logs do Collection Agent
 - Geração do pacote oficial de diagnóstico
 
-Exemplo de saída:
+Saída:
 
 ```text
 UFW is disabled
@@ -91,16 +71,10 @@ Liste os arquivos mais recentes:
 ls -lht /opt/collector/staging/ | head
 ```
 
-O primeiro arquivo será semelhante a:
+O arquivo será semelhante a:
 
 ```text
 WGC-1-xxxxxxxxxxxxxxxx-s-sdsn224-diagnostics-YYYYMMDDHHMM.lzo
-```
-
-Exemplo:
-
-```text
-WGC-1-16b7386a21134870b485-s-sdsn224-diagnostics-202607311843.lzo
 ```
 
 Esse é o arquivo que deverá ser enviado ao suporte da WatchGuard.
@@ -112,40 +86,18 @@ Esse é o arquivo que deverá ser enviado ao suporte da WatchGuard.
 No PowerShell do Windows execute:
 
 ```powershell
-scp root@<hostname>:/opt/collector/staging/<arquivo>.lzo "$env:USERPROFILE\Downloads\"
-```
-
-Exemplo:
-
-```powershell
 scp root@s-sdsn224.infraero.gov.br:/opt/collector/staging/WGC-1-16b7386a21134870b485-s-sdsn224-diagnostics-202607311843.lzo "$env:USERPROFILE\Downloads\"
-```
-
-Após informar a senha, a cópia será iniciada.
-
-Exemplo:
-
-```text
-100%
-```
-
-O arquivo ficará disponível em:
-
-```text
-C:\Users\<usuario>\Downloads\
 ```
 
 ---
 
 # Verificações opcionais
 
-## Verificar os processos do Collection Agent
+## Verificar os processos do Collection Agent:
 
 ```bash
 ps -ef | grep -Ei 'nfcapd|sfcapd|ndr_' | grep -v grep
 ```
-
-Exemplo:
 
 ```text
 /opt/collector/bin/nfcapd
@@ -158,10 +110,8 @@ Exemplo:
 ## Verificar o Heartbeat
 
 ```bash
-tail -50 /opt/collector/logs/ndr_heartbeat.log
+tail -50 /opt/collector/logs/ndr_heartbeat.log:
 ```
-
-Resultado esperado:
 
 ```text
 Sending Heartbeat
@@ -200,24 +150,9 @@ Os principais arquivos são:
 
 ---
 
-# Envio ao suporte
-
-Anexe o arquivo `.lzo` gerado ao chamado ou e-mail enviado ao suporte da WatchGuard.
-
-Exemplo:
-
-```text
-WGC-1-16b7386a21134870b485-s-sdsn224-diagnostics-202607311843.lzo
-```
-
-Cada servidor gera um pacote próprio. Caso mais de um Collection Agent apresente problemas, repita o procedimento em todos os hosts afetados.
-
----
-
 # Checklist
 
 - [ ] Conectar via SSH ao servidor.
-- [ ] Confirmar o hostname.
 - [ ] Executar `collectorDiagnostics.sh`.
 - [ ] Localizar o arquivo em `/opt/collector/staging/`.
 - [ ] Baixar o arquivo via `scp`.
