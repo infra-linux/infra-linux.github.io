@@ -739,23 +739,78 @@ pre.flow-horizontal code {
   line-height: 1.6;
 }
 
+/* Botão compacto de copiar código */
+
 .copy-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 6px 9px;
-  border: 1px solid #41413c;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border: 1px solid transparent;
   border-radius: 6px;
-  background: #252523;
-  color: #cfcfc8;
-  font-size: 0.73rem;
+  background: transparent;
+  color: #92928b;
+
   cursor: pointer;
-  transition: background 0.16s ease, color 0.16s ease;
+  opacity: 0;
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    opacity 0.16s ease;
+}
+
+/* Mostra o ícone quando o mouse passa pelo bloco de código */
+pre:hover .copy-btn,
+.copy-btn:focus-visible {
+  opacity: 1;
 }
 
 .copy-btn:hover {
-  background: #30302d;
-  color: #ffffff;
+  border-color: #474742;
+  background: #292927;
+  color: #f1f1eb;
+}
+
+.copy-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.copy-icon {
+  width: 15px;
+  height: 15px;
+}
+
+/* Feedback visual após copiar */
+
+.copy-btn.copied {
+  opacity: 1;
+  border-color: rgba(32, 180, 134, 0.35);
+  background: rgba(32, 180, 134, 0.14);
+  color: var(--accent-hover);
+}
+
+.copy-btn.copy-error {
+  opacity: 1;
+  border-color: rgba(220, 90, 80, 0.35);
+  background: rgba(220, 90, 80, 0.12);
+  color: #ef938a;
+}
+
+/* Em telas touch não há hover: mantenha o ícone visível */
+@media (hover: none) {
+  .copy-btn {
+    opacity: 1;
+  }
 }
 
 /* =========================================================

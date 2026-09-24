@@ -187,30 +187,52 @@
           }
         }
 
-        const button = document.createElement('button');
+const button = document.createElement('button');
 
-        button.className = 'copy-btn';
-        button.type = 'button';
-        button.textContent = 'Copiar';
-        button.setAttribute('aria-label', 'Copiar conteúdo do bloco de código');
+button.className = 'copy-btn';
+button.type = 'button';
+button.setAttribute('aria-label', 'Copiar código');
+button.setAttribute('title', 'Copiar código');
 
-        button.addEventListener('click', async () => {
-          try {
-            const content = pre.querySelector('code')?.innerText || pre.innerText;
+button.innerHTML = `
+  <svg
+    class="copy-icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+  </svg>
+`;
 
-            await navigator.clipboard.writeText(content);
+button.addEventListener('click', async () => {
+  try {
+    const content = pre.querySelector('code')?.innerText || pre.innerText;
 
-            button.textContent = 'Copiado';
-          } catch (_) {
-            button.textContent = 'Selecione e copie';
-          }
+    await navigator.clipboard.writeText(content);
 
-          setTimeout(() => {
-            button.textContent = 'Copiar';
-          }, 1800);
-        });
+    button.classList.add('copied');
+    button.setAttribute('aria-label', 'Código copiado');
+    button.setAttribute('title', 'Código copiado');
+  } catch (_) {
+    button.classList.add('copy-error');
+    button.setAttribute('aria-label', 'Não foi possível copiar');
+    button.setAttribute('title', 'Não foi possível copiar');
+  }
 
-        pre.appendChild(button);
+  setTimeout(() => {
+    button.classList.remove('copied', 'copy-error');
+    button.setAttribute('aria-label', 'Copiar código');
+    button.setAttribute('title', 'Copiar código');
+  }, 1800);
+});
+
+pre.appendChild(button);
       });
     });
   </script>
