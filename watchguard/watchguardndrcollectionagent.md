@@ -50,11 +50,7 @@ O script executa automaticamente:
 
 Saída:
 
-![Watchguard](images/collector.png)
-
-```
-
-Aguarde até o retorno do prompt antes de continuar.
+![Watchguard](/images/collector.png)
 
 ---
 
