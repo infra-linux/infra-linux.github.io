@@ -25,56 +25,54 @@ description: Infra Linux é a base de conhecimento prática para Linux, infraest
 <h2>Áreas documentadas</h2>
 
 <nav class="wiki-topic-list" aria-label="Áreas documentadas">
-  <a class="wiki-topic" href="linux/">
-    <span class="wiki-topic-title">Linux</span>
+  <a class="wiki-topic" href="{{ 'linux/' | relative_url }}">
+    <span class="wiki-topic-title">◉ Linux</span>
     <span class="wiki-topic-description">Administração, comandos, LVM e certificados.</span>
   </a>
 
-  <a class="wiki-topic" href="devops/">
-    <span class="wiki-topic-title">DevOps</span>
+  <a class="wiki-topic" href="{{ 'devops/' | relative_url }}">
+    <span class="wiki-topic-title">⚙ DevOps</span>
     <span class="wiki-topic-description">Git, CI/CD, Jenkins, Ansible, Docker e Kubernetes.</span>
   </a>
 
-  <a class="wiki-topic" href="redes/">
-    <span class="wiki-topic-title">Redes</span>
+  <a class="wiki-topic" href="{{ 'redes/' | relative_url }}">
+    <span class="wiki-topic-title">◎ Redes</span>
     <span class="wiki-topic-description">DNS, TCP/IP, proxy e conectividade.</span>
   </a>
 
-  <a class="wiki-topic" href="monitoramento/">
-    <span class="wiki-topic-title">Monitoramento</span>
-    <span class="wiki-topic-description">Zabbix, Grafana, métricas e alertas.</span>
-  </a>
-
-  <a class="wiki-topic" href="squid/">
-    <span class="wiki-topic-title">Squid</span>
+  <a class="wiki-topic" href="{{ 'squid/' | relative_url }}">
+    <span class="wiki-topic-title">◉ Squid</span>
     <span class="wiki-topic-description">Proxy, ACLs, autenticação e logs.</span>
   </a>
 
-  <a class="wiki-topic" href="watchguard/">
-    <span class="wiki-topic-title">WatchGuard</span>
-    <span class="wiki-topic-description">Firewall, políticas, VPN e troubleshooting.</span>
+  <a class="wiki-topic" href="{{ 'monitoramento/' | relative_url }}">
+    <span class="wiki-topic-title">▥ Monitoramento</span>
+    <span class="wiki-topic-description">Zabbix, Grafana, métricas e alertas.</span>
   </a>
 
-  <a class="wiki-topic" href="nutanix/">
-    <span class="wiki-topic-title">Nutanix</span>
+  <a class="wiki-topic" href="{{ 'nutanix/' | relative_url }}">
+    <span class="wiki-topic-title">◇ Nutanix</span>
     <span class="wiki-topic-description">Virtualização, Prism e infraestrutura.</span>
   </a>
 
-  <a class="wiki-topic" href="vmware/">
-    <span class="wiki-topic-title">VMware</span>
+  <a class="wiki-topic" href="{{ 'vmware/' | relative_url }}">
+    <span class="wiki-topic-title">▣ VMware</span>
     <span class="wiki-topic-description">ESXi, iDRAC, RAID e hosts físicos.</span>
   </a>
 
-  <a class="wiki-topic" href="windows/">
-    <span class="wiki-topic-title">Windows</span>
+  <a class="wiki-topic" href="{{ 'watchguard/' | relative_url }}">
+    <span class="wiki-topic-title">◈ WatchGuard</span>
+    <span class="wiki-topic-description">Firewall, políticas, VPN e troubleshooting.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'windows/' | relative_url }}">
+    <span class="wiki-topic-title">⊞ Windows</span>
     <span class="wiki-topic-description">Estações, ferramentas e administração.</span>
   </a>
 
-  <a class="wiki-topic" href="troubleshooting/">
-    <span class="wiki-topic-title">Troubleshooting</span>
+  <a class="wiki-topic" href="{{ 'troubleshooting/' | relative_url }}">
+    <span class="wiki-topic-title">◆ Troubleshooting</span>
     <span class="wiki-topic-description">Erros, diagnósticos e soluções práticas.</span>
   </a>
 </nav>
 </section>
-
-<sub>Última atualização: {{ site.time | date: "%d/%m/%Y" }}</sub>
