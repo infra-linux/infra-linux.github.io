@@ -765,3 +765,122 @@ body.menu-open .backdrop {
   font-size: 1.1rem;
   font-weight: 700;
 }
+
+.home-dashboard-hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 0;
+}
+
+.home-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.home-dashboard-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.home-stat-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.home-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.home-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.home-card-icon {
+  font-size: 1.6rem;
+}
+
+.home-card-large {
+  grid-column: span 2;
+}
+
+.home-card-wide {
+  grid-column: span 4;
+}
+
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-card-large,
+  .home-card-wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 540px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-card-large,
+  .home-card-wide {
+    grid-column: span 1;
+  }
+  .home-dashboard-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.home-card-count {
+  margin-top: auto;
+  font-size: 0.7rem;
+  opacity: 0.55;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
