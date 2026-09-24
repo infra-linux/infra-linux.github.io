@@ -50,13 +50,8 @@ O script executa automaticamente:
 
 Saída:
 
-```text
-UFW is disabled
-Nfcapd is running
-Sfcapd is running
-Last upload occurred at Wed Jul 29 04:45:49 PM UTC 2026
-Connectivity test to WatchGuard succeeded
-Starting diagnostic data gathering...
+![Watchguard](images/collector.png)
+
 ```
 
 Aguarde até o retorno do prompt antes de continuar.
