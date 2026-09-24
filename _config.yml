@@ -1,0 +1,11 @@
+title: Infra Linux
+description: Infra Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
+
+exclude:
+  - "*.bak"
+  - "*.bkp"
+  - Gemfile
+  - Gemfile.lock
+  - CONTRIBUTING.md
+  - README.md
+  - docs/
