@@ -12,21 +12,21 @@ Esta seção reúne conhecimentos sobre **Markdown**, **Jekyll** e outras ferram
 
 ---
 
-## Markdown
+## [Markdown](index.md)
 
 Documentação sobre a linguagem de marcação utilizada para escrever os conteúdos do Infra Linux.
 
 ### Conteúdos
 
 1. [Markdown — Guia Completo](markdown.md)
-2. [Markdown — Blocos de Código](markdown-blocos-de-codigo.md)
+2. [Markdown — Blocos de Código](markdown-bloco-de-codigos.md)
 3. [Markdown — Tabelas](markdown-tabelas.md)
 4. [Markdown — Links e Imagens](markdown-links-imagens.md)
 5. [Markdown — Listas](markdown-listas.md)
 
 ---
 
-## Jekyll
+## [Jekyll](index.md)
 
 Documentação sobre o gerador de sites estáticos utilizado pelo Infra Linux.
 
@@ -41,23 +41,6 @@ Documentação sobre o gerador de sites estáticos utilizado pelo Infra Linux.
 
 ---
 
-## Infra Linux
-
-Materiais específicos sobre a construção e manutenção deste site.
-
-### Conteúdos
-
-1. [Infra Linux — Estrutura do Projeto](infra-linux-estrutura-projeto.md)
-2. [Infra Linux — Organização das Documentações](infra-linux-organizacao-documentacoes.md)
-3. [Infra Linux — Criação de Novas Páginas](infra-linux-criacao-paginas.md)
-4. [Infra Linux — Personalização do Layout](infra-linux-personalizacao-layout.md)
-5. [Infra Linux — CSS e JavaScript](infra-linux-css-javascript.md)
-6. [Infra Linux — Índice Automático](infra-linux-indice-automatico.md)
-7. [Infra Linux — Menu e Navegação](infra-linux-menu-navegacao.md)
-8. [Infra Linux — Desenvolvimento Local com Jekyll](infra-linux-desenvolvimento-local.md)
-
----
-
 ## Estrutura
 
 Visão geral das três frentes de estudo desta documentação. O detalhamento de cada item está nas listas de **Conteúdos** acima.
@@ -66,8 +49,7 @@ Visão geral das três frentes de estudo desta documentação. O detalhamento de
 Documentação
 │
 ├── Markdown
-├── Jekyll
-└── Infra Linux
+└── Jekyll
 ```
 
 ---
