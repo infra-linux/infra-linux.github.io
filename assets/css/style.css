@@ -1224,3 +1224,12 @@ blockquote p:last-child {
     overflow-x: auto;
   }
 }
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: #65d6b5;
+}
