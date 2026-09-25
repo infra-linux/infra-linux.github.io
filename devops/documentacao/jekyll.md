@@ -14,7 +14,7 @@ description: Jekyll — Guia Completo e Didático
 <div class="toc-title">Sumário</div>
 {:toc}
 
-
+{% raw %}
 ## 1. O que é Jekyll?
 
 **Jekyll** é um gerador de sites estáticos escrito em Ruby. Ele transforma Markdown, HTML, CSS, JavaScript, imagens, dados e templates em arquivos HTML prontos para publicação.
@@ -825,3 +825,4 @@ A regra prática é simples: Markdown contém o conhecimento; Front Matter descr
 10. Organize a documentação com collections
 
 Assim, você aprende Jekyll modificando o próprio projeto Infra Linux.
+{% endraw %}
