@@ -1083,8 +1083,9 @@ blockquote p:last-child {
   }
 }
 .brand-icon {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
   border-radius: 8px;
+  flex: 0 0 auto;
 }
