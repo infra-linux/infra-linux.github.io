@@ -154,7 +154,7 @@ main {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   min-height: 60px;
   margin: 10px 12px 4px;
   padding: 10px 12px;
@@ -164,23 +164,25 @@ main {
   transition: background 0.16s ease;
 }
 
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  background: #5f5d40;
+  border-radius: 8px 0 0 8px;
+  display: block;
+}
+
 .brand-name {
   color: var(--text-strong);
   font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  padding: 5px 9px;
-  border-radius: 6px;
+  padding: 12px 10px;
   background: #5f5d40;
-}
-
-.brand-icon {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  border-radius: 8px;
-  flex: 0 0 auto;
-  background: #5f5d40;
+  border-radius: 0 8px 8px 0;
+  line-height: 20px;
 }
 
 /* =========================================================
