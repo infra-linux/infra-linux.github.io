@@ -158,10 +158,11 @@ main {
   min-height: 60px;
   margin: 10px 12px 4px;
   padding: 8px 12px;
-  border-radius: 0;
+  border-radius: 10px;
   color: var(--text-strong);
   text-decoration: none;
   background: #5f5d40;
+  overflow: hidden;
   transition: background 0.16s ease;
 }
 
@@ -177,7 +178,6 @@ main {
   object-fit: contain;
   flex: 0 0 auto;
   background: #5f5d40;
-  border-radius: 8px 0 0 8px;
   display: block;
 }
 
@@ -189,7 +189,6 @@ main {
   letter-spacing: -0.01em;
   padding: 12px 4px 12px 10px;
   background: #5f5d40;
-  border-radius: 0;
   line-height: 20px;
 }
 
