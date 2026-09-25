@@ -35,8 +35,12 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 
 O fluxo pode ser resumido assim:
 
-```text
-Git → Docker → Kubernetes → CI/CD → Ansible
+```mermaid
+flowchart LR
+    Git --> Docker
+    Docker --> Kubernetes
+	Kubernetes --> CI/CD
+	CI/CD --> Ansible
 ```
 
 ---
