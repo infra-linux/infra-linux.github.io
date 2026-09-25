@@ -16,8 +16,13 @@ A automação reduz tarefas manuais, aumenta a rastreabilidade das alterações 
 
 O fluxo fundamental pode ser representado por:
 
-```text
-Código → Build → Testes → Imagem → Deploy → Monitoramento
+```mermaid
+flowchart LR
+    Código --> Build
+    Build --> Testes
+    Testes --> Imagem
+    Imagem --> Deploy
+    Deploy --> Monitoramento
 ```
 
 ---
