@@ -4,13 +4,8 @@ title: Ansible
 ---
 
 # Ansible
-{:.no_toc}
 
 > Trilha de estudo: **Índice (você está aqui)** · [Inventários](inventarios.md) · [Módulos](modulos.md) · [Playbooks](playbooks.md)
-
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
 
 ---
 

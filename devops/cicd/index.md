@@ -4,11 +4,6 @@ title: CI/CD
 ---
 
 # CI/CD
-{:.no_toc}
-
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
 
 ---
 
@@ -33,29 +28,15 @@ Código → Build → Testes → Imagem → Deploy → Monitoramento
 ---
 ## Fluxo recomendado de estudo
 
-```text
-                    CI/CD
-                      │
-                      ▼
-                    Git
-                      │
-                      ▼
-                    Build
-                      │
-                      ▼
-                   Testes
-                      │
-                      ▼
-              Imagem / Artefato
-                      │
-                      ▼
-                    Deploy
-                      │
-                      ▼
-                 Kubernetes
-                      │
-                      ▼
-             Monitoramento
+```mermaid
+flowchart LR
+    CI/CD --> Git
+    Git --> Build
+    Build --> Testes
+    Testes --> Imagem/Artefato
+    Imagem/Artefato --> Deploy
+    Deploy --> Kubernetes
+    Kubernetes --> Monitoramento
 ```
 
 A sequência recomendada é:
@@ -70,5 +51,3 @@ A sequência recomendada é:
 8. Integrar com Kubernetes.
 9. Implementar monitoramento.
 10. Avançar para GitOps e estratégias de deploy.
-
-```
