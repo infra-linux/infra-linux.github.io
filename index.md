@@ -1,27 +1,26 @@
 ---
 layout: default
 title: Infra Linux
-description: Infra Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
+description: Infra Linux é uma base de conhecimento técnico voltada à administração de sistemas Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting, com documentação prática para estudo, consulta e resolução de problemas do dia a dia.
 ---
 
 <section class="home-dashboard-hero">
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
+
     <h1>Infra Linux</h1>
-    <p>Documentação prática de Linux, redes, DevOps e infraestrutura — organizada para consulta rápida no dia a dia.</p>
+
+    <p>
+      Documentação técnica prática para administração Linux, infraestrutura,
+      redes, DevOps, Kubernetes, monitoramento e troubleshooting — organizada
+      para estudo, consulta e resolução de problemas no dia a dia.
+    </p>
   </div>
+
   <div class="home-dashboard-stats">
-    <div class="home-stat">
-      <span class="home-stat-number">10</span>
-      <span class="home-stat-label">Áreas</span>
-    </div>
     <div class="home-stat">
       <span class="home-stat-number">{{ site.pages | size }}</span>
       <span class="home-stat-label">Páginas</span>
-    </div>
-    <div class="home-stat">
-      <span class="home-stat-number">{{ site.time | date: "%Y" }}</span>
-      <span class="home-stat-label">Atualizado</span>
     </div>
   </div>
 </section>
