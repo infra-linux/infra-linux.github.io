@@ -61,25 +61,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
       Conteúdos organizados por tecnologias, plataformas e áreas de infraestrutura.
     </p>
   </div>
-
-  <div class="home-tech-list">
-    <span>Linux</span>
-    <span>Git</span>
-    <span>Docker</span>
-    <span>Kubernetes</span>
-    <span>Ansible</span>
-    <span>Jenkins</span>
-    <span>DevOps</span>
-    <span>Redes</span>
-    <span>DNS</span>
-    <span>Squid</span>
-    <span>Zabbix</span>
-    <span>Grafana</span>
-    <span>Nutanix</span>
-    <span>VMware</span>
-    <span>WatchGuard</span>
-    <span>Windows</span>
-  </div>
 </section>
 
 <section class="home-grid" id="areas-documentadas" aria-label="Áreas documentadas">
