@@ -12,6 +12,7 @@ description: Guia completo sobre como usar blocos de código em Markdown, inclui
 Guia de estudo completo sobre como representar código em Markdown: desde uma palavra destacada no meio de um parágrafo até blocos inteiros com realce de sintaxe (*syntax highlighting*), como usados no Infra Linux.
 
 ---
+{% raw %}
 
 <div class="toc-title">Sumário</div>
 {:toc}
@@ -203,3 +204,5 @@ Sem o `{% raw %}`, o Jekyll tentaria processar `{{ page.title }}` como uma vari�
 ### Próximos passos
 
 Continue o estudo com [Markdown — Tabelas](markdown-tabelas.md) ou volte ao [índice de Documentação](index.md).
+
+{% endraw %}
