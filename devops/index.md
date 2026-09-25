@@ -33,14 +33,31 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
     <li><a href="{{ 'git/clone-branch-pull-request-merge.html' | relative_url }}">Clone, Branch, Pull Request e Merge</a></li>
   </ul>
 </details>
-<details>
 
+<details>
   <summary>Docker</summary>
   <ul>
     <li><a href="{{ 'devops/docker/docker-image.html' | relative_url }}">Imagens</a></li>
     <li><a href="{{ 'devops/docker/docker-container.html' | relative_url }}">Containers</a></li>
   </ul>
 </details>
+
+<details>
+  <summary>Docker</summary>
+  <ul>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">KUBERNETES</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Kubeconfig</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Cluster Install</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Kubeadm Install</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Pods</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Deployments</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Services</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Ingress</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Troubleshooting</a></li>
+  </ul>
+</details>
+
+
 
 * [Kubernetes](kubernetes/index.md)
   * [KUBECONFIG]()
