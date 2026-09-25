@@ -144,11 +144,11 @@ layout: default
 </pre>
 
 ### 5.2 Tag `highlight` do Jekyll
-
+{% raw %}
 O Jekyll também oferece uma tag própria do Liquid chamada `highlight`, útil quando você precisa de recursos extras como numeração de linhas.
 
 > **Atenção — armadilha comum:** o Liquid processa tags `{% ... %}` **antes** do Kramdown renderizar o Markdown. Ou seja, escrever a tag `highlight` dentro de um bloco de código cercado **não a transforma em texto** — o Jekyll tenta executá-la de verdade, e se faltar a linguagem ela quebra o build com `Syntax Error in tag 'highlight'`. Para exibir a sintaxe apenas como exemplo (sem executá-la), é preciso "escapar" as chaves usando a saída de string do próprio Liquid, como no bloco abaixo.
-
+{% endraw %}
 {% raw %}
 ```liquid
 {% highlight yaml linenos %}
