@@ -187,7 +187,7 @@ titulo: "{{ page.title }}"
 Sem o `{% raw %}`, o Jekyll tentaria processar `{{ page.title }}` como uma variável de template antes mesmo de renderizar o bloco como código.
 
 ---
-
+{% raw %}
 ## 7. Resumo rápido
 
 | Necessidade | Sintaxe |
@@ -198,7 +198,7 @@ Sem o `{% raw %}`, o Jekyll tentaria processar `{{ page.title }}` como uma vari�
 | Bloco dentro de outro bloco (exemplo) | mais crases na cerca externa |
 | Numeração de linhas no Jekyll | `{% highlight linguagem linenos %}` |
 | Evitar que o Liquid interprete `{{ }}` | envolver com `{% raw %} {% endraw %}` |
-
+{% endraw %}
 ---
 
 ### Próximos passos
