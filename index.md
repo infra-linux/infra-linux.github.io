@@ -123,8 +123,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
     <span class="home-card-icon">◆</span>
     <h3>Troubleshooting</h3>
     <p>
-      Diagnóstico de erros, investigação de problemas e soluções práticas
-      para situações encontradas no dia a dia.
+      Diagnóstico de erros, investigação de problemas e soluções práticas.
     </p>
   </a>
 
