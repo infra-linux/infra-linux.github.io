@@ -28,8 +28,8 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 <details>
   <summary>Git</summary>
   <ul>
-    <li><a href="{{ 'git/guia-pratico.html' | relative_url }}">Guia prático</a></li>
-    <li><a href="{{ 'git/git-branch-para-main.html' | relative_url }}">Branch e publicação na main</a></li>
+    <li><a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">Guia prático</a></li>
+    <li><a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">Branch e publicação na main</a></li>
     <li><a href="{{ 'git/clone-branch-pull-request-merge.html' | relative_url }}">Clone, Branch, Pull Request e Merge</a></li>
   </ul>
 </details>
@@ -37,8 +37,8 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 
   <summary>Docker</summary>
   <ul>
-    <li><a href="{{ 'git/guia-pratico.html' | relative_url }}">Imagens</a></li>
-    <li><a href="{{ 'git/git-branch-para-main.html' | relative_url }}">Containers</a></li>
+    <li><a href="{{ 'devops/docker/docker-image.html' | relative_url }}">Imagens</a></li>
+    <li><a href="{{ 'devops/docker/docker-container.html' | relative_url }}">Containers</a></li>
   </ul>
 </details>
 
