@@ -50,7 +50,7 @@ O script executa automaticamente:
 
 Saída:
 
-![Watchguard](/images/_site/collector.png)
+![Watchguard](/images/collector.png)
 
 ---
 
