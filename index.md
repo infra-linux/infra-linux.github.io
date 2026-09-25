@@ -1,15 +1,13 @@
 ---
 layout: default
-title: Infra Linux
-description: Infra Linux é uma base de conhecimento técnico voltada à administração de sistemas Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting, com documentação prática para estudo, consulta e resolução de problemas do dia a dia.
+title: Pangolim
+description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting.
 ---
 
 <section class="home-dashboard-hero">
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
-
-    <h1>Infra Linux</h1>
-
+    <h1>Pangolim</h1>
     <p>
       Documentação técnica prática para administração Linux, infraestrutura,
       redes, DevOps, Kubernetes, monitoramento e troubleshooting — organizada

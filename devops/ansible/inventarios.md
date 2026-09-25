@@ -823,7 +823,7 @@ linux
     └── web02
 ```
 
-### Estrutura de projeto sugerida (Infra Linux)
+### Estrutura de projeto sugerida (Pangolim)
 
 ```text
 /opt/ansible/

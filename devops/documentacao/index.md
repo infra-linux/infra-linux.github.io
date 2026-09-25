@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Documentação
-description: Documentação sobre Markdown, Jekyll e ferramentas utilizadas na construção e manutenção do Infra Linux.
+description: Documentação sobre Markdown, Jekyll e ferramentas utilizadas na construção e manutenção do Pangolim.
 ---
 
 # Documentação
 
-Materiais utilizados para aprender, criar e manter a documentação do **Infra Linux**.
+Materiais utilizados para aprender, criar e manter a documentação do **Pangolim**.
 
 Esta seção reúne conhecimentos sobre **Markdown**, **Jekyll** e outras ferramentas relacionadas à construção da documentação.
 
@@ -14,7 +14,7 @@ Esta seção reúne conhecimentos sobre **Markdown**, **Jekyll** e outras ferram
 
 ## [Markdown](index.md)
 
-Documentação sobre a linguagem de marcação utilizada para escrever os conteúdos do Infra Linux.
+Documentação sobre a linguagem de marcação utilizada para escrever os conteúdos do Pangolim.
 
 ### Conteúdos
 
@@ -28,7 +28,7 @@ Documentação sobre a linguagem de marcação utilizada para escrever os conte�
 
 ## [Jekyll](index.md)
 
-Documentação sobre o gerador de sites estáticos utilizado pelo Infra Linux.
+Documentação sobre o gerador de sites estáticos utilizado pelo Pangolim.
 
 ### Conteúdos
 
@@ -69,4 +69,4 @@ O objetivo desta seção é servir como material de estudo e também como refer�
 
 ### Documentação em construção
 
-Novos conteúdos serão adicionados conforme o desenvolvimento do Infra Linux.
+Novos conteúdos serão adicionados conforme o desenvolvimento do Pangolim.

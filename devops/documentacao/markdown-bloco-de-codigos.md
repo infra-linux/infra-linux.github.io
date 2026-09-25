@@ -9,7 +9,7 @@ description: Guia completo sobre como usar blocos de código em Markdown, inclui
 
 [← Voltar para Documentação](index.md)
 
-Guia de estudo completo sobre como representar código em Markdown: desde uma palavra destacada no meio de um parágrafo até blocos inteiros com realce de sintaxe (*syntax highlighting*), como usados no Infra Linux.
+Guia de estudo completo sobre como representar código em Markdown: desde uma palavra destacada no meio de um parágrafo até blocos inteiros com realce de sintaxe (*syntax highlighting*), como usados no Pangolim.
 
 ---
 <div class="toc-title">Sumário</div>
@@ -142,7 +142,7 @@ Funciona automaticamente, sem tags especiais — é o que foi mostrado na seçã
 
 <pre>
 ```yaml
-title: Infra Linux
+title: Pangolim
 layout: default
 ```
 </pre>
@@ -156,7 +156,7 @@ O Jekyll também oferece uma tag própria do Liquid chamada `highlight`, útil q
 {% raw %}
 ```liquid
 {% highlight yaml linenos %}
-title: Infra Linux
+title: Pangolim
 layout: default
 {% endhighlight %}
 ```

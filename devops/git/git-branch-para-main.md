@@ -45,7 +45,7 @@ A ideia é simples:
 
 > **Desenvolva em uma branch separada, teste e somente depois faça o merge para a `main`.**
 
-> **Alternativa:** em vez de fazer o merge localmente (seção 11), você também pode abrir um **Pull Request** da sua branch para a `main` diretamente no GitHub. Isso dá um histórico visual da alteração, permite revisão antes de publicar e é o padrão usado em projetos colaborativos. O fluxo local ensinado aqui continua sendo perfeitamente válido para projetos individuais como o Infra Linux.
+> **Alternativa:** em vez de fazer o merge localmente (seção 11), você também pode abrir um **Pull Request** da sua branch para a `main` diretamente no GitHub. Isso dá um histórico visual da alteração, permite revisão antes de publicar e é o padrão usado em projetos colaborativos. O fluxo local ensinado aqui continua sendo perfeitamente válido para projetos individuais como o Pangolim.
 
 ---
 
@@ -467,7 +467,7 @@ Também é possível comparar as branches diretamente pelo GitHub.
 
 ## 18. Exemplo completo
 
-Suponha que você queira criar uma nova versão da página inicial do Infra Linux.
+Suponha que você queira criar uma nova versão da página inicial do Pangolim.
 
 Primeiro:
 
@@ -762,9 +762,9 @@ Depois que uma branch é mesclada e publicada, exclua-a (seção 14) para manter
 
 ---
 
-## 23. Regra prática para o Infra Linux
+## 23. Regra prática para o Pangolim
 
-Para o projeto **Infra Linux**, pense sempre neste fluxo:
+Para o projeto **Pangolim**, pense sempre neste fluxo:
 
 ```text
 ┌──────────────────────┐

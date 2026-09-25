@@ -1,5 +1,5 @@
-title: Infra Linux
-description: Infra Linux é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
+title: Pangolim
+description: Pangolim é a base de conhecimento prática para Linux, infraestrutura, DevOps, Kubernetes, redes, monitoramento e troubleshooting.
 
 exclude:
   - "*.bak"

@@ -28,7 +28,7 @@ Pull Request
 Merge
 ```
 
-Esse fluxo é bastante utilizado em projetos profissionais e é especialmente útil para projetos como o **Infra Linux**.
+Esse fluxo é bastante utilizado em projetos profissionais e é especialmente útil para projetos como o **Pangolim**.
 
 ---
 
@@ -488,7 +488,7 @@ Adicione um título claro.
 Exemplo:
 
 ```text
-Atualiza página inicial do Infra Linux
+Atualiza página inicial do Pangolim
 ```
 
 Na descrição, explique o que foi feito.
@@ -669,7 +669,7 @@ git push origin --delete nova-home
 
 # 22. Fluxo completo na prática
 
-Suponha que você queira alterar a página inicial do Infra Linux.
+Suponha que você queira alterar a página inicial do Pangolim.
 
 ## Clone
 
@@ -978,7 +978,7 @@ Se o Pull Request ficar aberto por muito tempo, outras alterações podem ser me
 
 # 26. Regra de ouro
 
-Para o Infra Linux, memorize:
+Para o Pangolim, memorize:
 
 ```text
 CLONE

@@ -2306,7 +2306,7 @@ O objetivo é perceber onde os módulos oferecem vantagens.
 
 ---
 
-## 70. Relação entre módulos e os Playbooks do Infra Linux
+## 70. Relação entre módulos e os Playbooks do Pangolim
 
 No seu projeto, você já utilizou um caso muito importante:
 

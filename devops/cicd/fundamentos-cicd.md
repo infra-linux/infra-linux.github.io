@@ -1961,7 +1961,7 @@ Exemplo:
     <title>CI/CD</title>
 </head>
 <body>
-    <h1>Infra Linux</h1>
+    <h1>Pangolim</h1>
     <p>Pipeline CI/CD funcionando.</p>
 </body>
 </html>

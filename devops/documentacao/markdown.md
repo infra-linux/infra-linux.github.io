@@ -1530,7 +1530,7 @@ Nomes simples, previsíveis, em **minúsculas, sem acentos nem espaços**, separ
 
 **Evite renomear arquivos depois de publicados:** isso quebra links (internos e de terceiros).
 
-### 36.3 Organização sugerida para o Infra Linux
+### 36.3 Organização sugerida para o Pangolim
 
 ```text
 infra-linux.github.io/
@@ -1829,7 +1829,7 @@ Antes de publicar uma página:
 | Classe kramdown | `{: .classe }` |
 | Índice automático (kramdown) | `{:toc}` |
 
-**O que mais será usado no Infra Linux:**
+**O que mais será usado no Pangolim:**
 
 ```text
 #            Títulos
@@ -1899,7 +1899,7 @@ Crie um arquivo `teste.md` e reproduza uma página sobre um serviço que você a
 
 ## 48. Resumo final
 
-Pense no Markdown como a **linguagem de escrita** da documentação. Os elementos mais usados no Infra Linux:
+Pense no Markdown como a **linguagem de escrita** da documentação. Os elementos mais usados no Pangolim:
 
 | Elemento | Uso |
 |---|---|

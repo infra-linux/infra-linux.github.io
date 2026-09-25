@@ -1,8 +1,8 @@
-# Infra Linux
+# Pangolim
 
 Portal de documentação e estudos sobre Linux, DevOps, Kubernetes, redes, segurança e infraestrutura.
 
-O Infra Linux reúne conhecimento prático da rotina de infraestrutura para servir como referência rápida em administração de servidores, containers, Kubernetes, redes e ferramentas corporativas.
+O Pangolim reúne conhecimento prático da rotina de infraestrutura para servir como referência rápida em administração de servidores, containers, Kubernetes, redes e ferramentas corporativas.
 
 ---
 

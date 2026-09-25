@@ -7,7 +7,7 @@ description: Jekyll — Guia Completo e Didático
 # Jekyll — Guia Completo e Didático
 {:.no_toc}
 
-> Guia prático para aprender Jekyll e aplicar o conhecimento no projeto **Infra Linux**.
+> Guia prático para aprender Jekyll e aplicar o conhecimento no projeto **Pangolim**.
 
 ---
 <div class="toc-title">Sumário</div>
@@ -57,7 +57,7 @@ Por isso, é adequado para documentação, blogs, páginas pessoais, portais té
 
 ## 3. Jekyll e GitHub Pages
 
-O GitHub Pages possui suporte a sites Jekyll. No projeto Infra Linux, o fluxo pode ser:
+O GitHub Pages possui suporte a sites Jekyll. No projeto Pangolim, o fluxo pode ser:
 
 ```text
 GitHub → infra-linux/infra-linux.github.io → GitHub Pages → Jekyll → Site publicado
@@ -89,7 +89,7 @@ Cada diretório possui uma responsabilidade específica.
 `_config.yml` é o arquivo principal de configuração do Jekyll.
 
 ```yaml
-title: Infra Linux
+title: Pangolim
 description: Base de conhecimento sobre Linux e infraestrutura
 url: "https://infra-linux.github.io"
 ```
@@ -205,7 +205,7 @@ Layouts são modelos reutilizáveis e normalmente ficam em `_layouts/`. Um layou
 </head>
 <body>
   <header>
-    <h1>Infra Linux</h1>
+    <h1>Pangolim</h1>
   </header>
   <main>
     {{ content }}
@@ -257,7 +257,7 @@ Includes reutilizam pequenos trechos de HTML e ficam normalmente em `_includes/`
 ```html
 <!-- _includes/header.html -->
 <header>
-  <h1>Infra Linux</h1>
+  <h1>Pangolim</h1>
 </header>
 ```
 
@@ -305,7 +305,7 @@ Comentário que não aparece no HTML gerado.
 {{ page.title }}
 ```
 
-Se `_config.yml` define `title: Infra Linux` e a página define `title: Ansible`, os resultados serão, respectivamente, `Infra Linux` e `Ansible`.
+Se `_config.yml` define `title: Pangolim` e a página define `title: Ansible`, os resultados serão, respectivamente, `Pangolim` e `Ansible`.
 
 ## 17. Condicionais
 
@@ -601,10 +601,10 @@ layout: default
 
 ```yaml
 # Errado
-title Infra Linux
+title Pangolim
 
 # Correto
-title: Infra Linux
+title: Pangolim
 ```
 
 ```yaml
@@ -824,5 +824,5 @@ A regra prática é simples: Markdown contém o conhecimento; Front Matter descr
 9. Implemente índice automático
 10. Organize a documentação com collections
 
-Assim, você aprende Jekyll modificando o próprio projeto Infra Linux.
+Assim, você aprende Jekyll modificando o próprio projeto Pangolim.
 {% endraw %}
