@@ -183,15 +183,6 @@ main {
   background: #5f5d40;
 }
 
-.brand-icon {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  border-radius: 8px;
-  flex: 0 0 auto;
-  background: #5f5d40;
-}
-
 /* =========================================================
    Busca lateral
    ========================================================= */
