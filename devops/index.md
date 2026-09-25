@@ -25,13 +25,56 @@ O objetivo é entender a relação entre as ferramentas antes de avançar para i
 
 Siga esta sequência para compreender o fluxo de entrega de aplicações, do versionamento à operação em Kubernetes.
 
-1. [Git](git/index.md): branches, revisão e colaboração segura.
-2. [Docker](docker/index.md): imagens, containers, volumes e redes.
-3. [Kubernetes](kubernetes/index.md): KUBECONFIG, kubectl, Pods, Deployments, Services e Ingress.
-4. [CI/CD](cicd/index.md): validação, criação de imagens e deploy.
-5. [Ansible](ansible/index.md): automação de configurações repetitivas de infraestrutura.
-6. [Documentações](documentacao/index.md): Markdown, Jekyll e boas práticas de documentação.
+<details>
+  <summary>Git</summary>
+  <ul>
+    <li><a href="{{ 'git/guia-pratico.html' | relative_url }}">Guia prático</a></li>
+    <li><a href="{{ 'git/git-branch-para-main.html' | relative_url }}">Branch e publicação na main</a></li>
+    <li><a href="{{ 'git/clone-branch-pull-request-merge.html' | relative_url }}">Clone, Branch, Pull Request e Merge</a></li>
+  </ul>
+</details>
+<details>
+  <summary>Docker</summary>
+  <ul>
+    <li><a href="{{ 'git/guia-pratico.html' | relative_url }}">Imagens</a></li>
+    <li><a href="{{ 'git/git-branch-para-main.html' | relative_url }}">Containers</a></li>
+  </ul>
+</details>
 
+* [Kubernetes](kubernetes/index.md)
+  * [KUBECONFIG]()
+  * [Kubectl]()
+  * [Cluster install]()
+  * [kubeadm install]()
+  * [Pods]()
+  * [Deployments]()
+  * [Services]()
+  * [Ingress]()
+  * [Troubleshooting]()
+
+* [CI/CD](cicd/index.md)
+  * [Fundamento de CI/CD]()
+
+* [Ansible](ansible/index.md)
+  * [Inventários]()
+  * [Módulos]()
+  * [Playbooks]()
+
+* [Documentações](documentacao/index.md)
+  * [Markdown]()
+    * [Guia Completo]()
+	* [Blocos de Código]()
+	* [Tabelas]()
+	* [Links e Imagens]()
+	* [Listas]()
+
+  * [Jekyll]()
+    * [Guia Completo]()
+	* [Layouts]()
+	* [Liquid]()
+	* [Includes]()
+	* [Collections]()
+	* [GitHub Pages]()
 
 O fluxo pode ser resumido assim:
 

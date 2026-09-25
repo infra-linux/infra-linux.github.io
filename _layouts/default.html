@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="theme-color" content="#1c1c1a">
+
   <meta
     name="description"
     content="{{ page.description | default: site.description | escape }}"
@@ -14,20 +17,36 @@
     property="og:title"
     content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim"
   >
+
   <meta
     property="og:description"
     content="{{ page.description | default: site.description | escape }}"
   >
+
   <meta property="og:type" content="website">
 
-  <title>{% if page.title %}{{ page.title }} · {% endif %}Pangolim</title>
+  <title>
+    {% if page.title %}{{ page.title }} · {% endif %}Pangolim
+  </title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon.png' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="{{ '/images/favicon.png' | relative_url }}"
+  >
+
+  <link
+    rel="stylesheet"
+    href="{{ '/assets/css/style.css' | relative_url }}"
+  >
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <a class="skip-link" href="#conteudo">
+    Ir para o conteúdo
+  </a>
 
   <button
     class="menu-toggle"
@@ -43,17 +62,36 @@
   <div class="backdrop" id="backdrop" hidden></div>
 
   <aside class="sidebar" id="sidebar">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Página inicial do Pangolim">
+
+    <!-- =====================================================
+         Marca
+         ===================================================== -->
+
+    <a
+      class="brand"
+      href="{{ '/' | relative_url }}"
+      aria-label="Página inicial do Pangolim"
+    >
       <img
         src="{{ '/images/pangolim-128.png' | relative_url }}"
         alt="Pangolim"
         class="brand-icon"
       >
-      <span class="brand-name">Pangolim</span>
+
+      <span class="brand-name">
+        Pangolim
+      </span>
     </a>
 
+    <!-- =====================================================
+         Busca
+         ===================================================== -->
+
     <div class="search-box">
-      <label for="sidebarSearchInput">Buscar nos tópicos</label>
+
+      <label for="sidebarSearchInput">
+        Buscar nos tópicos
+      </label>
 
       <input
         id="sidebarSearchInput"
@@ -61,25 +99,534 @@
         placeholder="Ex.: DevOps, Linux..."
         autocomplete="off"
       >
+
     </div>
 
-    <nav class="sidebar-menu" aria-label="Navegação principal">
-      {% assign sections = "linux:Linux,devops:DevOps,redes:Redes,squid:Squid,monitoramento:Monitoramento,nutanix:Nutanix,vmware:VMware,watchguard:WatchGuard,windows:Windows,troubleshooting:Troubleshooting" | split: "," %}
+    <!-- =====================================================
+         Menu
+         ===================================================== -->
 
-      {% for item in sections %}
-        {% assign parts = item | split: ":" %}
+    <nav
+      class="sidebar-menu"
+      aria-label="Navegação principal"
+    >
 
-        <a
-          href="{{ parts[0] | append: '/' | relative_url }}"
-          data-section="{{ parts[0] }}"
-        >
-          <span class="nav-marker" aria-hidden="true"></span>
-          <span>{{ parts[1] }}</span>
-        </a>
-      {% endfor %}
+      <!-- ===================================================
+           Linux
+           =================================================== -->
+
+      <a
+        href="{{ 'linux/' | relative_url }}"
+        data-section="linux"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Linux</span>
+      </a>
+
+
+      <!-- ===================================================
+           Git
+           =================================================== -->
+
+      <details data-section="git">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>Git</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a
+              href="{{ 'devops/git/guia-pratico.html' | relative_url }}"
+            >
+              Guia prático
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}"
+            >
+              Branch e publicação na main
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{{ 'devops/git/clone-branch-pull-request-merge.html' | relative_url }}"
+            >
+              Clone, Branch, Pull Request e Merge
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Docker
+           =================================================== -->
+
+      <details data-section="docker">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>Docker</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a
+              href="{{ 'devops/docker/imagens.html' | relative_url }}"
+            >
+              Imagens
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{{ 'devops/docker/containers.html' | relative_url }}"
+            >
+              Containers
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Kubernetes
+           =================================================== -->
+
+      <details data-section="kubernetes">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>Kubernetes</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
+              KUBECONFIG
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
+              Kubectl
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
+              Cluster install
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
+              kubeadm install
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
+              Pods
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
+              Deployments
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
+              Ingress
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
+              Troubleshooting
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           CI/CD
+           =================================================== -->
+
+      <details data-section="cicd">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>CI/CD</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a
+              href="{{ 'devops/cicd/fundamentos.html' | relative_url }}"
+            >
+              Fundamento de CI/CD
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Ansible
+           =================================================== -->
+
+      <details data-section="ansible">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>Ansible</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
+              Inventários
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
+              Módulos
+            </a>
+          </li>
+
+          <li>
+            <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
+              Playbooks
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Documentações
+           =================================================== -->
+
+      <details data-section="documentacao">
+
+        <summary>
+          <span
+            class="nav-marker"
+            aria-hidden="true"
+          ></span>
+
+          <span>Documentações</span>
+        </summary>
+
+        <ul>
+
+          <!-- Markdown -->
+
+          <li>
+
+            <details data-section="markdown">
+
+              <summary>
+                <span>Markdown</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
+                    Guia Completo
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown-blocos-de-codigo.html' | relative_url }}">
+                    Blocos de Código
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown-tabelas.html' | relative_url }}">
+                    Tabelas
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown-links-imagens.html' | relative_url }}">
+                    Links e Imagens
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown-listas.html' | relative_url }}">
+                    Listas
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+
+          <!-- Jekyll -->
+
+          <li>
+
+            <details data-section="jekyll">
+
+              <summary>
+                <span>Jekyll</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
+                    Guia Completo
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll-layouts.html' | relative_url }}">
+                    Layouts
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll-liquid.html' | relative_url }}">
+                    Liquid
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll-includes.html' | relative_url }}">
+                    Includes
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll-collections.html' | relative_url }}">
+                    Collections
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/github-pages.html' | relative_url }}">
+                    GitHub Pages
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Redes
+           =================================================== -->
+
+      <a
+        href="{{ 'redes/' | relative_url }}"
+        data-section="redes"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Redes</span>
+      </a>
+
+
+      <!-- ===================================================
+           Squid
+           =================================================== -->
+
+      <a
+        href="{{ 'squid/' | relative_url }}"
+        data-section="squid"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Squid</span>
+      </a>
+
+
+      <!-- ===================================================
+           Monitoramento
+           =================================================== -->
+
+      <a
+        href="{{ 'monitoramento/' | relative_url }}"
+        data-section="monitoramento"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Monitoramento</span>
+      </a>
+
+
+      <!-- ===================================================
+           Nutanix
+           =================================================== -->
+
+      <a
+        href="{{ 'nutanix/' | relative_url }}"
+        data-section="nutanix"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Nutanix</span>
+      </a>
+
+
+      <!-- ===================================================
+           VMware
+           =================================================== -->
+
+      <a
+        href="{{ 'vmware/' | relative_url }}"
+        data-section="vmware"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>VMware</span>
+      </a>
+
+
+      <!-- ===================================================
+           WatchGuard
+           =================================================== -->
+
+      <a
+        href="{{ 'watchguard/' | relative_url }}"
+        data-section="watchguard"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>WatchGuard</span>
+      </a>
+
+
+      <!-- ===================================================
+           Windows
+           =================================================== -->
+
+      <a
+        href="{{ 'windows/' | relative_url }}"
+        data-section="windows"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Windows</span>
+      </a>
+
+
+      <!-- ===================================================
+           Troubleshooting
+           =================================================== -->
+
+      <a
+        href="{{ 'troubleshooting/' | relative_url }}"
+        data-section="troubleshooting"
+      >
+        <span
+          class="nav-marker"
+          aria-hidden="true"
+        ></span>
+
+        <span>Troubleshooting</span>
+      </a>
+
     </nav>
 
+
+    <!-- =====================================================
+         Rodapé
+         ===================================================== -->
+
     <div class="sidebar-footer">
+
       <a
         href="https://github.com/infra-linux/infra-linux.github.io"
         target="_blank"
@@ -87,189 +634,608 @@
       >
         Ver no GitHub
       </a>
+
     </div>
+
   </aside>
 
+
+  <!-- =======================================================
+       Conteúdo
+       ======================================================= -->
+
   <div class="page-shell">
-    <main id="conteudo" tabindex="-1">
+
+    <main
+      id="conteudo"
+      tabindex="-1"
+    >
       {{ content }}
     </main>
 
     <footer class="site-footer">
-      <span>Atualizado em {{ site.time | date: "%d/%m/%Y" }}</span>
+
+      <span>
+        Atualizado em {{ site.time | date: "%d/%m/%Y" }}
+      </span>
+
     </footer>
+
   </div>
 
+
+  <!-- =======================================================
+       JavaScript principal
+       ======================================================= -->
+
   <script>
+
     document.addEventListener('DOMContentLoaded', () => {
+
       const body = document.body;
+
       const toggle = document.getElementById('menuToggle');
+
       const backdrop = document.getElementById('backdrop');
-      const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-      const search = document.getElementById('sidebarSearchInput');
+
+      const sidebarLinks =
+        document.querySelectorAll('.sidebar-menu a');
+
+      const menuGroups =
+        document.querySelectorAll('.sidebar-menu details');
+
+      const search =
+        document.getElementById('sidebarSearchInput');
+
+
+      /* =====================================================
+         Menu mobile
+         ===================================================== */
 
       const closeMenu = () => {
+
         body.classList.remove('menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Abrir menu');
+
+        toggle.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+        toggle.setAttribute(
+          'aria-label',
+          'Abrir menu'
+        );
+
         backdrop.hidden = true;
+
       };
 
+
       toggle.addEventListener('click', () => {
-        const open = !body.classList.contains('menu-open');
 
-        body.classList.toggle('menu-open', open);
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        const open =
+          !body.classList.contains('menu-open');
+
+        body.classList.toggle(
+          'menu-open',
+          open
+        );
+
+        toggle.setAttribute(
+          'aria-expanded',
+          String(open)
+        );
+
+        toggle.setAttribute(
+          'aria-label',
+          open
+            ? 'Fechar menu'
+            : 'Abrir menu'
+        );
+
         backdrop.hidden = !open;
+
       });
 
-      backdrop.addEventListener('click', closeMenu);
 
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && body.classList.contains('menu-open')) {
-          closeMenu();
-        }
-      });
+      backdrop.addEventListener(
+        'click',
+        closeMenu
+      );
 
-      const currentPath = location.pathname.replace(/index\.html$/, '');
 
-      sidebarLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname.replace(/index\.html$/, '');
+      document.addEventListener(
+        'keydown',
+        event => {
 
-        if (linkPath === currentPath) {
-          link.classList.add('active');
-          link.setAttribute('aria-current', 'page');
-        }
-
-        link.addEventListener('click', () => {
-          if (body.classList.contains('menu-open')) {
+          if (
+            event.key === 'Escape' &&
+            body.classList.contains('menu-open')
+          ) {
             closeMenu();
           }
-        });
-      });
 
-      search.addEventListener('input', () => {
-        const term = search.value.trim().toLocaleLowerCase('pt-BR');
+        }
+      );
 
-        sidebarLinks.forEach(link => {
-          const label = link.textContent.toLocaleLowerCase('pt-BR');
-          link.hidden = Boolean(term) && !label.includes(term);
-        });
-      });
 
-      document.querySelectorAll('pre:not(.mermaid)').forEach(pre => {
-        const code = pre.querySelector('code');
+      /* =====================================================
+         Página atual
+         ===================================================== */
 
-        if (
-          code &&
-          /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)
-        ) {
-          pre.classList.add('flow-diagram');
+      const currentPath =
+        location.pathname.replace(
+          /index\.html$/,
+          ''
+        );
 
-          const lines = code.textContent
-            .split(/\r?\n/)
-            .map(line => line.trim())
-            .filter(Boolean);
 
-          const isLinearFlow =
-            lines.length >= 5 &&
-            lines.every((line, index) => {
-              if (index % 2 === 1) {
-                return /^[↓→←↔\s]+$/.test(line);
-              }
+      sidebarLinks.forEach(link => {
 
-              return !/[↓→←↔│┌┐└┘├┤▼▲]/.test(line);
-            });
+        const linkPath =
+          new URL(link.href).pathname.replace(
+            /index\.html$/,
+            ''
+          );
 
-          if (isLinearFlow) {
-            code.textContent = lines
-              .filter((_, index) => index % 2 === 0)
-              .join(' → ');
 
-            pre.classList.add('flow-horizontal');
+        if (linkPath === currentPath) {
+
+          link.classList.add('active');
+
+          link.setAttribute(
+            'aria-current',
+            'page'
+          );
+
+
+          /*
+           * Abre automaticamente todos os grupos
+           * que contêm a página atual.
+           */
+
+          let parent =
+            link.closest('details');
+
+          while (parent) {
+
+            parent.open = true;
+
+            parent =
+              parent.parentElement.closest('details');
+
           }
+
         }
 
-const button = document.createElement('button');
 
-button.className = 'copy-btn';
-button.type = 'button';
-button.setAttribute('aria-label', 'Copiar código');
-button.setAttribute('title', 'Copiar código');
+        link.addEventListener(
+          'click',
+          () => {
 
-button.innerHTML = `
-  <svg
-    class="copy-icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.8"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true"
-  >
-    <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-  </svg>
-`;
+            if (
+              body.classList.contains(
+                'menu-open'
+              )
+            ) {
+              closeMenu();
+            }
 
-button.addEventListener('click', async () => {
-  try {
-    const content = pre.querySelector('code')?.innerText || pre.innerText;
+          }
+        );
 
-    await navigator.clipboard.writeText(content);
-
-    button.classList.add('copied');
-    button.setAttribute('aria-label', 'Código copiado');
-    button.setAttribute('title', 'Código copiado');
-  } catch (_) {
-    button.classList.add('copy-error');
-    button.setAttribute('aria-label', 'Não foi possível copiar');
-    button.setAttribute('title', 'Não foi possível copiar');
-  }
-
-  setTimeout(() => {
-    button.classList.remove('copied', 'copy-error');
-    button.setAttribute('aria-label', 'Copiar código');
-    button.setAttribute('title', 'Copiar código');
-  }, 1800);
-});
-
-pre.appendChild(button);
       });
+
+
+      /* =====================================================
+         Busca lateral
+         ===================================================== */
+
+      search.addEventListener(
+        'input',
+        () => {
+
+          const term =
+            search.value
+              .trim()
+              .toLocaleLowerCase('pt-BR');
+
+
+          /*
+           * Sem pesquisa:
+           * restaura todos os elementos.
+           */
+
+          if (!term) {
+
+            sidebarLinks.forEach(
+              link => {
+                link.hidden = false;
+              }
+            );
+
+            menuGroups.forEach(
+              group => {
+                group.hidden = false;
+              }
+            );
+
+            return;
+
+          }
+
+
+          /* =================================================
+             Links
+             ================================================= */
+
+          sidebarLinks.forEach(link => {
+
+            const label =
+              link.textContent
+                .trim()
+                .toLocaleLowerCase('pt-BR');
+
+            link.hidden =
+              !label.includes(term);
+
+          });
+
+
+          /* =================================================
+             Grupos expansíveis
+             ================================================= */
+
+          menuGroups.forEach(group => {
+
+            const summary =
+              group.querySelector(
+                ':scope > summary'
+              );
+
+
+            const summaryText =
+              summary
+                ? summary.textContent
+                    .trim()
+                    .toLocaleLowerCase('pt-BR')
+                : '';
+
+
+            const visibleChildren =
+              Array.from(
+                group.querySelectorAll(
+                  ':scope > ul > li > a'
+                )
+              ).some(
+                link => !link.hidden
+              );
+
+
+            const visibleNestedGroups =
+              Array.from(
+                group.querySelectorAll(
+                  ':scope > ul > li > details'
+                )
+              ).some(
+                nested => !nested.hidden
+              );
+
+
+            const matchesSummary =
+              summaryText.includes(term);
+
+
+            const visible =
+              matchesSummary ||
+              visibleChildren ||
+              visibleNestedGroups;
+
+
+            group.hidden = !visible;
+
+
+            /*
+             * Abre o grupo quando a pesquisa
+             * encontrou algum conteúdo nele.
+             */
+
+            if (visible) {
+              group.open = true;
+            }
+
+          });
+
+        }
+      );
+
+
+      /* =====================================================
+         Diagramas de fluxo
+         ===================================================== */
+
+      document
+        .querySelectorAll(
+          'pre:not(.mermaid)'
+        )
+        .forEach(pre => {
+
+          const code =
+            pre.querySelector('code');
+
+
+          if (
+            code &&
+            /[↓→←↔│┌┐└┘├┤▼▲]/
+              .test(code.textContent)
+          ) {
+
+            pre.classList.add(
+              'flow-diagram'
+            );
+
+
+            const lines =
+              code.textContent
+                .split(/\r?\n/)
+                .map(line => line.trim())
+                .filter(Boolean);
+
+
+            const isLinearFlow =
+              lines.length >= 5 &&
+              lines.every(
+                (line, index) => {
+
+                  if (index % 2 === 1) {
+
+                    return /^[↓→←↔\s]+$/
+                      .test(line);
+
+                  }
+
+                  return !/[↓→←↔│┌┐└┘├┤▼▲]/
+                    .test(line);
+
+                }
+              );
+
+
+            if (isLinearFlow) {
+
+              code.textContent =
+                lines
+                  .filter(
+                    (_, index) =>
+                      index % 2 === 0
+                  )
+                  .join(' → ');
+
+
+              pre.classList.add(
+                'flow-horizontal'
+              );
+
+            }
+
+          }
+
+
+          /* =================================================
+             Botão copiar código
+             ================================================= */
+
+          const button =
+            document.createElement(
+              'button'
+            );
+
+
+          button.className =
+            'copy-btn';
+
+          button.type =
+            'button';
+
+          button.setAttribute(
+            'aria-label',
+            'Copiar código'
+          );
+
+          button.setAttribute(
+            'title',
+            'Copiar código'
+          );
+
+
+          button.innerHTML = `
+
+            <svg
+              class="copy-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+
+              <rect
+                x="9"
+                y="9"
+                width="11"
+                height="11"
+                rx="2"
+              ></rect>
+
+              <path
+                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+              ></path>
+
+            </svg>
+
+          `;
+
+
+          button.addEventListener(
+            'click',
+            async () => {
+
+              try {
+
+                const content =
+                  pre.querySelector('code')
+                    ?.innerText ||
+                  pre.innerText;
+
+
+                await navigator.clipboard
+                  .writeText(content);
+
+
+                button.classList.add(
+                  'copied'
+                );
+
+
+                button.setAttribute(
+                  'aria-label',
+                  'Código copiado'
+                );
+
+
+                button.setAttribute(
+                  'title',
+                  'Código copiado'
+                );
+
+
+              } catch (_) {
+
+                button.classList.add(
+                  'copy-error'
+                );
+
+
+                button.setAttribute(
+                  'aria-label',
+                  'Não foi possível copiar'
+                );
+
+
+                button.setAttribute(
+                  'title',
+                  'Não foi possível copiar'
+                );
+
+              }
+
+
+              setTimeout(
+                () => {
+
+                  button.classList.remove(
+                    'copied',
+                    'copy-error'
+                  );
+
+
+                  button.setAttribute(
+                    'aria-label',
+                    'Copiar código'
+                  );
+
+
+                  button.setAttribute(
+                    'title',
+                    'Copiar código'
+                  );
+
+                },
+                1800
+              );
+
+            }
+          );
+
+
+          pre.appendChild(button);
+
+        });
+
     });
+
   </script>
 
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
-  document.querySelectorAll('pre code.language-mermaid').forEach(code => {
-    const pre = code.parentElement;
-    const div = document.createElement('div');
+  <!-- =======================================================
+       Mermaid
+       ======================================================= -->
 
-    div.className = 'mermaid';
-    div.textContent = code.textContent;
+  <script type="module">
 
-    pre.replaceWith(div);
-  });
+    import mermaid from
+      'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    background: '#1c1c1a',
-    primaryColor: '#2a2a27',
-    primaryTextColor: '#ffffff',
-    primaryBorderColor: '#888888',
-    lineColor: '#aaaaaa',
-    secondaryColor: '#242421',
-    tertiaryColor: '#20201e',
-    nodeTextColor: '#ffffff'
-  }
-});
-</script>
+
+    document
+      .querySelectorAll(
+        'pre code.language-mermaid'
+      )
+      .forEach(code => {
+
+        const pre =
+          code.parentElement;
+
+
+        const div =
+          document.createElement('div');
+
+
+        div.className =
+          'mermaid';
+
+
+        div.textContent =
+          code.textContent;
+
+
+        pre.replaceWith(div);
+
+      });
+
+
+    mermaid.initialize({
+
+      startOnLoad: true,
+
+      theme: 'base',
+
+      themeVariables: {
+
+        background: '#1c1c1a',
+
+        primaryColor: '#2a2a27',
+
+        primaryTextColor: '#ffffff',
+
+        primaryBorderColor: '#888888',
+
+        lineColor: '#aaaaaa',
+
+        secondaryColor: '#242421',
+
+        tertiaryColor: '#20201e',
+
+        nodeTextColor: '#ffffff'
+
+      }
+
+    });
+
+  </script>
 
 </body>
-</html>
 
+</html>
