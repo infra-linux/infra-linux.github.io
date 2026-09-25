@@ -9,7 +9,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
 
-```
 <h1>Pangolim</h1>
 
 <p>
@@ -22,7 +21,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   e soluções para problemas encontrados no dia a dia da administração
   de ambientes de TI.
 </p>
-```
 
   </div>
 
@@ -38,7 +36,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-intro-content">
     <span class="home-eyebrow">Sobre o projeto</span>
 
-```
 <h2 id="objetivo-pangolim">Conhecimento técnico para consulta rápida</h2>
 
 <p>
@@ -52,7 +49,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   configurações, procedimentos e troubleshooting, priorizando conteúdos
   que possam ser utilizados tanto no aprendizado quanto no trabalho.
 </p>
-```
 
   </div>
 </section>
