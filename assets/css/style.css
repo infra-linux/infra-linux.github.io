@@ -174,8 +174,8 @@ main {
 }
 
 .brand-icon {
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   flex: 0 0 auto;
   background: #5f5d40;
