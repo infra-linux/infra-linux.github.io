@@ -57,11 +57,16 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   </ul>
 </details>
 
+<details>
+  <summary>CI/CD</summary>
+  <ul>
+    <li><a href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">Imagens</a></li>
+  </ul>
+</details>
+
+
 
 ---
-* [CI/CD](cicd/index.md)
-  * [Fundamento de CI/CD]()
-
 * [Ansible](ansible/index.md)
   * [Inventários]()
   * [Módulos]()
