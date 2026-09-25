@@ -156,7 +156,7 @@ main {
   align-items: center;
   gap: 0;
   min-height: 60px;
-  margin: 10px 0 4px;
+  margin: 10px 12px 4px;
   padding: 8px 12px;
   border-radius: 0;
   color: var(--text-strong);
