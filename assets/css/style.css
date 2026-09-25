@@ -155,7 +155,7 @@ main {
   display: flex;
   align-items: center;
   gap: 0;
-  min-height: 60px;
+  min-height: 68px;
   margin: 10px 12px 4px;
   padding: 8px 12px;
   border-radius: 10px;
@@ -173,8 +173,8 @@ main {
 }
 
 .brand-icon {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   flex: 0 0 auto;
   background: #5f5d40;
@@ -184,12 +184,12 @@ main {
 .brand-name {
   margin-left: auto;
   color: var(--text-strong);
-  font-size: 0.98rem;
+  font-size: 1.10rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  padding: 12px 4px 12px 10px;
+  padding: 14px 4px 14px 12px;
   background: #5f5d40;
-  line-height: 20px;
+  line-height: 24px;
 }
 
 /* =========================================================
