@@ -1233,3 +1233,26 @@ main h5,
 main h6 {
   color: #cafbec;
 }
+
+/* Barra de rolagem da sidebar */
+.sidebar {
+  scrollbar-color: #2a2a27 #151513;
+  scrollbar-width: thin;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #151513;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #2a2a27;
+  border-radius: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #373733;
+}
