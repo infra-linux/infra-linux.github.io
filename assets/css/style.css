@@ -161,14 +161,14 @@ main {
   border-radius: 10px;
   color: var(--text-strong);
   text-decoration: none;
-  background: #5f5d40;
+  background: hsl(55, 27%, 24%);
   overflow: hidden;
   transition: background 0.16s ease;
 }
 
 
 .brand:hover {
-  background: #5f5d40;
+  background: hsl(55, 27%, 24%);
   color: var(--text-strong);
   text-decoration: none;
 }
@@ -178,7 +178,7 @@ main {
   height: 52px;
   object-fit: contain;
   flex: 0 0 auto;
-  background: #5f5d40;
+  background: hsl(55, 27%, 24%);
   display: block;
 }
 
@@ -189,7 +189,7 @@ main {
   font-weight: 700;
   letter-spacing: -0.02em;
   padding: 8px 16px 8px 12px;
-  background: #5f5d40;
+  background: hsl(55, 27%, 24%);
   line-height: 24px;
 }
 
