@@ -34,6 +34,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   </ul>
 </details>
 <details>
+
   <summary>Docker</summary>
   <ul>
     <li><a href="{{ 'git/guia-pratico.html' | relative_url }}">Imagens</a></li>
