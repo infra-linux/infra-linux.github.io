@@ -43,7 +43,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 </details>
 
 <details>
-  <summary>Docker</summary>
+  <summary>Kubernetes</summary>
   <ul>
     <li><a href="{{ 'devops/kubernetes/' | relative_url }}">KUBERNETES</a></li>
     <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Kubeconfig</a></li>
@@ -58,18 +58,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 </details>
 
 
-
-* [Kubernetes](kubernetes/index.md)
-  * [KUBECONFIG]()
-  * [Kubectl]()
-  * [Cluster install]()
-  * [kubeadm install]()
-  * [Pods]()
-  * [Deployments]()
-  * [Services]()
-  * [Ingress]()
-  * [Troubleshooting]()
-
+---
 * [CI/CD](cicd/index.md)
   * [Fundamento de CI/CD]()
 
