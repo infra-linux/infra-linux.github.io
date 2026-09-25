@@ -119,7 +119,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
     <p>Estações, ferramentas, administração e integração com ambientes de TI.</p>
   </a>
 
-  <a class="home-card home-card-wide" href="{{ 'troubleshooting/' | relative_url }}">
+  <a class="home-card" href="{{ 'troubleshooting/' | relative_url }}">
     <span class="home-card-icon">◆</span>
     <h3>Troubleshooting</h3>
     <p>
