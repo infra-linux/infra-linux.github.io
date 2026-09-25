@@ -43,13 +43,12 @@ Documentação sobre o gerador de sites estáticos utilizado pelo Infra Linux.
 
 ## Estrutura
 
-Visão geral das três frentes de estudo desta documentação. O detalhamento de cada item está nas listas de **Conteúdos** acima.
+Visão geral das duas frentes de estudo desta documentação. O detalhamento de cada item está nas listas de **Conteúdos** acima.
 
-```text
-Documentação
-│
-├── Markdown
-└── Jekyll
+```mermaid
+flowchart LR
+    Documentação --> Markdown
+    Documentação --> Jekyll
 ```
 
 ---
