@@ -502,7 +502,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #a6ffe4;
+  color: hsl(55, 55%, 28%);
   letter-spacing: -0.018em;
 }
 
