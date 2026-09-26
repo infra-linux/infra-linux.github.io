@@ -1,5 +1,4 @@
-﻿```css
-/* =========================================================
+﻿/* =========================================================
    Pangolim
    Tema escuro minimalista
    ========================================================= */
@@ -28,8 +27,7 @@
   --accent-hover: hsl(52, 48%, 52%);
   --accent-soft: hsla(55, 58%, 31%, 0.14);
 
-  /* Títulos */
-  --accent-light: #7D7821;
+  --accent-light: hsl(52, 42%, 68%);
   --accent-dark: hsl(55, 55%, 24%);
 
   --sidebar-width: 252px;
@@ -180,13 +178,13 @@ main {
   border-radius: 10px;
   color: var(--text-strong);
   text-decoration: none;
-  background: hsl(55, 58%, 31%);
+  background: hsl(55, 58%, 31%)
   overflow: hidden;
   transition: background 0.16s ease;
 }
 
 .brand:hover {
-  background: hsl(55, 58%, 31%);
+  background: hsl(55, 58%, 31%)
   color: var(--text-strong);
   text-decoration: none;
 }
@@ -196,7 +194,7 @@ main {
   height: 52px;
   object-fit: contain;
   flex: 0 0 auto;
-  background: hsl(55, 58%, 31%);
+  background: hsl(55, 58%, 31%)
   display: block;
 }
 
@@ -207,7 +205,7 @@ main {
   font-weight: 700;
   letter-spacing: -0.02em;
   padding: 8px 14px 8px 12px;
-  background: hsl(55, 58%, 31%);
+  background: hsl(55, 58%, 31%)
   line-height: 24px;
 }
 
@@ -1292,4 +1290,3 @@ blockquote p:last-child {
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #373733;
 }
-```
