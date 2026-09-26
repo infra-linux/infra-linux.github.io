@@ -89,6 +89,7 @@
 
     </a>
 
+
     <!-- =====================================================
          Busca
          ===================================================== -->
@@ -108,11 +109,13 @@
 
     </div>
 
+
     <!-- =====================================================
          Menu
          ===================================================== -->
 
     <nav class="sidebar-menu" aria-label="Navegação principal">
+
 
       <!-- ===================================================
            DevOps
@@ -125,13 +128,17 @@
         </summary>
 
         <ul>
-    <!-- Página principal -->
 
-    <li>
-      <a href="{{ 'devops/' | relative_url }}">
-        Início
-      </a>
-    </li>
+          <!-- Página inicial da seção -->
+
+          <li>
+
+            <a href="{{ 'devops/' | relative_url }}">
+              Início
+            </a>
+
+          </li>
+
 
           <!-- Git -->
 
@@ -146,21 +153,33 @@
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/git/guia-pratico.html' | relative_url }}"
+                  >
                     Guia prático
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}"
+                  >
                     Branch e publicação na main
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/git/clone-branch-pull-request-merge.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/git/clone-branch-pull-request-merge.html' | relative_url }}"
+                  >
                     Clone, Branch, Pull Request e Merge
                   </a>
+
                 </li>
 
               </ul>
@@ -168,6 +187,7 @@
             </details>
 
           </li>
+
 
           <!-- Docker -->
 
@@ -182,15 +202,23 @@
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/docker/imagens.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/docker/imagens.html' | relative_url }}"
+                  >
                     Imagens
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/docker/containers.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/docker/containers.html' | relative_url }}"
+                  >
                     Containers
                   </a>
+
                 </li>
 
               </ul>
@@ -198,6 +226,7 @@
             </details>
 
           </li>
+
 
           <!-- Kubernetes -->
 
@@ -212,57 +241,93 @@
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}"
+                  >
                     KUBECONFIG
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}"
+                  >
                     Kubectl
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}"
+                  >
                     Cluster install
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}"
+                  >
                     kubeadm install
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/pods.html' | relative_url }}"
+                  >
                     Pods
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/deployments.html' | relative_url }}"
+                  >
                     Deployments
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/services.html' | relative_url }}"
+                  >
                     Services
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/ingress.html' | relative_url }}"
+                  >
                     Ingress
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}"
+                  >
                     Troubleshooting
                   </a>
+
                 </li>
 
               </ul>
@@ -270,6 +335,7 @@
             </details>
 
           </li>
+
 
           <!-- CI/CD -->
 
@@ -284,9 +350,13 @@
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/cicd/fundamento-de-cicd.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/cicd/fundamento-de-cicd.html' | relative_url }}"
+                  >
                     Fundamento de CI/CD
                   </a>
+
                 </li>
 
               </ul>
@@ -294,6 +364,7 @@
             </details>
 
           </li>
+
 
           <!-- Ansible -->
 
@@ -308,21 +379,33 @@
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/ansible/inventarios.html' | relative_url }}"
+                  >
                     Inventários
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/ansible/modulos.html' | relative_url }}"
+                  >
                     Módulos
                   </a>
+
                 </li>
 
                 <li>
-                  <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
+
+                  <a
+                    href="{{ 'devops/ansible/playbooks.html' | relative_url }}"
+                  >
                     Playbooks
                   </a>
+
                 </li>
 
               </ul>
@@ -331,117 +414,167 @@
 
           </li>
 
-        </ul>
 
-      </details>
-
-
-      <!-- ===================================================
-           Documentações
-           =================================================== -->
-
-      <details>
-
-        <summary>
-          <span>Documentações</span>
-        </summary>
-
-        <ul>
-
-          <!-- Markdown -->
+          <!-- =================================================
+               Documentações dentro de DevOps
+               ================================================= -->
 
           <li>
 
             <details>
 
               <summary>
-                <span>Markdown</span>
+                <span>Documentações</span>
               </summary>
 
               <ul>
 
+
+                <!-- Markdown -->
+
                 <li>
-                  <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
-                    Guia Completo
-                  </a>
+
+                  <details>
+
+                    <summary>
+                      <span>Markdown</span>
+                    </summary>
+
+                    <ul>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/markdown.html' | relative_url }}"
+                        >
+                          Guia Completo
+                        </a>
+
+                      </li>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/blocos-de-codigo.html' | relative_url }}"
+                        >
+                          Blocos de Código
+                        </a>
+
+                      </li>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/tabelas.html' | relative_url }}"
+                        >
+                          Tabelas
+                        </a>
+
+                      </li>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/links-e-imagens.html' | relative_url }}"
+                        >
+                          Links e Imagens
+                        </a>
+
+                      </li>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/listas.html' | relative_url }}"
+                        >
+                          Listas
+                        </a>
+
+                      </li>
+
+                    </ul>
+
+                  </details>
+
                 </li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/blocos-de-codigo.html' | relative_url }}">
-                    Blocos de Código
-                  </a>
-                </li>
+
+                <!-- Jekyll -->
 
                 <li>
-                  <a href="{{ 'devops/documentacao/tabelas.html' | relative_url }}">
-                    Tabelas
-                  </a>
-                </li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/links-e-imagens.html' | relative_url }}">
-                    Links e Imagens
-                  </a>
-                </li>
+                  <details>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/listas.html' | relative_url }}">
-                    Listas
-                  </a>
-                </li>
+                    <summary>
+                      <span>Jekyll</span>
+                    </summary>
 
-              </ul>
+                    <ul>
 
-            </details>
+                      <li>
 
-          </li>
+                        <a
+                          href="{{ 'devops/documentacao/jekyll.html' | relative_url }}"
+                        >
+                          Guia Completo
+                        </a>
 
-          <!-- Jekyll -->
+                      </li>
 
-          <li>
+                      <li>
 
-            <details>
+                        <a
+                          href="{{ 'devops/documentacao/layouts.html' | relative_url }}"
+                        >
+                          Layouts
+                        </a>
 
-              <summary>
-                <span>Jekyll</span>
-              </summary>
+                      </li>
 
-              <ul>
+                      <li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
-                    Guia Completo
-                  </a>
-                </li>
+                        <a
+                          href="{{ 'devops/documentacao/liquid.html' | relative_url }}"
+                        >
+                          Liquid
+                        </a>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/layouts.html' | relative_url }}">
-                    Layouts
-                  </a>
-                </li>
+                      </li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/liquid.html' | relative_url }}">
-                    Liquid
-                  </a>
-                </li>
+                      <li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/includes.html' | relative_url }}">
-                    Includes
-                  </a>
-                </li>
+                        <a
+                          href="{{ 'devops/documentacao/includes.html' | relative_url }}"
+                        >
+                          Includes
+                        </a>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/collections.html' | relative_url }}">
-                    Collections
-                  </a>
-                </li>
+                      </li>
 
-                <li>
-                  <a href="{{ 'devops/documentacao/github-pages.html' | relative_url }}">
-                    GitHub Pages
-                  </a>
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/collections.html' | relative_url }}"
+                        >
+                          Collections
+                        </a>
+
+                      </li>
+
+                      <li>
+
+                        <a
+                          href="{{ 'devops/documentacao/github-pages.html' | relative_url }}"
+                        >
+                          GitHub Pages
+                        </a>
+
+                      </li>
+
+                    </ul>
+
+                  </details>
+
                 </li>
 
               </ul>
@@ -468,9 +601,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'linux/' | relative_url }}">
-              Linux
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -491,9 +626,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'redes/' | relative_url }}">
-              Redes
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -514,9 +651,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'squid/' | relative_url }}">
-              Squid
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -537,9 +676,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'monitoramento/' | relative_url }}">
-              Monitoramento
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -560,9 +701,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'nutanix/' | relative_url }}">
-              Nutanix
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -583,9 +726,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'vmware/' | relative_url }}">
-              VMware
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -606,9 +751,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'watchguard/' | relative_url }}">
-              WatchGuard
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -629,9 +776,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'windows/' | relative_url }}">
-              Windows
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -652,9 +801,11 @@
         <ul>
 
           <li>
+
             <a href="{{ 'troubleshooting/' | relative_url }}">
-              Troubleshooting
+              Início
             </a>
+
           </li>
 
         </ul>
@@ -914,18 +1065,13 @@
 
             sidebarLinks.forEach(
               link => {
-
                 link.hidden = false;
-
               }
             );
 
-
             menuGroups.forEach(
               group => {
-
                 group.hidden = false;
-
               }
             );
 
