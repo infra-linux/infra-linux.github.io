@@ -178,7 +178,7 @@ main {
   border-radius: 10px;
   color: var(--text-strong);
   text-decoration: none;
-  background: hsl(55, 27%, 18%);
+  background: hsl(55, 58%, 31%)
   overflow: hidden;
   transition: background 0.16s ease;
 }
@@ -194,7 +194,7 @@ main {
   height: 52px;
   object-fit: contain;
   flex: 0 0 auto;
-  background: hsl(55, 27%, 18%);
+  background: hsl(55, 58%, 31%)
   display: block;
 }
 
