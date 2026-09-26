@@ -184,7 +184,7 @@ main {
 }
 
 .brand:hover {
-  background: hsl(55, 27%, 18%);
+  background: hsl(55, 58%, 31%)
   color: var(--text-strong);
   text-decoration: none;
 }
