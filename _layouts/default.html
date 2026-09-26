@@ -1,7 +1,10 @@
+```html
 <!doctype html>
+
 <html lang="pt-BR">
 
 <head>
+
   <meta charset="utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,6 +43,7 @@
     rel="stylesheet"
     href="{{ '/assets/css/style.css' | relative_url }}"
   >
+
 </head>
 
 <body>
@@ -72,6 +76,7 @@
       href="{{ '/' | relative_url }}"
       aria-label="Página inicial do Pangolim"
     >
+
       <img
         src="{{ '/images/pangolim-128.png' | relative_url }}"
         alt="Pangolim"
@@ -81,6 +86,7 @@
       <span class="brand-name">
         Pangolim
       </span>
+
     </a>
 
     <!-- =====================================================
@@ -106,295 +112,549 @@
          Menu
          ===================================================== -->
 
-<nav class="sidebar-menu" aria-label="Navegação principal">
+    <nav class="sidebar-menu" aria-label="Navegação principal">
 
-  <!-- DevOps -->
-  <details>
-    <summary>
-      <span>DevOps</span>
-    </summary>
+      <!-- ===================================================
+           DevOps
+           =================================================== -->
 
-    <ul>
+      <details>
 
-      <!-- Git -->
-      <li>
-        <details>
-          <summary>
-            <span>Git</span>
-          </summary>
+        <summary>
+          <span>DevOps</span>
+        </summary>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
-                Guia prático
-              </a>
-            </li>
+        <ul>
 
-            <li>
-              <a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
-                Branch e publicação na main
-              </a>
-            </li>
+          <!-- Git -->
 
-            <li>
-              <a href="{{ 'devops/git/clone-branch-pull-request-merge.html' | relative_url }}">
-                Clone, Branch, Pull Request e Merge
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+          <li>
 
-      <!-- Docker -->
-      <li>
-        <details>
-          <summary>
-            <span>Docker</span>
-          </summary>
+            <details>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/docker/imagens.html' | relative_url }}">
-                Imagens
-              </a>
-            </li>
+              <summary>
+                <span>Git</span>
+              </summary>
 
-            <li>
-              <a href="{{ 'devops/docker/containers.html' | relative_url }}">
-                Containers
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+              <ul>
 
-      <!-- Kubernetes -->
-      <li>
-        <details>
-          <summary>
-            <span>Kubernetes</span>
-          </summary>
+                <li>
+                  <a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
+                    Guia prático
+                  </a>
+                </li>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
-                KUBECONFIG
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
+                    Branch e publicação na main
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
-                Kubectl
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/git/clone-branch-pull-request-merge.html' | relative_url }}">
+                    Clone, Branch, Pull Request e Merge
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
-                Cluster install
-              </a>
-            </li>
+              </ul>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
-                kubeadm install
-              </a>
-            </li>
+            </details>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
-                Pods
-              </a>
-            </li>
+          </li>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
-                Deployments
-              </a>
-            </li>
+          <!-- Docker -->
 
-            <li>
-              <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
-                Services
-              </a>
-            </li>
+          <li>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
-                Ingress
-              </a>
-            </li>
+            <details>
 
-            <li>
-              <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
-                Troubleshooting
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+              <summary>
+                <span>Docker</span>
+              </summary>
 
-      <!-- CI/CD -->
-      <li>
-        <details>
-          <summary>
-            <span>CI/CD</span>
-          </summary>
+              <ul>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/cicd/fundamento-de-cicd.html' | relative_url }}">
-                Fundamento de CI/CD
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+                <li>
+                  <a href="{{ 'devops/docker/imagens.html' | relative_url }}">
+                    Imagens
+                  </a>
+                </li>
 
-      <!-- Ansible -->
-      <li>
-        <details>
-          <summary>
-            <span>Ansible</span>
-          </summary>
+                <li>
+                  <a href="{{ 'devops/docker/containers.html' | relative_url }}">
+                    Containers
+                  </a>
+                </li>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
-                Inventários
-              </a>
-            </li>
+              </ul>
 
-            <li>
-              <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
-                Módulos
-              </a>
-            </li>
+            </details>
 
-            <li>
-              <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
-                Playbooks
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+          </li>
 
-    </ul>
-  </details>
+          <!-- Kubernetes -->
 
+          <li>
 
-  <!-- Documentações -->
-  <details>
-    <summary>
-      <span>Documentações</span>
-    </summary>
+            <details>
 
-    <ul>
+              <summary>
+                <span>Kubernetes</span>
+              </summary>
 
-      <!-- Markdown -->
-      <li>
-        <details>
-          <summary>
-            <span>Markdown</span>
-          </summary>
+              <ul>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
-                Guia Completo
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
+                    KUBECONFIG
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/blocos-de-codigo.html' | relative_url }}">
-                Blocos de Código
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
+                    Kubectl
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/tabelas.html' | relative_url }}">
-                Tabelas
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
+                    Cluster install
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/links-e-imagens.html' | relative_url }}">
-                Links e Imagens
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
+                    kubeadm install
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/listas.html' | relative_url }}">
-                Listas
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
+                    Pods
+                  </a>
+                </li>
 
-      <!-- Jekyll -->
-      <li>
-        <details>
-          <summary>
-            <span>Jekyll</span>
-          </summary>
+                <li>
+                  <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
+                    Deployments
+                  </a>
+                </li>
 
-          <ul>
-            <li>
-              <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
-                Guia Completo
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
+                    Services
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/layouts.html' | relative_url }}">
-                Layouts
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
+                    Ingress
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/liquid.html' | relative_url }}">
-                Liquid
-              </a>
-            </li>
+                <li>
+                  <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
+                    Troubleshooting
+                  </a>
+                </li>
 
-            <li>
-              <a href="{{ 'devops/documentacao/includes.html' | relative_url }}">
-                Includes
-              </a>
-            </li>
+              </ul>
 
-            <li>
-              <a href="{{ 'devops/documentacao/collections.html' | relative_url }}">
-                Collections
-              </a>
-            </li>
+            </details>
 
-            <li>
-              <a href="{{ 'devops/documentacao/github-pages.html' | relative_url }}">
-                GitHub Pages
-              </a>
-            </li>
-          </ul>
-        </details>
-      </li>
+          </li>
 
-    </ul>
-  </details>
+          <!-- CI/CD -->
+
+          <li>
+
+            <details>
+
+              <summary>
+                <span>CI/CD</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/cicd/fundamento-de-cicd.html' | relative_url }}">
+                    Fundamento de CI/CD
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+          <!-- Ansible -->
+
+          <li>
+
+            <details>
+
+              <summary>
+                <span>Ansible</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
+                    Inventários
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
+                    Módulos
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
+                    Playbooks
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+        </ul>
+
+      </details>
 
 
-  <!-- Outras áreas -->
-  <a href="{{ 'linux/' | relative_url }}">Linux</a>
-  <a href="{{ 'redes/' | relative_url }}">Redes</a>
-  <a href="{{ 'squid/' | relative_url }}">Squid</a>
-  <a href="{{ 'monitoramento/' | relative_url }}">Monitoramento</a>
-  <a href="{{ 'nutanix/' | relative_url }}">Nutanix</a>
-  <a href="{{ 'vmware/' | relative_url }}">VMware</a>
-  <a href="{{ 'watchguard/' | relative_url }}">WatchGuard</a>
-  <a href="{{ 'windows/' | relative_url }}">Windows</a>
-  <a href="{{ 'troubleshooting/' | relative_url }}">Troubleshooting</a>
+      <!-- ===================================================
+           Documentações
+           =================================================== -->
 
-</nav>
+      <details>
+
+        <summary>
+          <span>Documentações</span>
+        </summary>
+
+        <ul>
+
+          <!-- Markdown -->
+
+          <li>
+
+            <details>
+
+              <summary>
+                <span>Markdown</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
+                    Guia Completo
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/blocos-de-codigo.html' | relative_url }}">
+                    Blocos de Código
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/tabelas.html' | relative_url }}">
+                    Tabelas
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/links-e-imagens.html' | relative_url }}">
+                    Links e Imagens
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/listas.html' | relative_url }}">
+                    Listas
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+          <!-- Jekyll -->
+
+          <li>
+
+            <details>
+
+              <summary>
+                <span>Jekyll</span>
+              </summary>
+
+              <ul>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
+                    Guia Completo
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/layouts.html' | relative_url }}">
+                    Layouts
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/liquid.html' | relative_url }}">
+                    Liquid
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/includes.html' | relative_url }}">
+                    Includes
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/collections.html' | relative_url }}">
+                    Collections
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ 'devops/documentacao/github-pages.html' | relative_url }}">
+                    GitHub Pages
+                  </a>
+                </li>
+
+              </ul>
+
+            </details>
+
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Linux
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Linux</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'linux/' | relative_url }}">
+              Linux
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Redes
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Redes</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'redes/' | relative_url }}">
+              Redes
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Squid
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Squid</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'squid/' | relative_url }}">
+              Squid
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Monitoramento
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Monitoramento</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'monitoramento/' | relative_url }}">
+              Monitoramento
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Nutanix
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Nutanix</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'nutanix/' | relative_url }}">
+              Nutanix
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           VMware
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>VMware</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'vmware/' | relative_url }}">
+              VMware
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           WatchGuard
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>WatchGuard</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'watchguard/' | relative_url }}">
+              WatchGuard
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Windows
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Windows</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'windows/' | relative_url }}">
+              Windows
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <!-- ===================================================
+           Troubleshooting
+           =================================================== -->
+
+      <details>
+
+        <summary>
+          <span>Troubleshooting</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'troubleshooting/' | relative_url }}">
+              Troubleshooting
+            </a>
+          </li>
+
+        </ul>
+
+      </details>
+
+    </nav>
 
 
     <!-- =====================================================
@@ -426,7 +686,9 @@
       id="conteudo"
       tabindex="-1"
     >
+
       {{ content }}
+
     </main>
 
     <footer class="site-footer">
@@ -450,18 +712,26 @@
 
       const body = document.body;
 
-      const toggle = document.getElementById('menuToggle');
+      const toggle =
+        document.getElementById('menuToggle');
 
-      const backdrop = document.getElementById('backdrop');
+      const backdrop =
+        document.getElementById('backdrop');
 
       const sidebarLinks =
-        document.querySelectorAll('.sidebar-menu a');
+        document.querySelectorAll(
+          '.sidebar-menu a'
+        );
 
       const menuGroups =
-        document.querySelectorAll('.sidebar-menu details');
+        document.querySelectorAll(
+          '.sidebar-menu details'
+        );
 
       const search =
-        document.getElementById('sidebarSearchInput');
+        document.getElementById(
+          'sidebarSearchInput'
+        );
 
 
       /* =====================================================
@@ -490,7 +760,9 @@
       toggle.addEventListener('click', () => {
 
         const open =
-          !body.classList.contains('menu-open');
+          !body.classList.contains(
+            'menu-open'
+          );
 
         body.classList.toggle(
           'menu-open',
@@ -526,9 +798,13 @@
 
           if (
             event.key === 'Escape' &&
-            body.classList.contains('menu-open')
+            body.classList.contains(
+              'menu-open'
+            )
           ) {
+
             closeMenu();
+
           }
 
         }
@@ -549,10 +825,12 @@
       sidebarLinks.forEach(link => {
 
         const linkPath =
-          new URL(link.href).pathname.replace(
-            /index\.html$/,
-            ''
-          );
+          new URL(link.href)
+            .pathname
+            .replace(
+              /index\.html$/,
+              ''
+            );
 
 
         if (linkPath === currentPath) {
@@ -578,7 +856,8 @@
             parent.open = true;
 
             parent =
-              parent.parentElement.closest('details');
+              parent.parentElement
+                .closest('details');
 
           }
 
@@ -594,7 +873,9 @@
                 'menu-open'
               )
             ) {
+
               closeMenu();
+
             }
 
           }
@@ -626,13 +907,18 @@
 
             sidebarLinks.forEach(
               link => {
+
                 link.hidden = false;
+
               }
             );
 
+
             menuGroups.forEach(
               group => {
+
                 group.hidden = false;
+
               }
             );
 
@@ -717,7 +1003,9 @@
              */
 
             if (visible) {
+
               group.open = true;
+
             }
 
           });
@@ -813,10 +1101,12 @@
           button.type =
             'button';
 
+
           button.setAttribute(
             'aria-label',
             'Copiar código'
           );
+
 
           button.setAttribute(
             'title',
@@ -1015,3 +1305,4 @@
 </body>
 
 </html>
+```
