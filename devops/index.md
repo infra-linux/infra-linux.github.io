@@ -94,8 +94,8 @@ O fluxo pode ser resumido assim:
 flowchart LR
     Git --> Docker
     Docker --> Kubernetes
-	Kubernetes --> CI/CD
-	CI/CD --> Ansible
+	  Kubernetes --> CI/CD
+	  CI/CD --> Ansible
 ```
 
 ---

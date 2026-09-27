@@ -12,20 +12,14 @@ O objetivo é realizar alterações sem modificar diretamente a `main`, permitin
 
 O fluxo utilizado será:
 
-```text
-Clone
-  ↓
-Branch
-  ↓
-Alteração
-  ↓
-Revisão
-  ↓
-Commit
-  ↓
-Pull Request
-  ↓
-Merge
+```mermaid
+flowchart LR
+    Clone --> Branch
+    branch --> Alteração
+	  Alteração --> Revisão
+	  Revisão --> Commit
+    Commit --> Pull_Request
+    Pull_Request --> Merge
 ```
 
 Esse fluxo é bastante utilizado em projetos profissionais e é especialmente útil para projetos como o **Pangolim**.
