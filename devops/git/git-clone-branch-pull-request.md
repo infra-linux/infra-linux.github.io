@@ -15,7 +15,7 @@ O fluxo utilizado será:
 ```mermaid
 flowchart LR
     Clone --> Branch
-    branch --> Alteração
+    Branch --> Alteração
 	  Alteração --> Revisão
 	  Revisão --> Commit
     Commit --> Pull_Request
