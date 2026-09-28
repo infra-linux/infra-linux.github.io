@@ -18,11 +18,16 @@ Documentação sobre a linguagem de marcação utilizada para escrever os conte�
 
 ### Conteúdos
 
-1. [Markdown — Guia Completo](markdown.md)
-2. [Markdown — Blocos de Código](markdown-bloco-de-codigos.md)
-3. [Markdown — Tabelas](markdown-tabelas.md)
-4. [Markdown — Links e Imagens](markdown-links-imagens.md)
-5. [Markdown — Listas](markdown-listas.md)
+<details>
+  <summary>Markdown</summary>
+  <ul>
+    <li><a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">Markdown - Guia Completo</a></li>
+    <li><a href="{{ 'devops/documentacao/markdonw-bloco-de-codigos.html' | relative_url }}">Markdown - Bloco de Código</a></li>
+    <li><a href="{{ 'devops/documentacao/markdown-tabelas.html' | relative_url }}">Markdown - Tabelas</a></li>
+    <li><a href="{{ 'devops/documentacao/markdown-links-imagens.html' | relative_url }}">Markdown - Links e Imagens</a></li>
+    <li><a href="{{ 'devops/documentacao/markdown-listas.html' | relative_url }}">Markdown - Listas</a></li>
+  </ul>
+</details>
 
 ---
 
@@ -32,12 +37,17 @@ Documentação sobre o gerador de sites estáticos utilizado pelo Pangolim.
 
 ### Conteúdos
 
-1. [Jekyll — Guia Completo](jekyll.md)
-2. [Jekyll — Layouts](jekyll-layouts.md)
-3. [Jekyll — Liquid](jekyll-liquid.md)
-4. [Jekyll — Includes](jekyll-includes.md)
-5. [Jekyll — Collections](jekyll-collections.md)
-6. [Jekyll — GitHub Pages](jekyll-github-pages.md)
+<details>
+  <summary>Jekyll</summary>
+  <ul>
+    <li><a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">Jekyll - Guia Completo</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll-layouts.html' | relative_url }}">Jekyll - Layouts</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll-liquid.html' | relative_url }}">Jekyll - Liquid</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll-include.html' | relative_url }}">Jekyll - Includes</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll-collections.html' | relative_url }}">Jekyll - Collections</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll-github-pages.html' | relative_url }}">Jekyll - GitHub Pages</a></li>
+  </ul>
+</details>
 
 ---
 
