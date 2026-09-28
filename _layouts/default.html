@@ -3,27 +3,27 @@
 <html lang="pt-BR">
 
 <head>
-
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta name="theme-color" content="#1c1c1a">
 
-  <meta
-    name="description"
-    content="{{ page.description | default: site.description | escape }}"
-  >
+<meta
+name="description"
+content="{{ page.description | default: site.description | escape }}"
 
-  <meta
-    property="og:title"
-    content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim"
-  >
+>
 
-  <meta
-    property="og:description"
-    content="{{ page.description | default: site.description | escape }}"
-  >
+<meta
+property="og:title"
+content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim"
+
+>
+
+<meta
+property="og:description"
+content="{{ page.description | default: site.description | escape }}"
+
+>
 
   <meta property="og:type" content="website">
 
@@ -31,18 +31,17 @@
     {% if page.title %}{{ page.title }} · {% endif %}Pangolim
   </title>
 
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="{{ '/images/favicon.png' | relative_url }}"
->
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="{{ '/images/favicon.png' | relative_url }}"
+  >
 
   <link
     rel="stylesheet"
     href="{{ '/assets/css/style.css' | relative_url }}"
   >
-
 </head>
 
 <body>
@@ -51,804 +50,932 @@
     Ir para o conteúdo
   </a>
 
-  <div class="backdrop" id="backdrop" hidden></div>
-
   <aside class="sidebar" id="sidebar">
-  
-    <button
-      class="sidebar-collapse"
-      id="sidebarCollapse"
-      type="button"
-      aria-label="Minimizar barra lateral"
-      title="Minimizar barra lateral"
-    >
-      <span aria-hidden="true">‹</span>
-    </button>
-
-    <!-- =====================================================
-         Marca
-         ===================================================== -->
-
-    <a
-      class="brand"
-      href="{{ '/' | relative_url }}"
-      aria-label="Página inicial do Pangolim"
-    >
-
-      <img
-        src="{{ '/images/pangolim-128.png' | relative_url }}"
-        alt="Pangolim"
-        class="brand-icon"
-      >
-
-      <span class="brand-name">
-        Pangolim
-      </span>
-
-    </a>
-
-
-    <!-- =====================================================
-         Busca
-         ===================================================== -->
-
-    <div class="search-box">
-
-      <label for="sidebarSearchInput">
-        Buscar nos tópicos
-      </label>
-
-      <input
-        id="sidebarSearchInput"
-        type="search"
-        placeholder="Ex.: DevOps, Linux..."
-        autocomplete="off"
-      >
-
-    </div>
-
-
-    <!-- =====================================================
-         Menu
-         ===================================================== -->
-
-    <nav class="sidebar-menu" aria-label="Navegação principal">
-
-      <!-- ===================================================
-           DevOps
-           =================================================== -->
-
-      <details>
-        <summary><span>DevOps</span></summary>
-
-        <ul>
-
-          <li>
-            <a href="{{ 'devops/' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Git</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'devops/git/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
-                    Guia prático
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
-                    Branch e publicação na main
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/git/git-clone-branch-pull-request.html' | relative_url }}">
-                    Clone, Branch, Pull Request e Merge
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Docker</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'devops/docker/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-image.html' | relative_url }}">
-                    Imagens
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-container.html' | relative_url }}">
-                    Containers
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-compose.html' | relative_url }}">
-                    Docker Compose
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-network.html' | relative_url }}">
-                    Networks
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-volume.html' | relative_url }}">
-                    Volumes
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/dockerfile.html' | relative_url }}">
-                    Dockerfile
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-registry.html' | relative_url }}">
-                    Registry
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/docker/docker-troubleshooting.html' | relative_url }}">
-                    Troubleshooting
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Kubernetes</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
-                    KUBECONFIG
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
-                    Kubectl
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
-                    Cluster install
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
-                    kubeadm install
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
-                    Pods
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
-                    Deployments
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
-                    Services
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
-                    Ingress
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
-                    Troubleshooting
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>CI/CD</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'devops/cicd/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">
-                    Fundamentos de CI/CD
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Ansible</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'devops/ansible/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
-                    Inventários
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
-                    Módulos
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
-                    Playbooks
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Documentações</span></summary>
-              <ul>
-                
-                <li>
-                  <a href="{{ 'devops/documentacao/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <details>
-                    <summary><span>Markdown</span></summary>
-                    <ul>
-
-                      <li>
-                        <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
-                          Guia Completo
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="{{ 'devops/documentacao/markdown-bloco-de-codigos.html' | relative_url }}">
-                          Blocos de Código
-                        </a>
-                      </li>
-
-                    </ul>
-                  </details>
-                </li>
-
-                <li>
-                  <details>
-                    <summary><span>Jekyll</span></summary>
-                    <ul>
-
-                      <li>
-                        <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
-                          Guia Completo
-                        </a>
-                      </li>
-
-                    </ul>
-                  </details>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Linux
-           =================================================== -->
-
-      <details>
-        <summary><span>Linux</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'linux/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/atualizarSSLwiki.html' | relative_url }}">
-              Atualizar SSL
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/certificadossl.html' | relative_url }}">
-              Certificados SSL
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/cliente-nfs-rocky-linux-9.html' | relative_url }}">
-              Cliente NFS Rocky Linux 9
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/cliente-nfs-windows-10-11.html' | relative_url }}">
-              Cliente NFS Windows 10/11
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/configuracaodns.html' | relative_url }}">
-              Configuração DNS
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/expandir-lvm.html' | relative_url }}">
-              Expandir LVM
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/servidor-nfs-rocky-linux-9.html' | relative_url }}">
-              Servidor NFS Rocky Linux 9
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/ssh-acesso-via-nome.html' | relative_url }}">
-              SSH por nome
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/ssh_key.html' | relative_url }}">
-              Chaves SSH
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'linux/troubleshooting-nfs.html' | relative_url }}">
-              Troubleshooting NFS
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Redes
-           =================================================== -->
-
-      <details>
-        <summary><span>Redes</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'redes/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'redes/portaseprotocolos.html' | relative_url }}">
-              Portas e Protocolos
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'redes/tcpip.html' | relative_url }}">
-              TCP/IP
-            </a>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>DNS</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'redes/dns/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'redes/dns/bindencaminhamento.html' | relative_url }}">
-                    BIND — Encaminhamento
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'redes/dns/bind-encaminhamentodns.html' | relative_url }}">
-                    BIND — Encaminhamento DNS
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Squid
-           =================================================== -->
-
-      <details>
-        <summary><span>Squid</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'squid/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Monitoramento
-           =================================================== -->
-
-      <details>
-        <summary><span>Monitoramento</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'monitoramento/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'monitoramento/grafana.html' | relative_url }}">
-              Grafana
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'monitoramento/instalacao-zabbix-server.html' | relative_url }}">
-              Instalação do Zabbix Server
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Nutanix
-           =================================================== -->
-
-      <details>
-        <summary><span>Nutanix</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'nutanix/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Fundamentos</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/01-introducao-ao-nutanix.html' | relative_url }}">
-                    01 — Introdução ao Nutanix
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/02-arquitetura-hiperconvergente.html' | relative_url }}">
-                    02 — Arquitetura Hiperconvergente
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/03-prism-element-e-prism-central.html' | relative_url }}">
-                    03 — Prism Element e Prism Central
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/04-ahv-aos-e-cvm.html' | relative_url }}">
-                    04 — AHV, AOS e CVM
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/05-storage-pool-container-e-vdisk.html' | relative_url }}">
-                    05 — Storage Pool, Container e vDisk
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/06-resiliencia-rf2-rf3-e-localidade.html' | relative_url }}">
-                    06 — Resiliência, RF2, RF3 e Localidade
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/07-nutanix-files-e-fsvm.html' | relative_url }}">
-                    07 — Nutanix Files e FSVM
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/08-smb-nfs-e-active-directory.html' | relative_url }}">
-                    08 — SMB, NFS e Active Directory
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/fundamentos/09-fluxos-e-diagnostico-inicial.html' | relative_url }}">
-                    09 — Fluxos e Diagnóstico Inicial
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Volumes</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'nutanix/volumes/configurando-volumes-nutanix.html' | relative_url }}">
-                    Configurando Volumes Nutanix
-                  </a>
-                </li>
-
-                <li>
-                  <a href="{{ 'nutanix/volumes/questionario-volumes-nutanix.html' | relative_url }}">
-                    Questionário de Volumes Nutanix
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details>
-              <summary><span>Data Lens</span></summary>
-              <ul>
-
-                <li>
-                  <a href="{{ 'nutanix/data-lens/index.html' | relative_url }}">
-                    Visão Geral
-                  </a>
-                </li>
-
-              </ul>
-            </details>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           VMware
-           =================================================== -->
-
-      <details>
-        <summary><span>VMware</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'vmware/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'vmware/instalacao-esxi-7-dell-r830-idrac.html' | relative_url }}">
-              Instalação ESXi 7 — Dell R830/iDRAC
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           WatchGuard
-           =================================================== -->
-
-      <details>
-        <summary><span>WatchGuard</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'watchguard/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'watchguard/watchguardndrcollectionagent.html' | relative_url }}">
-              NDR Collection Agent
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Windows
-           =================================================== -->
-
-      <details>
-        <summary><span>Windows</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'windows/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'windows/activedirectory.html' | relative_url }}">
-              Active Directory
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'windows/instalacao-aplicativos-exe.html' | relative_url }}">
-              Instalação de aplicativos EXE
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'windows/instalacao-via-temp.html' | relative_url }}">
-              Instalação via TEMP
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'windows/windowsproxyparalinux.html' | relative_url }}">
-              Proxy Windows para Linux
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-
-      <!-- ===================================================
-           Troubleshooting
-           =================================================== -->
-
-      <details>
-        <summary><span>Troubleshooting</span></summary>
-        <ul>
-
-          <li>
-            <a href="{{ 'troubleshooting/index.html' | relative_url }}">
-              Visão Geral
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'troubleshooting/troubleshooting_utf8_wildfly.html' | relative_url }}">
-              UTF-8 no WildFly
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'troubleshooting/troubleshootingcitsmart.html' | relative_url }}">
-              CitSmart
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ 'troubleshooting/troubleshootingwiki.html' | relative_url }}">
-              Wiki
-            </a>
-          </li>
-
-        </ul>
-      </details>
-
-    </nav>
-
-
-    <!-- =====================================================
-         Rodapé
-         ===================================================== -->
-
-    <div class="sidebar-footer">
-
-      <a
-        href="https://github.com/pangolimbr/pangolimbr.github.io"
-        target="_blank"
-        rel="noopener"
-      >
-        Ver no GitHub
-      </a>
-
-    </div>
+
+```
+<button
+  class="sidebar-collapse"
+  id="sidebarCollapse"
+  type="button"
+  aria-label="Minimizar barra lateral"
+  title="Minimizar barra lateral"
+>
+  <span aria-hidden="true">‹</span>
+</button>
+
+<!-- =====================================================
+     Marca
+     ===================================================== -->
+
+<a
+  class="brand"
+  href="{{ '/' | relative_url }}"
+  aria-label="Página inicial do Pangolim"
+>
+  <img
+    src="{{ '/images/pangolim-128.png' | relative_url }}"
+    alt="Pangolim"
+    class="brand-icon"
+  >
+
+  <span class="brand-name">
+    Pangolim
+  </span>
+</a>
+
+<!-- =====================================================
+     Busca
+     ===================================================== -->
+
+<div class="search-box">
+
+  <label for="sidebarSearchInput">
+    Buscar nos tópicos
+  </label>
+
+  <input
+    id="sidebarSearchInput"
+    type="search"
+    placeholder="Ex.: DevOps, Linux..."
+    autocomplete="off"
+  >
+
+</div>
+
+<!-- =====================================================
+     Menu
+     ===================================================== -->
+
+<nav class="sidebar-menu" aria-label="Navegação principal">
+
+  <!-- ===================================================
+       DevOps
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>DevOps</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'devops/' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Git</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/git/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
+                Guia prático
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
+                Branch e publicação na main
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/git/git-clone-branch-pull-request.html' | relative_url }}">
+                Clone, Branch, Pull Request e Merge
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Docker</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/docker/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-image.html' | relative_url }}">
+                Imagens
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-container.html' | relative_url }}">
+                Containers
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-compose.html' | relative_url }}">
+                Docker Compose
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-network.html' | relative_url }}">
+                Networks
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-volume.html' | relative_url }}">
+                Volumes
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/dockerfile.html' | relative_url }}">
+                Dockerfile
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-registry.html' | relative_url }}">
+                Registry
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/docker/docker-troubleshooting.html' | relative_url }}">
+                Troubleshooting
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Kubernetes</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
+                KUBECONFIG
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
+                Kubectl
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">
+                Cluster install
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">
+                kubeadm install
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
+                Pods
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">
+                Deployments
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/services.html' | relative_url }}">
+                Services
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">
+                Ingress
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">
+                Troubleshooting
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>CI/CD</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/cicd/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">
+                Fundamentos de CI/CD
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Ansible</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/ansible/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
+                Inventários
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/ansible/modulos.html' | relative_url }}">
+                Módulos
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
+                Playbooks
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Documentações</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'devops/documentacao/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+
+              <details>
+
+                <summary>
+                  <span>Markdown</span>
+                </summary>
+
+                <ul>
+
+                  <li>
+                    <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
+                      Guia Completo
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="{{ 'devops/documentacao/markdown-bloco-de-codigos.html' | relative_url }}">
+                      Blocos de Código
+                    </a>
+                  </li>
+
+                </ul>
+
+              </details>
+
+            </li>
+
+            <li>
+
+              <details>
+
+                <summary>
+                  <span>Jekyll</span>
+                </summary>
+
+                <ul>
+
+                  <li>
+                    <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
+                      Guia Completo
+                    </a>
+                  </li>
+
+                </ul>
+
+              </details>
+
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Linux
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Linux</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'linux/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/atualizarSSLwiki.html' | relative_url }}">
+          Atualizar SSL
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/certificadossl.html' | relative_url }}">
+          Certificados SSL
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/cliente-nfs-rocky-linux-9.html' | relative_url }}">
+          Cliente NFS Rocky Linux 9
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/cliente-nfs-windows-10-11.html' | relative_url }}">
+          Cliente NFS Windows 10/11
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/configuracaodns.html' | relative_url }}">
+          Configuração DNS
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/expandir-lvm.html' | relative_url }}">
+          Expandir LVM
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/servidor-nfs-rocky-linux-9.html' | relative_url }}">
+          Servidor NFS Rocky Linux 9
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/ssh-acesso-via-nome.html' | relative_url }}">
+          SSH por nome
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/ssh_key.html' | relative_url }}">
+          Chaves SSH
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'linux/troubleshooting-nfs.html' | relative_url }}">
+          Troubleshooting NFS
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Redes
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Redes</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'redes/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'redes/portaseprotocolos.html' | relative_url }}">
+          Portas e Protocolos
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'redes/tcpip.html' | relative_url }}">
+          TCP/IP
+        </a>
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>DNS</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'redes/dns/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'redes/dns/bindencaminhamento.html' | relative_url }}">
+                BIND — Encaminhamento
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'redes/dns/bind-encaminhamentodns.html' | relative_url }}">
+                BIND — Encaminhamento DNS
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Squid
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Squid</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'squid/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Monitoramento
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Monitoramento</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'monitoramento/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'monitoramento/grafana.html' | relative_url }}">
+          Grafana
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'monitoramento/instalacao-zabbix-server.html' | relative_url }}">
+          Instalação do Zabbix Server
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Nutanix
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Nutanix</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'nutanix/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Fundamentos</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/01-introducao-ao-nutanix.html' | relative_url }}">
+                01 — Introdução ao Nutanix
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/02-arquitetura-hiperconvergente.html' | relative_url }}">
+                02 — Arquitetura Hiperconvergente
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/03-prism-element-e-prism-central.html' | relative_url }}">
+                03 — Prism Element e Prism Central
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/04-ahv-aos-e-cvm.html' | relative_url }}">
+                04 — AHV, AOS e CVM
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/05-storage-pool-container-e-vdisk.html' | relative_url }}">
+                05 — Storage Pool, Container e vDisk
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/06-resiliencia-rf2-rf3-e-localidade.html' | relative_url }}">
+                06 — Resiliência, RF2, RF3 e Localidade
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/07-nutanix-files-e-fsvm.html' | relative_url }}">
+                07 — Nutanix Files e FSVM
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/08-smb-nfs-e-active-directory.html' | relative_url }}">
+                08 — SMB, NFS e Active Directory
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/fundamentos/09-fluxos-e-diagnostico-inicial.html' | relative_url }}">
+                09 — Fluxos e Diagnóstico Inicial
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Volumes</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'nutanix/volumes/configurando-volumes-nutanix.html' | relative_url }}">
+                Configurando Volumes Nutanix
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ 'nutanix/volumes/questionario-volumes-nutanix.html' | relative_url }}">
+                Questionário de Volumes Nutanix
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+      <li>
+
+        <details>
+
+          <summary>
+            <span>Data Lens</span>
+          </summary>
+
+          <ul>
+
+            <li>
+              <a href="{{ 'nutanix/data-lens/index.html' | relative_url }}">
+                Visão Geral
+              </a>
+            </li>
+
+          </ul>
+
+        </details>
+
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       VMware
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>VMware</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'vmware/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'vmware/instalacao-esxi-7-dell-r830-idrac.html' | relative_url }}">
+          Instalação ESXi 7 — Dell R830/iDRAC
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       WatchGuard
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>WatchGuard</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'watchguard/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'watchguard/watchguardndrcollectionagent.html' | relative_url }}">
+          NDR Collection Agent
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Windows
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Windows</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'windows/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'windows/activedirectory.html' | relative_url }}">
+          Active Directory
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'windows/instalacao-aplicativos-exe.html' | relative_url }}">
+          Instalação de aplicativos EXE
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'windows/instalacao-via-temp.html' | relative_url }}">
+          Instalação via TEMP
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'windows/windowsproxyparalinux.html' | relative_url }}">
+          Proxy Windows para Linux
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+
+  <!-- ===================================================
+       Troubleshooting
+       =================================================== -->
+
+  <details>
+
+    <summary>
+      <span>Troubleshooting</span>
+    </summary>
+
+    <ul>
+
+      <li>
+        <a href="{{ 'troubleshooting/index.html' | relative_url }}">
+          Visão Geral
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'troubleshooting/troubleshooting_utf8_wildfly.html' | relative_url }}">
+          UTF-8 no WildFly
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'troubleshooting/troubleshootingcitsmart.html' | relative_url }}">
+          CitSmart
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ 'troubleshooting/troubleshootingwiki.html' | relative_url }}">
+          Wiki
+        </a>
+      </li>
+
+    </ul>
+
+  </details>
+
+</nav>
+
+
+<!-- =====================================================
+     Rodapé
+     ===================================================== -->
+
+<div class="sidebar-footer">
+
+  <a
+    href="https://github.com/pangolimbr/pangolimbr.github.io"
+    target="_blank"
+    rel="noopener"
+  >
+    Ver no GitHub
+  </a>
+
+</div>
+```
 
   </aside>
-
 
   <!-- =======================================================
        Conteúdo
@@ -856,25 +983,24 @@
 
   <div class="page-shell">
 
-    <main
-      id="conteudo"
-      tabindex="-1"
-    >
+```
+<main
+  id="conteudo"
+  tabindex="-1"
+>
+  {{ content }}
+</main>
 
-      {{ content }}
+<footer class="site-footer">
 
-    </main>
+  <span>
+    Atualizado em {{ site.time | date: "%d/%m/%Y" }}
+  </span>
 
-    <footer class="site-footer">
-
-      <span>
-        Atualizado em {{ site.time | date: "%d/%m/%Y" }}
-      </span>
-
-    </footer>
+</footer>
+```
 
   </div>
-
 
   <!-- =======================================================
        JavaScript principal
@@ -886,22 +1012,11 @@
 
       const body = document.body;
 
-      const toggle =
-        document.getElementById('menuToggle');
-
       const sidebarCollapse =
         document.getElementById('sidebarCollapse');
-      const brand = document.querySelector('.brand');
 
-      brand.addEventListener('click', (event) => {
-        if (body.classList.contains('sidebar-collapsed')) {
-          event.preventDefault();
-          sidebarCollapse.click();
-        }
-      });
-
-      const backdrop =
-        document.getElementById('backdrop');
+      const brand =
+        document.querySelector('.brand');
 
       const sidebarLinks =
         document.querySelectorAll(
@@ -920,117 +1035,61 @@
 
 
       /* =====================================================
-         Menu mobile
+         Barra lateral
          ===================================================== */
 
-      const closeMenu = () => {
+      const toggleSidebar = () => {
 
-        body.classList.remove('menu-open');
+        const collapsed =
+          body.classList.toggle(
+            'sidebar-collapsed'
+          );
 
-        toggle.setAttribute(
-          'aria-expanded',
-          'false'
-        );
-
-        toggle.setAttribute(
+        sidebarCollapse.setAttribute(
           'aria-label',
-          'Abrir menu'
+          collapsed
+            ? 'Expandir barra lateral'
+            : 'Minimizar barra lateral'
         );
 
-        backdrop.hidden = true;
+        sidebarCollapse.setAttribute(
+          'title',
+          collapsed
+            ? 'Expandir barra lateral'
+            : 'Minimizar barra lateral'
+        );
+
+        sidebarCollapse.querySelector(
+          'span'
+        ).textContent =
+          collapsed ? '›' : '‹';
 
       };
 
 
-
-const toggleSidebar = () => {
-  const collapsed =
-    body.classList.toggle('sidebar-collapsed');
-
-  sidebarCollapse.setAttribute(
-    'aria-label',
-    collapsed
-      ? 'Expandir barra lateral'
-      : 'Minimizar barra lateral'
-  );
-
-  sidebarCollapse.setAttribute(
-    'title',
-    collapsed
-      ? 'Expandir barra lateral'
-      : 'Minimizar barra lateral'
-  );
-
-  sidebarCollapse.querySelector('span').textContent =
-    collapsed ? '›' : '‹';
-
-  toggle.setAttribute(
-    'aria-label',
-    collapsed
-      ? 'Expandir barra lateral'
-      : 'Fechar barra lateral'
-  );
-
-  toggle.setAttribute(
-    'aria-expanded',
-    String(!collapsed)
-  );
-};
-
-sidebarCollapse.addEventListener(
-  'click',
-  toggleSidebar
-);
-
-
-
-      toggle.addEventListener('click', () => {
-
-        const open =
-          !body.classList.contains(
-            'menu-open'
-          );
-
-        body.classList.toggle(
-          'menu-open',
-          open
-        );
-
-        toggle.setAttribute(
-          'aria-expanded',
-          String(open)
-        );
-
-        toggle.setAttribute(
-          'aria-label',
-          open
-            ? 'Fechar menu'
-            : 'Abrir menu'
-        );
-
-        backdrop.hidden = !open;
-
-      });
-
-
-      backdrop.addEventListener(
+      sidebarCollapse.addEventListener(
         'click',
-        closeMenu
+        toggleSidebar
       );
 
 
-      document.addEventListener(
-        'keydown',
+      /* =====================================================
+         Clique no Pangolim quando a barra estiver retraída
+         ===================================================== */
+
+      brand.addEventListener(
+        'click',
         event => {
 
           if (
-            event.key === 'Escape' &&
             body.classList.contains(
-              'menu-open'
+              'sidebar-collapsed'
             )
           ) {
 
-            closeMenu();
+            event.preventDefault();
+
+            sidebarCollapse.click();
 
           }
 
@@ -1049,66 +1108,53 @@ sidebarCollapse.addEventListener(
         );
 
 
-      sidebarLinks.forEach(link => {
+      sidebarLinks.forEach(
+        link => {
 
-        const linkPath =
-          new URL(link.href)
-            .pathname
-            .replace(
-              /index\.html$/,
-              ''
+          const linkPath =
+            new URL(link.href)
+              .pathname
+              .replace(
+                /index\.html$/,
+                ''
+              );
+
+
+          if (linkPath === currentPath) {
+
+            link.classList.add(
+              'active'
+            );
+
+            link.setAttribute(
+              'aria-current',
+              'page'
             );
 
 
-        if (linkPath === currentPath) {
+            /*
+             * Abre automaticamente todos os grupos
+             * que contêm a página atual.
+             */
 
-          link.classList.add('active');
-
-          link.setAttribute(
-            'aria-current',
-            'page'
-          );
-
-
-          /*
-           * Abre automaticamente todos os grupos
-           * que contêm a página atual.
-           */
-
-          let parent =
-            link.closest('details');
-
-          while (parent) {
-
-            parent.open = true;
-
-            parent =
-              parent.parentElement
-                .closest('details');
-
-          }
-
-        }
+            let parent =
+              link.closest('details');
 
 
-        link.addEventListener(
-          'click',
-          () => {
+            while (parent) {
 
-            if (
-              body.classList.contains(
-                'menu-open'
-              )
-            ) {
+              parent.open = true;
 
-              closeMenu();
+              parent =
+                parent.parentElement
+                  .closest('details');
 
             }
 
           }
-        );
 
-      });
+        }
+      );
 
 
       /* =====================================================
@@ -1153,84 +1199,87 @@ sidebarCollapse.addEventListener(
              Links
              ================================================= */
 
-          sidebarLinks.forEach(link => {
+          sidebarLinks.forEach(
+            link => {
 
-            const label =
-              link.textContent
-                .trim()
-                .toLocaleLowerCase('pt-BR');
+              const label =
+                link.textContent
+                  .trim()
+                  .toLocaleLowerCase('pt-BR');
 
-            link.hidden =
-              !label.includes(term);
+              link.hidden =
+                !label.includes(term);
 
-          });
+            }
+          );
 
 
           /* =================================================
              Grupos expansíveis
              ================================================= */
 
-          menuGroups.forEach(group => {
+          menuGroups.forEach(
+            group => {
 
-            const summary =
-              group.querySelector(
-                ':scope > summary'
-              );
-
-
-            const summaryText =
-              summary
-                ? summary.textContent
-                    .trim()
-                    .toLocaleLowerCase('pt-BR')
-                : '';
+              const summary =
+                group.querySelector(
+                  ':scope > summary'
+                );
 
 
-            const visibleChildren =
-              Array.from(
-                group.querySelectorAll(
-                  ':scope > ul > li > a'
-                )
-              ).some(
-                link => !link.hidden
-              );
+              const summaryText =
+                summary
+                  ? summary.textContent
+                      .trim()
+                      .toLocaleLowerCase('pt-BR')
+                  : '';
 
 
-            const visibleNestedGroups =
-              Array.from(
-                group.querySelectorAll(
-                  ':scope > ul > li > details'
-                )
-              ).some(
-                nested => !nested.hidden
-              );
+              const visibleChildren =
+                Array.from(
+                  group.querySelectorAll(
+                    ':scope > ul > li > a'
+                  )
+                ).some(
+                  link => !link.hidden
+                );
 
 
-            const matchesSummary =
-              summaryText.includes(term);
+              const visibleNestedGroups =
+                Array.from(
+                  group.querySelectorAll(
+                    ':scope > ul > li > details'
+                  )
+                ).some(
+                  nested => !nested.hidden
+                );
 
 
-            const visible =
-              matchesSummary ||
-              visibleChildren ||
-              visibleNestedGroups;
+              const matchesSummary =
+                summaryText.includes(term);
 
 
-            group.hidden = !visible;
+              const visible =
+                matchesSummary ||
+                visibleChildren ||
+                visibleNestedGroups;
 
 
-            /*
-             * Abre o grupo quando a pesquisa
-             * encontrou algum conteúdo nele.
-             */
+              group.hidden =
+                !visible;
 
-            if (visible) {
 
-              group.open = true;
+              /*
+               * Abre o grupo quando a pesquisa
+               * encontrou algum conteúdo nele.
+               */
+
+              if (visible) {
+                group.open = true;
+              }
 
             }
-
-          });
+          );
 
         }
       );
@@ -1244,218 +1293,221 @@ sidebarCollapse.addEventListener(
         .querySelectorAll(
           'pre:not(.mermaid)'
         )
-        .forEach(pre => {
+        .forEach(
+          pre => {
 
-          const code =
-            pre.querySelector('code');
-
-
-          if (
-            code &&
-            /[↓→←↔│┌┐└┘├┤▼▲]/
-              .test(code.textContent)
-          ) {
-
-            pre.classList.add(
-              'flow-diagram'
-            );
+            const code =
+              pre.querySelector('code');
 
 
-            const lines =
-              code.textContent
-                .split(/\r?\n/)
-                .map(line => line.trim())
-                .filter(Boolean);
+            if (
+              code &&
+              /[↓→←↔│┌┐└┘├┤▼▲]/
+                .test(
+                  code.textContent
+                )
+            ) {
+
+              pre.classList.add(
+                'flow-diagram'
+              );
 
 
-            const isLinearFlow =
-              lines.length >= 5 &&
-              lines.every(
-                (line, index) => {
+              const lines =
+                code.textContent
+                  .split(/\r?\n/)
+                  .map(
+                    line => line.trim()
+                  )
+                  .filter(Boolean);
 
-                  if (index % 2 === 1) {
 
-                    return /^[↓→←↔\s]+$/
+              const isLinearFlow =
+                lines.length >= 5 &&
+                lines.every(
+                  (line, index) => {
+
+                    if (index % 2 === 1) {
+
+                      return /^[↓→←↔\s]+$/
+                        .test(line);
+
+                    }
+
+                    return !/[↓→←↔│┌┐└┘├┤▼▲]/
                       .test(line);
 
                   }
-
-                  return !/[↓→←↔│┌┐└┘├┤▼▲]/
-                    .test(line);
-
-                }
-              );
-
-
-            if (isLinearFlow) {
-
-              code.textContent =
-                lines
-                  .filter(
-                    (_, index) =>
-                      index % 2 === 0
-                  )
-                  .join(' → ');
-
-
-              pre.classList.add(
-                'flow-horizontal'
-              );
-
-            }
-
-          }
-
-
-          /* =================================================
-             Botão copiar código
-             ================================================= */
-
-          const button =
-            document.createElement(
-              'button'
-            );
-
-
-          button.className =
-            'copy-btn';
-
-          button.type =
-            'button';
-
-
-          button.setAttribute(
-            'aria-label',
-            'Copiar código'
-          );
-
-
-          button.setAttribute(
-            'title',
-            'Copiar código'
-          );
-
-
-          button.innerHTML = `
-
-            <svg
-              class="copy-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-
-              <rect
-                x="9"
-                y="9"
-                width="11"
-                height="11"
-                rx="2"
-              ></rect>
-
-              <path
-                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-              ></path>
-
-            </svg>
-
-          `;
-
-
-          button.addEventListener(
-            'click',
-            async () => {
-
-              try {
-
-                const content =
-                  pre.querySelector('code')
-                    ?.innerText ||
-                  pre.innerText;
-
-
-                await navigator.clipboard
-                  .writeText(content);
-
-
-                button.classList.add(
-                  'copied'
                 );
 
 
-                button.setAttribute(
-                  'aria-label',
-                  'Código copiado'
-                );
+              if (isLinearFlow) {
+
+                code.textContent =
+                  lines
+                    .filter(
+                      (_, index) =>
+                        index % 2 === 0
+                    )
+                    .join(' → ');
 
 
-                button.setAttribute(
-                  'title',
-                  'Código copiado'
-                );
-
-
-              } catch (_) {
-
-                button.classList.add(
-                  'copy-error'
-                );
-
-
-                button.setAttribute(
-                  'aria-label',
-                  'Não foi possível copiar'
-                );
-
-
-                button.setAttribute(
-                  'title',
-                  'Não foi possível copiar'
+                pre.classList.add(
+                  'flow-horizontal'
                 );
 
               }
 
+            }
 
-              setTimeout(
-                () => {
 
-                  button.classList.remove(
-                    'copied',
+            /* =================================================
+               Botão copiar código
+               ================================================= */
+
+            const button =
+              document.createElement(
+                'button'
+              );
+
+
+            button.className =
+              'copy-btn';
+
+            button.type =
+              'button';
+
+
+            button.setAttribute(
+              'aria-label',
+              'Copiar código'
+            );
+
+            button.setAttribute(
+              'title',
+              'Copiar código'
+            );
+
+
+            button.innerHTML = `
+
+              <svg
+                class="copy-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+
+                <rect
+                  x="9"
+                  y="9"
+                  width="11"
+                  height="11"
+                  rx="2"
+                ></rect>
+
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+
+              </svg>
+
+            `;
+
+
+            button.addEventListener(
+              'click',
+              async () => {
+
+                try {
+
+                  const content =
+                    pre.querySelector('code')
+                      ?.innerText ||
+                    pre.innerText;
+
+
+                  await navigator.clipboard
+                    .writeText(content);
+
+
+                  button.classList.add(
+                    'copied'
+                  );
+
+
+                  button.setAttribute(
+                    'aria-label',
+                    'Código copiado'
+                  );
+
+                  button.setAttribute(
+                    'title',
+                    'Código copiado'
+                  );
+
+
+                } catch (_) {
+
+                  button.classList.add(
                     'copy-error'
                   );
 
 
                   button.setAttribute(
                     'aria-label',
-                    'Copiar código'
+                    'Não foi possível copiar'
                   );
-
 
                   button.setAttribute(
                     'title',
-                    'Copiar código'
+                    'Não foi possível copiar'
                   );
 
-                },
-                1800
-              );
-
-            }
-          );
+                }
 
 
-          pre.appendChild(button);
+                setTimeout(
+                  () => {
 
-        });
+                    button.classList.remove(
+                      'copied',
+                      'copy-error'
+                    );
+
+
+                    button.setAttribute(
+                      'aria-label',
+                      'Copiar código'
+                    );
+
+                    button.setAttribute(
+                      'title',
+                      'Copiar código'
+                    );
+
+                  },
+                  1800
+                );
+
+              }
+            );
+
+
+            pre.appendChild(
+              button
+            );
+
+          }
+        );
 
     });
 
   </script>
-
 
   <!-- =======================================================
        Mermaid
@@ -1471,27 +1523,33 @@ sidebarCollapse.addEventListener(
       .querySelectorAll(
         'pre code.language-mermaid'
       )
-      .forEach(code => {
+      .forEach(
+        code => {
 
-        const pre =
-          code.parentElement;
-
-
-        const div =
-          document.createElement('div');
+          const pre =
+            code.parentElement;
 
 
-        div.className =
-          'mermaid';
+          const div =
+            document.createElement(
+              'div'
+            );
 
 
-        div.textContent =
-          code.textContent;
+          div.className =
+            'mermaid';
 
 
-        pre.replaceWith(div);
+          div.textContent =
+            code.textContent;
 
-      });
+
+          pre.replaceWith(
+            div
+          );
+
+        }
+      );
 
 
     mermaid.initialize({
@@ -1503,19 +1561,12 @@ sidebarCollapse.addEventListener(
       themeVariables: {
 
         background: '#1c1c1a',
-
         primaryColor: '#2a2a27',
-
         primaryTextColor: '#ffffff',
-
         primaryBorderColor: '#888888',
-
         lineColor: '#aaaaaa',
-
         secondaryColor: '#242421',
-
         tertiaryColor: '#20201e',
-
         nodeTextColor: '#ffffff'
 
       }
@@ -1525,5 +1576,4 @@ sidebarCollapse.addEventListener(
   </script>
 
 </body>
-
 </html>
