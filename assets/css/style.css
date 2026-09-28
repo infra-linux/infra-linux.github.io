@@ -243,8 +243,7 @@ body.sidebar-collapsed .sidebar-footer {
 
 .sidebar-collapse {
   position: absolute;
-
-  top: 14px;
+  top: 30px;
   right: 10px;
 
   z-index: 30;
@@ -360,7 +359,7 @@ body.sidebar-collapsed .sidebar-collapse {
 }
 
 .brand-name {
-  margin-left: auto;
+  margin-left: 12px;
 
   color: #c8c8c3;
 
