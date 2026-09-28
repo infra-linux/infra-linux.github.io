@@ -71,7 +71,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 <details>
   <summary>Documentações</summary>
   <ul>
-    <li><a href="{{ 'devops/documentacao/mrkdown.html' | relative_url }}">Markdown</a></li>
+    <li><a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">Markdown</a></li>
     <li><a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">Jekyll</a></li>
   </ul>
 </details>
