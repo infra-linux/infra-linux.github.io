@@ -3,11 +3,6 @@ layout: default
 title: Git
 ---
 # Git
-{:.no_toc}
-
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
 
 ---
 
