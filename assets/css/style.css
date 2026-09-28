@@ -286,30 +286,63 @@ body.sidebar-collapsed .sidebar-footer {
   display: block;
   margin-top: -2px;
 }
+/* =========================================================
+   BARRA RETRAÍDA — ÍCONE E BOTÃO
+   ========================================================= */
 
-/* Ícone do Pangolim na barra retraída */
 body.sidebar-collapsed .brand {
   display: flex;
-  justify-content: center;
-  align-items: center;
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+
   position: absolute;
   top: 4px;
   left: 0;
+
   width: 54px;
   height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
 }
 
 body.sidebar-collapsed .brand-icon {
-  width: 36px;
-  height: 36px;
+  display: block;
+
+  width: 40px;
+  height: 40px;
+
+  margin: 0;
+  padding: 0;
+
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 body.sidebar-collapsed .brand-name {
   display: none;
+}
+
+/* Botão abaixo do ícone */
+body.sidebar-collapsed .sidebar-collapse {
+  position: absolute;
+
+  top: 52px;
+  left: 50%;
+  right: auto;
+
+  width: 32px;
+  height: 32px;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
 }
 
 /* Botão separado do ícone */
