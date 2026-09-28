@@ -60,7 +60,7 @@ Por isso, é adequado para documentação, blogs, páginas pessoais, portais té
 O GitHub Pages possui suporte a sites Jekyll. No projeto Pangolim, o fluxo pode ser:
 
 ```text
-GitHub → infra-linux/pangolim.github.io → GitHub Pages → Jekyll → Site publicado
+GitHub → pangolimbr/pangolimbr.github.io → GitHub Pages → Jekyll → Site publicado
 ```
 
 O GitHub Pages constrói o site e publica o resultado.
@@ -91,7 +91,7 @@ Cada diretório possui uma responsabilidade específica.
 ```yaml
 title: Pangolim
 description: Base de conhecimento sobre Linux e infraestrutura
-url: "https://infra-linux.github.io"
+url: "https://pangolimbr.github.io"
 ```
 
 Essas informações podem ser acessadas com Liquid:
@@ -480,7 +480,7 @@ Prefira `bundle exec jekyll serve`, pois ele usa as versões das gems definidas 
 Para testar localmente:
 
 ```bash
-cd ~/Projetos/pangolim.github.io
+cd ~/Projetos/pangolimbr.github.io
 bundle install
 bundle exec jekyll serve
 ```
@@ -500,7 +500,7 @@ Editar → Salvar → Jekyll processa → Testar no navegador → Corrigir → C
 ## 26. Estrutura recomendada
 
 ```text
-pangolim.github.io/
+pangolimbr.github.io/
 ├── _config.yml
 ├── _layouts/default.html
 ├── _includes/

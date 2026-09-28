@@ -1533,7 +1533,7 @@ Nomes simples, previsíveis, em **minúsculas, sem acentos nem espaços**, separ
 ### 36.3 Organização sugerida para o Pangolim
 
 ```text
-pangolim.github.io/
+pangolimbr.github.io/
 ├── index.md
 ├── linux/
 │   ├── index.md

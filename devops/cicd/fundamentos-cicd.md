@@ -255,7 +255,7 @@ Normalmente ele fica armazenado em um sistema de controle de versão, como Git.
 Exemplo:
 
 ```bash
-git clone https://github.com/infra-linux/projeto.git
+git clone https://github.com/pangolimbr/projeto.git
 cd projeto
 ```
 

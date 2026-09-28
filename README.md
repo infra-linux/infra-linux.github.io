@@ -52,7 +52,7 @@ O Pangolim reúne conhecimento prático da rotina de infraestrutura para servir 
 ## Estrutura do Projeto
 
 ```text
-infra-linux/
+pangolimbr.github.io/
 ├── linux/
 ├── devops/
 │   ├── kubernetes/

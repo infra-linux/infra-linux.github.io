@@ -124,25 +124,25 @@ cd "C:\Users\SEU_USUARIO\Documents\GitHub\Projetos"
 Execute:
 
 ```powershell
-git clone https://github.com/infra-linux/pangolim.github.io.git
+git clone https://github.com/pangolimbr/pangolimbr.github.io.git
 ```
 
 O Git criará uma pasta:
 
 ```text
-pangolim.github.io
+pangolimbr.github.io
 ```
 
 Entre nela:
 
 ```powershell
-cd pangolim.github.io
+cd pangolimbr.github.io
 ```
 
 > Se você já configurou uma chave SSH com o GitHub, pode usar **Code → SSH** em vez de HTTPS. A vantagem é não precisar digitar usuário/senha (ou token) a cada `push`/`pull`:
 >
 > ```powershell
-> git clone git@github.com:infra-linux/pangolim.github.io.git
+> git clone git@github.com:pangolimbr/pangolimbr.github.io.git
 > ```
 
 ---
@@ -668,8 +668,8 @@ Suponha que você queira alterar a página inicial do Pangolim.
 ## Clone
 
 ```powershell
-git clone https://github.com/infra-linux/pangolim.github.io.git
-cd pangolim.github.io
+git clone https://github.com/pangolimbr/pangolimbr.github.io.git
+cd pangolimbr.github.io
 ```
 
 ## Atualizar main
