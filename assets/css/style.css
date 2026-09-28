@@ -345,6 +345,10 @@ body.sidebar-collapsed .sidebar-collapse {
   z-index: 20;
 }
 
+body.sidebar-collapsed .sidebar-collapse {
+  display: none;
+}
+
 /* Botão separado do ícone */
 body.sidebar-collapsed .sidebar-collapse {
   top: 48px;

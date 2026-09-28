@@ -891,6 +891,14 @@
 
       const sidebarCollapse =
         document.getElementById('sidebarCollapse');
+      const brand = document.querySelector('.brand');
+
+      brand.addEventListener('click', (event) => {
+        if (body.classList.contains('sidebar-collapsed')) {
+          event.preventDefault();
+          sidebarCollapse.click();
+        }
+      });
 
       const backdrop =
         document.getElementById('backdrop');
