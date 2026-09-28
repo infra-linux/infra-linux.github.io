@@ -56,7 +56,7 @@ Abra o PowerShell dentro da pasta do projeto.
 Exemplo:
 
 ```powershell
-cd "C:\Users\SEU_USUARIO\Documents\GitHub\Projetos\infra-linux.github.io"
+cd "C:\Users\SEU_USUARIO\Documents\GitHub\Projetos\pangolim.github.io"
 ```
 
 Verifique a branch atual:
