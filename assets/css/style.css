@@ -20,19 +20,16 @@
   --border-soft: #30302c;
 
   /* =======================================================
-     PALETA TERRA / OLIVA
+     PALETA NEUTRA
      ======================================================= */
 
-  --accent: hsl(55, 58%, 31%);
-  --accent-hover: hsl(52, 48%, 52%);
-  --accent-soft: hsla(55, 58%, 31%, 0.14);
-
-  --accent-light: hsl(52, 42%, 68%);
-  --accent-dark: hsl(55, 55%, 24%);
-
+  --accent: #b8b8b2;
+  --accent-hover: #d0d0ca;
+  --accent-soft: rgba(184, 184, 178, 0.14);
+  --accent-light: #d8d8d2;
+  --accent-dark: #8f8f89;
   --sidebar-width: 252px;
   --content-width: 980px;
-
   --shadow: rgba(0, 0, 0, 0.25);
 }
 
