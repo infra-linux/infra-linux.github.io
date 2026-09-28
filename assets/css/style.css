@@ -53,6 +53,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+
   background: var(--bg-page);
   color: var(--text);
 
@@ -141,7 +142,6 @@ input:focus-visible {
   clip: rect(0, 0, 0, 0);
 
   white-space: nowrap;
-
   border: 0;
 }
 
@@ -167,7 +167,6 @@ main {
   width: min(calc(100% - 48px), var(--content-width));
 
   flex: 1 0 auto;
-
   min-height: calc(100vh - 110px);
 
   margin: 0 auto 36px;
@@ -189,7 +188,6 @@ main {
 
 .sidebar {
   position: fixed;
-
   inset: 0 auto 0 0;
 
   z-index: 20;
@@ -225,16 +223,16 @@ body.sidebar-collapsed .page-shell {
 }
 
 
-/* Esconde o conteúdo da sidebar */
+/* =========================================================
+   Esconde o conteúdo da sidebar minimizada
+   ========================================================= */
 
 body.sidebar-collapsed .brand,
 body.sidebar-collapsed .search-box,
 body.sidebar-collapsed .sidebar-menu,
 body.sidebar-collapsed .sidebar-footer {
   visibility: hidden;
-
   opacity: 0;
-
   pointer-events: none;
 }
 
@@ -281,15 +279,12 @@ body.sidebar-collapsed .sidebar-footer {
 
 .sidebar-collapse:hover {
   border-color: #55554e;
-
   background: var(--bg-hover);
-
   color: var(--text-strong);
 }
 
 .sidebar-collapse span {
   display: block;
-
   margin-top: -2px;
 }
 
@@ -321,7 +316,6 @@ body.sidebar-collapsed .sidebar-collapse {
 
 .brand {
   display: flex;
-
   align-items: center;
 
   gap: 0;
@@ -348,9 +342,7 @@ body.sidebar-collapsed .sidebar-collapse {
 
 .brand:hover {
   background: var(--bg-sidebar);
-
   color: var(--text-strong);
-
   text-decoration: none;
 }
 
@@ -373,7 +365,6 @@ body.sidebar-collapsed .sidebar-collapse {
   color: #c8c8c3;
 
   font-size: 1.30rem;
-
   font-weight: 700;
 
   letter-spacing: -0.02em;
@@ -402,11 +393,9 @@ body.sidebar-collapsed .sidebar-collapse {
   color: var(--text-muted);
 
   font-size: 0.65rem;
-
   font-weight: 700;
 
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
 }
 
@@ -426,7 +415,6 @@ body.sidebar-collapsed .sidebar-collapse {
   outline: none;
 
   background: var(--bg-code);
-
   color: var(--text);
 
   box-shadow: none;
@@ -493,7 +481,6 @@ body.sidebar-collapsed .sidebar-collapse {
   padding: 8px 10px;
 
   border: 1px solid transparent;
-
   border-radius: 7px;
 
   color: #c4c4bf;
@@ -588,7 +575,6 @@ body.sidebar-collapsed .sidebar-collapse {
 
 .sidebar-menu details li {
   margin: 0;
-
   padding: 0;
 }
 
@@ -747,7 +733,6 @@ body.sidebar-collapsed .sidebar-collapse {
   padding: 0 10px;
 
   border: 1px solid var(--border);
-
   border-radius: 7px;
 
   background: rgba(255, 255, 255, 0.03);
@@ -755,7 +740,6 @@ body.sidebar-collapsed .sidebar-collapse {
   color: var(--text);
 
   font-size: 0.82rem;
-
   font-weight: 600;
 
   text-decoration: none;
@@ -1437,6 +1421,7 @@ pre:hover .copy-btn,
 }
 
 @media (hover: none) {
+
   .copy-btn {
     opacity: 1;
   }
@@ -1459,7 +1444,6 @@ table {
   border-radius: 8px;
 
   border-collapse: separate;
-
   border-spacing: 0;
 
   background: #20201e;
@@ -1605,136 +1589,141 @@ blockquote p:last-child {
 
 
 /* =========================================================
-   Menu mobile
+   Botão mobile
+   =========================================================
+
+   DESATIVADO.
+
+   A navegação agora utiliza somente a sidebar fixa
+   e o botão interno de minimizar/expandir.
+
    ========================================================= */
 
 .menu-toggle {
-  display: none;
-
-  position: fixed;
-
-  top: 16px;
-  left: 16px;
-
-  z-index: 40;
-
-  align-items: center;
-  justify-content: center;
-
-  min-width: 54px;
-  min-height: 38px;
-
-  padding: 0 12px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 7px;
-
-  background: rgba(26, 26, 24, 0.96);
-
-  color: var(--text-strong);
-
-  font-size: 0.68rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.07em;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  backdrop-filter: blur(12px);
+  display: none !important;
 }
 
-.menu-toggle:hover {
-  border-color: #55554e;
 
-  background: #292927;
-}
+/* =========================================================
+   Backdrop
+   ========================================================= */
 
 .backdrop {
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 15;
-
-  background: rgba(0, 0, 0, 0.64);
-}
-
-.backdrop[hidden] {
-  display: none;
+  display: none !important;
 }
 
 
 /* =========================================================
    Responsividade
+   =========================================================
+
+   IMPORTANTE:
+
+   A sidebar NÃO desaparece quando a viewport fica menor
+   por causa de zoom.
+
+   Ela permanece retraída com 54px.
+
    ========================================================= */
 
 @media (max-width: 900px) {
 
-  .page-shell {
-    margin-left: 0;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
+  /* -------------------------------------------------------
+     Sidebar permanece retraída
+     ------------------------------------------------------- */
 
   .sidebar {
-    width: min(86vw, 320px);
+    width: var(--sidebar-collapsed-width);
 
-    transform: translateX(-105%);
+    transform: none;
+
+    box-shadow: none;
 
     transition:
-      transform 0.22s ease;
-
-    box-shadow:
-      14px 0 42px rgba(0, 0, 0, 0.35);
+      width 0.22s ease;
   }
 
-  /* =======================================================
-     No mobile a sidebar minimizada NÃO existe.
-     Ela volta ao comportamento de menu deslizante.
-     ======================================================= */
+  /* -------------------------------------------------------
+     Conteúdo deixa espaço para a sidebar
+     ------------------------------------------------------- */
+
+  .page-shell {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+
+  /* -------------------------------------------------------
+     Conteúdo da sidebar continua escondido
+     ------------------------------------------------------- */
+
+  .brand,
+  .search-box,
+  .sidebar-menu,
+  .sidebar-footer {
+    visibility: hidden;
+
+    opacity: 0;
+
+    pointer-events: none;
+  }
+
+  /* -------------------------------------------------------
+     Mantém a sidebar retraída mesmo se houver a classe
+     sidebar-collapsed
+     ------------------------------------------------------- */
 
   body.sidebar-collapsed .sidebar {
-    width: min(86vw, 320px);
+    width: var(--sidebar-collapsed-width);
 
-    transform: translateX(-105%);
+    transform: none;
   }
 
   body.sidebar-collapsed .page-shell {
-    margin-left: 0;
+    margin-left: var(--sidebar-collapsed-width);
   }
 
   body.sidebar-collapsed .brand,
   body.sidebar-collapsed .search-box,
   body.sidebar-collapsed .sidebar-menu,
   body.sidebar-collapsed .sidebar-footer {
-    visibility: visible;
+    visibility: hidden;
 
-    opacity: 1;
+    opacity: 0;
 
-    pointer-events: auto;
+    pointer-events: none;
   }
+
+  /* -------------------------------------------------------
+     Botão continua dentro da sidebar
+     ------------------------------------------------------- */
 
   .sidebar-collapse {
-    display: none;
+    display: flex;
+
+    right: 11px;
   }
+
+  body.sidebar-collapsed .sidebar-collapse {
+    display: flex;
+
+    right: 11px;
+  }
+
+  /* -------------------------------------------------------
+     Remove comportamento de menu deslizante
+     ------------------------------------------------------- */
 
   body.menu-open {
-    overflow: hidden;
+    overflow: auto;
   }
 
-  body.menu-open .sidebar {
-    transform: translateX(0);
-  }
-
+  body.menu-open .sidebar,
   body.sidebar-collapsed.menu-open .sidebar {
-    transform: translateX(0);
+    transform: none;
   }
+
+  /* -------------------------------------------------------
+     Conteúdo principal
+     ------------------------------------------------------- */
 
   main {
     width: calc(100% - 32px);
@@ -1766,6 +1755,10 @@ blockquote p:last-child {
   }
 }
 
+
+/* =========================================================
+   Telas muito pequenas
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1850,12 +1843,12 @@ blockquote p:last-child {
   background: #373733;
 }
 
+
 /* =========================================================
-   Ocultar botão mobile em qualquer situação de zoom
+   Garantia final:
+   botão mobile nunca aparece
    ========================================================= */
 
-@media (min-width: 901px) {
-  .menu-toggle {
-    display: none !important;
-  }
+.menu-toggle {
+  display: none !important;
 }
