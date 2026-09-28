@@ -59,6 +59,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   </ul>
 </details>
 
+<details>
   <summary>Ansible</summary>
   <ul>
     <li><a href="{{ 'devops/ansible/index.html' | relative_url }}">Visão Geral</a></li>
@@ -68,6 +69,7 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   </ul>
 </details>
 
+<details>
   <summary>Documentações</summary>
   <ul>
     <li><a href="{{ 'devops/documentacao/index.html' | relative_url }}">Visão Geral</a></li>
