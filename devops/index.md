@@ -3,11 +3,6 @@ layout: default
 title: DevOps
 ---
 # DevOps
-{:.no_toc}
-
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
 
 ---
 
@@ -64,29 +59,24 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   </ul>
 </details>
 
+  <summary>Ansible</summary>
+  <ul>
+    <li><a href="{{ 'devops/ansible/index.html' | relative_url }}">Visão Geral</a></li>
+    <li><a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">Inventários</a></li>
+    <li><a href="{{ 'devops/ansible/modulos.html' | relative_url }}">Módulos</a></li>
+    <li><a href="{{ 'devops/docker/inventarios.html' | relative_url }}">Playbooks</a></li>
+  </ul>
+</details>
 
+  <summary>Documentações</summary>
+  <ul>
+    <li><a href="{{ 'devops/documentacao/index.html' | relative_url }}">Visão Geral</a></li>
+    <li><a href="{{ 'devops/documentacao/mrkdown.html' | relative_url }}">Markdown</a></li>
+    <li><a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">Jekyll</a></li>
+  </ul>
+</details>
 
 ---
-* [Ansible](ansible/index.md)
-  * [Inventários]()
-  * [Módulos]()
-  * [Playbooks]()
-
-* [Documentações](documentacao/index.md)
-  * [Markdown]()
-    * [Guia Completo]()
-	* [Blocos de Código]()
-	* [Tabelas]()
-	* [Links e Imagens]()
-	* [Listas]()
-
-  * [Jekyll]()
-    * [Guia Completo]()
-	* [Layouts]()
-	* [Liquid]()
-	* [Includes]()
-	* [Collections]()
-	* [GitHub Pages]()
 
 O fluxo pode ser resumido assim:
 
