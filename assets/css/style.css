@@ -12,9 +12,9 @@
   --bg-code: #151513;
   --bg-hover: #2a2a27;
 
-  --text: #d8d8d2;
-  --text-strong: #f4f4ef;
-  --text-muted: #999992;
+  --text: #c8c8c3;
+  --text-strong: #d8d8d3;
+  --text-muted: #a5a5a0;
 
   --border: #373733;
   --border-soft: #30302c;
@@ -178,13 +178,13 @@ main {
   border-radius: 10px;
   color: var(--text-strong);
   text-decoration: none;
-  background: hsl(55, 58%, 31%)
+  background: hsl(55, 58%, 31%);
   overflow: hidden;
   transition: background 0.16s ease;
 }
 
 .brand:hover {
-  background: hsl(55, 58%, 31%)
+  background: hsl(55, 58%, 31%);
   color: var(--text-strong);
   text-decoration: none;
 }
@@ -194,7 +194,7 @@ main {
   height: 52px;
   object-fit: contain;
   flex: 0 0 auto;
-  background: hsl(55, 58%, 31%)
+  background: hsl(55, 58%, 31%);
   display: block;
 }
 
@@ -205,7 +205,7 @@ main {
   font-weight: 700;
   letter-spacing: -0.02em;
   padding: 8px 14px 8px 12px;
-  background: hsl(55, 58%, 31%)
+  background: hsl(55, 58%, 31%);
   line-height: 24px;
 }
 
@@ -251,7 +251,7 @@ main {
 .search-input::placeholder,
 #searchInput::placeholder,
 .global-search-input::placeholder {
-  color: #777770;
+  color: #858580;
 }
 
 .search-box input:hover,
@@ -292,7 +292,7 @@ main {
   padding: 8px 10px;
   border: 1px solid transparent;
   border-radius: 7px;
-  color: #c5c5be;
+  color: #c4c4bf;
   font-size: 0.88rem;
   text-decoration: none;
   transition:
@@ -376,7 +376,7 @@ main {
   padding: 6px 10px 6px 28px;
   border-left: 1px solid var(--border);
   border-radius: 0 6px 6px 0;
-  color: #9d9d96;
+  color: #a8a8a3;
   font-size: 0.82rem;
   line-height: 1.35;
   text-decoration: none;
@@ -766,7 +766,7 @@ hr {
 
 .home-card-count {
   margin-top: 5px;
-  color: #8a8a83;
+  color: #999994;
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -896,7 +896,7 @@ pre {
   border: 1px solid #353530;
   border-radius: 10px;
   background: var(--bg-code);
-  color: #deded8;
+  color: #cecec9;
   box-shadow: none;
 }
 
@@ -904,7 +904,7 @@ code {
   padding: 2px 5px;
   border-radius: 4px;
   background: #2a2a27;
-  color: #e7e7e0;
+  color: #d3d3ce;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.88em;
 }
@@ -944,7 +944,7 @@ pre.flow-horizontal code {
   border: 1px solid transparent;
   border-radius: 6px;
   background: transparent;
-  color: #92928b;
+  color: #999994;
   cursor: pointer;
   opacity: 0;
   transition:
@@ -962,7 +962,7 @@ pre:hover .copy-btn,
 .copy-btn:hover {
   border-color: #474742;
   background: #292927;
-  color: #f1f1eb;
+  color: #dcdcd7;
 }
 
 .copy-btn:focus-visible {
@@ -1026,7 +1026,7 @@ th {
 }
 
 td {
-  color: #d2d2cc;
+  color: #c9c9c4;
   font-size: 0.88rem;
 }
 
@@ -1044,7 +1044,7 @@ blockquote {
   border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
   background: var(--accent-soft);
-  color: #d7d7d1;
+  color: #c9c9c4;
 }
 
 blockquote p:last-child {
@@ -1086,7 +1086,7 @@ blockquote p:last-child {
 }
 
 #markdown-toc a {
-  color: #bdbdb6;
+  color: #b5b5b0;
   font-size: 0.88rem;
   text-decoration: none;
 }
@@ -1110,7 +1110,7 @@ blockquote p:last-child {
   padding: 20px 32px;
   border-top: 1px solid var(--border-soft);
   background: var(--bg-sidebar);
-  color: #8f8f88;
+  color: #969691;
   font-size: 0.8rem;
 }
 
