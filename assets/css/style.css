@@ -1849,3 +1849,13 @@ blockquote p:last-child {
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #373733;
 }
+
+/* =========================================================
+   Ocultar botão mobile em qualquer situação de zoom
+   ========================================================= */
+
+@media (min-width: 901px) {
+  .menu-toggle {
+    display: none !important;
+  }
+}
