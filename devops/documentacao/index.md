@@ -21,7 +21,7 @@ Documentação sobre a linguagem de marcação utilizada para escrever os conte�
 <details>
   <summary>Markdown</summary>
   <ul>
-    <li><a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">Markdown - Guia Completo</a></li>
+    <li><a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">Guia Completo</a></li>
     <li><a href="{{ 'devops/documentacao/markdonw-bloco-de-codigos.html' | relative_url }}">Bloco de Código</a></li>
     <li><a href="{{ 'devops/documentacao/markdown-tabelas.html' | relative_url }}">Tabelas</a></li>
     <li><a href="{{ 'devops/documentacao/markdown-links-imagens.html' | relative_url }}">Links e Imagens</a></li>
