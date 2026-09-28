@@ -9,10 +9,6 @@ Documentação e estudos sobre **DNS (Domain Name System)**, com foco em adminis
 
 ---
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
-
 ## Conteúdo
 
 * [BIND — Guia Completo Encaminhamento Condicional de DNS](bind-encaminhamentodns.md)
