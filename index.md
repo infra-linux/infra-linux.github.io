@@ -65,18 +65,18 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 
 <section class="home-grid" id="areas-documentadas" aria-label="Áreas documentadas">
 
-  <a class="home-card home-card-large" href="{{ 'linux/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Linux</h3>
-    <p>Administração de sistemas, comandos, armazenamento, serviços e certificações.</p>
-  </a>
-
   <a class="home-card home-card-large" href="{{ 'devops/' | relative_url }}">
     <span class="home-card-icon">⚙</span>
     <h3>DevOps</h3>
     <p>Git, CI/CD, Jenkins, Ansible, Docker, Kubernetes e automação.</p>
   </a>
 
+  <a class="home-card home-card-large" href="{{ 'linux/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
+    <h3>Linux</h3>
+    <p>Administração de sistemas, comandos, armazenamento, serviços e certificações.</p>
+  </a>
+  
   <a class="home-card" href="{{ 'redes/' | relative_url }}">
     <span class="home-card-icon">◎</span>
     <h3>Redes</h3>
