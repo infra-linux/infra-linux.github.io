@@ -187,8 +187,8 @@ main {
 }
 
 .brand-icon {
-  width: 64px;
-  height: 64px;
+  width: 46px;
+  height: 46px;
   object-fit: contain;
   flex: 0 0 auto;
   background: var(--bg-sidebar);
