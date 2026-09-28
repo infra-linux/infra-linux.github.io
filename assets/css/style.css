@@ -152,6 +152,10 @@ main {
    Barra lateral
    ========================================================= */
 
+:root {
+  --sidebar-collapsed-width: 54px;
+}
+
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
@@ -163,21 +167,100 @@ main {
   overflow: hidden;
   background: var(--bg-sidebar);
   border-right: 1px solid var(--border-soft);
+
+  transition:
+    width 0.22s ease,
+    box-shadow 0.22s ease;
 }
+body.sidebar-collapsed .sidebar {
+  width: min(86vw, 320px);
+}
+
+body.sidebar-collapsed .page-shell {
+  margin-left: 0;
+}
+
+body.sidebar-collapsed .brand,
+body.sidebar-collapsed .search-box,
+body.sidebar-collapsed .sidebar-menu,
+body.sidebar-collapsed .sidebar-footer {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------
+   Botão para minimizar a sidebar
+   --------------------------------------------------------- */
+
+.sidebar-collapse {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background: var(--bg-sidebar);
+  color: var(--text-muted);
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.sidebar-collapse:hover {
+  border-color: #55554e;
+  background: var(--bg-hover);
+  color: var(--text-strong);
+}
+
+.sidebar-collapse span {
+  display: block;
+  margin-top: -2px;
+}
+
+/* ---------------------------------------------------------
+   Marca
+   --------------------------------------------------------- */
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0;
+
   min-height: 60px;
+
   margin: 12px 14px 5px;
   padding: 8px 12px;
+
   border-radius: 10px;
+
   color: var(--text-strong);
   text-decoration: none;
+
   background: var(--bg-sidebar);
+
   overflow: hidden;
-  transition: background 0.16s ease;
+
+  transition:
+    background 0.16s ease;
 }
 
 .brand:hover {
@@ -189,23 +272,72 @@ main {
 .brand-icon {
   width: 42px;
   height: 42px;
+
   object-fit: contain;
   flex: 0 0 auto;
+
   background: var(--bg-sidebar);
+
   display: block;
 }
 
 .brand-name {
   margin-left: auto;
+
   color: #c8c8c3;
+
   font-size: 1.30rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+
   padding: 8px 14px 8px 12px;
+
   background: var(--bg-sidebar);
+
   line-height: 24px;
 }
 
+/* ---------------------------------------------------------
+   Sidebar minimizada
+   --------------------------------------------------------- */
+
+body.sidebar-collapsed .sidebar {
+  width: var(--sidebar-collapsed-width);
+}
+
+body.sidebar-collapsed .page-shell {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+body.sidebar-collapsed .brand,
+body.sidebar-collapsed .search-box,
+body.sidebar-collapsed .sidebar-menu,
+body.sidebar-collapsed .sidebar-footer {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.sidebar-collapsed .sidebar-collapse {
+  right: 12px;
+}
+
+body.sidebar-collapsed .sidebar-collapse span {
+  transform: translateX(1px);
+}
+
+/* ---------------------------------------------------------
+   Conteúdo da sidebar
+   --------------------------------------------------------- */
+
+.sidebar-menu,
+.search-box,
+.sidebar-footer,
+.brand {
+  transition:
+    opacity 0.12s ease,
+    visibility 0.12s ease;
+}
 
 /* =========================================================
    Busca lateral

@@ -56,15 +56,25 @@
     id="menuToggle"
     type="button"
     aria-controls="sidebar"
-    aria-expanded="false"
-    aria-label="Abrir menu"
+    aria-expanded="true"
+    aria-label="Fechar barra lateral"
   >
-    Menu
+    <span class="menu-toggle-icon" aria-hidden="true">‹</span>
   </button>
 
   <div class="backdrop" id="backdrop" hidden></div>
 
   <aside class="sidebar" id="sidebar">
+  
+    <button
+      class="sidebar-collapse"
+      id="sidebarCollapse"
+      type="button"
+      aria-label="Minimizar barra lateral"
+      title="Minimizar barra lateral"
+    >
+      <span aria-hidden="true">‹</span>
+    </button>
 
     <!-- =====================================================
          Marca
@@ -890,6 +900,9 @@
       const toggle =
         document.getElementById('menuToggle');
 
+      const sidebarCollapse =
+        document.getElementById('sidebarCollapse');
+
       const backdrop =
         document.getElementById('backdrop');
 
@@ -930,6 +943,48 @@
         backdrop.hidden = true;
 
       };
+
+
+
+const toggleSidebar = () => {
+  const collapsed =
+    body.classList.toggle('sidebar-collapsed');
+
+  sidebarCollapse.setAttribute(
+    'aria-label',
+    collapsed
+      ? 'Expandir barra lateral'
+      : 'Minimizar barra lateral'
+  );
+
+  sidebarCollapse.setAttribute(
+    'title',
+    collapsed
+      ? 'Expandir barra lateral'
+      : 'Minimizar barra lateral'
+  );
+
+  sidebarCollapse.querySelector('span').textContent =
+    collapsed ? '›' : '‹';
+
+  toggle.setAttribute(
+    'aria-label',
+    collapsed
+      ? 'Expandir barra lateral'
+      : 'Fechar barra lateral'
+  );
+
+  toggle.setAttribute(
+    'aria-expanded',
+    String(!collapsed)
+  );
+};
+
+sidebarCollapse.addEventListener(
+  'click',
+  toggleSidebar
+);
+
 
 
       toggle.addEventListener('click', () => {
