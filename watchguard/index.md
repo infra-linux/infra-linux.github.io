@@ -4,14 +4,8 @@ title: WatchGuard
 ---
 
 # WatchGuard
-{:.no_toc}
-
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
 
 ---
-
 
 ## Introdução
 

@@ -2,15 +2,10 @@
 layout: default
 title: Redes
 ---
-# Redes
-{:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
+# Redes
 
 ---
-
 
 ## Introdução
 

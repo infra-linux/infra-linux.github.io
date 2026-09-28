@@ -2,15 +2,10 @@
 layout: default
 title: Linux
 ---
-# Linux
-{:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
+# Linux
 
 ---
-
 
 ## Introdução
 

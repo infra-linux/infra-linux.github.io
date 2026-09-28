@@ -2,12 +2,8 @@
 layout: default
 title: Troubleshooting
 ---
-# Troubleshooting
-{:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
+# Troubleshooting
 
 ---
 

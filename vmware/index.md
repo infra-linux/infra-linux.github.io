@@ -2,15 +2,10 @@
 layout: default
 title: VMware
 ---
-# VMware
-{:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
+# VMware
 
 ---
-
 
 ## Introdução
 

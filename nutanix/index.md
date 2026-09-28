@@ -2,16 +2,10 @@
 layout: default
 title: Nutanix
 ---
+
 # Nutanix
 
-
-## Sumário
-
-1. [Introdução](#introducao)
-2. [Conteúdo](#conteudo)
-
 ---
-
 
 ## Introdução
 

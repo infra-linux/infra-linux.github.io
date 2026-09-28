@@ -2,12 +2,8 @@
 layout: default
 title: Squid
 ---
-# Squid
-{:.no_toc}
 
-<div class="toc-title">Sumário</div>
-* Sumário:
-{:toc}
+# Squid
 
 ---
 
