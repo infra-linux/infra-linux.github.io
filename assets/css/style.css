@@ -154,7 +154,7 @@ main {
   width: min(calc(100% - 30px), var(--content-width));
   flex: 1 0 auto;
   min-height: calc(100vh - 110px);
-  margin: 15px auto 30px;
+  margin: 0px auto 0px;
   padding: 26px 22px 34px;
   background: var(--bg-main);
   border: 1px solid var(--border-soft);
