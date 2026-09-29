@@ -141,15 +141,24 @@ input:focus-visible {
   transition: margin-left 0.22s ease;
 }
 
+/*
+ * Quadro de conteúdo.
+ * Estes valores valem para TODAS as larguras de tela
+ * (os blocos de @media mais abaixo não redefinem o main).
+ *
+ * width   -> 12px = folga total nas duas laterais (6px de cada lado)
+ * margin  -> topo | laterais (auto = centralizado) | base
+ * padding -> topo | laterais | base (espaço interno)
+ */
 main {
-  width: min(calc(100% - 48px), var(--content-width));
+  width: min(calc(100% - 12px), var(--content-width));
   flex: 1 0 auto;
   min-height: calc(100vh - 110px);
-  margin: 0 auto 36px;
-  padding: 34px 38px 46px;
+  margin: 15px auto 30px;
+  padding: 26px 22px 34px;
   background: var(--bg-main);
   border: 1px solid var(--border-soft);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 18px 50px var(--shadow);
 }
 
@@ -283,7 +292,6 @@ body.sidebar-collapsed .brand-icon {
   height: 32px;
   margin: 0;
   padding: 0;
-  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -432,17 +440,13 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   text-decoration: none;
 }
 
+/* Logo preenchido (SVG inline): a cor vem de "color" via currentColor */
 .brand-icon {
-display: block;
-width: 32px;
-height: 32px;
-flex: 0 0 auto;
-stroke: currentColor;
-fill: none;
-stroke-width: 2;
-stroke-linecap: round;
-stroke-linejoin: round;
-color: var(--accent);
+  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  color: var(--accent);
 }
 
 .brand-name {
@@ -1478,6 +1482,9 @@ blockquote p:last-child {
    * e a barra expandida abre por cima dele.
    * Quem controla retrair/expandir é a classe
    * "sidebar-collapsed" (definida pelo JavaScript).
+   *
+   * O quadro "main" NÃO é redefinido aqui: ele usa
+   * os mesmos valores do bloco principal, em todas as telas.
    */
 
   .sidebar {
@@ -1491,14 +1498,6 @@ blockquote p:last-child {
   .page-shell,
   body.sidebar-collapsed .page-shell {
     margin-left: var(--sidebar-collapsed-width);
-  }
-
-  main {
-    width: calc(100% - 12px);
-    min-height: auto;
-    margin: 15px auto 30px;
-    padding: 26px 22px 34px;
-    border-radius: 12px;
   }
 
   .home-grid {
@@ -1528,12 +1527,6 @@ blockquote p:last-child {
 
   body {
     font-size: 14px;
-  }
-
-  main {
-    width: calc(100% - 24px);
-    margin-top: 0;
-    padding: 22px 18px 30px;
   }
 
   h1 {
