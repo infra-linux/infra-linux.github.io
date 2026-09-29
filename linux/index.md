@@ -5,6 +5,16 @@ title: Linux
 
 # Linux
 
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="4 7 9 12 4 17"/>
+  <line x1="11" y1="17" x2="20" y2="17"/>
+</svg>
+  Linux
+</h1>
+
+
+
 ---
 
 ## Introdução
