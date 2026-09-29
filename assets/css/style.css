@@ -292,11 +292,12 @@ body.sidebar-collapsed .brand-name {
 }
 
 body.sidebar-collapsed .sidebar-collapse {
-  top: 48px;
-  right: 11px;
-  display: flex;
+  display: none;
 }
 
+body.sidebar-collapsed .brand {
+  cursor: pointer;
+}
 
 /* =========================================================
    Transições da sidebar

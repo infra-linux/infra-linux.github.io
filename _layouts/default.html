@@ -1059,9 +1059,14 @@ content="{{ page.description | default: site.description | escape }}"
           'span'
         ).textContent =
           collapsed ? '›' : '‹';
-
       };
 
+      brand.setAttribute(
+        'aria-label',
+        collapsed
+          ? 'Expandir barra lateral'
+          : 'Página inicial do Pangolim'
+      );
 
       sidebarCollapse.addEventListener(
         'click',
