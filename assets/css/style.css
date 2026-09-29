@@ -1596,8 +1596,8 @@ blockquote p:last-child {
 }
 
 .home-title-icon {
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.6em;
+  height: 1.6em;
   flex-shrink: 0;
   color: var(--accent);
   transform: translateY(0.08em);
