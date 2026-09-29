@@ -14,7 +14,6 @@ title: Redes
     </svg>
   </a>
   Redes
-</h1>
 
 </h1>
 
