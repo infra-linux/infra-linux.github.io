@@ -1136,7 +1136,7 @@ hr {
 
 
 /* =========================================================
-   Código
+   Código / Terminal
    ========================================================= */
 
 pre {
@@ -1144,23 +1144,31 @@ pre {
   margin: 18px 0;
   padding: 16px;
   overflow-x: auto;
-  border: 1px solid #353530;
+
+  border: 1px solid #303630;
   border-radius: 10px;
-  background: var(--bg-code);
-  color: #cecec9;
-  box-shadow: none;
+
+  background: #0d0f0d;
+  color: #d4d4d4;
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 code {
   padding: 2px 5px;
   border-radius: 4px;
-  background: #2a2a27;
-  color: #d2d2cd;
+
+  background: #242724;
+  color: #d4d4d4;
+
   font-family:
     "SFMono-Regular",
     Consolas,
     "Liberation Mono",
     monospace;
+
   font-size: 0.88em;
 }
 
@@ -1170,6 +1178,71 @@ pre code {
   background: transparent;
   color: inherit;
 }
+
+/* ---------------------------------------------------------
+   Syntax Highlighting
+   --------------------------------------------------------- */
+
+/* Palavras-chave */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr {
+  color: #ff7b72;
+}
+
+/* Comandos / funções */
+.highlight .nb,
+.highlight .nf,
+.highlight .fm {
+  color: #7ee787;
+}
+
+/* Strings */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc {
+  color: #a5d6ff;
+}
+
+/* Números */
+.highlight .m,
+.highlight .mi,
+.highlight .mf {
+  color: #79c0ff;
+}
+
+/* Comentários */
+.highlight .c,
+.highlight .c1,
+.highlight .cm {
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* Operadores */
+.highlight .o,
+.highlight .ow {
+  color: #d2a8ff;
+}
+
+/* Variáveis */
+.highlight .n,
+.highlight .nv {
+  color: #ffa657;
+}
+
+/* Parâmetros / atributos */
+.highlight .na {
+  color: #79c0ff;
+}
+
+/* ---------------------------------------------------------
+   Diagramas
+   --------------------------------------------------------- */
 
 pre.flow-diagram {
   padding: 12px 14px;
@@ -1182,7 +1255,6 @@ pre.flow-horizontal code {
   white-space: normal;
   line-height: 1.6;
 }
-
 
 /* =========================================================
    Botão copiar código
