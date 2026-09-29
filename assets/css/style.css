@@ -209,9 +209,7 @@ body.sidebar-collapsed .page-shell {
 body.sidebar-collapsed .search-box,
 body.sidebar-collapsed .sidebar-menu,
 body.sidebar-collapsed .sidebar-footer {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 
@@ -314,7 +312,7 @@ body.sidebar-collapsed .sidebar-dock {
   gap: 4px;
   min-height: 0;
   margin-top: 58px;
-  padding: 10px 0 4px;
+  padding: 10px 0 14px;
   overflow-y: auto;
   border-top: 1px solid var(--border-soft);
   scrollbar-width: none;
