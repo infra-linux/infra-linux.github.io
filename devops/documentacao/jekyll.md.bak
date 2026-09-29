@@ -151,7 +151,7 @@ nivel: intermediário
 
 Jekyll trabalha bem com Markdown:
 
-````markdown
+```markdown
 # Ansible
 
 ## Introdução
@@ -163,7 +163,7 @@ O Ansible é uma ferramenta de automação.
 ```bash
 ansible --version
 ```
-````
+```
 
 O Jekyll converte esse conteúdo para HTML, como `<h1>Ansible</h1>` e `<h2>Introdução</h2>`.
 
@@ -171,7 +171,7 @@ O Jekyll converte esse conteúdo para HTML, como `<h1>Ansible</h1>` e `<h2>Intro
 
 Uma página típica pode ser `ansible-playbooks.md`:
 
-````markdown
+```markdown
 ---
 layout: default
 title: Ansible - Playbooks
@@ -189,7 +189,7 @@ description: Guia de Playbooks do Ansible.
     - name: Verificar hostname
       command: hostname
 ```
-````
+```
 
 O Jekyll combina Front Matter, Markdown, layout e Liquid para produzir HTML.
 
@@ -271,7 +271,7 @@ Para inserir o componente:
 
 Use includes para header, menu, footer, busca ou outros componentes repetidos. Isso reduz duplicação e facilita manutenção.
 
-```liquid
+```html
 <body>
   {% include header.html %}
   {% include navigation.html %}
@@ -530,7 +530,7 @@ Essa estrutura separa código, documentação, dados e assets.
 
 Arquivo: `devops/ansible/playbooks.md`.
 
-````markdown
+```markdown
 ---
 layout: default
 title: Ansible - Playbooks
@@ -565,7 +565,7 @@ ansible-playbook --syntax-check playbook.yml
 ```bash
 ansible-playbook playbook.yml -vvv
 ```
-````
+```
 
 ## 28. `_site` e `.gitignore`
 
