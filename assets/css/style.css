@@ -151,7 +151,7 @@ input:focus-visible {
  * padding -> topo | laterais | base (espaço interno)
  */
 main {
-  width: min(calc(100% - 12px), var(--content-width));
+  width: min(calc(100% - 30px), var(--content-width));
   flex: 1 0 auto;
   min-height: calc(100vh - 110px);
   margin: 15px auto 30px;
