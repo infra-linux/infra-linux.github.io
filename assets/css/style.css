@@ -1569,6 +1569,10 @@ blockquote p:last-child {
   }
 }
 
+/* =========================================================
+   Ícones dos Títulos
+   ========================================================= */
+
 .page-title {
   display: flex;
   align-items: center;
@@ -1576,7 +1580,8 @@ blockquote p:last-child {
 }
 
 .title-icon {
-  width: 1.8em;   /* acompanha o tamanho da fonte do título */
+  width: 1.1em;   /* acompanha o tamanho da fonte do título */
   height: 1.1em;
   flex-shrink: 0;
+  transform: translateY(0.08em);
 }
