@@ -299,6 +299,103 @@ body.sidebar-collapsed .sidebar-collapse {
 
 
 /* =========================================================
+   Dock de ícones (só com a barra retraída)
+   ========================================================= */
+
+.sidebar-dock {
+  display: none;
+}
+
+body.sidebar-collapsed .sidebar-dock {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 0;
+  margin-top: 58px;
+  padding: 10px 0 14px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border-soft);
+  scrollbar-width: none;
+}
+
+body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
+  display: none;
+}
+
+.dock-item {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.dock-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dock-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.dock-item.active {
+  background: var(--accent-soft);
+  color: var(--text-strong);
+}
+
+/* Indicador da seção atual, como no dock do Ubuntu */
+.dock-item.active::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 3px;
+  height: 18px;
+  border-radius: 0 3px 3px 0;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+.dock-tooltip {
+  position: fixed;
+  z-index: 200;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg-card);
+  color: var(--text-strong);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: opacity 0.12s ease;
+}
+
+.dock-tooltip.visible {
+  opacity: 1;
+}
+
+
+/* =========================================================
    Transições da sidebar
    ========================================================= */
 
