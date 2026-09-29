@@ -74,7 +74,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 
   </div>
 
-  <div class="home-diagram-content">
+</section>
 
 ```mermaid
 flowchart TB
@@ -120,9 +120,6 @@ flowchart TB
     class L,R,D,M,V,S category;
     class L1,L2,L3,R1,R2,R3,D1,D2,D3,D4,M1,M2,M3,V1,V2,S1,S2,S3 item;
 ```
-
-  </div>
-</section>
 
 <section class="home-tech" aria-labelledby="principais-tecnologias">
   <div class="home-section-heading">
