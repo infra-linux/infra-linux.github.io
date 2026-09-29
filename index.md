@@ -1,5 +1,4 @@
 ---
-
 layout: default
 title: Pangolim
 description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting.
@@ -9,7 +8,31 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
 
-<h1>Pangolim</h1>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+  <symbol id="icon-pangolin" viewBox="0 0 24 24">
+    <path d="M12 4
+             A8 8 0 1 0 20 12
+             A5 5 0 1 1 12 4"/>
+
+    <path d="M10 8l2 2"/>
+    <path d="M13 7l2 2"/>
+    <path d="M15 10l2 2"/>
+    <path d="M11 11l2 2"/>
+    <path d="M14 13l2 2"/>
+
+    <circle cx="18" cy="8" r="0.6"/>
+    <path d="M19 8h2"/>
+  </symbol>
+
+</svg>
+
+<h1 class="home-title">
+<svg class="home-title-icon" aria-hidden="true">
+#icon-pangolin</use>
+</svg>
+Pangolim
+</h1>
 
 <p>
   Um espaço para estudar, documentar e consultar conhecimentos de

@@ -433,12 +433,15 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 }
 
 .brand-icon {
-  display: block;
-  width: 32px;
-  height: 32px;
-  flex: 0 0 auto;
-  object-fit: contain;
-  background: var(--bg-sidebar);
+display: block;
+width: 32px;
+height: 32px;
+flex: 0 0 auto;
+stroke: currentColor;
+fill: none;
+stroke-width: 2;
+stroke-linecap: round;
+stroke-linejoin: round;
 }
 
 .brand-name {
