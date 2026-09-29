@@ -314,7 +314,7 @@ body.sidebar-collapsed .sidebar-dock {
   gap: 4px;
   min-height: 0;
   margin-top: 58px;
-  padding: 10px 0 14px;
+  padding: 10px 0 4px;
   overflow-y: auto;
   border-top: 1px solid var(--border-soft);
   scrollbar-width: none;
