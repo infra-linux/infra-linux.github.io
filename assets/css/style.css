@@ -1494,9 +1494,9 @@ blockquote p:last-child {
   }
 
   main {
-    width: calc(100% - 32px);
+    width: calc(100% - 16px);
     min-height: auto;
-    margin: 0 auto 30px;
+    margin: 8 auto 30px;
     padding: 26px 22px 34px;
     border-radius: 12px;
   }
