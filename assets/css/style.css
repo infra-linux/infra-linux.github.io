@@ -1455,12 +1455,16 @@ blockquote p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: min(calc(100% - 2 * var(--gap)), var(--content-width));
   min-height: 68px;
+  margin: 0 auto var(--gap);
   padding: 20px 32px;
-  border-top: 1px solid var(--border-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
   background: var(--bg-sidebar);
   color: #999994;
   font-size: 0.8rem;
+  box-shadow: 0 18px 50px var(--shadow);
 }
 
 
