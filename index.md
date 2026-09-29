@@ -8,20 +8,9 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="icon-pangolin-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 3 C17 3 21 7 21 12 C21 17 17 21 12 21 C8 21 5 18 5 14 C5 10 8 8 11 8 C14 8 16 10 16 12 C16 14 15 15 13 15"/>
-    <path d="M9 6l2 2"/>
-    <path d="M12 5l2 2"/>
-    <path d="M15 6l2 2"/>
-    <path d="M17 9l2 2"/>
-    <circle cx="18" cy="8" r="1" fill="currentColor" stroke="none"/>
-  </symbol>
-</svg>
-
 <h1 class="home-title">
-  <svg class="home-title-icon" viewBox="0 0 24 24" aria-hidden="true">
-    <use href="#icon-pangolin-logo"></use>
+  <svg class="home-title-icon" viewBox="0 0 64 64" aria-hidden="true">
+    <path fill="currentColor" d="M33 8 C48 8 58 18 58 31 C58 45 47 56 33 56 C20 56 10 47 10 36 C10 27 17 21 26 21 C34 21 40 27 40 34 C40 40 36 44 30 44 C26 44 23 41 23 37 C23 34 25 32 28 32 C28 35 29 36 31 36 C34 36 35 34 35 32 C35 27 31 25 26 25 C19 25 15 29 15 36 C15 44 22 51 33 51 C44 51 53 43 53 31 C53 20 45 13 33 13 Z"/>
   </svg>
   <span>Pangolim</span>
 </h1>
