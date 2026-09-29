@@ -1,4 +1,5 @@
 ---
+
 layout: default
 title: Pangolim
 description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting.
@@ -7,6 +8,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 <section class="home-dashboard-hero">
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
+
 
 <h1 class="home-title">
   {% include logo.html class="home-title-icon" %}
@@ -38,6 +40,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-intro-content">
     <span class="home-eyebrow">Sobre o projeto</span>
 
+
 <h2 id="objetivo-pangolim">Conhecimento técnico para consulta rápida</h2>
 
 <p>
@@ -51,6 +54,72 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   configurações, procedimentos e troubleshooting, priorizando conteúdos
   que possam ser utilizados tanto no aprendizado quanto no trabalho.
 </p>
+
+  </div>
+</section>
+
+<section class="home-diagram" aria-labelledby="mapa-conhecimento">
+
+  <div class="home-section-heading">
+    <span class="home-eyebrow">Visão geral</span>
+
+<h2 id="mapa-conhecimento">
+  {% include logo.html class="home-title-icon" %}
+  Mapa do conhecimento
+</h2>
+
+<p>
+  As principais áreas documentadas no Pangolim e suas relações.
+</p>
+
+  </div>
+
+  <div class="home-diagram-content">
+
+```mermaid
+flowchart TB
+
+    P["Pangolim<br/>Base de Conhecimento"]
+
+    P --> L["Linux"]
+    P --> R["Redes"]
+    P --> D["DevOps"]
+    P --> M["Monitoramento"]
+    P --> V["Virtualização"]
+    P --> S["Segurança"]
+
+    L --> L1["Serviços"]
+    L --> L2["Armazenamento"]
+    L --> L3["Shell"]
+
+    R --> R1["DNS"]
+    R --> R2["TCP/IP"]
+    R --> R3["Proxy"]
+
+    D --> D1["Git"]
+    D --> D2["Ansible"]
+    D --> D3["Docker"]
+    D --> D4["Kubernetes"]
+
+    M --> M1["Zabbix"]
+    M --> M2["Grafana"]
+    M --> M3["Logs"]
+
+    V --> V1["VMware"]
+    V --> V2["Nutanix"]
+
+    S --> S1["WatchGuard"]
+    S --> S2["Firewall"]
+    S --> S3["VPN"]
+
+    classDef main fill:#242422,stroke:#7D7821,stroke-width:2px,color:#c8c8c3;
+    classDef category fill:#1d1d1b,stroke:#7D7821,stroke-width:1.5px,color:#c8c8c3;
+    classDef item fill:#151513,stroke:#55554d,stroke-width:1px,color:#aaa9a2;
+
+    class P main;
+    class L,R,D,M,V,S category;
+    class L1,L2,L3,R1,R2,R3,D1,D2,D3,D4,M1,M2,M3,V1,V2,S1,S2,S3 item;
+```
 
   </div>
 </section>
@@ -78,7 +147,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
     <h3>Linux</h3>
     <p>Administração de sistemas, comandos, armazenamento, serviços e certificações.</p>
   </a>
-  
+
   <a class="home-card" href="{{ 'redes/' | relative_url }}">
     <span class="home-card-icon">◎</span>
     <h3>Redes</h3>
