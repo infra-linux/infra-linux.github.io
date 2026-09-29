@@ -8,23 +8,17 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
   <div class="home-dashboard-hero-content">
     <span class="home-eyebrow">Base de conhecimento técnica</span>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-
-  <symbol id="icon-pangolin" viewBox="0 0 24 24">
-    <path d="M12 4
-             A8 8 0 1 0 20 12
-             A5 5 0 1 1 12 4"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-pangolin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4 A8 8 0 1 0 20 12 A5 5 0 1 1 12 4"/>
     <path d="M10 8l2 2"/>
     <path d="M13 7l2 2"/>
     <path d="M15 10l2 2"/>
     <path d="M11 11l2 2"/>
     <path d="M14 13l2 2"/>
-
     <circle cx="18" cy="8" r="0.6"/>
     <path d="M19 8h2"/>
   </symbol>
-
 </svg>
 
 <h1 class="home-title">

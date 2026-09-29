@@ -1588,3 +1588,17 @@ blockquote p:last-child {
   flex-shrink: 0;
   transform: translateY(0.08em);
 }
+
+.home-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-title-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  color: var(--accent);
+  transform: translateY(0.08em);
+}
