@@ -159,7 +159,7 @@ input:focus-visible {
 main {
   width: min(calc(100% - 2 * var(--gap)), var(--content-width));
   flex: 1 0 auto;
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 2 * var(--gap));
   margin: var(--gap) auto var(--gap);
   padding: 26px 22px 34px;
   background: var(--bg-main);
