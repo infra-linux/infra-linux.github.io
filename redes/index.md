@@ -11,6 +11,8 @@ title: Redes
     <line x1="12" y1="7" x2="5" y2="17"/>
     <line x1="12" y1="7" x2="19" y2="17"/>
   </svg>
+  Redes
+
 </h1>
 
 ---
