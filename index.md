@@ -9,21 +9,19 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
     <span class="home-eyebrow">Base de conhecimento técnica</span>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="icon-pangolin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 4 A8 8 0 1 0 20 12 A5 5 0 1 1 12 4"/>
-    <path d="M10 8l2 2"/>
-    <path d="M13 7l2 2"/>
-    <path d="M15 10l2 2"/>
-    <path d="M11 11l2 2"/>
-    <path d="M14 13l2 2"/>
-    <circle cx="18" cy="8" r="0.6"/>
-    <path d="M19 8h2"/>
+  <symbol id="icon-pangolin-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3 C17 3 21 7 21 12 C21 17 17 21 12 21 C8 21 5 18 5 14 C5 10 8 8 11 8 C14 8 16 10 16 12 C16 14 15 15 13 15"/>
+    <path d="M9 6l2 2"/>
+    <path d="M12 5l2 2"/>
+    <path d="M15 6l2 2"/>
+    <path d="M17 9l2 2"/>
+    <circle cx="18" cy="8" r="1" fill="currentColor" stroke="none"/>
   </symbol>
 </svg>
 
 <h1 class="home-title">
   <svg class="home-title-icon" viewBox="0 0 24 24" aria-hidden="true">
-    <use href="#icon-pangolin"></use>
+    <use href="#icon-pangolin-logo"></use>
   </svg>
   <span>Pangolim</span>
 </h1>
