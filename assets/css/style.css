@@ -1576,7 +1576,7 @@ blockquote p:last-child {
 }
 
 .title-icon {
-  width: 1.1em;   /* acompanha o tamanho da fonte do título */
+  width: 1.8em;   /* acompanha o tamanho da fonte do título */
   height: 1.1em;
   flex-shrink: 0;
 }
