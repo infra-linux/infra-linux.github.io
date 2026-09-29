@@ -434,8 +434,8 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .brand-icon {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   object-fit: contain;
   background: var(--bg-sidebar);
