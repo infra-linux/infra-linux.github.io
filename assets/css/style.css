@@ -1601,5 +1601,5 @@ blockquote p:last-child {
   height: 1.6em;
   flex-shrink: 0;
   color: var(--accent);
-  transform: translateY(0.08em) rotate(130deg);
+  transform: translateY(0.08em) rotate(135deg);
 }
