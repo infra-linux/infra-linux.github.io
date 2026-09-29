@@ -216,7 +216,8 @@ body.sidebar-collapsed .sidebar-footer {
 
 
 /* =========================================================
-   Botão minimizar / expandir
+   Botão minimizar
+   (aparece só com a barra expandida)
    ========================================================= */
 
 .sidebar-collapse {
@@ -257,7 +258,7 @@ body.sidebar-collapsed .sidebar-footer {
 
 
 /* =========================================================
-   Barra retraída
+   Barra retraída: só o ícone do site, sem botão
    ========================================================= */
 
 body.sidebar-collapsed .brand {
@@ -275,6 +276,7 @@ body.sidebar-collapsed .brand {
   opacity: 1;
   pointer-events: auto;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 body.sidebar-collapsed .brand-icon {
@@ -295,9 +297,6 @@ body.sidebar-collapsed .sidebar-collapse {
   display: none;
 }
 
-body.sidebar-collapsed .brand {
-  cursor: pointer;
-}
 
 /* =========================================================
    Transições da sidebar
@@ -1279,8 +1278,7 @@ blockquote p:last-child {
 
 
 /* =========================================================
-   Botão mobile
-   Desativado
+   Botão mobile (não usado)
    ========================================================= */
 
 .menu-toggle {
@@ -1289,7 +1287,7 @@ blockquote p:last-child {
 
 
 /* =========================================================
-   Backdrop
+   Backdrop (não usado)
    ========================================================= */
 
 .backdrop {
@@ -1303,56 +1301,25 @@ blockquote p:last-child {
 
 @media (max-width: 900px) {
 
+  /*
+   * No celular a barra se comporta como no desktop:
+   * o conteúdo fica sempre ao lado da barra retraída,
+   * e a barra expandida abre por cima dele.
+   * Quem controla retrair/expandir é a classe
+   * "sidebar-collapsed" (definida pelo JavaScript).
+   */
+
   .sidebar {
-    width: var(--sidebar-collapsed-width);
-    transform: none;
-    box-shadow: none;
-  }
-
-  .page-shell {
-    margin-left: var(--sidebar-collapsed-width);
-  }
-
-  .brand,
-  .search-box,
-  .sidebar-menu,
-  .sidebar-footer {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+    box-shadow: 8px 0 30px var(--shadow);
   }
 
   body.sidebar-collapsed .sidebar {
-    width: var(--sidebar-collapsed-width);
-    transform: none;
+    box-shadow: none;
   }
 
+  .page-shell,
   body.sidebar-collapsed .page-shell {
     margin-left: var(--sidebar-collapsed-width);
-  }
-
-  body.sidebar-collapsed .brand,
-  body.sidebar-collapsed .search-box,
-  body.sidebar-collapsed .sidebar-menu,
-  body.sidebar-collapsed .sidebar-footer {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .sidebar-collapse,
-  body.sidebar-collapsed .sidebar-collapse {
-    display: flex;
-    right: 11px;
-  }
-
-  body.menu-open {
-    overflow: auto;
-  }
-
-  body.menu-open .sidebar,
-  body.sidebar-collapsed.menu-open .sidebar {
-    transform: none;
   }
 
   main {
