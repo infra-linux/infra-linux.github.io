@@ -22,10 +22,10 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 </svg>
 
 <h1 class="home-title">
-<svg class="home-title-icon" aria-hidden="true">
-#icon-pangolin</use>
-</svg>
-Pangolim
+  <svg class="home-title-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <use href="#icon-pangolin"></use>
+  </svg>
+  <span>Pangolim</span>
 </h1>
 
 <p>
