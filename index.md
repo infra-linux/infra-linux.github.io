@@ -1,5 +1,4 @@
 ---
-
 layout: default
 title: Pangolim
 description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, DevOps, Kubernetes, monitoramento e troubleshooting.

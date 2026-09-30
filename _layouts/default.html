@@ -978,12 +978,16 @@
 
   <div class="page-shell">
 
-    <main
-      id="conteudo"
-      tabindex="-1"
-    >
-      {{ content }}
-    </main>
+<main
+  id="conteudo"
+  tabindex="-1"
+>
+  {{ content }}
+
+  <p class="last-update">
+    Última atualização: {{ site.time | date: "%d/%m/%Y" }}
+  </p>
+</main>
 
   </div>
 
@@ -1454,14 +1458,3 @@
 </body>
 </html>
 
-  <!-- =======================================================
-       Data da última atualização
-       ======================================================= -->
-
-<main>
-  {{ content }}
-
-  <p class="last-update">
-    Última atualização: {{ site.time | date: "%d/%m/%Y" }}
-  </p>
-</main>

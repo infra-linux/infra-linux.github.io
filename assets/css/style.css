@@ -1616,11 +1616,11 @@ blockquote p:last-child {
 /* =========================================================
    Data da última atualização
    ========================================================= */
-   
+
 .last-update {
-  margin-top: 30px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
