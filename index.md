@@ -7,7 +7,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 
 <section class="home-dashboard-hero">
   <div class="home-dashboard-hero-content">
-    <span class="home-eyebrow">Base de conhecimento técnica</span>
+    <span class="home-eyebrow">Base de conhecimento técnico</span>
 
 
 <h1 class="home-title">
@@ -57,48 +57,6 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 
   </div>
 </section>
-
-<section class="home-diagram" aria-labelledby="mapa-conhecimento">
-
-  <div class="home-section-heading">
-    <span class="home-eyebrow">Visão geral</span>
-
-<h2 id="mapa-conhecimento">
-  {% include logo.html class="home-title-icon" %}
-  Mapa do conhecimento
-</h2>
-
-<p>
-  As principais áreas documentadas no Pangolim e suas relações.
-</p>
-
-  </div>
-
-</section>
-
-```mermaid
-flowchart TB
-
-    P["Pangolim"]
-
-    P --> L["Linux"]
-    P --> R["Redes"]
-    P --> D["DevOps"]
-    P --> M["Monitoramento"]
-    P --> V["Virtualização"]
-    P --> S["Segurança"]
-
-    L --- D
-    R --- S
-    D --- M
-    M --- V
-
-    classDef main fill:#242422,stroke:#7D7821,stroke-width:2px,color:#c8c8c3;
-    classDef area fill:#1d1d1b,stroke:#7D7821,stroke-width:1.5px,color:#c8c8c3;
-
-    class P main;
-    class L,R,D,M,V,S area;
-```
 
 <section class="home-tech" aria-labelledby="principais-tecnologias">
   <div class="home-section-heading">
