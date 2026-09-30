@@ -48,6 +48,12 @@ description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
     <p>Git, CI/CD, Jenkins, Ansible, Docker, Kubernetes e automação.</p>
   </a>
 
+  <a class="home-card home-card-large" href="{{ 'programacao/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
+    <h3>Programação</h3>
+    <p>JavaScript, Markdown, Jekyll e guias de estudo.</p>
+  </a>
+
   <a class="home-card home-card-large" href="{{ 'linux/' | relative_url }}">
     <span class="home-card-icon">◉</span>
     <h3>Linux</h3>

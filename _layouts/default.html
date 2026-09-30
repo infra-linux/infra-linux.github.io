@@ -16,8 +16,12 @@
     {% if page.title %}{{ page.title }} · {% endif %}Pangolim
   </title>
 
-  <link rel="icon" type="image/svg+xml" sizes="any" href="{{ '/images/favicon.svg' | relative_url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/images/favicon.png' | relative_url }}">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="{{ '/images/favicon.png' | relative_url }}"
+  >
 
   <link
     rel="stylesheet"
@@ -47,10 +51,21 @@
          Marca
          ===================================================== -->
 
-      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Página inicial do Pangolim">
-        {% include logo.html class="brand-icon" %}
-        <span class="brand-name">Pangolim</span>
-      </a>
+    <a
+      class="brand"
+      href="{{ '/' | relative_url }}"
+      aria-label="Página inicial do Pangolim"
+    >
+      <img
+        src="{{ '/images/pangolim-128.png' | relative_url }}"
+        alt="Pangolim"
+        class="brand-icon"
+      >
+
+      <span class="brand-name">
+        Pangolim
+      </span>
+    </a>
 
     <!-- =====================================================
          Dock de ícones (visível só com a barra retraída)
@@ -60,6 +75,10 @@
 
       <a class="dock-item" href="{{ 'devops/' | relative_url }}" data-label="DevOps" aria-label="DevOps">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+      </a>
+
+      <a class="dock-item" href="{{ 'programacao/' | relative_url }}" data-label="Programação" aria-label="Programação">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </a>
 
       <a class="dock-item" href="{{ 'linux/index.html' | relative_url }}" data-label="Linux" aria-label="Linux">
@@ -395,70 +414,97 @@
 
           </li>
 
+        </ul>
+
+      </details>
+
+
+      <!-- Programação -->
+
+      <details>
+
+        <summary>
+          <span>Programação</span>
+        </summary>
+
+        <ul>
+
+          <li>
+            <a href="{{ 'programacao/' | relative_url }}">
+              Visão Geral
+            </a>
+          </li>
+
           <li>
 
             <details>
 
               <summary>
-                <span>Documentações</span>
+                <span>JavaScript</span>
               </summary>
 
               <ul>
 
                 <li>
-                  <a href="{{ 'devops/documentacao/index.html' | relative_url }}">
+                  <a href="{{ 'programacao/javascript/' | relative_url }}">
                     Visão Geral
                   </a>
                 </li>
 
                 <li>
+                  <a href="{{ 'programacao/javascript/guia-de-estudo.html' | relative_url }}">
+                    Guia de Estudo
+                  </a>
+                </li>
 
-                  <details>
+              </ul>
 
-                    <summary>
-                      <span>Markdown</span>
-                    </summary>
+            </details>
 
-                    <ul>
+          </li>
 
-                      <li>
-                        <a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">
-                          Guia Completo
-                        </a>
-                      </li>
+          <li>
 
-                      <li>
-                        <a href="{{ 'devops/documentacao/markdown-bloco-de-codigos.html' | relative_url }}">
-                          Blocos de Código
-                        </a>
-                      </li>
+            <details>
 
-                    </ul>
+              <summary>
+                <span>Markdown</span>
+              </summary>
 
-                  </details>
+              <ul>
 
+                <li>
+                  <a href="{{ 'programacao/markdown/markdown.html' | relative_url }}">
+                    Guia Completo
+                  </a>
                 </li>
 
                 <li>
+                  <a href="{{ 'programacao/markdown/markdown-bloco-de-codigos.html' | relative_url }}">
+                    Blocos de Código
+                  </a>
+                </li>
 
-                  <details>
+              </ul>
 
-                    <summary>
-                      <span>Jekyll</span>
-                    </summary>
+            </details>
 
-                    <ul>
+          </li>
 
-                      <li>
-                        <a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">
-                          Guia Completo
-                        </a>
-                      </li>
+          <li>
 
-                    </ul>
+            <details>
 
-                  </details>
+              <summary>
+                <span>Jekyll</span>
+              </summary>
 
+              <ul>
+
+                <li>
+                  <a href="{{ 'programacao/jekyll/jekyll.html' | relative_url }}">
+                    Guia Completo
+                  </a>
                 </li>
 
               </ul>
@@ -968,6 +1014,7 @@
       >
         Ver no GitHub
       </a>
+
     </div>
 
   </aside>
@@ -978,16 +1025,20 @@
 
   <div class="page-shell">
 
-<main
-  id="conteudo"
-  tabindex="-1"
->
-  {{ content }}
+    <main
+      id="conteudo"
+      tabindex="-1"
+    >
+      {{ content }}
+    </main>
 
-  <p class="last-update">
-    Última atualização: {{ site.time | date: "%d/%m/%Y" }}
-  </p>
-</main>
+    <footer class="site-footer">
+
+      <span>
+        Atualizado em {{ site.time | date: "%d/%m/%Y" }}
+      </span>
+
+    </footer>
 
   </div>
 
@@ -1457,4 +1508,3 @@
 
 </body>
 </html>
-

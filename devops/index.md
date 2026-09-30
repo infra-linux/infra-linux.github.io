@@ -8,6 +8,7 @@ title: DevOps
     <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/>
   </svg>
   DevOps
+  
 </h1>
 
 ---
@@ -46,22 +47,23 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
 <details>
   <summary>Kubernetes</summary>
   <ul>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">KUBERNETES</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Kubeconfig</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Cluster Install</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Kubeadm Install</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Pods</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Deployments</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Services</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Ingress</a></li>
-    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Troubleshooting</a></li>
+    <li><a href="{{ 'devops/kubernetes/' | relative_url }}">Visão Geral</a></li>
+    <li><a href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">Kubeconfig</a></li>
+    <li><a href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">Kubectl</a></li>
+    <li><a href="{{ 'devops/kubernetes/cluster-install.html' | relative_url }}">Cluster Install</a></li>
+    <li><a href="{{ 'devops/kubernetes/kubeadm-install.html' | relative_url }}">Kubeadm Install</a></li>
+    <li><a href="{{ 'devops/kubernetes/pods.html' | relative_url }}">Pods</a></li>
+    <li><a href="{{ 'devops/kubernetes/deployments.html' | relative_url }}">Deployments</a></li>
+    <li><a href="{{ 'devops/kubernetes/services.html' | relative_url }}">Services</a></li>
+    <li><a href="{{ 'devops/kubernetes/ingress.html' | relative_url }}">Ingress</a></li>
+    <li><a href="{{ 'devops/kubernetes/troubleshooting.html' | relative_url }}">Troubleshooting</a></li>
   </ul>
 </details>
 
 <details>
   <summary>CI/CD</summary>
   <ul>
-    <li><a href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">Imagens</a></li>
+    <li><a href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">Fundamentos de CI/CD</a></li>
   </ul>
 </details>
 
@@ -70,17 +72,11 @@ Siga esta sequência para compreender o fluxo de entrega de aplicações, do ver
   <ul>
     <li><a href="{{ 'devops/ansible/inventarios.html' | relative_url }}">Inventários</a></li>
     <li><a href="{{ 'devops/ansible/modulos.html' | relative_url }}">Módulos</a></li>
-    <li><a href="{{ 'devops/docker/inventarios.html' | relative_url }}">Playbooks</a></li>
+    <li><a href="{{ 'devops/ansible/playbooks.html' | relative_url }}">Playbooks</a></li>
   </ul>
 </details>
 
-<details>
-  <summary>Documentações</summary>
-  <ul>
-    <li><a href="{{ 'devops/documentacao/markdown.html' | relative_url }}">Markdown</a></li>
-    <li><a href="{{ 'devops/documentacao/jekyll.html' | relative_url }}">Jekyll</a></li>
-  </ul>
-</details>
+> Procurando Markdown ou Jekyll? Esses guias agora ficam na seção [Programação]({{ 'programacao/' | relative_url }}).
 
 ---
 
@@ -90,8 +86,8 @@ O fluxo pode ser resumido assim:
 flowchart LR
     Git --> Docker
     Docker --> Kubernetes
-	  Kubernetes --> CI/CD
-	  CI/CD --> Ansible
+    Kubernetes --> CICD["CI/CD"]
+    CICD --> Ansible
 ```
 
 ---
@@ -102,17 +98,17 @@ Depois de compreender os fundamentos, o trabalho diário costuma seguir este flu
 
 ```text
 Alteração em branch
-	↓
+↓
 Revisão
-	↓
+↓
 Validação automática
-	↓
+↓
 Merge
-	↓
+↓
 Build de imagem
-	↓
+↓
 Deploy controlado
-	↓
+↓
 Monitoramento
 ```
 
