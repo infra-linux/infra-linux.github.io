@@ -21,9 +21,21 @@ description: Linguagens, ferramentas de escrita técnica e guias de estudo de pr
 
   <div class="home-grid">
 
-  <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
+   <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
       <h3>JavaScript</h3>
       <p>Guia de estudo dos fundamentos ao código assíncrono, com exemplos, plano de estudos e exercícios.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/html/' | relative_url }}">
+      <h3>HTML</h3>
+      <p>Guia de estudo da estrutura de páginas: textos, links, tabelas, formulários e semântica.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/css/' | relative_url }}">
+      <h3>CSS</h3>
+      <p>Guia de estudo de estilos: seletores, box model, Flexbox, Grid e design responsivo.</p>
       <span class="home-card-count">2 páginas</span>
     </a>
 
