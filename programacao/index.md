@@ -4,69 +4,105 @@ title: Programação
 description: Linguagens, ferramentas de escrita técnica e guias de estudo de programação.
 ---
 
-<header class="home-hero home-hero-compact">
-  <div class="home-hero-content">
-    <span class="home-eyebrow">Seção</span>
-    <h1 class="page-title">
-      <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="16 18 22 12 16 6"/>
-        <polyline points="8 6 2 12 8 18"/>
-      </svg>
-      Programação
-    </h1>
-    <p>Linguagens, guias de estudo e ferramentas de escrita técnica usadas para criar código, scripts e documentação.</p>
-  </div>
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="16 18 22 12 16 6"/>
+    <polyline points="8 6 2 12 8 18"/>
+  </svg>
+  Programação
+</h1>
 
-</header>
+---
 
-<section class="home-section">
+## Introdução
 
-  <div class="home-section-heading">
-    <h2>Tópicos</h2>
-    <p>Escolha um assunto para começar.</p>
-  </div>
+Programação reúne as linguagens e ferramentas usadas para criar páginas, scripts e documentação técnica.
 
-  <div class="home-grid">
+Esta seção apresenta guias de estudo de HTML, CSS e JavaScript, que formam a base do desenvolvimento web, além de Markdown e Jekyll, usados para escrever e publicar esta wiki.
 
-   <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
-      <h3>JavaScript</h3>
-      <p>Guia de estudo dos fundamentos ao código assíncrono, com exemplos, plano de estudos e exercícios.</p>
-      <span class="home-card-count">2 páginas</span>
-    </a>
+O objetivo é aprender os fundamentos com exemplos práticos antes de avançar para projetos maiores.
 
-   <a class="home-card home-card-large" href="{{ 'programacao/html/' | relative_url }}">
-      <h3>HTML</h3>
-      <p>Guia de estudo da estrutura de páginas: textos, links, tabelas, formulários e semântica.</p>
-      <span class="home-card-count">2 páginas</span>
-    </a>
+---
 
-   <a class="home-card home-card-large" href="{{ 'programacao/css/' | relative_url }}">
-      <h3>CSS</h3>
-      <p>Guia de estudo de estilos: seletores, box model, Flexbox, Grid e design responsivo.</p>
-      <span class="home-card-count">2 páginas</span>
-    </a>
+## Conteúdo
 
-   <a class="home-card home-card-large" href="{{ 'programacao/markdown/' | relative_url }}">
-      <h3>Markdown</h3>
-      <p>Sintaxe completa e blocos de código para escrever documentação de forma rápida e padronizada.</p>
-      <span class="home-card-count">3 páginas</span>
-    </a>
+Siga esta sequência para compreender como uma página web é construída, da estrutura ao comportamento, e como a documentação é escrita e publicada.
 
-   <a class="home-card home-card-large" href="{{ 'programacao/jekyll/' | relative_url }}">
-      <h3>Jekyll</h3>
-      <p>Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</p>
-      <span class="home-card-count">2 páginas</span>
-    </a>
+<div class="wiki-topic-list">
 
-  </div>
+  <a class="wiki-topic" href="{{ 'programacao/html/index.html' | relative_url }}">
+    <span class="wiki-topic-title">HTML</span>
+    <span class="wiki-topic-description">Estrutura de páginas: textos, links, tabelas, formulários e semântica.</span>
+  </a>
 
-</section>
+  <a class="wiki-topic" href="{{ 'programacao/css/index.html' | relative_url }}">
+    <span class="wiki-topic-title">CSS</span>
+    <span class="wiki-topic-description">Estilos: seletores, box model, Flexbox, Grid e design responsivo.</span>
+  </a>
 
-<section class="home-section">
+  <a class="wiki-topic" href="{{ 'programacao/javascript/index.html' | relative_url }}">
+    <span class="wiki-topic-title">JavaScript</span>
+    <span class="wiki-topic-description">Dos fundamentos ao código assíncrono, com exemplos e exercícios.</span>
+  </a>
 
-  <div class="home-section-heading">
-    <h2>Em breve</h2>
-    <p>Assuntos que podem entrar nesta seção: Python, Bash, HTML e CSS, Git para desenvolvedores e APIs REST.</p>
-  </div>
+  <a class="wiki-topic" href="{{ 'programacao/markdown/index.html' | relative_url }}">
+    <span class="wiki-topic-title">Markdown</span>
+    <span class="wiki-topic-description">Sintaxe e blocos de código para escrever documentação de forma padronizada.</span>
+  </a>
 
-</section>
+  <a class="wiki-topic" href="{{ 'programacao/jekyll/index.html' | relative_url }}">
+    <span class="wiki-topic-title">Jekyll</span>
+    <span class="wiki-topic-description">Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</span>
+  </a>
+
+</div>
+
+---
+
+O fluxo de estudo pode ser resumido assim:
+
+```mermaid
+flowchart LR
+    HTML --> CSS
+    CSS --> JavaScript
+    JavaScript --> Markdown
+    Markdown --> Jekyll
+```
+
+---
+
+## Rotina de estudo recomendada
+
+Para cada tópico, o aprendizado costuma render mais seguindo este fluxo:
+
+```text
+Ler o guia de estudo
+↓
+Testar os exemplos
+↓
+Fazer os exercícios
+↓
+Criar um mini projeto
+↓
+Revisar o conteúdo
+```
+
+---
+
+## Boas práticas
+
+- Digite os exemplos em vez de apenas copiá-los.
+- Teste cada conceito em um arquivo seu antes de avançar.
+- Use o DevTools do navegador (`F12`) para inspecionar e experimentar.
+- Faça pequenos projetos para fixar o que foi estudado.
+- Consulte a documentação oficial (MDN) sempre que tiver dúvidas.
+
+---
+
+## Em breve
+
+Assuntos que podem entrar nesta seção: Python, Bash, Git para desenvolvedores e APIs REST.
+
+---
+
+> Esta seção reúne guias de estudo, referências e ferramentas de escrita técnica relacionados ao universo da programação.
