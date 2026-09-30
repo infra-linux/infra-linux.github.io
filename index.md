@@ -1,111 +1,65 @@
 ---
 layout: default
-title: Pangolim
-description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
+title: Programação
+description: Linguagens, ferramentas de escrita técnica e guias de estudo de programação.
 ---
 
-<section class="home-dashboard-hero">
-  <div class="home-dashboard-hero-content">
-    <span class="home-eyebrow">Base de conhecimento técnico</span>
-
-<h1 class="home-title">
-  {% include logo.html class="home-title-icon" %}
-  <span>Pangolim</span>
-</h1>
-
-<p>
-  Documentação prática para estudo, consulta e administração de ambientes de TI.
-</p>
-
+<header class="home-hero home-hero-compact">
+  <div class="home-hero-content">
+    <span class="home-eyebrow">Seção</span>
+    <h1>Programação</h1>
+    <p>Linguagens, guias de estudo e ferramentas de escrita técnica usadas para criar código, scripts e documentação.</p>
   </div>
+</header>
 
-  <div class="home-dashboard-stats">
-    <div class="home-stat">
-      <span class="home-stat-number">{{ site.pages | size }}</span>
-      <span class="home-stat-label">Páginas</span>
-    </div>
-  </div>
-</section>
+<section class="home-section">
 
-<section class="home-tech" aria-labelledby="principais-tecnologias">
   <div class="home-section-heading">
-    <span class="home-eyebrow">Tecnologias</span>
+    <h2>Tópicos</h2>
+    <p>Escolha um assunto para começar.</p>
+  </div>
 
-<h2 id="principais-tecnologias">Principais áreas</h2>
+  <div class="home-grid">
 
-<p>
-  Conteúdos organizados por tecnologias, plataformas e áreas de infraestrutura.
-</p>
+   <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
+      <h3>JavaScript</h3>
+      <p>Guia de estudo dos fundamentos ao código assíncrono, com exemplos, plano de estudos e exercícios.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/html/' | relative_url }}">
+      <h3>HTML</h3>
+      <p>Guia de estudo da estrutura de páginas: textos, links, tabelas, formulários e semântica.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/css/' | relative_url }}">
+      <h3>CSS</h3>
+      <p>Guia de estudo de estilos: seletores, box model, Flexbox, Grid e design responsivo.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/markdown/' | relative_url }}">
+      <h3>Markdown</h3>
+      <p>Sintaxe completa e blocos de código para escrever documentação de forma rápida e padronizada.</p>
+      <span class="home-card-count">3 páginas</span>
+    </a>
+
+   <a class="home-card home-card-large" href="{{ 'programacao/jekyll/' | relative_url }}">
+      <h3>Jekyll</h3>
+      <p>Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</p>
+      <span class="home-card-count">2 páginas</span>
+    </a>
 
   </div>
+
 </section>
 
-<section class="home-grid" id="areas-documentadas" aria-label="Áreas documentadas">
+<section class="home-section">
 
-  <a class="home-card home-card-large" href="{{ 'devops/' | relative_url }}">
-    <span class="home-card-icon">⚙</span>
-    <h3>DevOps</h3>
-    <p>Git, CI/CD, Jenkins, Ansible, Docker, Kubernetes e automação.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'programacao/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Programação</h3>
-    <p>JavaScript, Markdown, Jekyll e guias de estudo.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'linux/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Linux</h3>
-    <p>Administração, comandos, armazenamento, serviços e certificações.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'redes/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Redes</h3>
-    <p>DNS, TCP/IP, proxy, conectividade e diagnóstico.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'squid/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Squid</h3>
-    <p>Proxy, ACLs, autenticação, regras e logs.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'monitoramento/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Monitoramento</h3>
-    <p>Zabbix, Grafana, métricas, alertas e observabilidade.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'nutanix/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Nutanix</h3>
-    <p>Virtualização, Prism e administração de infraestrutura.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'vmware/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>VMware</h3>
-    <p>ESXi, hosts, armazenamento e infraestrutura.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'watchguard/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>WatchGuard</h3>
-    <p>Firewall, políticas, VPN e troubleshooting.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'windows/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Windows</h3>
-    <p>Administração, ferramentas e integração com ambientes de TI.</p>
-  </a>
-
-  <a class="home-card home-card-large" href="{{ 'troubleshooting/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Troubleshooting</h3>
-    <p>Diagnóstico, investigação de problemas e soluções práticas.</p>
-  </a>
+  <div class="home-section-heading">
+    <h2>Em breve</h2>
+    <p>Assuntos que podem entrar nesta seção: Python, Bash, HTML e CSS, Git para desenvolvedores e APIs REST.</p>
+  </div>
 
 </section>
