@@ -2,7 +2,6 @@
 layout: default
 title: Pangolim
 description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
-
 ---
 
 <section class="home-dashboard-hero">
@@ -55,50 +54,50 @@ description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
     <p>Administração, comandos, armazenamento, serviços e certificações.</p>
   </a>
 
-  <a class="home-card" href="{{ 'redes/' | relative_url }}">
-    <span class="home-card-icon">◎</span>
+  <a class="home-card home-card-large" href="{{ 'redes/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>Redes</h3>
     <p>DNS, TCP/IP, proxy, conectividade e diagnóstico.</p>
   </a>
 
-  <a class="home-card" href="{{ 'squid/' | relative_url }}">
+  <a class="home-card home-card-large" href="{{ 'squid/' | relative_url }}">
     <span class="home-card-icon">◉</span>
     <h3>Squid</h3>
     <p>Proxy, ACLs, autenticação, regras e logs.</p>
   </a>
 
-  <a class="home-card" href="{{ 'monitoramento/' | relative_url }}">
-    <span class="home-card-icon">▥</span>
+  <a class="home-card home-card-large" href="{{ 'monitoramento/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>Monitoramento</h3>
     <p>Zabbix, Grafana, métricas, alertas e observabilidade.</p>
   </a>
 
-  <a class="home-card" href="{{ 'nutanix/' | relative_url }}">
-    <span class="home-card-icon">◇</span>
+  <a class="home-card home-card-large" href="{{ 'nutanix/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>Nutanix</h3>
     <p>Virtualização, Prism e administração de infraestrutura.</p>
   </a>
 
-  <a class="home-card" href="{{ 'vmware/' | relative_url }}">
-    <span class="home-card-icon">▣</span>
+  <a class="home-card home-card-large" href="{{ 'vmware/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>VMware</h3>
     <p>ESXi, hosts, armazenamento e infraestrutura.</p>
   </a>
 
-  <a class="home-card" href="{{ 'watchguard/' | relative_url }}">
-    <span class="home-card-icon">◈</span>
+  <a class="home-card home-card-large" href="{{ 'watchguard/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>WatchGuard</h3>
     <p>Firewall, políticas, VPN e troubleshooting.</p>
   </a>
 
-  <a class="home-card" href="{{ 'windows/' | relative_url }}">
-    <span class="home-card-icon">⊞</span>
+  <a class="home-card home-card-large" href="{{ 'windows/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>Windows</h3>
     <p>Administração, ferramentas e integração com ambientes de TI.</p>
   </a>
 
-  <a class="home-card" href="{{ 'troubleshooting/' | relative_url }}">
-    <span class="home-card-icon">◆</span>
+  <a class="home-card home-card-large" href="{{ 'troubleshooting/' | relative_url }}">
+    <span class="home-card-icon">◉</span>
     <h3>Troubleshooting</h3>
     <p>Diagnóstico, investigação de problemas e soluções práticas.</p>
   </a>
