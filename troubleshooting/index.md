@@ -60,7 +60,7 @@ Os problemas estão agrupados por origem.
     <span class="wiki-topic-description">Diagnóstico de Pods, serviços e cluster.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/troubleshooting-nfs.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/troubleshooting-nfs.html' | relative_url }}">
     <span class="wiki-topic-title">NFS</span>
     <span class="wiki-topic-description">Diagnóstico de NFS em Rocky/Linux e Windows.</span>
   </a>

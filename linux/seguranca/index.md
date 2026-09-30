@@ -30,7 +30,7 @@ Os tutoriais estão agrupados por tecnologia.
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/seguranca/ssh/chave-publica.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/seguranca/ssh/ssh_key.html' | relative_url }}">
     <span class="wiki-topic-title">Chave pública</span>
     <span class="wiki-topic-description">Configurar autenticação por chave no Linux.</span>
   </a>
@@ -41,12 +41,12 @@ Os tutoriais estão agrupados por tecnologia.
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/seguranca/ssl/certificado-harbor.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/seguranca/ssl/certificadossl.html' | relative_url }}">
     <span class="wiki-topic-title">Atualização — Harbor</span>
     <span class="wiki-topic-description">Renovação do certificado no Harbor com Docker.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/seguranca/ssl/certificado-wikijs.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/seguranca/ssl/atualizarSSLwiki.html' | relative_url }}">
     <span class="wiki-topic-title">Atualização — WikiJS</span>
     <span class="wiki-topic-description">Renovação do certificado no WikiJS com Docker e Nginx.</span>
   </a>

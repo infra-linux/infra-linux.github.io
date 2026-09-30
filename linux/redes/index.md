@@ -31,12 +31,12 @@ Os tutoriais publicados até agora estão listados abaixo.
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/redes/dns-bind.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/configuracaodns.html' | relative_url }}">
     <span class="wiki-topic-title">DNS com BIND</span>
     <span class="wiki-topic-description">Forwarders corporativos e zona interna.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/redes/acesso-vms-por-nome.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/ssh-acesso-via-nome.html' | relative_url }}">
     <span class="wiki-topic-title">Acesso a VMs por nome</span>
     <span class="wiki-topic-description">Acessar VMs do VirtualBox pelo nome, em vez do IP.</span>
   </a>
@@ -44,6 +44,8 @@ Os tutoriais publicados até agora estão listados abaixo.
 </div>
 
 > Procurando os fundamentos de rede? Veja a seção [Redes]({{ 'redes/' | relative_url }}), com TCP/IP, portas, protocolos e DNS.
+
+> Procurando NFS? Os tutoriais estão em [Armazenamento]({{ 'linux/armazenamento/nfs/index.html' | relative_url }}).
 
 ---
 

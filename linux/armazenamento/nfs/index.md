@@ -27,22 +27,22 @@ Siga esta sequência: primeiro o servidor, depois os clientes e, por fim, o trou
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/servidor-rocky-9.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/servidor-nfs-rocky-linux-9.html' | relative_url }}">
     <span class="wiki-topic-title">Servidor (Rocky Linux 9)</span>
     <span class="wiki-topic-description">Instalação e configuração do servidor NFS.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/cliente-rocky-9.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/cliente-nfs-rocky-linux-9.html' | relative_url }}">
     <span class="wiki-topic-title">Cliente (Rocky Linux 9)</span>
     <span class="wiki-topic-description">Montagem de compartilhamentos no Linux.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/cliente-windows.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/cliente-nfs-windows-10-11.html' | relative_url }}">
     <span class="wiki-topic-title">Cliente (Windows 10/11)</span>
     <span class="wiki-topic-description">Acesso ao NFS a partir do Windows.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/troubleshooting.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/armazenamento/nfs/troubleshooting-nfs.html' | relative_url }}">
     <span class="wiki-topic-title">Troubleshooting</span>
     <span class="wiki-topic-description">Diagnóstico de problemas em Rocky/Linux e Windows.</span>
   </a>
