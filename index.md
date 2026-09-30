@@ -79,7 +79,7 @@ description: Base de conhecimento técnica sobre Linux, infraestrutura, redes, D
 ```mermaid
 flowchart TB
 
-    P["Pangolim<br/>Base de Conhecimento"]
+    P["Pangolim"]
 
     P --> L["Linux"]
     P --> R["Redes"]
@@ -88,37 +88,16 @@ flowchart TB
     P --> V["Virtualização"]
     P --> S["Segurança"]
 
-    L --> L1["Serviços"]
-    L --> L2["Armazenamento"]
-    L --> L3["Shell"]
-
-    R --> R1["DNS"]
-    R --> R2["TCP/IP"]
-    R --> R3["Proxy"]
-
-    D --> D1["Git"]
-    D --> D2["Ansible"]
-    D --> D3["Docker"]
-    D --> D4["Kubernetes"]
-
-    M --> M1["Zabbix"]
-    M --> M2["Grafana"]
-    M --> M3["Logs"]
-
-    V --> V1["VMware"]
-    V --> V2["Nutanix"]
-
-    S --> S1["WatchGuard"]
-    S --> S2["Firewall"]
-    S --> S3["VPN"]
+    L --- D
+    R --- S
+    D --- M
+    M --- V
 
     classDef main fill:#242422,stroke:#7D7821,stroke-width:2px,color:#c8c8c3;
-    classDef category fill:#1d1d1b,stroke:#7D7821,stroke-width:1.5px,color:#c8c8c3;
-    classDef item fill:#151513,stroke:#55554d,stroke-width:1px,color:#aaa9a2;
+    classDef area fill:#1d1d1b,stroke:#7D7821,stroke-width:1.5px,color:#c8c8c3;
 
     class P main;
-    class L,R,D,M,V,S category;
-    class L1,L2,L3,R1,R2,R3,D1,D2,D3,D4,M1,M2,M3,V1,V2,S1,S2,S3 item;
+    class L,R,D,M,V,S area;
 ```
 
 <section class="home-tech" aria-labelledby="principais-tecnologias">
