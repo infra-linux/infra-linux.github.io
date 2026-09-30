@@ -21,22 +21,22 @@ description: Linguagens, ferramentas de escrita técnica e guias de estudo de pr
 
   <div class="home-grid">
 
-    <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
+  <a class="home-card home-card-large" href="{{ 'programacao/javascript/' | relative_url }}">
       <h3>JavaScript</h3>
       <p>Guia de estudo dos fundamentos ao código assíncrono, com exemplos, plano de estudos e exercícios.</p>
       <span class="home-card-count">2 páginas</span>
     </a>
 
-    <a class="home-card home-card-large" href="{{ 'programacao/markdown/markdown.html' | relative_url }}">
+   <a class="home-card home-card-large" href="{{ 'programacao/markdown/' | relative_url }}">
       <h3>Markdown</h3>
       <p>Sintaxe completa e blocos de código para escrever documentação de forma rápida e padronizada.</p>
-      <span class="home-card-count">2 páginas</span>
+      <span class="home-card-count">3 páginas</span>
     </a>
 
-    <a class="home-card home-card-large" href="{{ 'programacao/jekyll/jekyll.html' | relative_url }}">
+   <a class="home-card home-card-large" href="{{ 'programacao/jekyll/' | relative_url }}">
       <h3>Jekyll</h3>
       <p>Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</p>
-      <span class="home-card-count">1 página</span>
+      <span class="home-card-count">2 páginas</span>
     </a>
 
   </div>
