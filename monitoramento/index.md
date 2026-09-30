@@ -1,23 +1,52 @@
 ---
 layout: default
 title: Monitoramento
+description: Zabbix, Grafana, métricas, alertas e observabilidade.
 ---
 
-# Monitoramento
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+  </svg>
+  Monitoramento
+</h1>
 
 ---
 
 ## Introdução
 
-Monitoramento é o processo de acompanhar continuamente o estado de servidores, aplicações, serviços e dispositivos de rede, permitindo identificar falhas, analisar desempenho e garantir a disponibilidade dos ambientes.
+Monitoramento é a prática de coletar métricas, gerar alertas e visualizar o estado da infraestrutura para detectar problemas antes que afetem os usuários.
 
-Nesta seção estão reunidos procedimentos, conceitos e ferramentas utilizados para monitoramento e observabilidade de infraestrutura.
+Esta seção apresenta a instalação do Zabbix e o uso do Grafana para visualização.
 
 ---
+
 ## Conteúdo
 
-* [Zabbix](instalacao-zabbix-server.md)
-* [Grafana](grafana.md)
+Comece pela coleta de métricas com o Zabbix e depois explore a visualização no Grafana.
+
+### Zabbix
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'monitoramento/instalacao-zabbix-server.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação do Zabbix Server</span>
+    <span class="wiki-topic-description">Instalação e configuração inicial do servidor Zabbix.</span>
+  </a>
+
+</div>
+
+### Visualização
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'monitoramento/grafana.html' | relative_url }}">
+    <span class="wiki-topic-title">Grafana</span>
+    <span class="wiki-topic-description">Dashboards e visualização de métricas.</span>
+  </a>
+
+</div>
 
 ---
-> Esta seção reúne conceitos, instalações, configurações e boas práticas relacionadas ao monitoramento de ambientes de infraestrutura.
+
+> Esta seção reúne conceitos, instalações e procedimentos relacionados a monitoramento.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Linux
-description: Procedimentos práticos de Linux: DNS, NFS, LVM, certificados SSL e SSH.
+description: "Procedimentos práticos de Linux: redes (DNS e NFS), LVM, certificados SSL e SSH."
 ---
 
 <h1 class="page-title">
@@ -24,72 +24,78 @@ Sua flexibilidade, estabilidade e segurança fazem dele uma das principais plata
 
 ## Conteúdo
 
-Os procedimentos estão agrupados por tema. Cada página traz um passo a passo prático, com comandos e validação.
+Os procedimentos estão organizados por tema, nas mesmas pastas em que ficam os arquivos. Cada página traz um passo a passo prático, com comandos e validação.
 
-### Rede e DNS
+### Redes
 
 <div class="wiki-topic-list">
 
-  <a class="wiki-topic" href="{{ 'linux/configuracaodns.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/configuracaodns.html' | relative_url }}">
     <span class="wiki-topic-title">DNS com BIND</span>
     <span class="wiki-topic-description">Forwarders corporativos e zona interna.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/ssh-acesso-via-nome.html' | relative_url }}">
-    <span class="wiki-topic-title">Acesso a VMs por nome</span>
-    <span class="wiki-topic-description">Acessar VMs do VirtualBox pelo nome, em vez do IP.</span>
-  </a>
-
-</div>
-
-### Armazenamento
-
-<div class="wiki-topic-list">
-
-  <a class="wiki-topic" href="{{ 'linux/servidor-nfs-rocky-linux-9.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/servidor-nfs-rocky-linux-9.html' | relative_url }}">
     <span class="wiki-topic-title">NFS — Servidor</span>
     <span class="wiki-topic-description">Instalação e configuração no Rocky Linux 9.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/cliente-nfs-rocky-linux-9.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/cliente-nfs-rocky-linux-9.html' | relative_url }}">
     <span class="wiki-topic-title">NFS — Cliente Linux</span>
     <span class="wiki-topic-description">Montagem de compartilhamentos no Rocky Linux 9.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/cliente-nfs-windows-10-11.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/cliente-nfs-windows-10-11.html' | relative_url }}">
     <span class="wiki-topic-title">NFS — Cliente Windows</span>
     <span class="wiki-topic-description">Acesso ao NFS a partir do Windows 10/11.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/troubleshooting-nfs.html' | relative_url }}">
+  <a class="wiki-topic" href="{{ 'linux/redes/troubleshooting-nfs.html' | relative_url }}">
     <span class="wiki-topic-title">NFS — Troubleshooting</span>
     <span class="wiki-topic-description">Diagnóstico de problemas em Rocky/Linux e Windows.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/expandir-lvm.html' | relative_url }}">
-    <span class="wiki-topic-title">LVM — Adicionar novo disco</span>
+</div>
+
+### LVM
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'linux/lvm/expandir-lvm.html' | relative_url }}">
+    <span class="wiki-topic-title">Adicionar novo disco</span>
     <span class="wiki-topic-description">Expandir volumes com um disco adicional.</span>
   </a>
 
 </div>
 
-### Segurança e acesso
+### Certificados SSL
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'linux/ssl/certificadossl.html' | relative_url }}">
+    <span class="wiki-topic-title">Atualização — Harbor</span>
+    <span class="wiki-topic-description">Renovação do certificado no Harbor com Docker.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'linux/ssl/atualizarSSLwiki.html' | relative_url }}">
+    <span class="wiki-topic-title">Atualização — WikiJS</span>
+    <span class="wiki-topic-description">Renovação do certificado no WikiJS com Docker e Nginx.</span>
+  </a>
+
+</div>
+
+### SSH
 
 <div class="wiki-topic-list">
 
   <a class="wiki-topic" href="{{ 'linux/ssh_key.html' | relative_url }}">
-    <span class="wiki-topic-title">SSH — Chave pública</span>
+    <span class="wiki-topic-title">Chave pública</span>
     <span class="wiki-topic-description">Configurar autenticação por chave no Linux.</span>
   </a>
 
-  <a class="wiki-topic" href="{{ 'linux/certificadossl.html' | relative_url }}">
-    <span class="wiki-topic-title">Certificado SSL — Harbor</span>
-    <span class="wiki-topic-description">Atualização do certificado no Harbor com Docker.</span>
-  </a>
-
-  <a class="wiki-topic" href="{{ 'linux/atualizarSSLwiki.html' | relative_url }}">
-    <span class="wiki-topic-title">Certificado SSL — WikiJS</span>
-    <span class="wiki-topic-description">Atualização do certificado no WikiJS com Docker e Nginx.</span>
+  <a class="wiki-topic" href="{{ 'linux/ssh-acesso-via-nome.html' | relative_url }}">
+    <span class="wiki-topic-title">Acesso a VMs por nome</span>
+    <span class="wiki-topic-description">Acessar VMs do VirtualBox pelo nome, em vez do IP.</span>
   </a>
 
 </div>

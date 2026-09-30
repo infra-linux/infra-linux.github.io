@@ -1,46 +1,39 @@
 ---
 layout: default
 title: WatchGuard
+description: "Firewall WatchGuard: políticas, VPN e troubleshooting."
 ---
 
-# WatchGuard
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </svg>
+  WatchGuard
+</h1>
 
 ---
 
 ## Introdução
 
-WatchGuard é uma solução de firewall e segurança de rede usada para controlar tráfego, VPNs, políticas de acesso e proteção de perímetro.
+WatchGuard oferece soluções de firewall e segurança de rede para proteger ambientes corporativos.
 
-Esta seção reúne procedimentos, boas práticas e troubleshooting relacionados à administração de firewalls WatchGuard.
+Esta seção reúne procedimentos de configuração e integração.
 
 ---
+
 ## Conteúdo
 
-* Instalação do WatchGuard NDR Collection Agent.
-* [Coleta de Logs do Collection Agent](watchguardndrcollectionagent.md)
-* Troubleshooting de Heartbeat Offline.
-* Troubleshooting de NetFlow e sFlow.
-* Integração com Firebox.
-* Entendendo os logs ndr_nf_aggregator.log.
-* Como interpretar heartbeat upload status.
----
-## Checklist de análise
+Os procedimentos publicados até agora estão listados abaixo.
 
-* Identificar origem, destino, porta e protocolo.
-* Verificar se existe política permitindo o tráfego.
-* Conferir ordem e escopo das regras.
-* Validar NAT quando houver publicação externa.
-* Consultar logs no momento do teste.
-* Confirmar se há proxy, rota ou DNS envolvido.
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'watchguard/watchguardndrcollectionagent.html' | relative_url }}">
+    <span class="wiki-topic-title">NDR Collection Agent</span>
+    <span class="wiki-topic-description">Instalação e configuração do agente de coleta do NDR.</span>
+  </a>
+
+</div>
 
 ---
-## Boas práticas
 
-* Documente regras criadas ou alteradas.
-* Evite regras amplas sem necessidade.
-* Use nomes claros para políticas.
-* Remova regras antigas quando não forem mais usadas.
-* Valide logs após cada mudança.
-
----
-> Esta seção serve como ponto de entrada para documentação de firewall, VPN, NAT e políticas WatchGuard.
+> Esta seção reúne conceitos e procedimentos relacionados ao WatchGuard.

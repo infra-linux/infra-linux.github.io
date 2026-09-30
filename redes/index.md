@@ -1,70 +1,67 @@
 ---
 layout: default
 title: Redes
+description: Fundamentos de redes, portas, protocolos, TCP/IP e DNS com BIND.
 ---
 
 <h1 class="page-title">
   <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <rect x="16" y="16" width="6" height="6" rx="1"/>
-    <rect x="2" y="16" width="6" height="6" rx="1"/>
-    <rect x="9" y="2" width="6" height="6" rx="1"/>
-    <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/>
-    <path d="M12 12V8"/>
+    <rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/>
   </svg>
   Redes
-  
 </h1>
 
 ---
 
 ## Introdução
 
-Redes são a base da comunicação entre servidores, estações, aplicações, containers, clusters e serviços corporativos.
+Redes reúne os conceitos e serviços que permitem a comunicação entre sistemas: endereçamento, protocolos, portas e resolução de nomes.
 
-Esta seção reúne conceitos, comandos e procedimentos relacionados a conectividade, DNS, portas, rotas, proxy e troubleshooting de comunicação.
+Esta seção apresenta os fundamentos de TCP/IP e de portas e protocolos, além da configuração de DNS com BIND.
 
 ---
+
 ## Conteúdo
 
-* [DNS](dns/index.md)
-* [TCP/IP](tcpip.md)
-* [Portas e Protocolos](portaseprotocolos.md)
-* rotas
-* firewall
-* proxy
-* testes de conectividade
-* análise de indisponibilidade
+Comece pelos fundamentos e avance para os serviços de resolução de nomes.
+
+### Fundamentos
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'redes/portaseprotocolos.html' | relative_url }}">
+    <span class="wiki-topic-title">Portas e Protocolos</span>
+    <span class="wiki-topic-description">Portas e protocolos mais usados em serviços de rede.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'redes/tcpip.html' | relative_url }}">
+    <span class="wiki-topic-title">TCP/IP</span>
+    <span class="wiki-topic-description">Modelo TCP/IP, endereçamento e comunicação entre hosts.</span>
+  </a>
+
+</div>
+
+### DNS
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'redes/dns/index.html' | relative_url }}">
+    <span class="wiki-topic-title">Visão Geral</span>
+    <span class="wiki-topic-description">Conceitos e organização do DNS.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'redes/dns/bindencaminhamento.html' | relative_url }}">
+    <span class="wiki-topic-title">BIND — Encaminhamento</span>
+    <span class="wiki-topic-description">Configuração de encaminhamento no BIND.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'redes/dns/bind-encaminhamentodns.html' | relative_url }}">
+    <span class="wiki-topic-title">BIND — Encaminhamento DNS</span>
+    <span class="wiki-topic-description">Encaminhamento de consultas DNS no BIND.</span>
+  </a>
+
+</div>
 
 ---
-## Comandos de consulta rápida
 
-```bash
-ping destino
-nslookup dominio.com.br
-tracert destino
-netstat -ano
-curl -vk https://dominio.com.br
-telnet host porta
-```
-
-No Linux:
-
-```bash
-ip addr
-ip route
-ss -tulnp
-dig dominio.com.br
-traceroute destino
-```
-
----
-## Boas práticas
-
-* Valide DNS antes de investigar aplicação.
-* Confirme porta e protocolo usados pelo serviço.
-* Teste conectividade a partir da origem correta.
-* Documente IPs, VLANs, rotas e regras de firewall.
-* Diferencie problema de rede, proxy, DNS e aplicação.
-
----
-> Esta seção serve como base para diagnósticos de conectividade em ambientes Linux, Windows, containers e Kubernetes.
+> Esta seção reúne conceitos, serviços e procedimentos relacionados a redes.

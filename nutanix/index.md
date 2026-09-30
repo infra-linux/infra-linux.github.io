@@ -1,46 +1,108 @@
 ---
 layout: default
 title: Nutanix
+description: Fundamentos, arquitetura, armazenamento, Nutanix Files e Data Lens.
 ---
 
-# Nutanix
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+  </svg>
+  Nutanix
+</h1>
 
 ---
 
 ## Introdução
 
-Nutanix é uma plataforma de infraestrutura hiperconvergente usada para virtualização, armazenamento, segurança de dados e
-orquestração de workloads em ambientes corporativos.
+Nutanix é uma plataforma de infraestrutura hiperconvergente que integra computação, armazenamento e virtualização em um único cluster.
 
-Esta seção foi reorganizada para apresentar:
-
-- Fundamentos e arquitetura Nutanix;
-- Gestão de armazenamento com Nutanix Volumes;
-- Visibilidade e governança com Nutanix Data Lens.
+Esta seção apresenta os fundamentos da plataforma, a configuração de volumes e o Data Lens.
 
 ---
+
 ## Conteúdo
+
+Siga a sequência dos fundamentos para compreender a plataforma, da arquitetura ao diagnóstico inicial.
 
 ### Fundamentos
 
-- [01 - Introdução ao Nutanix](fundamentos/01-introducao-ao-nutanix.md)
-- [02 - Arquitetura hiperconvergente](fundamentos/02-arquitetura-hiperconvergente.md)
-- [03 - Prism Element e Prism Central](fundamentos/03-prism-element-e-prism-central.md)
-- [04 - AHV, AOS e CVM](fundamentos/04-ahv-aos-e-cvm.md)
-- [05 - Storage Pool, Container e vDisk](fundamentos/05-storage-pool-container-e-vdisk.md)
-- [06 - Resiliência, RF2, RF3 e localidade](fundamentos/06-resiliencia-rf2-rf3-e-localidade.md)
-- [07 - Nutanix Files e FSVM](fundamentos/07-nutanix-files-e-fsvm.md)
-- [08 - SMB, NFS e Active Directory](fundamentos/08-smb-nfs-e-active-directory.md)
-- [09 - Fluxos e diagnóstico inicial](fundamentos/09-fluxos-e-diagnostico-inicial.md)
+<div class="wiki-topic-list">
 
-### Nutanix Volumes
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/01-introducao-ao-nutanix.html' | relative_url }}">
+    <span class="wiki-topic-title">01 — Introdução ao Nutanix</span>
+    <span class="wiki-topic-description">Visão geral da plataforma e de seus componentes.</span>
+  </a>
 
-- [Configurando Volumes Nutanix](volumes/configurando-volumes-nutanix.md)
-- [Questionário Volumes Nutanix](volumes/questionario-volumes-nutanix.md)
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/02-arquitetura-hiperconvergente.html' | relative_url }}">
+    <span class="wiki-topic-title">02 — Arquitetura Hiperconvergente</span>
+    <span class="wiki-topic-description">Como computação e armazenamento se combinam nos nós.</span>
+  </a>
 
-### Nutanix Data Lens
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/03-prism-element-e-prism-central.html' | relative_url }}">
+    <span class="wiki-topic-title">03 — Prism Element e Prism Central</span>
+    <span class="wiki-topic-description">Interfaces de gerenciamento de um cluster e de vários clusters.</span>
+  </a>
 
-- [Introdução ao Nutanix Data Lens](data-lens/index.md)
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/04-ahv-aos-e-cvm.html' | relative_url }}">
+    <span class="wiki-topic-title">04 — AHV, AOS e CVM</span>
+    <span class="wiki-topic-description">Hypervisor, sistema da plataforma e máquina virtual de controle.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/05-storage-pool-container-e-vdisk.html' | relative_url }}">
+    <span class="wiki-topic-title">05 — Storage Pool, Container e vDisk</span>
+    <span class="wiki-topic-description">Organização lógica do armazenamento.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/06-resiliencia-rf2-rf3-e-localidade.html' | relative_url }}">
+    <span class="wiki-topic-title">06 — Resiliência, RF2, RF3 e Localidade</span>
+    <span class="wiki-topic-description">Replicação de dados, tolerância a falhas e localidade.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/07-nutanix-files-e-fsvm.html' | relative_url }}">
+    <span class="wiki-topic-title">07 — Nutanix Files e FSVM</span>
+    <span class="wiki-topic-description">Serviço de arquivos e suas máquinas virtuais.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/08-smb-nfs-e-active-directory.html' | relative_url }}">
+    <span class="wiki-topic-title">08 — SMB, NFS e Active Directory</span>
+    <span class="wiki-topic-description">Protocolos de compartilhamento e integração com o AD.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/fundamentos/09-fluxos-e-diagnostico-inicial.html' | relative_url }}">
+    <span class="wiki-topic-title">09 — Fluxos e Diagnóstico Inicial</span>
+    <span class="wiki-topic-description">Fluxos de acesso e primeiros passos de diagnóstico.</span>
+  </a>
+
+</div>
+
+### Volumes
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'nutanix/volumes/configurando-volumes-nutanix.html' | relative_url }}">
+    <span class="wiki-topic-title">Configurando Volumes Nutanix</span>
+    <span class="wiki-topic-description">Passo a passo para configurar volumes.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'nutanix/volumes/questionario-volumes-nutanix.html' | relative_url }}">
+    <span class="wiki-topic-title">Questionário de Volumes Nutanix</span>
+    <span class="wiki-topic-description">Perguntas para revisar o conteúdo de volumes.</span>
+  </a>
+
+</div>
+
+### Data Lens
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'nutanix/data-lens/index.html' | relative_url }}">
+    <span class="wiki-topic-title">Visão Geral</span>
+    <span class="wiki-topic-description">Introdução ao Nutanix Data Lens.</span>
+  </a>
+
+</div>
 
 ---
-> Esta seção reúne os principais tópicos de Nutanix em um formato organizado e fácil de navegar.
+
+> Esta seção reúne conceitos, arquitetura e procedimentos relacionados ao Nutanix.

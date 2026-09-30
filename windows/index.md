@@ -1,45 +1,68 @@
 ---
 layout: default
 title: Windows
+description: "Administração de Windows: Active Directory, instalação de aplicativos e proxy."
 ---
 
-# Windows
+<h1 class="page-title">
+  <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>
+  </svg>
+  Windows
+</h1>
 
 ---
 
 ## Introdução
 
-Esta seção reúne procedimentos, troubleshooting e boas práticas relacionados à administração de estações Windows no ambiente corporativo.
+O Windows está presente na maior parte dos ambientes corporativos, tanto em estações de trabalho quanto em servidores.
 
-Aqui estão documentados processos de instalação de software, permissões, políticas de segurança, ferramentas administrativas e resolução de problemas comuns.
+Esta seção reúne procedimentos de administração, instalação de aplicativos e integração com outros ambientes.
 
 ---
+
 ## Conteúdo
 
-### Instalação de Software
+Os procedimentos estão agrupados por tema.
 
-* [Instalação de Apps (.exe)](instalacao-aplicativos-exe.md)
-* [Instalação de Apps via C:\Temp](instalacao-via-temp.md)
-* [Windows como Proxy para VMs Linux usando Cntlm](windowsproxyparalinux.md)
+### Diretório
 
-### Administração
+<div class="wiki-topic-list">
 
-* [Active Directory](activedirectory.md)
+  <a class="wiki-topic" href="{{ 'windows/activedirectory.html' | relative_url }}">
+    <span class="wiki-topic-title">Active Directory</span>
+    <span class="wiki-topic-description">Conceitos e administração do Active Directory.</span>
+  </a>
+
+</div>
+
+### Instalação de aplicativos
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'windows/instalacao-aplicativos-exe.html' | relative_url }}">
+    <span class="wiki-topic-title">Aplicativos EXE</span>
+    <span class="wiki-topic-description">Instalação de aplicativos distribuídos como EXE.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'windows/instalacao-via-temp.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação via TEMP</span>
+    <span class="wiki-topic-description">Instalação a partir da pasta TEMP.</span>
+  </a>
+
+</div>
+
+### Rede
+
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'windows/windowsproxyparalinux.html' | relative_url }}">
+    <span class="wiki-topic-title">Proxy Windows para Linux</span>
+    <span class="wiki-topic-description">Configuração de proxy do Windows para acesso a serviços Linux.</span>
+  </a>
+
+</div>
 
 ---
-## Temas da seção
 
-* instalação de aplicativos
-* suporte a estações
-* Active Directory
-* permissões e segurança
-* troubleshooting de ambiente corporativo
-* ferramentas administrativas
-
----
-## Objetivo
-
-Centralizar procedimentos e anotações utilizados no dia a dia da administração de estações Windows, servindo como material de consulta rápida e documentação técnica.
-
----
-> Esta seção reúne procedimentos práticos para suporte, administração e troubleshooting de Windows em ambiente corporativo.
+> Esta seção reúne conceitos e procedimentos relacionados ao Windows.
