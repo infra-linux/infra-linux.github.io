@@ -5,10 +5,12 @@ description: Guia de estudo de HTML, da estrutura básica a formulários, semân
 ---
 
 # HTML — Guia de Estudo
+{:.no_toc}
 
 HTML (*HyperText Markup Language*) é a linguagem que define a **estrutura e o conteúdo** de uma página web: títulos, parágrafos, links, imagens, tabelas e formulários. Ele diz **o que** cada elemento é. A aparência fica a cargo do CSS e o comportamento, do JavaScript.
 
 ## Sumário
+{:.no_toc}
 * TOC
 {:toc}
 

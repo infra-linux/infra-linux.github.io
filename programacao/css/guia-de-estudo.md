@@ -5,10 +5,12 @@ description: Guia de estudo de CSS, de seletores e box model a Flexbox, Grid e d
 ---
 
 # CSS — Guia de Estudo
+{:.no_toc}
 
 CSS (*Cascading Style Sheets*) controla a **aparência** de uma página: cores, fontes, espaçamentos, posição e adaptação a diferentes telas. O HTML define o que existe na página, e o CSS define como aquilo é exibido.
 
 ## Sumário
+
 * TOC
 {:toc}
 
