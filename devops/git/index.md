@@ -11,6 +11,7 @@ title: Git
 * [Guia prático de Git](guia-pratico.md)
 * [Tutorial: Branch e publicação na main](git-branch-para-main.md)
 * [Tutorial: Clone, Branch, Pull Request e Merge](git-clone-branch-pull-request.md)
+* [Sincronizando um projeto Git](atualizando-projeto-git.md)
 
 ---
 
