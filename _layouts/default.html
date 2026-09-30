@@ -56,11 +56,7 @@
       href="{{ '/' | relative_url }}"
       aria-label="Página inicial do Pangolim"
     >
-      <img
-        src="{{ '/images/pangolim-128.png' | relative_url }}"
-        alt="Pangolim"
-        class="brand-icon"
-      >
+      {% include logo.html class="brand-icon" %}
 
       <span class="brand-name">
         Pangolim
@@ -474,6 +470,12 @@
               <ul>
 
                 <li>
+                  <a href="{{ 'programacao/markdown/' | relative_url }}">
+                    Visão Geral
+                  </a>
+                </li>
+
+                <li>
                   <a href="{{ 'programacao/markdown/markdown.html' | relative_url }}">
                     Guia Completo
                   </a>
@@ -500,6 +502,12 @@
               </summary>
 
               <ul>
+
+                <li>
+                  <a href="{{ 'programacao/jekyll/' | relative_url }}">
+                    Visão Geral
+                  </a>
+                </li>
 
                 <li>
                   <a href="{{ 'programacao/jekyll/jekyll.html' | relative_url }}">
