@@ -7,9 +7,16 @@ description: Linguagens, ferramentas de escrita técnica e guias de estudo de pr
 <header class="home-hero home-hero-compact">
   <div class="home-hero-content">
     <span class="home-eyebrow">Seção</span>
-    <h1>Programação</h1>
+    <h1 class="page-title">
+      <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
+      </svg>
+      Programação
+    </h1>
     <p>Linguagens, guias de estudo e ferramentas de escrita técnica usadas para criar código, scripts e documentação.</p>
   </div>
+
 </header>
 
 <section class="home-section">
