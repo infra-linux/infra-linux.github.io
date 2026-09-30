@@ -1612,3 +1612,15 @@ blockquote p:last-child {
   color: var(--accent);
   transform: translateY(0.08em);
 }
+
+/* =========================================================
+   Data da última atualização
+   ========================================================= */
+   
+.last-update {
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
