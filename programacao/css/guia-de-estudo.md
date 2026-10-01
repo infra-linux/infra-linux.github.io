@@ -10,7 +10,7 @@ description: Guia de estudo de CSS, de seletores e box model a Flexbox, Grid e d
 CSS (*Cascading Style Sheets*) controla a **aparência** de uma página: cores, fontes, espaçamentos, posição e adaptação a diferentes telas. O HTML define o que existe na página, e o CSS define como aquilo é exibido.
 
 ## Sumário
-
+{:.no_toc}
 * TOC
 {:toc}
 
@@ -19,7 +19,7 @@ CSS (*Cascading Style Sheets*) controla a **aparência** de uma página: cores, 
 ## 1. Como adicionar CSS
 
 ### Arquivo externo (recomendado)
-
+{:.no_toc}
 ```html
 <head>
   <link rel="stylesheet" href="estilo.css">
@@ -27,7 +27,7 @@ CSS (*Cascading Style Sheets*) controla a **aparência** de uma página: cores, 
 ```
 
 ### Bloco `<style>` na página
-
+{:.no_toc}
 ```html
 <style>
   h1 { color: teal; }
@@ -35,7 +35,7 @@ CSS (*Cascading Style Sheets*) controla a **aparência** de uma página: cores, 
 ```
 
 ### Atributo `style` (evite)
-
+{:.no_toc}
 ```html
 <p style="color: red;">Texto vermelho</p>
 ```
@@ -66,7 +66,7 @@ p {
 - Cada declaração termina com `;`.
 
 ### Comentários
-
+{:.no_toc}
 ```css
 /* Este texto é ignorado */
 ```
@@ -88,7 +88,7 @@ input[type="email"] { } /* pelo atributo */
 ```
 
 ### Pseudo-classes (estados)
-
+{:.no_toc}
 ```css
 a:hover { color: tomato; }       /* mouse em cima */
 a:focus-visible { outline: 2px solid; } /* foco pelo teclado */
@@ -99,7 +99,7 @@ input:invalid { border-color: red; }
 ```
 
 ### Pseudo-elementos
-
+{:.no_toc}
 ```css
 p::first-line { font-weight: bold; }
 .aviso::before { content: "⚠ "; }
@@ -132,7 +132,7 @@ p { color: black; }
 ## 5. Cores e unidades
 
 ### Formas de escrever cores
-
+{:.no_toc}
 ```css
 color: red;                    /* nome */
 color: #1a73e8;                /* hexadecimal */
@@ -168,7 +168,7 @@ Todo elemento é uma caixa formada por quatro camadas, de dentro para fora: **co
 ```
 
 ### Atalhos
-
+{:.no_toc}
 ```css
 margin: 10px;                /* todos os lados */
 margin: 10px 20px;           /* vertical | horizontal */
@@ -177,7 +177,7 @@ margin: 0 auto;              /* centraliza um bloco com largura definida */
 ```
 
 ### `box-sizing`
-
+{:.no_toc}
 Por padrão, `padding` e `border` são somados à largura, o que confunde nos cálculos. Coloque isto no começo de todo projeto:
 
 ```css
@@ -189,7 +189,7 @@ Por padrão, `padding` e `border` são somados à largura, o que confunde nos c�
 Com isso, `width: 300px` significa 300px no total, já incluindo padding e borda.
 
 ### Bordas, cantos e sombras
-
+{:.no_toc}
 ```css
 .cartao {
   border: 1px solid #ddd;
@@ -235,7 +235,7 @@ a {
 ## 8. Display e posicionamento
 
 ### `display`
-
+{:.no_toc}
 ```css
 display: block;         /* ocupa a linha toda */
 display: inline;        /* flui junto com o texto */
@@ -246,7 +246,7 @@ display: grid;          /* layout em grade */
 ```
 
 ### `position`
-
+{:.no_toc}
 ```css
 .relativo { position: relative; }   /* referência para filhos absolutos */
 
@@ -303,7 +303,7 @@ Organiza itens em **uma dimensão** (linha ou coluna). É ideal para menus, barr
 | `flex: 1` | (no item) ocupa o espaço que sobrar. |
 
 ### Centralizar algo na tela
-
+{:.no_toc}
 ```css
 .tela {
   display: flex;
@@ -328,7 +328,7 @@ Organiza itens em **duas dimensões** (linhas e colunas). É ideal para layouts 
 ```
 
 ### Colunas que se adaptam sozinhas
-
+{:.no_toc}
 ```css
 .cards {
   display: grid;
@@ -338,7 +338,7 @@ Organiza itens em **duas dimensões** (linhas e colunas). É ideal para layouts 
 ```
 
 ### Layout de página
-
+{:.no_toc}
 ```css
 .pagina {
   display: grid;
@@ -390,7 +390,7 @@ O design responsivo faz a página funcionar bem em celulares, tablets e computad
 Começar pelo celular e ampliar com `min-width` (*mobile first*) costuma resultar em CSS mais simples.
 
 ### Imagens que se ajustam
-
+{:.no_toc}
 ```css
 img {
   max-width: 100%;
@@ -430,7 +430,7 @@ Mudar o valor em `:root` atualiza o site inteiro, o que facilita criar temas.
 ## 13. Transições e animações
 
 ### Transição
-
+{:.no_toc}
 ```css
 .botao {
   background: #1a73e8;
@@ -444,7 +444,7 @@ Mudar o valor em `:root` atualiza o site inteiro, o que facilita criar temas.
 ```
 
 ### Animação com `@keyframes`
-
+{:.no_toc}
 ```css
 @keyframes pulsar {
   0%   { transform: scale(1); }
@@ -534,7 +534,7 @@ Para respeitar quem prefere menos movimento:
 | 7 | Projeto final | Landing page completa e responsiva. |
 
 ### Exercícios rápidos
-
+{:.no_toc}
 1. Centralize um cartão no meio da tela usando Flexbox.
 2. Monte uma galeria de 6 imagens com Grid que mostre 1, 2 ou 3 colunas conforme a largura.
 3. Crie um botão com efeito de hover e transição suave.
