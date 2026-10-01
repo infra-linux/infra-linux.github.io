@@ -70,6 +70,7 @@ Elementos podem ser **aninhados**, desde que sejam fechados na ordem inversa da 
 ```
 
 ### Comentários
+{:.no_toc}
 
 ```html
 <!-- Este texto não aparece na página -->
@@ -114,6 +115,7 @@ Texto    pré-formatado
 ## 4. Links e imagens
 
 ### Links
+{:.no_toc}
 
 ```html
 <a href="https://exemplo.com">Site externo</a>
@@ -132,6 +134,7 @@ Para o destino de `#secao-2`, o elemento precisa de um `id`:
 > Ao usar `target="_blank"`, acrescente `rel="noopener"` por segurança.
 
 ### Imagens
+{:.no_toc}
 
 ```html
 <img src="imagens/foto.jpg" alt="Descrição da foto" width="400" height="300">
@@ -149,6 +152,7 @@ Para o destino de `#secao-2`, o elemento precisa de um `id`:
 ```
 
 ### Caminhos de arquivos
+{:.no_toc}
 
 | Caminho | Significado |
 |---------|-------------|
@@ -307,6 +311,7 @@ Elementos semânticos descrevem o **papel** de cada parte da página. Buscadores
 | `<footer>` | Rodapé. |
 
 ### `<div>` e `<span>`
+{:.no_toc}
 
 Quando nenhum elemento semântico serve, use `<div>` (bloco) e `<span>` (em linha) como agrupadores sem significado.
 
@@ -377,6 +382,7 @@ O `<iframe>` deve sempre ter um `title`.
 | 6 | Projeto final | Site pessoal completo, pronto para receber CSS. |
 
 ### Exercícios rápidos
+{:.no_toc}
 
 1. Monte uma página com um título, três parágrafos, uma lista e uma imagem com `alt`.
 2. Crie um menu de navegação com `<nav>` e links para três páginas.
