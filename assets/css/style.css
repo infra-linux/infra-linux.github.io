@@ -9,20 +9,20 @@
   --bg-main: #101010;
   --bg-card: #181818;
   --bg-code: #020202;
-  --bg-hover: #222222;
+  --bg-hover: #242424;
 
-  --text: #c4c4c4;
+  --text: #c1c1c1;
   --text-strong: #eeeeee;
   --text-muted: #777777;
 
-  --border: #2b2b2b;
-  --border-soft: #1d1d1d;
+  --border: #303030;
+  --border-soft: #1f1f1f;
 
-  --accent: #991b1b;
-  --accent-hover: #dc2626;
-  --accent-soft: rgba(153, 27, 27, 0.16);
-  --accent-light: #fca5a5;
-  --accent-dark: #7f1d1d;
+  --accent: #b0b0b0;
+  --accent-hover: #d5d5d5;
+  --accent-soft: rgba(176, 176, 176, 0.12);
+  --accent-light: #e3e3e3;
+  --accent-dark: #707070;
 
   --sidebar-width: 252px;
   --sidebar-collapsed-width: 54px;
