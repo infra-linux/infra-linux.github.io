@@ -28,7 +28,6 @@
   --sidebar-collapsed-width: 54px;
   --content-width: 980px;
 
-  /* Espaço entre os quadros (página e barra lateral) e as bordas da tela */
   --gap: 0px;
   --sidebar-gap: 0px;
 
@@ -145,18 +144,6 @@ input:focus-visible {
   transition: margin-left 0.22s ease;
 }
 
-/*
- * Quadro de conteúdo.
- * Estes valores valem para TODAS as larguras de tela
- * (os blocos de @media mais abaixo não redefinem o main).
- *
- * width   -> deixa --gap de folga em cada lateral
- * margin  -> topo | laterais (auto = centralizado) | base
- * padding -> topo | laterais | base (espaço interno)
- *
- * A barra lateral fica colada na esquerda da tela, então o
- * espaço entre a barra e o quadro vem daqui (--gap).
- */
 main {
   position: relative;
   width: 100%;
@@ -175,23 +162,17 @@ main {
    Barra lateral
    ========================================================= */
 
-/*
- * Quadro flutuante: colado na esquerda da tela (left: 0) e
- * afastado --gap do topo e da base. Só os cantos da direita
- * são arredondados.
- */
-/* =========================================================
-   Barra lateral
-   ========================================================= */
-
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 20;
+
   display: flex;
   flex-direction: column;
+
   width: var(--sidebar-width);
   overflow: hidden;
+
   background: var(--bg-sidebar);
 
   border: 0;
@@ -225,32 +206,191 @@ main {
   background: #373733;
 }
 
+
+/* =========================================================
+   Topo da sidebar
+   Logo + pesquisa + botão
+   ========================================================= */
+
 .sidebar-top {
   display: flex;
   align-items: center;
+
   width: 100%;
-  min-height: 54px;
-  padding: 6px 8px;
+  height: 54px;
+
+  padding: 0 8px;
+
   box-sizing: border-box;
+
   gap: 6px;
 }
 
+
+/* =========================================================
+   Logo no topo
+   ========================================================= */
+
 .sidebar-top .brand {
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  margin: 0;
+  padding: 0;
+
+  border-radius: 8px;
+
+  background: var(--bg-sidebar);
+
+  overflow: hidden;
 }
 
-.sidebar-top .sidebar-search {
-  flex: 1;
+.sidebar-top .brand:hover {
+  background: var(--bg-hover);
+}
+
+.sidebar-top .brand-icon {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  margin: 0;
+  padding: 0;
+
+  flex: 0 0 auto;
+
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   Pesquisa do topo
+   ========================================================= */
+
+.sidebar-search {
+  position: relative;
+
+  flex: 1 1 auto;
+
   min-width: 0;
+
   margin: 0;
 }
 
-.sidebar-top .sidebar-search input {
-  width: 100%;
+.sidebar-search-icon {
+  position: absolute;
+
+  left: 7px;
+  top: 50%;
+
+  width: 15px;
+  height: 15px;
+
+  color: var(--text-muted);
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
 }
 
-.sidebar-top .sidebar-collapse {
-  flex-shrink: 0;
+.sidebar-search input {
+  display: block;
+
+  width: 100%;
+  height: 36px;
+
+  box-sizing: border-box;
+
+  padding: 0 8px 0 28px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+
+  background: var(--bg-main);
+
+  color: var(--text);
+
+  outline: none;
+
+  font: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.16s ease,
+    background 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.sidebar-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.sidebar-search input:hover {
+  border-color: #3b3b38;
+}
+
+.sidebar-search input:focus {
+  border-color: #4a4a46;
+  background: #101010;
+  box-shadow: 0 0 0 2px rgba(184, 184, 178, 0.08);
+}
+
+
+/* =========================================================
+   Botão recolher
+   ========================================================= */
+
+.sidebar-collapse {
+  position: static;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 32px;
+
+  width: 32px;
+  height: 32px;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border);
+  border-radius: 7px;
+
+  background: var(--bg-sidebar);
+
+  color: var(--text-muted);
+
+  font-size: 1.35rem;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.sidebar-collapse:hover {
+  border-color: #55554e;
+  background: var(--bg-hover);
+  color: var(--text-strong);
+}
+
+.sidebar-collapse span {
+  display: block;
+  margin-top: -2px;
 }
 
 
@@ -274,6 +414,62 @@ body.sidebar-collapsed .sidebar-footer {
   display: none;
 }
 
+
+/* =========================================================
+   Barra retraída
+   ========================================================= */
+
+body.sidebar-collapsed .sidebar-top {
+  height: 54px;
+  padding: 0;
+}
+
+body.sidebar-collapsed .brand {
+  position: absolute;
+
+  top: 4px;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin: 0;
+  padding: 0;
+
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+body.sidebar-collapsed .brand-icon {
+  display: block;
+
+  width: 42px;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  flex-shrink: 0;
+}
+
+body.sidebar-collapsed .sidebar-collapse {
+  display: none;
+}
+
+body.sidebar-collapsed .sidebar-search {
+  display: none;
+}
+
 body.sidebar-collapsed .dock-github {
   width: 46px;
   height: 46px;
@@ -289,191 +485,9 @@ body.sidebar-collapsed .dock-github svg {
   height: 26px;
 }
 
-/* =========================================================
-   Botão minimizar
-   (aparece só com a barra expandida)
-   ========================================================= */
-
-.sidebar-collapse {
-  position: absolute;
-  top: 30px;
-  right: 10px;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  background: var(--bg-sidebar);
-  color: var(--text-muted);
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    background 0.16s ease,
-    border-color 0.16s ease,
-    color 0.16s ease;
-}
-
-.sidebar-collapse:hover {
-  border-color: #55554e;
-  background: var(--bg-hover);
-  color: var(--text-strong);
-}
-
-.sidebar-collapse span {
-  display: block;
-  margin-top: -2px;
-}
-
 
 /* =========================================================
-   Barra retraída: só o ícone do site, sem botão
-   ========================================================= */
-
-body.sidebar-collapsed .brand {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  margin: 0;
-  padding: 0;
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-body.sidebar-collapsed .brand-icon {
-  display: block;
-  width: 42px;
-  height: 42px;
-  margin: 0;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-body.sidebar-collapsed .sidebar-collapse {
-  display: none;
-}
-
-body.sidebar-collapsed .sidebar-search {
-  display: none;
-}
-
-.sidebar-top {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 54px;
-  padding: 0 8px;
-  box-sizing: border-box;
-  gap: 6px;
-}
-
-.sidebar-top .brand {
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar-top .brand-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.sidebar-search {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
-  margin: 0;
-}
-
-.sidebar-search input {
-  width: 100%;
-  height: 36px;
-  box-sizing: border-box;
-  padding: 0 8px 0 28px;
-}
-
-
-.sidebar-search-icon {
-  position: absolute;
-  left: 7px;
-  top: 50%;
-  width: 15px;
-  height: 15px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.sidebar-top .sidebar-collapse {
-  flex: 0 0 32px;
-  width: 32px;
-  height: 32px;
-  margin: 0;
-  padding: 0;
-}
-
-/* =========================================================
-   Barra de pesquisa
-   ========================================================= */
-
-.sidebar-search {
-  position: relative;
-  flex: 1;
-  margin: 0 8px;
-}
-
-.sidebar-search-icon {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  color: var(--text-muted);
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.sidebar-search input {
-  width: 100%;
-  height: 38px;
-  box-sizing: border-box;
-  padding: 0 10px 0 10px;
-  border: 1px solid var(--border-soft);
-  border-radius: 8px;
-  background: var(--bg-main);
-  color: var(--text);
-  outline: none;
-  font: inherit;
-  font-size: 14px;
-}
-
-.sidebar-search input::placeholder {
-  color: var(--text-muted);
-}
-
-.sidebar-search input:focus {
-  border-color: var(--border);
-}
-
-/* =========================================================
-   Dock de ícones (só com a barra retraída)
+   Dock de ícones
    ========================================================= */
 
 .sidebar-dock {
@@ -482,14 +496,21 @@ body.sidebar-collapsed .sidebar-search {
 
 body.sidebar-collapsed .sidebar-dock {
   display: flex;
+
   flex: 1 1 auto;
+
   flex-direction: column;
   align-items: center;
+
   gap: 4px;
+
   min-height: 0;
+
   margin-top: 68px;
   padding: 10px 0 14px;
+
   overflow-y: auto;
+
   scrollbar-width: none;
 }
 
@@ -499,16 +520,24 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .dock-item {
   position: relative;
+
   display: flex;
+
   flex: 0 0 auto;
+
   align-items: center;
   justify-content: center;
+
   width: 40px;
   height: 40px;
+
   border: 1px solid transparent;
   border-radius: 10px;
+
   color: var(--text-muted);
+
   text-decoration: none;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -531,42 +560,57 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   color: var(--text-strong);
 }
 
-/* Indicador da seção atual, como no dock do Ubuntu */
 .dock-item.active::before {
   content: "";
+
   position: absolute;
+
   top: 50%;
   left: -8px;
+
   width: 3px;
   height: 18px;
+
   border-radius: 0 3px 3px 0;
+
   background: var(--accent);
+
   transform: translateY(-50%);
 }
 
 .dock-tooltip {
   position: fixed;
   z-index: 200;
+
   padding: 6px 10px;
+
   border: 1px solid var(--border);
   border-radius: 7px;
+
   background: var(--bg-card);
+
   color: var(--text-strong);
+
   font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.2;
+
   white-space: nowrap;
+
   pointer-events: none;
+
   opacity: 0;
+
   transform: translateY(-50%);
+
   box-shadow: 0 6px 18px var(--shadow);
+
   transition: opacity 0.12s ease;
 }
 
 .dock-tooltip.visible {
   opacity: 1;
 }
-
 
 
 /* =========================================================
@@ -590,15 +634,24 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .brand {
   display: flex;
   align-items: center;
+
   gap: 0;
+
   min-height: 60px;
+
   margin: 12px 14px 5px;
   padding: 8px 12px;
+
   border-radius: 10px;
+
   background: var(--bg-sidebar);
+
   color: var(--text-strong);
+
   text-decoration: none;
+
   overflow: hidden;
+
   transition: background 0.16s ease;
 }
 
@@ -608,20 +661,25 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   text-decoration: none;
 }
 
-/* Logo preenchido (SVG inline): a cor vem de "color" via currentColor */
 .brand-icon {
   display: block;
+
   width: 42px;
   height: 42px;
+
   flex: 0 0 auto;
+
   color: var(--accent);
 }
 
 .brand-name {
   margin-left: 12px;
   padding: 8px 14px 8px 12px;
+
   background: var(--bg-sidebar);
+
   color: #c8c8c3;
+
   font-size: 1.30rem;
   font-weight: 700;
   line-height: 24px;
@@ -630,7 +688,7 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 
 /* =========================================================
-   Busca lateral
+   Busca lateral antiga
    ========================================================= */
 
 .search-box {
@@ -639,10 +697,14 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .search-box label {
   display: block;
+
   margin: 0 0 6px 4px;
+
   color: var(--text-muted);
+
   font-size: 0.65rem;
   font-weight: 700;
+
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -653,13 +715,19 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .global-search-input {
   width: 100%;
   min-height: 38px;
+
   padding: 8px 10px;
+
   border: 1px solid var(--border);
   border-radius: 7px;
+
   outline: none;
+
   background: var(--bg-code);
   color: var(--text);
+
   box-shadow: none;
+
   transition:
     border-color 0.16s ease,
     background 0.16s ease,
@@ -697,7 +765,9 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .sidebar-menu {
   flex: 1 1 auto;
   min-height: 0;
+
   overflow-y: auto;
+
   padding: 4px 12px 18px;
 }
 
@@ -705,15 +775,23 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .sidebar-menu details summary {
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   min-height: 39px;
+
   margin: 2px 0;
   padding: 8px 10px;
+
   border: 1px solid transparent;
   border-radius: 7px;
+
   color: #c4c4bf;
+
   font-size: 0.88rem;
+
   text-decoration: none;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -722,14 +800,19 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-menu > a:hover {
   border-color: transparent;
+
   background: rgba(255, 255, 255, 0.055);
+
   color: var(--text-strong);
+
   text-decoration: none;
 }
 
 .sidebar-menu > a.active {
   border-color: #c8c8c3;
+
   background: rgba(184, 184, 178, 0.10);
+
   color: #c8c8c3;
 }
 
@@ -754,9 +837,13 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-menu details summary::after {
   content: "▸";
+
   margin-left: auto;
+
   color: #73736c;
+
   font-size: 0.72rem;
+
   transition:
     transform 0.16s ease,
     color 0.16s ease;
@@ -779,7 +866,9 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-menu details ul {
   margin: 2px 0 5px;
+
   padding: 0 0 0 18px;
+
   list-style: none;
 }
 
@@ -796,15 +885,24 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .sidebar-menu details li a {
   display: flex;
   align-items: center;
+
   min-height: 34px;
+
   margin: 1px 0;
+
   padding: 6px 10px 6px 28px;
+
   border-left: 1px solid var(--border);
+
   border-radius: 0 6px 6px 0;
+
   color: #aaa9a5;
+
   font-size: 0.82rem;
   line-height: 1.35;
+
   text-decoration: none;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -813,14 +911,19 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-menu details li a:hover {
   border-left-color: #b0b0ab;
+
   background: rgba(184, 184, 178, 0.07);
+
   color: var(--text-strong);
+
   text-decoration: none;
 }
 
 .sidebar-menu details li a.active {
   border-left-color: #b0b0ab;
+
   background: rgba(184, 184, 178, 0.10);
+
   color: #c8c8c3;
 }
 
@@ -831,12 +934,17 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .nav-marker {
   display: inline-block;
+
   width: 7px;
   height: 7px;
+
   flex: 0 0 auto;
+
   border: 1px solid #73736c;
   border-radius: 50%;
+
   background: transparent;
+
   transition:
     border-color 0.16s ease,
     background 0.16s ease,
@@ -852,12 +960,14 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .sidebar-menu > a.active .nav-marker {
   border-color: #b0b0ab;
   background: var(--accent);
+
   box-shadow: 0 0 0 3px rgba(184, 184, 178, 0.12);
 }
 
 .sidebar-menu details[open] summary .nav-marker {
   border-color: #b0b0ab;
   background: var(--accent);
+
   box-shadow: 0 0 0 3px rgba(184, 184, 178, 0.10);
 }
 
@@ -894,6 +1004,7 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-footer {
   padding: 12px;
+
   border-top: 1px solid var(--border-soft);
 }
 
@@ -901,16 +1012,24 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   min-height: 38px;
+
   padding: 0 10px;
+
   border: 1px solid var(--border);
   border-radius: 7px;
+
   background: rgba(255, 255, 255, 0.03);
+
   color: var(--text);
+
   font-size: 0.82rem;
   font-weight: 600;
+
   text-decoration: none;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease;
@@ -918,7 +1037,9 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-footer a:hover {
   border-color: #51514b;
+
   background: rgba(255, 255, 255, 0.075);
+
   color: var(--text-strong);
 }
 
@@ -939,23 +1060,29 @@ h6 {
 
 h1 {
   margin: 0 0 20px;
+
   font-size: clamp(1.7rem, 2.5vw, 2.25rem);
   font-weight: 700;
+
   line-height: 1.2;
   letter-spacing: -0.04em;
 }
 
 h2 {
   margin: 32px 0 12px;
+
   font-size: 1.12rem;
   font-weight: 700;
+
   line-height: 1.35;
 }
 
 h3 {
   margin: 24px 0 8px;
+
   font-size: 0.98rem;
   font-weight: 700;
+
   line-height: 1.4;
 }
 
@@ -963,14 +1090,18 @@ h4,
 h5,
 h6 {
   margin: 20px 0 8px;
+
   font-size: 0.92rem;
   font-weight: 700;
+
   line-height: 1.4;
 }
 
 p {
   max-width: 780px;
+
   margin: 0 0 14px;
+
   color: var(--text);
 }
 
@@ -990,8 +1121,11 @@ li + li {
 
 hr {
   height: 1px;
+
   margin: 28px 0;
+
   border: 0;
+
   background: var(--border-soft);
 }
 
@@ -1002,8 +1136,11 @@ hr {
 
 .home-hero {
   display: grid;
+
   gap: 8px;
+
   padding: 8px 0 24px;
+
   border-bottom: 1px solid var(--border-soft);
 }
 
@@ -1018,24 +1155,34 @@ hr {
 
 .home-hero h1 {
   max-width: 760px;
+
   margin-bottom: 6px;
+
   font-size: clamp(1.9rem, 4vw, 2.7rem);
 }
 
 .home-hero p {
   max-width: 720px;
+
   margin: 0;
+
   color: var(--text-muted);
+
   font-size: 0.98rem;
 }
 
 .home-eyebrow {
   display: inline-block;
+
   margin-bottom: 4px;
+
   color: #c8c8c3;
+
   font-size: 0.68rem;
   font-weight: 750;
+
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
 }
 
@@ -1046,9 +1193,12 @@ hr {
 
 .home-intro {
   margin: 24px 0;
+
   padding: 22px 24px;
+
   border: 1px solid var(--border);
   border-radius: 10px;
+
   background: var(--bg-card);
 }
 
@@ -1058,16 +1208,23 @@ hr {
 
 .home-intro h2 {
   margin: 0 0 10px;
+
   color: #c8c8c3;
+
   font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+
   line-height: 1.25;
 }
 
 .home-intro p {
   max-width: 780px;
+
   margin: 0 0 10px;
+
   color: var(--text-muted);
+
   font-size: 0.88rem;
+
   line-height: 1.65;
 }
 
@@ -1090,33 +1247,46 @@ hr {
 
 .home-section-heading h2 {
   margin: 0 0 6px;
+
   color: #c8c8c3;
+
   font-size: 1.25rem;
 }
 
 .home-section-heading p {
   margin: 0;
+
   color: var(--text-muted);
+
   font-size: 0.82rem;
 }
 
 .home-tech-list {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 7px;
 }
 
 .home-tech-list span {
   display: inline-flex;
   align-items: center;
+
   min-height: 30px;
+
   padding: 0 11px;
+
   border: 1px solid var(--border);
   border-radius: 7px;
+
   background: rgba(255, 255, 255, 0.025);
+
   color: var(--text-muted);
+
   font-size: 0.76rem;
   font-weight: 650;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -1125,7 +1295,9 @@ hr {
 
 .home-tech-list span:hover {
   border-color: #b0b0ab;
+
   background: rgba(184, 184, 178, 0.08);
+
   color: var(--text-strong);
 }
 
@@ -1145,22 +1317,33 @@ hr {
 
 .home-grid {
   display: grid;
+
   grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 12px;
+
   margin: 20px 0;
 }
 
 .home-card {
   display: flex;
   flex-direction: column;
+
   gap: 5px;
+
   min-height: 0;
+
   padding: 16px;
+
   border: 1px solid var(--border);
   border-radius: 10px;
+
   background: var(--bg-card);
+
   color: inherit;
+
   text-decoration: none;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -1169,21 +1352,29 @@ hr {
 
 .home-card:hover {
   border-color: #4c4c46;
+
   background: var(--bg-hover);
+
   transform: translateY(-1px);
+
   text-decoration: none;
 }
 
 .home-card h3 {
   margin: 0;
+
   color: #c8c8c3;
+
   font-size: 0.94rem;
 }
 
 .home-card p {
   margin: 0;
+
   color: var(--text-muted);
+
   font-size: 0.8rem;
+
   line-height: 1.48;
 }
 
@@ -1193,10 +1384,14 @@ hr {
 
 .home-card-count {
   margin-top: 5px;
+
   color: #999994;
+
   font-size: 0.64rem;
   font-weight: 700;
+
   letter-spacing: 0.05em;
+
   text-transform: uppercase;
 }
 
@@ -1219,20 +1414,30 @@ hr {
 
 .wiki-topic-list {
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
   column-gap: 28px;
+
   margin: 18px 0 8px;
+
   border-top: 1px solid var(--border-soft);
 }
 
 .wiki-topic {
   display: grid;
+
   gap: 4px;
+
   padding: 12px 5px;
+
   border-bottom: 1px solid var(--border-soft);
   border-radius: 6px;
+
   color: inherit;
+
   text-decoration: none;
+
   transition:
     padding-left 0.16s ease,
     background 0.16s ease;
@@ -1240,25 +1445,32 @@ hr {
 
 .wiki-topic:hover {
   padding-left: 9px;
+
   background: rgba(255, 255, 255, 0.035);
+
   text-decoration: none;
 }
 
 .wiki-topic-title {
   color: var(--text-strong);
+
   font-size: 0.9rem;
   font-weight: 700;
 }
 
 .wiki-topic-title::after {
   content: " →";
+
   color: #b8b8b3;
+
   font-weight: 400;
 }
 
 .wiki-topic-description {
   color: var(--text-muted);
+
   font-size: 0.8rem;
+
   line-height: 1.4;
 }
 
@@ -1269,8 +1481,11 @@ hr {
 
 .global-search-link {
   display: inline-block;
+
   margin: 8px 4px 0;
+
   color: var(--text-muted);
+
   font-size: 0.8rem;
 }
 
@@ -1280,15 +1495,20 @@ hr {
 
 .search-results {
   display: grid;
+
   gap: 10px;
+
   margin-top: 18px;
 }
 
 .search-results article {
   padding: 16px;
+
   border: 1px solid var(--border);
   border-radius: 10px;
+
   background: var(--bg-card);
+
   transition:
     border-color 0.16s ease,
     background 0.16s ease;
@@ -1301,12 +1521,15 @@ hr {
 
 .search-results h2 {
   margin: 0 0 7px;
+
   color: #c8c8c3;
+
   font-size: 1rem;
 }
 
 .search-results p {
   margin: 0;
+
   color: var(--text-muted);
 }
 
@@ -1317,8 +1540,11 @@ hr {
 
 pre {
   position: relative;
+
   margin: 18px 0;
+
   padding: 16px;
+
   overflow-x: auto;
 
   border: 1px solid #303630;
@@ -1334,6 +1560,7 @@ pre {
 
 code {
   padding: 2px 5px;
+
   border-radius: 4px;
 
   background: #242724;
@@ -1350,16 +1577,19 @@ code {
 
 pre code {
   padding: 0;
+
   border-radius: 0;
+
   background: transparent;
+
   color: inherit;
 }
 
-/* ---------------------------------------------------------
-   Syntax Highlighting
-   --------------------------------------------------------- */
 
-/* Palavras-chave */
+/* =========================================================
+   Syntax Highlighting
+   ========================================================= */
+
 .highlight .k,
 .highlight .kd,
 .highlight .kn,
@@ -1368,14 +1598,12 @@ pre code {
   color: #ff7b72;
 }
 
-/* Comandos / funções */
 .highlight .nb,
 .highlight .nf,
 .highlight .fm {
   color: #7ee787;
 }
 
-/* Strings */
 .highlight .s,
 .highlight .s1,
 .highlight .s2,
@@ -1384,14 +1612,12 @@ pre code {
   color: #a5d6ff;
 }
 
-/* Números */
 .highlight .m,
 .highlight .mi,
 .highlight .mf {
   color: #79c0ff;
 }
 
-/* Comentários */
 .highlight .c,
 .highlight .c1,
 .highlight .cm {
@@ -1399,38 +1625,41 @@ pre code {
   font-style: italic;
 }
 
-/* Operadores */
 .highlight .o,
 .highlight .ow {
   color: #d2a8ff;
 }
 
-/* Variáveis */
 .highlight .n,
 .highlight .nv {
   color: #ffa657;
 }
 
-/* Parâmetros / atributos */
 .highlight .na {
   color: #79c0ff;
 }
 
-/* ---------------------------------------------------------
+
+/* =========================================================
    Diagramas
-   --------------------------------------------------------- */
+   ========================================================= */
 
 pre.flow-diagram {
   padding: 12px 14px;
+
   font-size: 0.86rem;
+
   line-height: 1.4;
 }
 
 pre.flow-horizontal code {
   display: block;
+
   white-space: normal;
+
   line-height: 1.6;
 }
+
 
 /* =========================================================
    Botão copiar código
@@ -1438,20 +1667,30 @@ pre.flow-horizontal code {
 
 .copy-btn {
   position: absolute;
+
   top: 10px;
   right: 10px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 30px;
   height: 30px;
+
   padding: 0;
+
   border: 1px solid transparent;
   border-radius: 6px;
+
   background: transparent;
+
   color: #999994;
+
   cursor: pointer;
+
   opacity: 0;
+
   transition:
     background 0.16s ease,
     border-color 0.16s ease,
@@ -1466,12 +1705,15 @@ pre:hover .copy-btn,
 
 .copy-btn:hover {
   border-color: #474742;
+
   background: #292927;
+
   color: #d9d9d4;
 }
 
 .copy-btn:focus-visible {
   outline: 2px solid var(--accent);
+
   outline-offset: 2px;
 }
 
@@ -1482,15 +1724,21 @@ pre:hover .copy-btn,
 
 .copy-btn.copied {
   opacity: 1;
+
   border-color: #c8c8c3;
+
   background: rgba(184, 184, 178, 0.12);
+
   color: #c8c8c3;
 }
 
 .copy-btn.copy-error {
   opacity: 1;
+
   border-color: rgba(220, 90, 80, 0.35);
+
   background: rgba(220, 90, 80, 0.12);
+
   color: #ef938a;
 }
 
@@ -1507,31 +1755,41 @@ pre:hover .copy-btn,
 
 table {
   width: 100%;
+
   margin: 18px 0;
+
   overflow: hidden;
+
   border: 1px solid var(--border);
   border-radius: 8px;
+
   border-collapse: separate;
   border-spacing: 0;
+
   background: #20201e;
 }
 
 th,
 td {
   padding: 11px 13px;
+
   border-bottom: 1px solid #353530;
+
   text-align: left;
 }
 
 th {
   background: #292926;
+
   color: var(--text-strong);
+
   font-size: 0.83rem;
   font-weight: 700;
 }
 
 td {
   color: #c9c9c4;
+
   font-size: 0.88rem;
 }
 
@@ -1545,10 +1803,15 @@ tr:hover td {
 
 blockquote {
   margin: 18px 0;
+
   padding: 12px 16px;
+
   border-left: 3px solid var(--accent);
+
   border-radius: 0 8px 8px 0;
+
   background: var(--accent-soft);
+
   color: #c9c9c4;
 }
 
@@ -1563,7 +1826,9 @@ blockquote p:last-child {
 
 .toc-title {
   margin: 20px 0 -4px;
+
   color: var(--text-strong);
+
   font-size: 0.92rem;
   font-weight: 700;
 }
@@ -1571,34 +1836,45 @@ blockquote p:last-child {
 #markdown-toc {
   width: 100%;
   max-width: 100%;
+
   margin: 18px 0 24px;
+
   padding: 8px 0 8px 14px;
+
   border: 0;
   border-left: 2px solid var(--accent);
+
   background: transparent;
+
   list-style: none;
 }
 
 #markdown-toc > li {
   margin: 0.4rem 0;
+
   line-height: 1.45;
 }
 
 #markdown-toc ul {
   margin: 0.35rem 0 0.35rem 1rem;
+
   padding-left: 1rem;
+
   list-style: disc;
 }
 
 #markdown-toc a {
   color: #b6b6b1;
+
   font-size: 0.88rem;
+
   text-decoration: none;
 }
 
 #markdown-toc a:hover,
 #markdown-toc a:focus {
   color: #c8c8c3;
+
   text-decoration: underline;
 }
 
@@ -1611,20 +1887,29 @@ blockquote p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
   min-height: 68px;
+
   margin: 0 auto;
+
   padding: 20px 32px;
+
   border: 0;
   border-radius: 0;
+
   background: var(--bg-sidebar);
+
   color: #999994;
+
   font-size: 0.8rem;
+
   box-shadow: none;
 }
 
+
 /* =========================================================
-   Botão mobile (não usado)
+   Botão mobile
    ========================================================= */
 
 .menu-toggle {
@@ -1633,7 +1918,7 @@ blockquote p:last-child {
 
 
 /* =========================================================
-   Backdrop (não usado)
+   Backdrop
    ========================================================= */
 
 .backdrop {
@@ -1646,17 +1931,6 @@ blockquote p:last-child {
    ========================================================= */
 
 @media (max-width: 900px) {
-
-  /*
-   * No celular a barra se comporta como no desktop:
-   * o conteúdo fica sempre ao lado da barra retraída,
-   * e a barra expandida abre por cima dele.
-   * Quem controla retrair/expandir é a classe
-   * "sidebar-collapsed" (definida pelo JavaScript).
-   *
-   * O quadro "main" NÃO é redefinido aqui: ele usa
-   * os mesmos valores do bloco principal, em todas as telas.
-   */
 
   .sidebar {
     box-shadow: 8px 0 30px var(--shadow);
@@ -1739,6 +2013,7 @@ blockquote p:last-child {
   }
 }
 
+
 /* =========================================================
    Ícones dos Títulos
    ========================================================= */
@@ -1750,17 +2025,21 @@ blockquote p:last-child {
 }
 
 .title-icon {
-  width: 1.1em;   /* acompanha o tamanho da fonte do título */
+  width: 1.1em;
   height: 1.1em;
+
   flex-shrink: 0;
+
   transform: translateY(0.08em);
 }
 
 .home-title {
   display: flex;
   align-items: center;
+
   gap: 0.5rem;
 }
+
 
 /* =========================================================
    Data da última atualização
@@ -1768,11 +2047,13 @@ blockquote p:last-child {
 
 .last-update {
   position: absolute;
+
   right: 22px;
   bottom: 12px;
+
   margin: 0;
+
   font-size: 0.75rem;
+
   color: var(--text-muted);
 }
-
-
