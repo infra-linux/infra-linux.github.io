@@ -225,7 +225,7 @@ significa acesso HTTPS ao servidor `10.0.19.20`.
 O principal comando é o `ss`.
 
 ### Mostrar portas TCP e UDP em escuta
-
+{:.no_toc}
 ```bash
 ss -tuln
 ```
@@ -240,7 +240,7 @@ udp   UNCONN 0.0.0.0:53
 ```
 
 ### Entendendo as opções
-
+{:.no_toc}
 ```text
 -t → TCP
 -u → UDP
@@ -297,7 +297,7 @@ Connection to 10.0.19.20 443 port [tcp/https] succeeded!
 Isso significa que existe conectividade TCP até a porta `443`.
 
 ### Importante
-
+{:.no_toc}
 Um teste de porta **não significa que a aplicação está funcionando corretamente**.
 
 Ele apenas confirma que uma conexão TCP pode ser estabelecida.
@@ -426,7 +426,7 @@ ss -lntp
 # 14. Diferenciando os problemas
 
 ### DNS não resolve
-
+{:.no_toc}
 ```text
 dig servidor.exemplo.com
 → NXDOMAIN
@@ -437,7 +437,7 @@ Problema provavelmente relacionado a **DNS/nome**.
 ---
 
 ### IP não é alcançável
-
+{:.no_toc}
 ```bash
 ping 10.0.19.20
 ```
@@ -449,7 +449,7 @@ Mas lembre:
 ---
 
 ### Porta TCP bloqueada
-
+{:.no_toc}
 ```bash
 nc -vz 10.0.19.20 443
 ```
@@ -471,7 +471,7 @@ Pode indicar:
 ---
 
 ### Porta recusada
-
+{:.no_toc}
 ```text
 Connection refused
 ```
@@ -483,7 +483,7 @@ Normalmente significa que **o host foi alcançado, mas não existe serviço acei
 ---
 
 ### Porta aberta, aplicação com problema
-
+{:.no_toc}
 ```bash
 nc -vz 10.0.19.20 443
 ```
@@ -567,7 +567,7 @@ Aplicação
 # 16. Comandos de consulta rápida
 
 ### Linux
-
+{:.no_toc}
 ```bash
 ss -tuln
 ss -tulnp
@@ -579,7 +579,7 @@ lsof -i :PORTA
 ```
 
 ### Windows PowerShell
-
+{:.no_toc}
 ```powershell
 Test-NetConnection HOST -Port PORTA
 ```
