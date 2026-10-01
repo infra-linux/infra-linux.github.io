@@ -6,12 +6,31 @@ title: Git
 
 ---
 
-## Conteúdo para aprofundamento
+## Conteúdo
 
-* [Guia prático de Git](guia-pratico.md)
-* [Tutorial: Branch e publicação na main](git-branch-para-main.md)
-* [Tutorial: Clone, Branch, Pull Request e Merge](git-clone-branch-pull-request.md)
-* [Sincronizando um projeto Git](atualizando-projeto-git.md)
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'devops/git/guia-pratico.html' | relative_url }}">
+    <span class="wiki-topic-title">Guia prático de Git</span>
+    <span class="wiki-topic-description">Comandos e práticas essenciais para trabalhar com Git.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/git/git-branch-para-main.html' | relative_url }}">
+    <span class="wiki-topic-title">Tutorial: Branch e publicação na main</span>
+    <span class="wiki-topic-description">Criação de branches, alterações e publicação na branch main.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/git/git-clone-branch-pull-request.html' | relative_url }}">
+    <span class="wiki-topic-title">Tutorial: Clone, Branch, Pull Request e Merge</span>
+    <span class="wiki-topic-description">Fluxo completo para clonar, criar branches, abrir Pull Requests e realizar merge.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/git/atualizando-projeto-git.html' | relative_url }}">
+    <span class="wiki-topic-title">Sincronizando um projeto Git</span>
+    <span class="wiki-topic-description">Como atualizar um projeto Git usando pull, fetch, reset e outras opções de sincronização.</span>
+  </a>
+
+</div>
 
 ---
 
