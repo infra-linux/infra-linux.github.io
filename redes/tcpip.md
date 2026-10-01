@@ -1055,7 +1055,7 @@ Portas vão de:
 Os limites de portas efêmeras podem variar conforme o sistema operacional.
 
 #### Portas conhecidas
-
+{:.no_toc}
 | Porta | Protocolo | Serviço |
 | ----: | --------- | ------- |
 | 20/21 | TCP       | FTP     |
