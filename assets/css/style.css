@@ -334,14 +334,59 @@ body.sidebar-collapsed .brand-icon {
   flex-shrink: 0;
 }
 
-body.sidebar-collapsed .brand-name {
-  display: none;
-}
-
 body.sidebar-collapsed .sidebar-collapse {
   display: none;
 }
 
+body.sidebar-collapsed .sidebar-search {
+  display: none;
+}
+
+/* =========================================================
+   Barra de pesquisa
+   ========================================================= */
+
+.sidebar-search {
+  position: relative;
+  margin: 12px 12px 8px;
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.sidebar-search input {
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+
+  padding: 0 12px 0 36px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+
+  background: var(--bg-main);
+  color: var(--text);
+
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+}
+
+.sidebar-search input::placeholder {
+  color: var(--text-muted);
+}
+
+.sidebar-search input:focus {
+  border-color: var(--border);
+}
 
 /* =========================================================
    Dock de ícones (só com a barra retraída)
