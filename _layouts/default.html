@@ -43,126 +43,317 @@
 
   <aside class="sidebar" id="sidebar">
 
-    <button
-      class="sidebar-collapse"
-      id="sidebarCollapse"
-      type="button"
-      aria-label="Minimizar barra lateral"
-      title="Minimizar barra lateral"
-    >
-      <span aria-hidden="true">‹</span>
-    </button>
+    <!-- =====================================================
+         Cabeçalho da sidebar
+         ===================================================== -->
 
-<!-- =====================================================
-     Marca
-     ===================================================== -->
+    <div class="sidebar-top">
 
-<a
-  class="brand"
-  href="{{ '/' | relative_url }}"
-  aria-label="Página inicial do Pangolim"
->
-  {% include logo.html class="brand-icon" %}
-</a>
+      <!-- Marca -->
 
-<!-- =====================================================
-     Busca
-     ===================================================== -->
+      <a
+        class="brand"
+        href="{{ '/' | relative_url }}"
+        aria-label="Página inicial do Pangolim"
+      >
+        {% include logo.html class="brand-icon" %}
+      </a>
 
-<div class="sidebar-search">
+      <!-- Busca -->
 
-  <svg
-    class="sidebar-search-icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    aria-hidden="true"
-  >
-    <circle cx="11" cy="11" r="7"></circle>
-    <path d="m20 20-4-4"></path>
-  </svg>
+      <div class="sidebar-search">
 
-  <input
-    type="search"
-    id="sidebarSearchInput"
-    placeholder="Pesquisar"
-    aria-label="Pesquisar"
-    autocomplete="off"
-  >
+        <svg
+          class="sidebar-search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-4-4"></path>
+        </svg>
 
-</div>
+        <input
+          type="search"
+          id="sidebarSearchInput"
+          placeholder="Pesquisar"
+          aria-label="Pesquisar"
+          autocomplete="off"
+        >
+
+      </div>
+
+      <!-- Botão recolher -->
+
+      <button
+        class="sidebar-collapse"
+        id="sidebarCollapse"
+        type="button"
+        aria-label="Minimizar barra lateral"
+        title="Minimizar barra lateral"
+      >
+        <span aria-hidden="true">‹</span>
+      </button>
+
+    </div>
+
 
     <!-- =====================================================
-         Dock de ícones (visível só com a barra retraída)
+         Dock de ícones
          ===================================================== -->
 
     <nav class="sidebar-dock" aria-label="Seções (atalhos)">
 
-      <a class="dock-item" href="{{ 'devops/' | relative_url }}" data-label="DevOps" aria-label="DevOps">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'devops/' | relative_url }}"
+        data-label="DevOps"
+        aria-label="DevOps"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'programacao/' | relative_url }}" data-label="Programação" aria-label="Programação">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'programacao/' | relative_url }}"
+        data-label="Programação"
+        aria-label="Programação"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'linux/index.html' | relative_url }}" data-label="Linux" aria-label="Linux">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'linux/index.html' | relative_url }}"
+        data-label="Linux"
+        aria-label="Linux"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="4 17 10 11 4 5"/>
+          <line x1="12" y1="19" x2="20" y2="19"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'redes/index.html' | relative_url }}" data-label="Redes" aria-label="Redes">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'redes/index.html' | relative_url }}"
+        data-label="Redes"
+        aria-label="Redes"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="16" y="16" width="6" height="6" rx="1"/>
+          <rect x="2" y="16" width="6" height="6" rx="1"/>
+          <rect x="9" y="2" width="6" height="6" rx="1"/>
+          <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/>
+          <path d="M12 12V8"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'squid/index.html' | relative_url }}" data-label="Squid" aria-label="Squid">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="m4 4 5 5"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'squid/index.html' | relative_url }}"
+        data-label="Squid"
+        aria-label="Squid"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M16 3h5v5"/>
+          <path d="M4 20 21 3"/>
+          <path d="M21 16v5h-5"/>
+          <path d="m15 15 6 6"/>
+          <path d="m4 4 5 5"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'monitoramento/index.html' | relative_url }}" data-label="Monitoramento" aria-label="Monitoramento">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'monitoramento/index.html' | relative_url }}"
+        data-label="Monitoramento"
+        aria-label="Monitoramento"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'nutanix/index.html' | relative_url }}" data-label="Nutanix" aria-label="Nutanix">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'nutanix/index.html' | relative_url }}"
+        data-label="Nutanix"
+        aria-label="Nutanix"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="2" y="2" width="20" height="8" rx="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'vmware/index.html' | relative_url }}" data-label="VMware" aria-label="VMware">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'vmware/index.html' | relative_url }}"
+        data-label="VMware"
+        aria-label="VMware"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+          <polyline points="2 17 12 22 22 17"/>
+          <polyline points="2 12 12 17 22 12"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'watchguard/index.html' | relative_url }}" data-label="WatchGuard" aria-label="WatchGuard">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'watchguard/index.html' | relative_url }}"
+        data-label="WatchGuard"
+        aria-label="WatchGuard"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'windows/index.html' | relative_url }}" data-label="Windows" aria-label="Windows">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'windows/index.html' | relative_url }}"
+        data-label="Windows"
+        aria-label="Windows"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="3" width="8" height="8" rx="1"/>
+          <rect x="13" y="3" width="8" height="8" rx="1"/>
+          <rect x="3" y="13" width="8" height="8" rx="1"/>
+          <rect x="13" y="13" width="8" height="8" rx="1"/>
+        </svg>
       </a>
 
-      <a class="dock-item" href="{{ 'troubleshooting/index.html' | relative_url }}" data-label="Troubleshooting" aria-label="Troubleshooting">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      <a
+        class="dock-item"
+        href="{{ 'troubleshooting/index.html' | relative_url }}"
+        data-label="Troubleshooting"
+        aria-label="Troubleshooting"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
       </a>
 
       <a
         class="dock-item dock-github dock-github-bottom"
         href="https://github.com/pangolimbr/pangolimbr.github.io"
         target="_blank"
-          rel="noopener noreferrer"
-          data-label="GitHub"
-          aria-label="Abrir projeto Pangolim no GitHub"
+        rel="noopener noreferrer"
+        data-label="GitHub"
+        aria-label="Abrir projeto Pangolim no GitHub"
+      >
+        <svg
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          aria-hidden="true"
         >
-          <svg
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.64 5.47 7.72.4.08.55-.18.55-.4 0-.2-.01-.85-.01-1.54-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.92-3.64-4.08 0-.9.32-1.64.84-2.22-.08-.21-.37-1.06.08-2.21 0 0 .68-.22 2.2.85A7.49 7.49 0 0 1 8 4.79c.68 0 1.36.09 2 .27 1.52-1.07 2.2-.85 2.2-.85.45 1.15.16 2 .08 2.21.52.58.84 1.31.84 2.22 0 3.17-1.87 3.87-3.65 4.08.29.25.54.72.54 1.46 0 1.06-.01 1.91-.01 2.18 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z"></path>
-          </svg>
-        </a>
-      
+          <path d="M8 0C3.58 0 0 3.64 0 8.13c0 3.59 2.29 6.64 5.47 7.72.4.08.55-.18.55-.4 0-.2-.01-.85-.01-1.54-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.59 1.23.83.72 1.23 1.87.88 2.33.67.07-.53.28-.88.51-1.08-1.78-.21-3.64-.92-3.64-4.08 0-.9.32-1.64.84-2.22-.08-.21-.37-1.06.08-2.21 0 0 .68-.22 2.2.85A7.49 7.49 0 0 1 8 4.79c.68 0 1.36.09 2 .27 1.52-1.07 2.2-.85 2.2-.85.45 1.15.16 2 .08 2.21.52.58.84 1.31.84 2.22 0 3.17-1.87 3.87-3.65 4.08.29.25.54.72.54 1.46 0 1.06-.01 1.91-.01 2.18 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.13C16 3.64 12.42 0 8 0Z"></path>
+        </svg>
+      </a>
+
     </nav>
+
 
     <!-- =====================================================
          Menu
@@ -187,7 +378,6 @@
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -229,11 +419,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -299,11 +487,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -375,11 +561,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -403,11 +587,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -443,7 +625,6 @@
               </ul>
 
             </details>
-
           </li>
 
         </ul>
@@ -468,7 +649,6 @@
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -492,11 +672,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -520,11 +698,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -548,11 +724,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -582,11 +756,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -610,12 +782,12 @@
               </ul>
 
             </details>
-
           </li>
 
         </ul>
 
       </details>
+
 
       <!-- Linux -->
 
@@ -633,10 +805,7 @@
             </a>
           </li>
 
-          <!-- Armazenamento -->
-
           <li>
-
             <details>
 
               <summary>
@@ -658,7 +827,6 @@
                 </li>
 
                 <li>
-
                   <details>
 
                     <summary>
@@ -700,19 +868,14 @@
                     </ul>
 
                   </details>
-
                 </li>
 
               </ul>
 
             </details>
-
           </li>
 
-          <!-- Redes -->
-
           <li>
-
             <details>
 
               <summary>
@@ -736,13 +899,9 @@
               </ul>
 
             </details>
-
           </li>
 
-          <!-- Segurança -->
-
           <li>
-
             <details>
 
               <summary>
@@ -758,7 +917,6 @@
                 </li>
 
                 <li>
-
                   <details>
 
                     <summary>
@@ -782,11 +940,9 @@
                     </ul>
 
                   </details>
-
                 </li>
 
                 <li>
-
                   <details>
 
                     <summary>
@@ -810,19 +966,14 @@
                     </ul>
 
                   </details>
-
                 </li>
 
               </ul>
 
             </details>
-
           </li>
 
-          <!-- Troubleshooting -->
-
           <li>
-
             <details>
 
               <summary>
@@ -840,7 +991,6 @@
               </ul>
 
             </details>
-
           </li>
 
         </ul>
@@ -877,7 +1027,6 @@
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -907,7 +1056,6 @@
               </ul>
 
             </details>
-
           </li>
 
         </ul>
@@ -975,6 +1123,7 @@
               Zabbix Agent no Windows
             </a>
           </li>
+
         </ul>
 
       </details>
@@ -997,7 +1146,6 @@
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -1063,11 +1211,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -1091,11 +1237,9 @@
               </ul>
 
             </details>
-
           </li>
 
           <li>
-
             <details>
 
               <summary>
@@ -1113,7 +1257,6 @@
               </ul>
 
             </details>
-
           </li>
 
         </ul>
@@ -1279,6 +1422,7 @@
 
   </aside>
 
+
   <!-- =======================================================
        Conteúdo
        ======================================================= -->
@@ -1301,6 +1445,7 @@
     </footer>
 
   </div>
+
 
   <!-- =======================================================
        JavaScript principal
@@ -1346,7 +1491,6 @@
         sidebarCollapse.querySelector('span').textContent =
           collapsed ? '›' : '‹';
 
-        /* Retraída, o ícone da marca é o controle de expandir */
         brand.setAttribute(
           'aria-label',
           collapsed
@@ -1441,6 +1585,7 @@
       const dockItems =
         document.querySelectorAll('.dock-item');
 
+
       /* Destaca o ícone da seção atual */
 
       dockItems.forEach(
@@ -1455,14 +1600,18 @@
           const sectionPath =
             itemUrl.pathname
               .replace(/index\.html$/, '');
-      
+
           if (currentPath.startsWith(sectionPath)) {
+
             item.classList.add('active');
+
             item.setAttribute('aria-current', 'true');
+
           }
-      
+
         }
       );
+
 
       /* Tooltip ao lado do ícone */
 
@@ -1472,6 +1621,7 @@
       tooltip.setAttribute('role', 'tooltip');
 
       document.body.appendChild(tooltip);
+
 
       const showTooltip = item => {
 
@@ -1486,16 +1636,33 @@
 
       };
 
+
       const hideTooltip = () =>
         tooltip.classList.remove('visible');
+
 
       dockItems.forEach(
         item => {
 
-          item.addEventListener('mouseenter', () => showTooltip(item));
-          item.addEventListener('focus', () => showTooltip(item));
-          item.addEventListener('mouseleave', hideTooltip);
-          item.addEventListener('blur', hideTooltip);
+          item.addEventListener(
+            'mouseenter',
+            () => showTooltip(item)
+          );
+
+          item.addEventListener(
+            'focus',
+            () => showTooltip(item)
+          );
+
+          item.addEventListener(
+            'mouseleave',
+            hideTooltip
+          );
+
+          item.addEventListener(
+            'blur',
+            hideTooltip
+          );
 
         }
       );
@@ -1520,11 +1687,15 @@
           if (!term) {
 
             sidebarLinks.forEach(
-              link => { link.hidden = false; }
+              link => {
+                link.hidden = false;
+              }
             );
 
             menuGroups.forEach(
-              group => { group.hidden = false; }
+              group => {
+                group.hidden = false;
+              }
             );
 
             return;
@@ -1563,25 +1734,37 @@
                       .toLocaleLowerCase('pt-BR')
                   : '';
 
+
               const visibleChildren =
                 Array.from(
                   group.querySelectorAll(':scope > ul > li > a')
-                ).some(link => !link.hidden);
+                ).some(
+                  link => !link.hidden
+                );
+
 
               const visibleNestedGroups =
                 Array.from(
-                  group.querySelectorAll(':scope > ul > li > details')
-                ).some(nested => !nested.hidden);
+                  group.querySelectorAll(
+                    ':scope > ul > li > details'
+                  )
+                ).some(
+                  nested => !nested.hidden
+                );
+
 
               const matchesSummary =
                 summaryText.includes(term);
+
 
               const visible =
                 matchesSummary ||
                 visibleChildren ||
                 visibleNestedGroups;
 
+
               group.hidden = !visible;
+
 
               if (visible) {
                 group.open = true;
@@ -1603,20 +1786,26 @@
         .forEach(
           pre => {
 
-            const code = pre.querySelector('code');
+            const code =
+              pre.querySelector('code');
+
 
             if (
               code &&
-              /[↓→←↔│┌┐└┘├┤▼▲]/.test(code.textContent)
+              /[↓→←↔│┌┐└┘├┤▼▲]/.test(
+                code.textContent
+              )
             ) {
 
               pre.classList.add('flow-diagram');
+
 
               const lines =
                 code.textContent
                   .split(/\r?\n/)
                   .map(line => line.trim())
                   .filter(Boolean);
+
 
               const isLinearFlow =
                 lines.length >= 5 &&
@@ -1632,11 +1821,14 @@
                   }
                 );
 
+
               if (isLinearFlow) {
 
                 code.textContent =
                   lines
-                    .filter((_, index) => index % 2 === 0)
+                    .filter(
+                      (_, index) => index % 2 === 0
+                    )
                     .join(' → ');
 
                 pre.classList.add('flow-horizontal');
@@ -1648,13 +1840,22 @@
 
             /* Botão copiar código */
 
-            const button = document.createElement('button');
+            const button =
+              document.createElement('button');
 
             button.className = 'copy-btn';
             button.type = 'button';
 
-            button.setAttribute('aria-label', 'Copiar código');
-            button.setAttribute('title', 'Copiar código');
+            button.setAttribute(
+              'aria-label',
+              'Copiar código'
+            );
+
+            button.setAttribute(
+              'title',
+              'Copiar código'
+            );
+
 
             button.innerHTML = `
               <svg
@@ -1667,10 +1868,20 @@
                 stroke-linejoin="round"
                 aria-hidden="true"
               >
-                <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                <rect
+                  x="9"
+                  y="9"
+                  width="11"
+                  height="11"
+                  rx="2"
+                ></rect>
+
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
               </svg>
             `;
+
 
             button.addEventListener(
               'click',
@@ -1682,26 +1893,58 @@
                     pre.querySelector('code')?.innerText ||
                     pre.innerText;
 
-                  await navigator.clipboard.writeText(content);
+
+                  await navigator.clipboard.writeText(
+                    content
+                  );
+
 
                   button.classList.add('copied');
-                  button.setAttribute('aria-label', 'Código copiado');
-                  button.setAttribute('title', 'Código copiado');
+
+                  button.setAttribute(
+                    'aria-label',
+                    'Código copiado'
+                  );
+
+                  button.setAttribute(
+                    'title',
+                    'Código copiado'
+                  );
 
                 } catch (_) {
 
                   button.classList.add('copy-error');
-                  button.setAttribute('aria-label', 'Não foi possível copiar');
-                  button.setAttribute('title', 'Não foi possível copiar');
+
+                  button.setAttribute(
+                    'aria-label',
+                    'Não foi possível copiar'
+                  );
+
+                  button.setAttribute(
+                    'title',
+                    'Não foi possível copiar'
+                  );
 
                 }
+
 
                 setTimeout(
                   () => {
 
-                    button.classList.remove('copied', 'copy-error');
-                    button.setAttribute('aria-label', 'Copiar código');
-                    button.setAttribute('title', 'Copiar código');
+                    button.classList.remove(
+                      'copied',
+                      'copy-error'
+                    );
+
+                    button.setAttribute(
+                      'aria-label',
+                      'Copiar código'
+                    );
+
+                    button.setAttribute(
+                      'title',
+                      'Copiar código'
+                    );
 
                   },
                   1800
@@ -1709,6 +1952,7 @@
 
               }
             );
+
 
             pre.appendChild(button);
 
@@ -1718,6 +1962,7 @@
     });
 
   </script>
+
 
   <!-- =======================================================
        Mermaid
@@ -1734,13 +1979,16 @@
       .forEach(
         code => {
 
-          const pre = code.parentElement;
+          const pre =
+            code.parentElement;
 
-          const div = document.createElement('div');
+          const div =
+            document.createElement('div');
 
           div.className = 'mermaid';
 
-          div.textContent = code.textContent;
+          div.textContent =
+            code.textContent;
 
           pre.replaceWith(div);
 

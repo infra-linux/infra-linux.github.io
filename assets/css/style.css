@@ -225,6 +225,34 @@ main {
   background: #373733;
 }
 
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.sidebar-top .brand {
+  flex-shrink: 0;
+}
+
+.sidebar-top .sidebar-search {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.sidebar-top .sidebar-search input {
+  width: 100%;
+}
+
+.sidebar-top .sidebar-collapse {
+  flex-shrink: 0;
+}
+
 
 /* =========================================================
    Sidebar minimizada
@@ -340,6 +368,34 @@ body.sidebar-collapsed .sidebar-collapse {
 
 body.sidebar-collapsed .sidebar-search {
   display: none;
+}
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.sidebar-top .brand {
+  flex-shrink: 0;
+}
+
+.sidebar-top .sidebar-search {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.sidebar-top .sidebar-search input {
+  width: 100%;
+}
+
+.sidebar-top .sidebar-collapse {
+  flex-shrink: 0;
 }
 
 /* =========================================================
@@ -1690,3 +1746,5 @@ blockquote p:last-child {
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+
+
