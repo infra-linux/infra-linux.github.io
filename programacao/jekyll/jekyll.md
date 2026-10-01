@@ -584,7 +584,7 @@ _site/
 ## 29. Erros comuns
 
 ### Front Matter inválido
-
+{:.no_toc}
 ```yaml
 # Errado
 --
@@ -598,7 +598,7 @@ layout: default
 ```
 
 ### YAML inválido ou com indentação errada
-
+{:.no_toc}
 ```yaml
 # Errado
 title Pangolim
@@ -622,11 +622,11 @@ collections:
 Use espaços — preferencialmente dois por nível — e nunca TAB em YAML.
 
 ### Layout inexistente
-
+{:.no_toc}
 Se a página usa `layout: documentacao`, deve existir `_layouts/documentacao.html`.
 
 ### Erro de Liquid
-
+{:.no_toc}
 ```liquid
 # Errado
 {{ page.title
@@ -706,7 +706,7 @@ git push
 ## 33. Exercícios práticos
 
 ### Exercício 1 — Criar uma página
-
+{:.no_toc}
 Crie `teste.md`:
 
 ```markdown
@@ -727,7 +727,7 @@ Estudando Linux.
 Execute `bundle exec jekyll serve` e abra a página.
 
 ### Exercício 2 — Criar uma variável
-
+{:.no_toc}
 ```yaml
 ---
 layout: default
@@ -743,7 +743,7 @@ Autor: {{ page.autor }}
 ```
 
 ### Exercício 3 — Criar uma condição
-
+{:.no_toc}
 ```yaml
 ---
 layout: default
@@ -761,7 +761,7 @@ mostrar_aviso: true
 Altere para `mostrar_aviso: false` e observe o resultado.
 
 ### Exercício 4 — Criar um include
-
+{:.no_toc}
 Crie `_includes/aviso.html`:
 
 ```html
@@ -777,7 +777,7 @@ Na página:
 ```
 
 ### Exercício 5 — Criar dados
-
+{:.no_toc}
 Crie `_data/servidores.yml`:
 
 ```yaml
