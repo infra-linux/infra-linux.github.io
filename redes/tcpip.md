@@ -16,7 +16,7 @@ title: TCP/IP
 #### 1. TCP/IP
 
 #### O que é
-
+{:.no_toc}
 TCP/IP (Transmission Control Protocol / Internet Protocol) é uma **pilha de protocolos** utilizada para comunicação entre dispositivos em redes de computadores.
 
 Não se trata de um único protocolo. O TCP/IP é formado por vários protocolos que trabalham em conjunto, organizados em camadas. Cada camada possui responsabilidades específicas e utiliza os serviços fornecidos pelas camadas inferiores.
@@ -38,7 +38,7 @@ Outros protocolos importantes fazem parte da pilha, como:
 * SMTP.
 
 #### O modelo em camadas
-
+{:.no_toc}
 Uma forma comum de representar o TCP/IP utiliza quatro camadas:
 
 | Camada        | Função                                           | Exemplos                    |
@@ -51,7 +51,7 @@ Uma forma comum de representar o TCP/IP utiliza quatro camadas:
 O modelo TCP/IP não deve ser confundido com o **modelo OSI**, que possui sete camadas e é principalmente utilizado como modelo conceitual.
 
 #### Encapsulamento
-
+{:.no_toc}
 Quando uma aplicação envia dados, cada camada adiciona informações de controle ao conteúdo recebido da camada superior.
 
 Esse processo é chamado de **encapsulamento**.
@@ -87,7 +87,7 @@ Bits
 No destino ocorre o processo inverso, chamado **desencapsulamento**.
 
 #### Termos importantes
-
+{:.no_toc}
 | Camada     | Unidade de dados             |
 | ---------- | ---------------------------- |
 | Aplicação  | Dados                        |
@@ -97,7 +97,7 @@ No destino ocorre o processo inverso, chamado **desencapsulamento**.
 | Física     | Bits                         |
 
 #### Exemplo prático: acessar um site
-
+{:.no_toc}
 Ao acessar:
 
 ```text
@@ -134,7 +134,7 @@ O endereço IP é utilizado principalmente para:
 ---
 
 #### IPv4
-
+{:.no_toc}
 O IPv4 (Internet Protocol version 4) utiliza **32 bits**.
 
 Normalmente é representado em quatro octetos decimais:
@@ -180,7 +180,7 @@ O `/24` indica que os primeiros 24 bits pertencem ao prefixo da rede.
 ---
 
 #### IP Público
-
+{:.no_toc}
 Um IP público é um endereço globalmente roteável na Internet.
 
 Exemplo:
@@ -196,7 +196,7 @@ Um IP público não significa automaticamente que o equipamento esteja acessíve
 ---
 
 #### IP Privado
-
+{:.no_toc}
 Os endereços privados definidos pela RFC 1918 são:
 
 | Faixa                             | CIDR             |
@@ -220,7 +220,7 @@ Para acessar a Internet, normalmente o tráfego passa por NAT/PAT.
 ---
 
 #### Loopback
-
+{:.no_toc}
 A faixa IPv4 de loopback é:
 
 ```text
@@ -257,7 +257,7 @@ ping -c 4 127.0.0.1
 ---
 
 #### Endereço link-local IPv4
-
+{:.no_toc}
 A faixa:
 
 ```text
@@ -279,7 +279,7 @@ Esse endereço normalmente indica que a comunicação está limitada ao enlace l
 ---
 
 #### `0.0.0.0`
-
+{:.no_toc}
 `0.0.0.0` possui diferentes significados dependendo do contexto.
 
 Pode representar:
@@ -296,7 +296,7 @@ Pode representar:
 ---
 
 #### Exemplo prático
-
+{:.no_toc}
 Linux:
 
 ```bash
@@ -351,7 +351,7 @@ Rede: 192.168.10.0
 O host é identificado pelos últimos 8 bits.
 
 #### Como o host sabe se precisa usar o gateway?
-
+{:.no_toc}
 Quando um computador precisa enviar um pacote, ele compara o endereço de destino com sua própria rede.
 
 Exemplo:
@@ -407,7 +407,7 @@ Equivale a:
 ```
 
 #### Tabela de referência
-
+{:.no_toc}
 | CIDR  | Máscara         | Endereços | Hosts utilizáveis* |
 | ----- | --------------- | --------: | -----------------: |
 | `/24` | 255.255.255.0   |       256 |                254 |
@@ -437,7 +437,7 @@ Existem exceções, como `/31`, utilizado em determinados enlaces ponto a ponto,
 Dentro de uma sub-rede IPv4 tradicional existem endereços com funções especiais.
 
 #### Endereço de rede
-
+{:.no_toc}
 Possui todos os bits de host em `0`.
 
 Exemplo:
@@ -447,7 +447,7 @@ Exemplo:
 ```
 
 #### Endereços de host
-
+{:.no_toc}
 São os endereços normalmente atribuídos às interfaces dos dispositivos.
 
 ```text
@@ -458,7 +458,7 @@ São os endereços normalmente atribuídos às interfaces dos dispositivos.
 ```
 
 #### Broadcast
-
+{:.no_toc}
 Possui todos os bits de host em `1`.
 
 ```text
@@ -512,7 +512,7 @@ Cada `/26` possui:
 ```
 
 #### Exemplo: rede para até 30 hosts
-
+{:.no_toc}
 Precisamos de 5 bits para hosts:
 
 ```text
@@ -552,7 +552,7 @@ As redes serão:
 ```
 
 #### Subnetting não é segurança por si só
-
+{:.no_toc}
 Criar sub-redes reduz o domínio de broadcast, mas **não significa automaticamente isolamento de segurança**.
 
 Para controlar comunicação entre redes podem ser utilizados:
@@ -600,7 +600,7 @@ O MAC é utilizado principalmente para comunicação no **enlace local**.
 O IP, por outro lado, é utilizado para comunicação lógica e roteamento entre redes.
 
 #### Exemplo
-
+{:.no_toc}
 Linux:
 
 ```bash
@@ -648,7 +648,7 @@ Exemplo conceitual:
 ```
 
 #### ARP e gateway
-
+{:.no_toc}
 Se o destino estiver em outra rede:
 
 ```text
@@ -673,7 +673,7 @@ O pacote IP continua tendo como destino:
 Mas o quadro Ethernet é enviado para o MAC do gateway.
 
 #### Linux
-
+{:.no_toc}
 ```bash
 ip neigh
 ```
@@ -729,7 +729,7 @@ O gateway não precisa necessariamente ser um roteador físico dedicado. Pode se
 * outro sistema configurado para encaminhamento.
 
 #### Linux
-
+{:.no_toc}
 ```bash
 ip route show default
 ```
@@ -766,9 +766,9 @@ Significa aproximadamente:
 > Para alcançar a rede `10.0.0.0/8`, envie o tráfego para o próximo salto `192.168.10.1` através da interface `eth0`.
 
 #### Tipos comuns
-
+{:.no_toc}
 ###### Rota conectada
-
+{:.no_toc}
 Criada automaticamente quando uma interface recebe um endereço.
 
 ```text
@@ -776,7 +776,7 @@ Criada automaticamente quando uma interface recebe um endereço.
 ```
 
 ###### Rota estática
-
+{:.no_toc}
 Configurada manualmente:
 
 ```text
@@ -784,7 +784,7 @@ Configurada manualmente:
 ```
 
 ###### Rota dinâmica
-
+{:.no_toc}
 Aprendida através de protocolos como:
 
 * OSPF;
@@ -793,7 +793,7 @@ Aprendida através de protocolos como:
 * IS-IS.
 
 ###### Rota padrão
-
+{:.no_toc}
 Representada em IPv4 por:
 
 ```text
@@ -803,7 +803,7 @@ Representada em IPv4 por:
 Ela é utilizada quando não existe uma rota mais específica.
 
 #### Longest Prefix Match
-
+{:.no_toc}
 Quando várias rotas correspondem ao mesmo destino, normalmente é escolhida a rota com o **prefixo mais específico**.
 
 Exemplo:
@@ -823,7 +823,7 @@ Para:
 a rota `/24` é mais específica que `/16` e `/8`.
 
 #### Linux
-
+{:.no_toc}
 ```bash
 ip route
 ```
@@ -845,7 +845,7 @@ ICMP (Internet Control Message Protocol) é utilizado para mensagens de controle
 Ele não é um protocolo de transporte como TCP ou UDP.
 
 #### Ping
-
+{:.no_toc}
 O `ping` normalmente utiliza:
 
 ```text
@@ -876,7 +876,7 @@ TCP/443
 ```
 
 #### Traceroute
-
+{:.no_toc}
 O traceroute tenta descobrir os saltos intermediários entre origem e destino.
 
 Linux:
@@ -920,7 +920,7 @@ Isso permite identificar os saltos intermediários.
 TCP e UDP pertencem à camada de Transporte.
 
 #### TCP
-
+{:.no_toc}
 TCP (Transmission Control Protocol) fornece comunicação orientada a conexão.
 
 Características:
@@ -934,7 +934,7 @@ Características:
 * controle através de números de sequência e confirmações.
 
 #### Three-Way Handshake
-
+{:.no_toc}
 O estabelecimento tradicional de uma conexão TCP ocorre através de três etapas:
 
 ```text
@@ -950,7 +950,7 @@ Cliente                         Servidor
 Depois disso, a comunicação pode começar.
 
 #### TCP é utilizado em
-
+{:.no_toc}
 Exemplos:
 
 * SSH;
@@ -965,7 +965,7 @@ HTTPS não significa necessariamente TCP: **HTTP/3 utiliza QUIC sobre UDP**.
 ---
 
 #### UDP
-
+{:.no_toc}
 UDP (User Datagram Protocol) é um protocolo de transporte simples e sem conexão.
 
 Ele não fornece, por si só:
@@ -987,7 +987,7 @@ A própria aplicação pode implementar mecanismos de:
 O **QUIC**, por exemplo, utiliza UDP como transporte e implementa mecanismos avançados acima dele.
 
 #### Comparação
-
+{:.no_toc}
 | Característica    | TCP         | UDP             |
 | ----------------- | ----------- | --------------- |
 | Conexão           | Sim         | Não             |
@@ -999,7 +999,7 @@ O **QUIC**, por exemplo, utiliza UDP como transporte e implementa mecanismos ava
 | Exemplos          | SSH, HTTP/2 | DNS, QUIC, VoIP |
 
 #### Linux
-
+{:.no_toc}
 ```bash
 ss -tulpen
 ```
@@ -1045,7 +1045,7 @@ Portas vão de:
 ```
 
 #### Faixas
-
+{:.no_toc}
 | Faixa           | Classificação   |
 | --------------- | --------------- |
 | `0 – 1023`      | Well-known      |
@@ -1067,7 +1067,7 @@ Os limites de portas efêmeras podem variar conforme o sistema operacional.
 |  3389 | TCP       | RDP     |
 
 #### Socket
-
+{:.no_toc}
 Uma comunicação TCP é identificada pelo conjunto:
 
 ```text
@@ -1089,7 +1089,7 @@ Exemplo:
 A porta `51500` pode ser uma porta efêmera escolhida pelo cliente.
 
 #### Verificando portas no Linux
-
+{:.no_toc}
 ```bash
 ss -lntp
 ```
@@ -1135,7 +1135,7 @@ Os zeros podem ser abreviados.
 O `::` pode aparecer **uma única vez** em um endereço.
 
 #### Loopback
-
+{:.no_toc}
 ```text
 ::1
 ```
@@ -1147,7 +1147,7 @@ Equivale conceitualmente ao:
 ```
 
 #### Link-local
-
+{:.no_toc}
 ```text
 fe80::/10
 ```
@@ -1155,7 +1155,7 @@ fe80::/10
 Endereços link-local são utilizados para comunicação no enlace local.
 
 #### Unique Local Address
-
+{:.no_toc}
 ```text
 fc00::/7
 ```
@@ -1171,7 +1171,7 @@ fd00::/8
 são comumente utilizados para redes locais.
 
 #### Documentação
-
+{:.no_toc}
 ```text
 2001:db8::/32
 ```
@@ -1179,7 +1179,7 @@ são comumente utilizados para redes locais.
 é reservado para documentação e exemplos.
 
 #### Diferenças importantes
-
+{:.no_toc}
 IPv6:
 
 * não utiliza ARP;
@@ -1191,7 +1191,7 @@ IPv6:
 * normalmente utiliza `/64` em segmentos LAN IPv6.
 
 #### IPv6 e segurança
-
+{:.no_toc}
 IPv6 não significa automaticamente tráfego criptografado.
 
 IPsec é suportado pelo ecossistema IPv6, mas:
@@ -1201,7 +1201,7 @@ IPsec é suportado pelo ecossistema IPv6, mas:
 Firewall continua sendo necessário.
 
 #### Linux
-
+{:.no_toc}
 ```bash
 ip -6 address
 ```
@@ -1227,7 +1227,7 @@ NAT (Network Address Translation) altera endereços IP durante o encaminhamento 
 O uso mais comum em redes domésticas e corporativas é permitir que vários endereços privados compartilhem um endereço público.
 
 #### PAT / NAT Overload
-
+{:.no_toc}
 Além do endereço IP, a porta pode ser traduzida.
 
 Exemplo:
@@ -1257,7 +1257,7 @@ corresponde a:
 Quando a resposta chega, o NAT realiza a tradução inversa.
 
 #### Port forwarding
-
+{:.no_toc}
 Para publicar um serviço interno, pode existir uma regra como:
 
 ```text
@@ -1275,7 +1275,7 @@ Isso normalmente envolve:
 * política de segurança.
 
 #### NAT não é firewall
-
+{:.no_toc}
 NAT e firewall são mecanismos diferentes.
 
 Um firewall decide o que deve ser permitido ou bloqueado.
@@ -1283,7 +1283,7 @@ Um firewall decide o que deve ser permitido ou bloqueado.
 O NAT modifica informações dos pacotes.
 
 #### Linux
-
+{:.no_toc}
 Em sistemas que utilizam nftables:
 
 ```bash
@@ -1319,7 +1319,7 @@ DNS também pode armazenar:
 * outros dados.
 
 #### Resolvedor DNS
-
+{:.no_toc}
 O cliente normalmente consulta um **resolvedor recursivo**.
 
 Exemplo:
@@ -1340,7 +1340,7 @@ O resolvedor pode:
 * retornar a resposta ao cliente.
 
 #### Hierarquia DNS
-
+{:.no_toc}
 De forma simplificada:
 
 ```text
@@ -1364,7 +1364,7 @@ Servidor autoritativo
 ```
 
 #### Servidor autoritativo
-
+{:.no_toc}
 O servidor autoritativo é aquele que possui autoridade sobre determinada zona DNS.
 
 Exemplo:
@@ -1376,7 +1376,7 @@ exemplo.com
 pode possuir servidores autoritativos que respondem pelos registros desse domínio.
 
 #### Registros comuns
-
+{:.no_toc}
 | Registro | Função                              |
 | -------- | ----------------------------------- |
 | `A`      | IPv4                                |
@@ -1389,7 +1389,7 @@ pode possuir servidores autoritativos que respondem pelos registros desse domín
 | `SOA`    | Informações administrativas da zona |
 
 #### DNS reverso
-
+{:.no_toc}
 O DNS normalmente é utilizado:
 
 ```text
@@ -1405,7 +1405,7 @@ IP → nome
 através de registros `PTR`.
 
 #### DNS não é criptografia
-
+{:.no_toc}
 DNS tradicional pode utilizar consultas sem criptografia no transporte.
 
 Tecnologias como:
@@ -1416,7 +1416,7 @@ Tecnologias como:
 protegem a comunicação entre cliente e resolvedor, mas não transformam DNS em um mecanismo geral de autenticação.
 
 #### Linux
-
+{:.no_toc}
 ```bash
 dig example.com
 ```
@@ -1454,7 +1454,7 @@ nslookup example.com
 ---
 
 #### 17. DHCP
-
+{:.no_toc}
 DHCP (Dynamic Host Configuration Protocol) permite configurar automaticamente parâmetros de rede nos dispositivos.
 
 Entre os parâmetros que podem ser fornecidos estão:
@@ -1467,7 +1467,7 @@ Entre os parâmetros que podem ser fornecidos estão:
 * outras opções de configuração.
 
 #### Processo DORA
-
+{:.no_toc}
 O processo clássico de obtenção de um endereço IPv4 através do DHCP é conhecido como:
 
 ```text
@@ -1492,7 +1492,7 @@ DHCP Request   ------------>
 ```
 
 #### DHCP não é apenas "dar IP"
-
+{:.no_toc}
 O DHCP pode fornecer diversas informações necessárias para o funcionamento da rede.
 
 Por exemplo:
@@ -1505,7 +1505,7 @@ DNS:      192.168.10.53
 ```
 
 #### Troubleshooting
-
+{:.no_toc}
 No Linux:
 
 ```bash
@@ -1543,7 +1543,7 @@ VLAN 30 → Visitantes
 Cada VLAN normalmente possui sua própria sub-rede IP.
 
 #### Access
-
+{:.no_toc}
 Uma porta **access** normalmente transporta uma única VLAN para o dispositivo conectado.
 
 Exemplo:
@@ -1557,7 +1557,7 @@ Switch
 ```
 
 #### Trunk
-
+{:.no_toc}
 Uma porta **trunk** pode transportar várias VLANs.
 
 As VLANs são identificadas através de tags conforme o padrão:
@@ -1578,7 +1578,7 @@ Switch B
 ```
 
 #### Inter-VLAN Routing
-
+{:.no_toc}
 Dispositivos em VLANs diferentes precisam de roteamento para se comunicar.
 
 Exemplo:
@@ -1603,7 +1603,7 @@ O roteamento pode ser realizado por:
 * equipamento virtual.
 
 #### VLAN não é segurança por si só
-
+{:.no_toc}
 Assim como subnetting, VLAN cria separação lógica e de broadcast, mas não deve ser confundida automaticamente com uma política de segurança.
 
 O tráfego entre VLANs pode ser controlado por:
@@ -1613,7 +1613,7 @@ O tráfego entre VLANs pode ser controlado por:
 * políticas de roteamento.
 
 #### Exemplo de planejamento
-
+{:.no_toc}
 ```text
 VLAN 10 - Usuários
 192.168.10.0/24
@@ -1642,7 +1642,7 @@ Para administração Linux, conhecer os conceitos anteriores é importante, mas 
 Uma sequência útil é trabalhar das camadas mais básicas para as mais altas.
 
 #### 19.1 Verificar a interface
-
+{:.no_toc}
 ```bash
 ip link
 ```
@@ -1668,7 +1668,7 @@ DOWN
 ---
 
 #### 19.2 Verificar o endereço IP
-
+{:.no_toc}
 ```bash
 ip address
 ```
@@ -1690,7 +1690,7 @@ Verifique:
 ---
 
 #### 19.3 Verificar a rota
-
+{:.no_toc}
 ```bash
 ip route
 ```
@@ -1710,7 +1710,7 @@ default via 192.168.10.1 dev eth0
 ---
 
 #### 19.4 Verificar a rota para um destino
-
+{:.no_toc}
 Uma das ferramentas mais úteis para troubleshooting:
 
 ```bash
@@ -1727,7 +1727,7 @@ Isso permite descobrir:
 ---
 
 #### 19.5 Verificar vizinhos/ARP
-
+{:.no_toc}
 ```bash
 ip neigh
 ```
@@ -1753,7 +1753,7 @@ Uma entrada `FAILED`, por exemplo, pode indicar problemas para resolver o endere
 ---
 
 #### 19.6 Testar o loopback
-
+{:.no_toc}
 ```bash
 ping -c 4 127.0.0.1
 ```
@@ -1763,7 +1763,7 @@ Se isso falhar, o problema está no próprio sistema e não na conexão externa.
 ---
 
 #### 19.7 Testar o gateway
-
+{:.no_toc}
 ```bash
 ping -c 4 192.168.10.1
 ```
@@ -1782,7 +1782,7 @@ Se o gateway não responder, pode haver problemas em:
 ---
 
 #### 19.8 Testar um IP externo
-
+{:.no_toc}
 ```bash
 ping -c 4 8.8.8.8
 ```
@@ -1797,7 +1797,7 @@ Se o gateway responde, mas o IP externo não:
 ---
 
 #### 19.9 Testar DNS
-
+{:.no_toc}
 Primeiro:
 
 ```bash
@@ -1827,7 +1827,7 @@ resolvectl status
 ---
 
 #### 19.10 Testar uma porta TCP
-
+{:.no_toc}
 ```bash
 nc -vz servidor.exemplo 443
 ```
@@ -1852,7 +1852,7 @@ TCP/443 → bloqueado
 ---
 
 #### 19.11 Verificar serviços escutando
-
+{:.no_toc}
 ```bash
 ss -lntp
 ```
@@ -1874,7 +1874,7 @@ ss -lntp
 ---
 
 #### 19.12 Verificar firewall
-
+{:.no_toc}
 Dependendo da distribuição:
 
 ```bash
@@ -1890,7 +1890,7 @@ sudo firewall-cmd --list-all
 ---
 
 #### 19.13 Capturar tráfego
-
+{:.no_toc}
 Uma das ferramentas mais importantes para troubleshooting é o `tcpdump`.
 
 Exemplo:
