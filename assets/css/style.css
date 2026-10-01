@@ -237,6 +237,11 @@ body.sidebar-collapsed .sidebar-footer {
   display: none;
 }
 
+body.sidebar-collapsed .dock-github {
+  width: 46px;
+  height: 46px;
+}
+
 body.sidebar-collapsed .dock-github-bottom {
   margin-top: auto;
   margin-bottom: 4px;
