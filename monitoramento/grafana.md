@@ -211,31 +211,31 @@ Após o login, o Grafana solicitará a alteração da senha.
 ## Comandos úteis
 
 ### Verificar status
-
+{:.no_toc}
 ```bash
 systemctl status grafana-server
 ```
 
 ### Reiniciar serviço
-
+{:.no_toc}
 ```bash
 systemctl restart grafana-server
 ```
 
 ### Parar serviço
-
+{:.no_toc}
 ```bash
 systemctl stop grafana-server
 ```
 
 ### Iniciar serviço
-
+{:.no_toc}
 ```bash
 systemctl start grafana-server
 ```
 
 ### Ver logs
-
+{:.no_toc}
 ```bash
 journalctl -u grafana-server -f
 ```
@@ -245,7 +245,7 @@ journalctl -u grafana-server -f
 ## Troubleshooting
 
 ### Serviço não inicia
-
+{:.no_toc}
 Verificar logs:
 
 ```bash
@@ -255,7 +255,7 @@ journalctl -xeu grafana-server
 ---
 
 ### Porta 3000 não responde
-
+{:.no_toc}
 Verificar escuta:
 
 ```bash
@@ -271,7 +271,7 @@ firewall-cmd --list-ports
 ---
 
 ### Acesso recusado pelo navegador
-
+{:.no_toc}
 Verificar se o serviço está ativo:
 
 ```bash
