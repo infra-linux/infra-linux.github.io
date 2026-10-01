@@ -5,7 +5,7 @@ description: Guia de estudo de JavaScript, dos fundamentos ao assíncrono, com e
 ---
 
 # JavaScript — Guia de Estudo
-
+{:.no_toc}
 JavaScript é a linguagem da web. Ela roda no navegador (para deixar páginas interativas) e também no servidor, com o **Node.js**. Este guia segue uma ordem de estudo: fundamentos, funções, estruturas de dados, DOM e código assíncrono.
 
 ## Sumário
@@ -17,7 +17,7 @@ JavaScript é a linguagem da web. Ela roda no navegador (para deixar páginas in
 ## 1. Como executar JavaScript
 
 ### No navegador
-
+{:.no_toc}
 Abra o DevTools (`F12`), vá na aba **Console** e digite:
 
 ```js
@@ -37,7 +37,7 @@ Ou crie um arquivo `index.html`:
 ```
 
 ### No terminal, com Node.js
-
+{:.no_toc}
 ```bash
 node --version
 node app.js
@@ -80,7 +80,7 @@ Array.isArray([]);  // true
 ```
 
 ### Template strings
-
+{:.no_toc}
 ```js
 const nome = "Ana";
 console.log(`Olá, ${nome}! 2 + 2 = ${2 + 2}`);
@@ -102,11 +102,11 @@ console.log(`Olá, ${nome}! 2 + 2 = ${2 + 2}`);
 **Regra de ouro:** use sempre `===` e `!==`.
 
 ### Valores "falsy"
-
+{:.no_toc}
 São tratados como falso em condições: `false`, `0`, `""`, `null`, `undefined`, `NaN`. Todo o resto é "truthy", inclusive `[]` e `{}`.
 
 ### Operadores úteis
-
+{:.no_toc}
 ```js
 const nome = usuario?.nome;        // encadeamento opcional: não quebra se usuario for null
 const porta = config.porta ?? 80;  // usa 80 só se for null ou undefined
@@ -130,7 +130,7 @@ if (nota >= 7) {
 ```
 
 ### Laços
-
+{:.no_toc}
 ```js
 for (let i = 0; i < 3; i++) {
   console.log(i);
@@ -155,7 +155,7 @@ while (n < 3) {
 ```
 
 ### switch
-
+{:.no_toc}
 ```js
 switch (dia) {
   case "sab":
@@ -187,7 +187,7 @@ function saudar(nome = "visitante", ...extras) {
 ```
 
 ### Escopo e closures
-
+{:.no_toc}
 Uma função "lembra" das variáveis do lugar onde foi criada:
 
 ```js
@@ -202,7 +202,7 @@ proximo(); // 2
 ```
 
 ### Funções são valores
-
+{:.no_toc}
 Podem ser guardadas em variáveis e passadas como argumento (*callbacks*):
 
 ```js
@@ -228,7 +228,7 @@ numeros.indexOf(4);    // 3
 ```
 
 ### Métodos que você vai usar todo dia
-
+{:.no_toc}
 ```js
 const dobro = numeros.map(n => n * 2);           // [2, 4, 6, 8, 10]
 const pares = numeros.filter(n => n % 2 === 0);  // [2, 4]
@@ -267,7 +267,7 @@ Object.entries(usuario);
 ```
 
 ### Desestruturação e spread
-
+{:.no_toc}
 ```js
 const { nome, idade } = usuario;        // extrai propriedades
 const [primeiro, segundo] = [10, 20];   // extrai itens
@@ -277,14 +277,14 @@ const todos = [...[1, 2], ...[3, 4]];     // [1, 2, 3, 4]
 ```
 
 ### JSON
-
+{:.no_toc}
 ```js
 const texto = JSON.stringify({ a: 1, b: [2, 3] }); // objeto → texto
 const objeto = JSON.parse(texto);                  // texto → objeto
 ```
 
 ### Classes
-
+{:.no_toc}
 ```js
 class Animal {
   constructor(nome) {
@@ -352,7 +352,7 @@ botao.addEventListener("click", () => {
 ```
 
 ### Seleção de elementos
-
+{:.no_toc}
 ```js
 document.querySelector(".classe");      // primeiro elemento que combina
 document.querySelectorAll("a[href]");   // todos que combinam
@@ -360,7 +360,7 @@ document.getElementById("id");
 ```
 
 ### Eventos comuns
-
+{:.no_toc}
 `click`, `input`, `change`, `submit`, `keydown`, `mouseover`, `DOMContentLoaded`.
 
 ```js
@@ -378,14 +378,14 @@ document.querySelector("form").addEventListener("submit", evento => {
 JavaScript executa uma coisa por vez, mas operações demoradas (rede, timers) não travam a página porque são tratadas de forma assíncrona.
 
 ### setTimeout
-
+{:.no_toc}
 ```js
 setTimeout(() => console.log("depois de 1 segundo"), 1000);
 console.log("isso aparece primeiro");
 ```
 
 ### Promises
-
+{:.no_toc}
 ```js
 const espera = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -395,7 +395,7 @@ espera(500)
 ```
 
 ### async / await
-
+{:.no_toc}
 ```js
 async function carregarUsuario(id) {
   try {
@@ -413,7 +413,7 @@ async function carregarUsuario(id) {
 ```
 
 ### Várias requisições em paralelo
-
+{:.no_toc}
 ```js
 const [a, b] = await Promise.all([
   fetch("/a.json").then(r => r.json()),
