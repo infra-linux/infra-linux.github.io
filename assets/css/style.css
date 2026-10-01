@@ -30,6 +30,7 @@
 
   /* Espaço entre os quadros (página e barra lateral) e as bordas da tela */
   --gap: 0px;
+  --sidebar-gap: 12px;
 
   --shadow: rgba(0, 0, 0, 0.25);
 }
@@ -139,7 +140,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-left: var(--sidebar-width);
+  margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
   background: var(--bg-page);
   transition: margin-left 0.22s ease;
 }
@@ -225,7 +226,9 @@ body.sidebar-collapsed .sidebar {
 }
 
 body.sidebar-collapsed .page-shell {
-  margin-left: var(--sidebar-collapsed-width);
+  margin-left: calc(
+    var(--sidebar-collapsed-width) + var(--sidebar-gap)
+  );
 }
 
 body.sidebar-collapsed .search-box,
@@ -1513,7 +1516,9 @@ blockquote p:last-child {
 
   .page-shell,
   body.sidebar-collapsed .page-shell {
-    margin-left: var(--sidebar-collapsed-width);
+    margin-left: calc(
+      var(--sidebar-collapsed-width) + var(--sidebar-gap)
+    );
   }
 
   .home-grid {
