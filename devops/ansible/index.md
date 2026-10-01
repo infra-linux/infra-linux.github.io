@@ -11,9 +11,24 @@ title: Ansible
 
 ## Conteúdo
 
-* [Inventários Ansible](inventarios.md)
-* [Módulos Ansible](modulos.md)
-* [Playbooks Ansible - Guia completo](playbooks.md)
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'devops/ansible/inventarios.html' | relative_url }}">
+    <span class="wiki-topic-title">Inventários</span>
+    <span class="wiki-topic-description">Criação e gerenciamento de inventários para organizar hosts e grupos no Ansible.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/ansible/modulos.html' | relative_url }}">
+    <span class="wiki-topic-title">Módulos</span>
+    <span class="wiki-topic-description">Principais módulos Ansible e sua utilização na automação de tarefas.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/ansible/playbooks.html' | relative_url }}">
+    <span class="wiki-topic-title">Playbooks</span>
+    <span class="wiki-topic-description">Criação, estrutura e execução de playbooks para automação de ambientes.</span>
+  </a>
+
+</div>
 
 ---
 

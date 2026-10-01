@@ -28,7 +28,14 @@ flowchart LR
 ---
 ## Conteúdo
 
-* [Fundamentos de CI/CD](fundamentos-cicd.md)
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'devops/cicd/fundamentos-cicd.html' | relative_url }}">
+    <span class="wiki-topic-title">Fundamentos de CI/CD</span>
+    <span class="wiki-topic-description">Conceitos fundamentais de integração e entrega contínuas, automação de build, testes e deploy.</span>
+  </a>
+
+</div>
 
 ---
 ## Fluxo recomendado de estudo

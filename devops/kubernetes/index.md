@@ -25,16 +25,31 @@ Permite executar aplicações de forma distribuída, resiliente e altamente disp
 ---
 ## Conteúdo
 
-* [KUBECONFIG](kubeconfig.md)
-* [Kubectl](kubectl.md)
-* [Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico](instalacao-cluster-rocky-containerd-calico.md)
-* [Instalação do Kubernetes (kubeadm) no Rocky Linux](tutorial-kubernetes-rocky-linux.md)
-* [Pods](pods.md)
-* [Deployments](deployments.md)
-* [Services](services.md)
-* [Ingress](ingress.md)
-* [Troubleshooting Kubernetes](troubleshooting.md)
+<div class="wiki-topic-list">
 
+  <a class="wiki-topic" href="{{ 'devops/kubernetes/kubeconfig.html' | relative_url }}">
+    <span class="wiki-topic-title">KUBECONFIG</span>
+    <span class="wiki-topic-description">Configuração de acesso e gerenciamento de clusters Kubernetes.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/kubernetes/kubectl.html' | relative_url }}">
+    <span class="wiki-topic-title">Kubectl</span>
+    <span class="wiki-topic-description">Comandos essenciais para administrar e interagir com o Kubernetes.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/kubernetes/instalacao-cluster-rocky-containerd-calico.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação de Cluster Kubernetes com Rocky Linux, containerd e Calico</span>
+    <span class="wiki-topic-description">Instalação completa de um cluster Kubernetes utilizando Rocky Linux, containerd e Calico.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/kubernetes/tutorial-kubernetes-rocky-linux.html' | relative_url }}">
+    <span class="wiki-topic-title">Instalação do Kubernetes (kubeadm) no Rocky Linux</span>
+    <span class="wiki-topic-description">Instalação do Kubernetes com kubeadm em servidores Rocky Linux.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'devops/kubernetes/pods.html' | relative_url }}">
+    <span class="wiki-topic-title">Pods</span>
+    <span class="
 ---
 ## Fluxo recomendado de estudo
 

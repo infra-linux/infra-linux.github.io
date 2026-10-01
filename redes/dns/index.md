@@ -11,8 +11,19 @@ Documentação e estudos sobre **DNS (Domain Name System)**, com foco em adminis
 
 ## Conteúdo
 
-* [BIND — Guia Completo Encaminhamento Condicional de DNS](bind-encaminhamentodns.md)
-* [Encaminhamento Condicional - Rápido](bindencaminhamento.md)
+<div class="wiki-topic-list">
+
+  <a class="wiki-topic" href="{{ 'redes/dns/bind-encaminhamentodns.html' | relative_url }}">
+    <span class="wiki-topic-title">BIND — Guia Completo de Encaminhamento Condicional</span>
+    <span class="wiki-topic-description">Guia detalhado com conceitos, configuração, exemplos e validação de encaminhamentos condicionais de DNS no BIND.</span>
+  </a>
+
+  <a class="wiki-topic" href="{{ 'redes/dns/bindencaminhamento.html' | relative_url }}">
+    <span class="wiki-topic-title">BIND — Encaminhamento Condicional: Procedimento Rápido</span>
+    <span class="wiki-topic-description">Passo a passo direto para configurar um encaminhamento condicional de DNS no BIND.</span>
+  </a>
+
+</div>
 
 ---
 
