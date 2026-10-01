@@ -58,7 +58,7 @@ idade = 31;
 ```
 
 ### Tipos primitivos
-
+{:.no_toc}
 | Tipo        | Exemplo              | Observação                          |
 |-------------|----------------------|-------------------------------------|
 | `string`    | `"texto"`            | Aspas simples, duplas ou crase      |
@@ -470,7 +470,7 @@ No HTML, use `<script type="module" src="app.js"></script>`.
 | 7     | Módulos e projeto final                | Mini app organizado em vários arquivos |
 
 ### Exercícios rápidos
-
+{:.no_toc}
 1. Escreva uma função que receba um array de números e retorne só os pares, dobrados.
 2. Crie uma função que conte quantas vezes cada palavra aparece em um texto.
 3. Faça um botão que alterne entre tema claro e escuro, guardando a escolha no `localStorage`.
