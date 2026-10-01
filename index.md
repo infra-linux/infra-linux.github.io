@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Pangolim
-description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
+description: Base de conhecimento técnico sobre infraestrutura e tecnologia.
 ---
 
 <section class="home-dashboard-hero">
@@ -40,72 +40,61 @@ description: Base de conhecimento técnica sobre infraestrutura e tecnologia.
   </div>
 </section>
 
-<section class="home-grid" id="areas-documentadas" aria-label="Áreas documentadas">
+<div class="wiki-topic-list" id="areas-documentadas">
 
-  <a class="home-card home-card-large" href="{{ 'devops/' | relative_url }}">
-    <span class="home-card-icon">⚙</span>
-    <h3>DevOps</h3>
-    <p>Git, CI/CD, Jenkins, Ansible, Docker, Kubernetes e automação.</p>
+  <a class="wiki-topic" href="{{ 'devops/' | relative_url }}">
+    <span class="wiki-topic-title">DevOps</span>
+    <span class="wiki-topic-description">Git, CI/CD, Jenkins, Ansible, Docker, Kubernetes e automação.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'programacao/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Programação</h3>
-    <p>JavaScript, HTML, CSS, Markdown, Jekyll e guias de estudo.</p>
+  <a class="wiki-topic" href="{{ 'programacao/' | relative_url }}">
+    <span class="wiki-topic-title">Programação</span>
+    <span class="wiki-topic-description">JavaScript, HTML, CSS, Markdown, Jekyll e guias de estudo.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'linux/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Linux</h3>
-    <p>Administração, comandos, armazenamento, serviços e certificações.</p>
+  <a class="wiki-topic" href="{{ 'linux/' | relative_url }}">
+    <span class="wiki-topic-title">Linux</span>
+    <span class="wiki-topic-description">Administração, comandos, armazenamento, serviços e certificações.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'redes/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Redes</h3>
-    <p>DNS, TCP/IP, proxy, conectividade e diagnóstico.</p>
+  <a class="wiki-topic" href="{{ 'redes/' | relative_url }}">
+    <span class="wiki-topic-title">Redes</span>
+    <span class="wiki-topic-description">DNS, TCP/IP, proxy, conectividade e diagnóstico.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'squid/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Squid</h3>
-    <p>Proxy, ACLs, autenticação, regras e logs.</p>
+  <a class="wiki-topic" href="{{ 'squid/' | relative_url }}">
+    <span class="wiki-topic-title">Squid</span>
+    <span class="wiki-topic-description">Proxy, ACLs, autenticação, regras e logs.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'monitoramento/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Monitoramento</h3>
-    <p>Zabbix, Grafana, métricas, alertas e observabilidade.</p>
+  <a class="wiki-topic" href="{{ 'monitoramento/' | relative_url }}">
+    <span class="wiki-topic-title">Monitoramento</span>
+    <span class="wiki-topic-description">Zabbix, Grafana, métricas, alertas e observabilidade.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'nutanix/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Nutanix</h3>
-    <p>Virtualização, Prism e administração de infraestrutura.</p>
+  <a class="wiki-topic" href="{{ 'nutanix/' | relative_url }}">
+    <span class="wiki-topic-title">Nutanix</span>
+    <span class="wiki-topic-description">Virtualização, Prism e administração de infraestrutura.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'vmware/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>VMware</h3>
-    <p>ESXi, hosts, armazenamento e infraestrutura.</p>
+  <a class="wiki-topic" href="{{ 'vmware/' | relative_url }}">
+    <span class="wiki-topic-title">VMware</span>
+    <span class="wiki-topic-description">ESXi, hosts, armazenamento e infraestrutura.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'watchguard/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>WatchGuard</h3>
-    <p>Firewall, políticas, VPN e troubleshooting.</p>
+  <a class="wiki-topic" href="{{ 'watchguard/' | relative_url }}">
+    <span class="wiki-topic-title">WatchGuard</span>
+    <span class="wiki-topic-description">Firewall, políticas, VPN e troubleshooting.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'windows/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Windows</h3>
-    <p>Administração, ferramentas e integração com ambientes de TI.</p>
+  <a class="wiki-topic" href="{{ 'windows/' | relative_url }}">
+    <span class="wiki-topic-title">Windows</span>
+    <span class="wiki-topic-description">Administração, ferramentas e integração com ambientes de TI.</span>
   </a>
 
-  <a class="home-card home-card-large" href="{{ 'troubleshooting/' | relative_url }}">
-    <span class="home-card-icon">◉</span>
-    <h3>Troubleshooting</h3>
-    <p>Diagnóstico, investigação de problemas e soluções práticas.</p>
+  <a class="wiki-topic" href="{{ 'troubleshooting/' | relative_url }}">
+    <span class="wiki-topic-title">Troubleshooting</span>
+    <span class="wiki-topic-description">Diagnóstico, investigação de problemas e soluções práticas.</span>
   </a>
 
-</section>
+</div>
