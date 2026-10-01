@@ -9,7 +9,6 @@ description: Base de conhecimento técnico sobre infraestrutura e tecnologia.
     <span class="home-eyebrow">Base de conhecimento técnico</span>
 
 <h1 class="home-title">
-  {% include logo.html class="home-title-icon" %}
   <span>Pangolim</span>
 </h1>
 
