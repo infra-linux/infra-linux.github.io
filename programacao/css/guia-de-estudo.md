@@ -142,7 +142,7 @@ color: hsl(217 80% 51%);       /* matiz, saturação, luminosidade */
 ```
 
 ### Unidades
-
+{:.no_toc}
 | Unidade | Tipo | Uso |
 |---------|------|-----|
 | `px` | Absoluta | Bordas, sombras e detalhes finos. |
@@ -399,7 +399,7 @@ img {
 ```
 
 ### Tema escuro automático
-
+{:.no_toc}
 ```css
 @media (prefers-color-scheme: dark) {
   body { background: #121212; color: #ddd; }
