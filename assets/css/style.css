@@ -242,6 +242,11 @@ body.sidebar-collapsed .dock-github-bottom {
   margin-bottom: 4px;
 }
 
+body.sidebar-collapsed .dock-github svg {
+  width: 26px;
+  height: 26px;
+}
+
 /* =========================================================
    Botão minimizar
    (aparece só com a barra expandida)
@@ -418,6 +423,7 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 .dock-tooltip.visible {
   opacity: 1;
 }
+
 
 
 /* =========================================================
