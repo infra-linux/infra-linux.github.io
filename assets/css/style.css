@@ -30,7 +30,7 @@
 
   /* Espaço entre os quadros (página e barra lateral) e as bordas da tela */
   --gap: 0px;
-  --sidebar-gap: 12px;
+  --sidebar-gap: 0px;
 
   --shadow: rgba(0, 0, 0, 0.25);
 }
