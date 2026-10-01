@@ -29,7 +29,7 @@
   --content-width: 980px;
 
   /* Espaço entre os quadros (página e barra lateral) e as bordas da tela */
-  --gap: 15px;
+  --gap: 0px;
 
   --shadow: rgba(0, 0, 0, 0.25);
 }
@@ -158,15 +158,15 @@ input:focus-visible {
  */
 main {
   position: relative;
-  width: min(calc(100% - 2 * var(--gap)), var(--content-width));
+  width: 100%;
   flex: 1 0 auto;
-  min-height: calc(100vh - 2 * var(--gap));
-  margin: var(--gap) auto var(--gap);
+  min-height: 100vh;
+  margin: 0;
   padding: 26px 22px 34px;
   background: var(--bg-main);
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
-  box-shadow: 0 18px 50px var(--shadow);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 
@@ -181,16 +181,16 @@ main {
  */
 .sidebar {
   position: fixed;
-  inset: var(--gap) auto var(--gap) 0;
+  inset: 0 auto 0 0;
   z-index: 20;
   display: flex;
   flex-direction: column;
   width: var(--sidebar-width);
   overflow: hidden;
   background: var(--bg-sidebar);
-  border: 1px solid var(--border-soft);
-  border-radius: 12px 12px 12px 12px;
-  box-shadow: 0 18px 50px var(--shadow);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   scrollbar-color: #2a2a27 #151513;
   scrollbar-width: thin;
   transition:
@@ -1456,18 +1456,17 @@ blockquote p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(calc(100% - 2 * var(--gap)), var(--content-width));
+  width: 100%;
   min-height: 68px;
-  margin: 0 auto var(--gap);
+  margin: 0 auto;
   padding: 20px 32px;
-  border: 1px solid var(--border-soft);
-  border-radius: 12px;
+  border: 0;
+  border-radius: 0;
   background: var(--bg-sidebar);
   color: #999994;
   font-size: 0.8rem;
-  box-shadow: 0 18px 50px var(--shadow);
+  box-shadow: none;
 }
-
 
 /* =========================================================
    Botão mobile (não usado)
