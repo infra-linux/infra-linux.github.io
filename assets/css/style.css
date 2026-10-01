@@ -4,25 +4,25 @@
    ========================================================= */
 
 :root {
-  --bg-page: #130f12;
-  --bg-sidebar: #1b1418;
-  --bg-main: #21191e;
-  --bg-card: #2a2026;
-  --bg-code: #100b0e;
-  --bg-hover: #35272f;
+  --bg-page: #0a120f;
+  --bg-sidebar: #101c18;
+  --bg-main: #15241f;
+  --bg-card: #1c2e28;
+  --bg-code: #060b09;
+  --bg-hover: #243a33;
 
-  --text: #d5c9cf;
-  --text-strong: #f3e8ed;
-  --text-muted: #ad9ea6;
+  --text: #c0d1c9;
+  --text-strong: #e6f4ed;
+  --text-muted: #83998f;
 
-  --border: #493640;
-  --border-soft: #382932;
+  --border: #2c473e;
+  --border-soft: #20362f;
 
-  --accent: #cf7f95;
-  --accent-hover: #efa5b8;
-  --accent-soft: rgba(207, 127, 149, 0.14);
-  --accent-light: #f5b8c8;
-  --accent-dark: #a95770;
+  --accent: #34d399;
+  --accent-hover: #6ee7b7;
+  --accent-soft: rgba(52, 211, 153, 0.14);
+  --accent-light: #a7f3d0;
+  --accent-dark: #059669;
 
   --sidebar-width: 252px;
   --sidebar-collapsed-width: 54px;
