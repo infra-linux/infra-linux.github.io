@@ -194,16 +194,16 @@ main {
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background: #151513;
+  background: var(--bg-sidebar);
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: #2a2a27;
-  border-radius: 8px;
+  background: var(--text-muted);
+  border-radius: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background: #373733;
+  background: var(--text-strong);
 }
 
 /* =========================================================
