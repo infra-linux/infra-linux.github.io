@@ -431,7 +431,7 @@ body.sidebar-collapsed .brand {
   position: absolute;
 
   top: 0px;
-  left: 0;
+  left: -2px;
 
   display: flex;
   align-items: center;
