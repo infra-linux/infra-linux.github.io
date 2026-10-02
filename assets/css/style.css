@@ -226,9 +226,6 @@ main {
   gap: 6px;
 }
 
-.sidebar-top > * {
-  transform: translateY(8px);
-}
 
 /* =========================================================
    Logo no topo
@@ -241,8 +238,8 @@ main {
 
   flex: 0 0 42px;
 
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
 
   margin: 0;
   padding: 0;
@@ -268,7 +265,6 @@ main {
   padding: 0;
 
   flex: 0 0 auto;
-
   color: var(--accent);
 }
 
