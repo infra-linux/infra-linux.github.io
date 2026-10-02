@@ -100,23 +100,50 @@ Siga a sequência abaixo para estudar COBOL dos fundamentos até os componentes 
 
 ## Trilha de estudo
 
-O GnuCOBOL entra logo depois dos fundamentos para que você possa executar os exemplos desde cedo. Os exercícios acompanham todas as etapas.
+A trilha tem um **tronco comum**, que vai de Fundamentos até Modularização e serve de base para qualquer objetivo, e dois **ramos de especialização**, que você escolhe conforme sua área de interesse:
+
+- **Batch e mainframe:** Mainframe e JCL.
+- **Dados e transações online:** Bancos de Dados e, depois, CICS.
+
+O GnuCOBOL entra logo depois dos fundamentos para que você possa executar os exemplos desde cedo.
 
 ```mermaid
-flowchart LR
-    Fundamentos --> GnuCOBOL
-    GnuCOBOL --> Programacao["Programação"]
-    Programacao --> Dados["Estruturas de Dados"]
-    Dados --> Arquivos
-    Arquivos --> Modularizacao["Modularização"]
-    Modularizacao --> DB["Bancos de Dados"]
-    DB --> Mainframe
+flowchart TD
+    subgraph Tronco["Tronco comum"]
+        Fundamentos --> GnuCOBOL
+        GnuCOBOL --> Programacao["Programação"]
+        Programacao --> Dados["Estruturas de Dados"]
+        Dados --> Arquivos
+        Arquivos --> Modularizacao["Modularização"]
+    end
+
+    Modularizacao --> Mainframe
     Mainframe --> JCL
+
+    Modularizacao --> DB["Bancos de Dados"]
+
     JCL --> CICS
-    Exercicios["Exercícios"] -.-> Programacao
-    Exercicios -.-> Arquivos
-    Exercicios -.-> DB
+    DB --> CICS
 ```
+
+### Níveis e resultados esperados
+
+| Etapa | Nível | Resultado esperado |
+|---|---|---|
+| Fundamentos + GnuCOBOL | Iniciante | Escrever, compilar e executar um programa simples |
+| Programação + Estruturas de Dados | Iniciante | Resolver problemas com lógica de controle e tabelas |
+| Arquivos + Modularização | Intermediário | Processar arquivos e dividir o código em módulos |
+| Bancos de Dados | Intermediário | Integrar COBOL com SQL e DB2 |
+| Mainframe + JCL | Avançado | Executar jobs e programas em ambiente z/OS |
+| CICS | Avançado | Desenvolver programas transacionais online |
+
+### O que é essencial e o que é opcional
+
+Do tronco comum (Fundamentos até Modularização) em diante, tudo é essencial para quem quer trabalhar com COBOL. Os ramos de especialização dependem do seu objetivo: quem for atuar com processamento em lote precisa mais de Mainframe e JCL, e quem for atuar com sistemas online precisa de Bancos de Dados e CICS. Não é obrigatório estudar tudo na ordem.
+
+### Pratique a cada etapa
+
+Ao concluir cada bloco da tabela acima, faça os exercícios do nível correspondente em [Exercícios]({{ 'cobol/exercicios/index.html' | relative_url }}). Eles foram pensados para consolidar o conteúdo antes de avançar.
 
 ---
 
