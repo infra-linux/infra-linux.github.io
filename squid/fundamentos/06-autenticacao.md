@@ -153,5 +153,4 @@ Ao configurar autenticação:
 - teste com um usuário autorizado;
 - mantenha as configurações documentadas.
 
-> **Próximo:** Logs e Diagnóstico
 > **Próximo:** [Logs e Diagnóstico]({{ 'squid/fundamentos/07-logs-e-diagnosticos.html' | relative_url }})
