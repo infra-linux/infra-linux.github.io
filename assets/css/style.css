@@ -226,6 +226,9 @@ main {
   gap: 6px;
 }
 
+.sidebar-top > * {
+  transform: translateY(4px);
+}
 
 /* =========================================================
    Logo no topo
