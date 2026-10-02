@@ -30,47 +30,47 @@ Siga a sequência dos fundamentos para compreender a plataforma, da arquitetura 
 <div class="wiki-topic-list">
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/01-introducao-ao-nutanix.html' | relative_url }}">
-    <span class="wiki-topic-title">01 — Introdução ao Nutanix</span>
+    <span class="wiki-topic-title">Introdução ao Nutanix</span>
     <span class="wiki-topic-description">Visão geral da plataforma e de seus componentes.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/02-arquitetura-hiperconvergente.html' | relative_url }}">
-    <span class="wiki-topic-title">02 — Arquitetura Hiperconvergente</span>
+    <span class="wiki-topic-title">Arquitetura Hiperconvergente</span>
     <span class="wiki-topic-description">Como computação e armazenamento se combinam nos nós.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/03-prism-element-e-prism-central.html' | relative_url }}">
-    <span class="wiki-topic-title">03 — Prism Element e Prism Central</span>
+    <span class="wiki-topic-title">Prism Element e Prism Central</span>
     <span class="wiki-topic-description">Interfaces de gerenciamento de um cluster e de vários clusters.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/04-ahv-aos-e-cvm.html' | relative_url }}">
-    <span class="wiki-topic-title">04 — AHV, AOS e CVM</span>
+    <span class="wiki-topic-title">AHV, AOS e CVM</span>
     <span class="wiki-topic-description">Hypervisor, sistema da plataforma e máquina virtual de controle.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/05-storage-pool-container-e-vdisk.html' | relative_url }}">
-    <span class="wiki-topic-title">05 — Storage Pool, Container e vDisk</span>
+    <span class="wiki-topic-title">Storage Pool, Container e vDisk</span>
     <span class="wiki-topic-description">Organização lógica do armazenamento.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/06-resiliencia-rf2-rf3-e-localidade.html' | relative_url }}">
-    <span class="wiki-topic-title">06 — Resiliência, RF2, RF3 e Localidade</span>
+    <span class="wiki-topic-title">Resiliência, RF2, RF3 e Localidade</span>
     <span class="wiki-topic-description">Replicação de dados, tolerância a falhas e localidade.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/07-nutanix-files-e-fsvm.html' | relative_url }}">
-    <span class="wiki-topic-title">07 — Nutanix Files e FSVM</span>
+    <span class="wiki-topic-title">Nutanix Files e FSVM</span>
     <span class="wiki-topic-description">Serviço de arquivos e suas máquinas virtuais.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/08-smb-nfs-e-active-directory.html' | relative_url }}">
-    <span class="wiki-topic-title">08 — SMB, NFS e Active Directory</span>
+    <span class="wiki-topic-title">SMB, NFS e Active Directory</span>
     <span class="wiki-topic-description">Protocolos de compartilhamento e integração com o AD.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'nutanix/fundamentos/09-fluxos-e-diagnostico-inicial.html' | relative_url }}">
-    <span class="wiki-topic-title">09 — Fluxos e Diagnóstico Inicial</span>
+    <span class="wiki-topic-title">Fluxos e Diagnóstico Inicial</span>
     <span class="wiki-topic-description">Fluxos de acesso e primeiros passos de diagnóstico.</span>
   </a>
 
