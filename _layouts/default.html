@@ -1,11 +1,19 @@
 <!doctype html>
-
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="default">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1c1c1a">
+
+  <!-- Aplica o tema salvo antes da página aparecer (evita flash) -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
 
   <meta name="description" content="{{ page.description | default: site.description | escape }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}Pangolim">
@@ -29,10 +37,10 @@
     href="{{ '/images/favicon.png' | relative_url }}"
   >
 
-  <link
-    rel="stylesheet"
-    href="{{ '/assets/css/style.css' | relative_url }}"
-  >
+  <!-- themes.css ANTES do style.css -->
+  <link rel="stylesheet" href="{{ '/assets/css/themes.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
 </head>
 
 <body>
@@ -1485,10 +1493,52 @@
 
 
     <!-- =====================================================
-         Rodapé da sidebar
+         Rodapé da sidebar: seletor de tema + GitHub
          ===================================================== -->
 
     <div class="sidebar-footer">
+
+      <label class="theme-switch">
+        <span class="visually-hidden">Tema</span>
+
+        <select id="tema" aria-label="Tema">
+
+          <optgroup label="Originais e coloridos">
+            <option value="default">Original</option>
+            <option value="mono-teal">Mono + teal</option>
+            <option value="nord">Nord</option>
+            <option value="dracula">Dracula</option>
+            <option value="gruvbox">Gruvbox</option>
+            <option value="catppuccin">Catppuccin</option>
+            <option value="tokyo-night">Tokyo Night</option>
+            <option value="solarized">Solarized</option>
+            <option value="rose-pine">Rosé Pine</option>
+            <option value="everforest">Everforest</option>
+          </optgroup>
+
+          <optgroup label="Poucas cores">
+            <option value="graphite">Graphite</option>
+            <option value="slate">Slate</option>
+            <option value="ink">Ink (OLED)</option>
+          </optgroup>
+
+          <optgroup label="Preto e cinza">
+            <option value="charcoal">Charcoal</option>
+            <option value="onyx">Onyx</option>
+            <option value="ash">Ash</option>
+            <option value="smoke">Smoke</option>
+            <option value="pewter">Pewter</option>
+            <option value="obsidian">Obsidian</option>
+          </optgroup>
+
+          <optgroup label="Vermelhos">
+            <option value="red-black">Red Black</option>
+            <option value="crimson">Crimson</option>
+            <option value="ember">Ember</option>
+          </optgroup>
+
+        </select>
+      </label>
 
       <a
         href="https://github.com/pangolimbr/pangolimbr.github.io"
@@ -1525,6 +1575,37 @@
     </footer>
 
   </div>
+
+
+  <!-- =======================================================
+       Seletor de tema
+       ======================================================= -->
+
+  <script>
+
+    (function () {
+
+      const sel = document.getElementById('tema');
+
+      sel.value = document.documentElement.dataset.theme || 'default';
+
+      sel.addEventListener('change', () => {
+
+        document.documentElement.dataset.theme = sel.value;
+
+        try {
+          localStorage.setItem('theme', sel.value);
+        } catch (e) {}
+
+        /* O Mermaid desenha os diagramas uma única vez,
+           então recarregamos para ele ler as cores do novo tema */
+        location.reload();
+
+      });
+
+    })();
+
+  </script>
 
 
   <!-- =======================================================
@@ -2045,7 +2126,7 @@
 
 
   <!-- =======================================================
-       Mermaid
+       Mermaid (cores lidas das variáveis do tema ativo)
        ======================================================= -->
 
   <script type="module">
@@ -2076,6 +2157,10 @@
       );
 
 
+    const css = getComputedStyle(document.documentElement);
+    const v = name => css.getPropertyValue(name).trim();
+
+
     mermaid.initialize({
 
       startOnLoad: true,
@@ -2084,14 +2169,14 @@
 
       themeVariables: {
 
-        background: '#1c1c1a',
-        primaryColor: '#2a2a27',
-        primaryTextColor: '#ffffff',
-        primaryBorderColor: '#888888',
-        lineColor: '#aaaaaa',
-        secondaryColor: '#242421',
-        tertiaryColor: '#20201e',
-        nodeTextColor: '#ffffff'
+        background: v('--bg-main'),
+        primaryColor: v('--bg-card'),
+        primaryTextColor: v('--text-strong'),
+        primaryBorderColor: v('--border'),
+        lineColor: v('--accent'),
+        secondaryColor: v('--bg-hover'),
+        tertiaryColor: v('--bg-sidebar'),
+        nodeTextColor: v('--text-strong')
 
       }
 
