@@ -11,6 +11,22 @@
 /* ---------- Temas ---------- */
 
 /* Contraste alto, bordas quase invisíveis */
+[data-theme="pangolim"] {
+  --bg-page:#e8e1d5; --bg-sidebar:#d8cfc0; --bg-main:#e8e1d5; --bg-card:#eee8de; --bg-code:#25221e; --bg-hover:#ddd5c8;
+  --text:#625b51; --text-strong:#292621; --text-muted:#91887b;
+  --border:#cfc5b6; --border-soft:#ddd5c9;
+  --accent:#8b7355; --accent-hover:#6f5b43; --accent-soft:rgba(139,115,85,.14);
+  --shadow:rgba(55,45,35,.18);
+}
+
+[data-theme="pangolim-dark"] {
+  --bg-page:#1b1916; --bg-sidebar:#12110f; --bg-main:#1b1916; --bg-card:#24211d; --bg-code:#0e0d0b; --bg-hover:#2d2924;
+  --text:#b8afa2; --text-strong:#eee8de; --text-muted:#766e63;
+  --border:#39342e; --border-soft:#2a2722;
+  --accent:#b09570; --accent-hover:#c4a982; --accent-soft:rgba(176,149,112,.14);
+  --shadow:rgba(0,0,0,.5);
+}
+
 [data-theme="obsidian"] {
   --bg-page:#080808; --bg-sidebar:#000000; --bg-main:#0a0a0a; --bg-card:#0f0f0f; --bg-code:#000000; --bg-hover:#181818;
   --text:#cfcfcf; --text-strong:#ffffff; --text-muted:#6e6e6e;
@@ -25,15 +41,6 @@
   --border:#202020; --border-soft:#151515;
   --accent:#8a8a8a; --accent-hover:#bdbdbd; --accent-soft:rgba(138,138,138,.12);
   --shadow:rgba(0,0,0,.4);
-}
-
-/* Original (padrão quando não há data-theme) */
-:root, [data-theme="default"] {
-  --bg-page:#141414; --bg-sidebar:#050505; --bg-main:#0b0b0b; --bg-card:#141414; --bg-code:#000000; --bg-hover:#1e1e1e;
-  --text:#b5b5b5; --text-strong:#f2f2f2; --text-muted:#666666;
-  --border:#252525; --border-soft:#161616;
-  --accent:#a8a8a8; --accent-hover:#d8d8d8; --accent-soft:rgba(168,168,168,.11);
-  --shadow:rgba(0,0,0,.25);
 }
 
 /* Contraste baixo, tudo discreto */
@@ -67,18 +74,6 @@
    ========================================================= */
 
 [data-theme="chatgpt"] {
-  --bg-page:#212121; --bg-sidebar:#171717; --bg-main:#212121; --bg-card:#2a2a2a; --bg-code:#171717; --bg-hover:#2f2f2f;
-  --text:#b4b4b4; --text-strong:#ececec; --text-muted:#777777;
-  --border:#3a3a3a; --border-soft:#2f2f2f;
-  --accent:#10a37f; --accent-hover:#19c99a; --accent-soft:rgba(16,163,127,.12);
-  --shadow:rgba(0,0,0,.4);
-}
-
-/* =========================================================
-   ChatGPT — Dark
-   ========================================================= */
-
-[data-theme="chatgpt-dark"] {
   --bg-page:#212121; --bg-sidebar:#171717; --bg-main:#212121; --bg-card:#2a2a2a; --bg-code:#171717; --bg-hover:#2f2f2f;
   --text:#b4b4b4; --text-strong:#ececec; --text-muted:#777777;
   --border:#3a3a3a; --border-soft:#2f2f2f;
