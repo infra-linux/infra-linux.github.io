@@ -21,14 +21,11 @@
   --accent: #a8a8a8;
   --accent-hover: #d8d8d8;
   --accent-soft: rgba(168, 168, 168, 0.11);
-  --accent-light: #e4e4e4;
-  --accent-dark: #6b6b6b;
 
   --sidebar-width: 252px;
   --sidebar-collapsed-width: 54px;
   --content-width: 980px;
 
-  --gap: 0px;
   --sidebar-gap: 0px;
 
   --shadow: rgba(0, 0, 0, 0.25);
@@ -186,22 +183,6 @@ main {
     box-shadow 0.22s ease;
 }
 
-.sidebar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sidebar::-webkit-scrollbar-track {
-  background: var(--bg-sidebar);
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 0;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background: var(--text-strong);
-}
 
 /* =========================================================
    TOPO DA SIDEBAR
@@ -219,51 +200,6 @@ main {
   box-sizing: border-box;
 
   gap: 6px;
-}
-
-
-/* =========================================================
-   LOGO — ABERTA E MINIMIZADA
-   ========================================================= */
-
-.sidebar-top .brand,
-body.sidebar-collapsed .sidebar-top .brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex: 0 0 42px;
-
-  width: 42px;
-  min-width: 42px;
-  max-width: 42px;
-
-  height: 42px;
-  min-height: 42px;
-  max-height: 42px;
-
-  margin: 0;
-  padding: 0;
-
-  box-sizing: border-box;
-
-  border: 0;
-  border-radius: 8px;
-
-  background: var(--bg-sidebar);
-
-  overflow: hidden;
-
-  color: var(--text-strong);
-  text-decoration: none;
-
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.sidebar-top .brand:hover {
-  background: var(--bg-hover);
 }
 
 
@@ -474,7 +410,6 @@ body.sidebar-collapsed .page-shell {
   );
 }
 
-body.sidebar-collapsed .search-box,
 body.sidebar-collapsed .sidebar-menu,
 body.sidebar-collapsed .sidebar-footer {
   display: none;
@@ -484,20 +419,6 @@ body.sidebar-collapsed .sidebar-footer {
 /* =========================================================
    Barra retraída
    ========================================================= */
-
-body.sidebar-collapsed .brand-icon {
-  display: block;
-
-  flex: 0 0 42px;
-
-  width: 42px;
-  height: 42px;
-
-  margin: 0;
-  padding: 0;
-
-  flex-shrink: 0;
-}
 
 body.sidebar-collapsed .sidebar-collapse {
   display: none;
@@ -531,25 +452,8 @@ body.sidebar-collapsed .dock-github svg {
   display: none;
 }
 
-body.sidebar-collapsed .sidebar-dock {
-  display: flex;
-
-  flex: 1 1 auto;
-
-  flex-direction: column;
-  align-items: center;
-
-  gap: 4px;
-
-  min-height: 0;
-
-  margin-top: 10px;
-  padding: 10px 0 14px;
-
-  overflow-y: auto;
-
-  scrollbar-width: thin;
-  scrollbar-color: var(--text-muted) var(--bg-sidebar);
+body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
+  display: none;
 }
 
 .dock-item {
@@ -717,77 +621,6 @@ body.sidebar-collapsed .sidebar-dock {
   font-weight: 700;
   line-height: 24px;
   letter-spacing: -0.02em;
-}
-
-
-/* =========================================================
-   Busca lateral antiga
-   ========================================================= */
-
-.search-box {
-  padding: 8px 12px 12px;
-}
-
-.search-box label {
-  display: block;
-
-  margin: 0 0 6px 4px;
-
-  color: var(--text-muted);
-
-  font-size: 0.65rem;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.search-box input,
-.search-input,
-#searchInput,
-.global-search-input {
-  width: 100%;
-  min-height: 38px;
-
-  padding: 8px 10px;
-
-  border: 1px solid var(--border);
-  border-radius: 7px;
-
-  outline: none;
-
-  background: var(--bg-code);
-  color: var(--text);
-
-  box-shadow: none;
-
-  transition:
-    border-color 0.16s ease,
-    background 0.16s ease,
-    box-shadow 0.16s ease;
-}
-
-.search-box input::placeholder,
-.search-input::placeholder,
-#searchInput::placeholder,
-.global-search-input::placeholder {
-  color: #858580;
-}
-
-.search-box input:hover,
-.search-input:hover,
-#searchInput:hover,
-.global-search-input:hover {
-  border-color: #51514b;
-}
-
-.search-box input:focus,
-.search-input:focus,
-#searchInput:focus,
-.global-search-input:focus {
-  border-color: #b0b0ab;
-  background: #1b1b19;
-  box-shadow: 0 0 0 3px rgba(184, 184, 178, 0.12);
 }
 
 
@@ -2047,15 +1880,6 @@ blockquote p:last-child {
   .home-card-large,
   .home-card-wide {
     grid-column: span 1;
-  }
-
-  .home-dashboard-hero {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .home-dashboard-stats {
-    gap: 1rem;
   }
 
   .site-footer {
