@@ -550,6 +550,7 @@ body.sidebar-collapsed .sidebar-dock {
   padding: 10px 0 14px;
 
   overflow-y: auto;
+  background: red !important;
 
   scrollbar-width: thin;
   scrollbar-color: var(--text-muted) var(--bg-sidebar);
