@@ -190,7 +190,7 @@ main {
 }
 
 .sidebar::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .sidebar::-webkit-scrollbar-track {
@@ -199,7 +199,7 @@ main {
 
 .sidebar::-webkit-scrollbar-thumb {
   background: var(--text-muted);
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
