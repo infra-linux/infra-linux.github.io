@@ -74,6 +74,17 @@
   --shadow:rgba(0,0,0,.4);
 }
 
+/* =========================================================
+   ChatGPT — Dark
+   ========================================================= */
+
+[data-theme="chatgpt-dark"] {
+  --bg-page:#212121; --bg-sidebar:#171717; --bg-main:#212121; --bg-card:#2a2a2a; --bg-code:#171717; --bg-hover:#2f2f2f;
+  --text:#b4b4b4; --text-strong:#ececec; --text-muted:#777777;
+  --border:#3a3a3a; --border-soft:#2f2f2f;
+  --accent:#10a37f; --accent-hover:#19c99a; --accent-soft:rgba(16,163,127,.12);
+  --shadow:rgba(0,0,0,.4);
+}
 
 /* =========================================================
    Claude
@@ -87,6 +98,17 @@
   --shadow:rgba(50,40,30,.12);
 }
 
+/* =========================================================
+   Claude — Dark
+   ========================================================= */
+
+[data-theme="claude-dark"] {
+  --bg-page:#1f1e1b; --bg-sidebar:#171614; --bg-main:#1f1e1b; --bg-card:#292724; --bg-code:#151412; --bg-hover:#302d29;
+  --text:#b8b1a8; --text-strong:#eee9e1; --text-muted:#756f68;
+  --border:#3a3631; --border-soft:#2d2a26;
+  --accent:#d97757; --accent-hover:#e58b6b; --accent-soft:rgba(217,119,87,.12);
+  --shadow:rgba(0,0,0,.45);
+}
 
 /* =========================================================
    Perplexity
@@ -98,4 +120,17 @@
   --border:#dce3e6; --border-soft:#e7ecee;
   --accent:#20a0b5; --accent-hover:#168b9f; --accent-soft:rgba(32,160,181,.12);
   --shadow:rgba(20,40,50,.12);
+}
+
+
+/* =========================================================
+   Perplexity — Dark
+   ========================================================= */
+
+[data-theme="perplexity-dark"] {
+  --bg-page:#181a1b; --bg-sidebar:#111314; --bg-main:#181a1b; --bg-card:#202426; --bg-code:#101213; --bg-hover:#292d2f;
+  --text:#aeb7bb; --text-strong:#edf1f2; --text-muted:#697378;
+  --border:#303638; --border-soft:#252a2c;
+  --accent:#20b8c9; --accent-hover:#39c9d8; --accent-soft:rgba(32,184,201,.12);
+  --shadow:rgba(0,0,0,.45);
 }
