@@ -11,90 +11,101 @@ title: COBOL
   COBOL
 </h1>
 
+> Do primeiro programa ao ambiente mainframe: conceitos, exemplos, exercícios e materiais de estudo sobre COBOL.
+
 ---
 
 ## Introdução
 
-COBOL (*Common Business-Oriented Language*) é uma linguagem de programação voltada principalmente para processamento de dados e sistemas de negócio.
+COBOL (*Common Business-Oriented Language*) é uma linguagem criada em 1959 e voltada ao processamento de dados e a sistemas de negócio. Mais de seis décadas depois, continua em produção em bancos, seguradoras, órgãos públicos e empresas de serviços, principalmente em ambientes mainframe, onde processa grandes volumes de transações todos os dias.
 
-A linguagem possui forte presença em ambientes corporativos, especialmente em sistemas de grande porte, instituições financeiras, seguradoras, empresas de serviços e ambientes mainframe.
+Esta seção começa pelos fundamentos da linguagem e avança de forma gradual até arquivos, bancos de dados, JCL, z/OS e CICS. A ideia é construir uma base sólida antes de entrar nos ambientes corporativos.
 
-Esta seção apresenta os fundamentos da linguagem e avança gradualmente para arquivos, bancos de dados, JCL, z/OS, CICS e outros componentes comuns do ecossistema COBOL.
+### Para quem é
 
-O objetivo é construir uma base sólida antes de avançar para ambientes corporativos e mainframe.
+- Estudantes e iniciantes que querem aprender COBOL do zero.
+- Profissionais de outras linguagens que precisam atuar em sistemas legados ou mainframe.
+- Quem busca uma referência organizada para revisar conceitos.
+
+### Pré-requisitos
+
+Não é necessário conhecer COBOL. Ajuda ter noções básicas de lógica de programação (variáveis, condições e repetições) e familiaridade com o terminal.
 
 ---
 
 ## Conteúdo
 
-Siga esta sequência para compreender COBOL desde os fundamentos da linguagem até os principais componentes encontrados em ambientes mainframe.
+Siga a sequência abaixo para estudar COBOL dos fundamentos até os componentes típicos de ambientes mainframe.
 
 <div class="wiki-topic-list">
 
   <a class="wiki-topic" href="{{ 'cobol/fundamentos/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Fundamentos</span>
+    <span class="wiki-topic-title">1. Fundamentos</span>
     <span class="wiki-topic-description">História, características, estrutura de programas, divisões, sintaxe e regras básicas do COBOL.</span>
   </a>
 
+  <a class="wiki-topic" href="{{ 'cobol/gnucobol/index.html' | relative_url }}">
+    <span class="wiki-topic-title">2. GnuCOBOL</span>
+    <span class="wiki-topic-description">Instalação, compilação, execução e desenvolvimento de programas COBOL em ambientes modernos. Seu laboratório para praticar desde o início.</span>
+  </a>
+
   <a class="wiki-topic" href="{{ 'cobol/programacao/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Programação</span>
+    <span class="wiki-topic-title">3. Programação</span>
     <span class="wiki-topic-description">Variáveis, operações, condições, loops, PERFORM, procedimentos e controle de fluxo.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/estruturas-dados/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Estruturas de Dados</span>
-    <span class="wiki-topic-description">Grupos de dados, PIC, OCCURS, REDEFINES, tabelas e estruturas utilizadas em COBOL.</span>
+    <span class="wiki-topic-title">4. Estruturas de Dados</span>
+    <span class="wiki-topic-description">Grupos de dados, PIC, OCCURS, REDEFINES, tabelas e demais estruturas usadas em COBOL.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/arquivos/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Arquivos</span>
+    <span class="wiki-topic-title">5. Arquivos</span>
     <span class="wiki-topic-description">Arquivos sequenciais e indexados, operações de leitura e escrita, FILE STATUS e VSAM.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/modularizacao/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Modularização</span>
-    <span class="wiki-topic-description">Procedures, Sections, Paragraphs, subprogramas, CALL, parâmetros e COPYBOOKs.</span>
+    <span class="wiki-topic-title">6. Modularização</span>
+    <span class="wiki-topic-description">Sections, Paragraphs, subprogramas, CALL, passagem de parâmetros e COPYBOOKs.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/bancos-dados/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Bancos de Dados</span>
-    <span class="wiki-topic-description">Integração entre COBOL e bancos de dados, Embedded SQL, SQL e DB2.</span>
+    <span class="wiki-topic-title">7. Bancos de Dados</span>
+    <span class="wiki-topic-description">Integração entre COBOL e bancos de dados: Embedded SQL, SQL e DB2.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/mainframe/index.html' | relative_url }}">
-    <span class="wiki-topic-title">Mainframe</span>
+    <span class="wiki-topic-title">8. Mainframe</span>
     <span class="wiki-topic-description">Conceitos de mainframe, z/OS, TSO, ISPF, datasets, jobs e SDSF.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/jcl/index.html' | relative_url }}">
-    <span class="wiki-topic-title">JCL</span>
-    <span class="wiki-topic-description">Job Control Language, execução de programas, datasets, parâmetros e processamento em batch.</span>
+    <span class="wiki-topic-title">9. JCL</span>
+    <span class="wiki-topic-description">Job Control Language: execução de programas, datasets, parâmetros e processamento em batch.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/cics/index.html' | relative_url }}">
-    <span class="wiki-topic-title">CICS</span>
+    <span class="wiki-topic-title">10. CICS</span>
     <span class="wiki-topic-description">Processamento transacional, programas COBOL, transações, COMMAREA, canais e containers.</span>
-  </a>
-
-  <a class="wiki-topic" href="{{ 'cobol/gnucobol/index.html' | relative_url }}">
-    <span class="wiki-topic-title">GnuCOBOL</span>
-    <span class="wiki-topic-description">Instalação, compilação, execução e desenvolvimento de programas COBOL em ambientes modernos.</span>
   </a>
 
   <a class="wiki-topic" href="{{ 'cobol/exercicios/index.html' | relative_url }}">
     <span class="wiki-topic-title">Exercícios</span>
-    <span class="wiki-topic-description">Exercícios progressivos para praticar sintaxe, lógica, arquivos e integração com outros componentes.</span>
+    <span class="wiki-topic-description">Exercícios progressivos para praticar sintaxe, lógica, arquivos e integração com outros componentes. Podem ser feitos em paralelo a cada etapa.</span>
   </a>
 
 </div>
 
 ---
 
-O fluxo de estudo pode ser resumido assim:
+## Trilha de estudo
+
+O GnuCOBOL entra logo depois dos fundamentos para que você possa executar os exemplos desde cedo. Os exercícios acompanham todas as etapas.
 
 ```mermaid
 flowchart LR
-    Fundamentos --> Programacao["Programação"]
+    Fundamentos --> GnuCOBOL
+    GnuCOBOL --> Programacao["Programação"]
     Programacao --> Dados["Estruturas de Dados"]
     Dados --> Arquivos
     Arquivos --> Modularizacao["Modularização"]
@@ -102,16 +113,33 @@ flowchart LR
     DB --> Mainframe
     Mainframe --> JCL
     JCL --> CICS
-    Mainframe --> GnuCOBOL
+    Exercicios["Exercícios"] -.-> Programacao
+    Exercicios -.-> Arquivos
+    Exercicios -.-> DB
 ```
+
+---
+
+## Primeiro contato
+
+Um programa COBOL mínimo, para conhecer o formato antes de entrar nos detalhes:
+
+```cobol
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. HELLO.
+
+       PROCEDURE DIVISION.
+           DISPLAY "Olá, COBOL!".
+           STOP RUN.
+```
+
+Cada programa é organizado em **divisões** (`IDENTIFICATION`, `ENVIRONMENT`, `DATA` e `PROCEDURE`). Elas são explicadas em detalhe em [Fundamentos]({{ 'cobol/fundamentos/index.html' | relative_url }}).
 
 ---
 
 ## Ambiente de estudo
 
-Para começar a praticar COBOL, é possível utilizar ambientes locais como o GnuCOBOL.
-
-Uma abordagem inicial pode ser:
+Para praticar, use um ambiente local como o GnuCOBOL. O ciclo básico de trabalho é:
 
 ```text
 Código COBOL
@@ -127,7 +155,7 @@ Correção
 Nova execução
 ```
 
-Depois dos fundamentos, o estudo pode avançar para ambientes mais próximos dos utilizados em sistemas corporativos:
+Depois dos fundamentos, o estudo avança para ambientes mais próximos dos usados em sistemas corporativos:
 
 ```text
 COBOL
@@ -147,16 +175,16 @@ CICS
 
 ---
 
-## Boas práticas
+## Boas práticas de estudo
 
-- Comece pela sintaxe e estrutura dos programas antes de avançar para mainframe.
+- Comece pela sintaxe e pela estrutura dos programas antes de avançar para mainframe.
 - Pratique cada conceito com pequenos programas.
 - Entenda a estrutura dos dados antes de trabalhar com arquivos e bancos de dados.
-- Utilize ambientes de laboratório para executar os exemplos.
+- Execute todos os exemplos em um ambiente de laboratório, sem apenas ler o código.
 - Documente os programas e explique a finalidade de cada divisão.
 - Aprenda a interpretar mensagens de compilação e execução.
-- Depois dos fundamentos, estude JCL, z/OS, DB2 e CICS.
-- Mantenha os exercícios organizados por nível de dificuldade.
+- Estude JCL, z/OS, DB2 e CICS somente depois de dominar os fundamentos.
+- Organize os exercícios por nível de dificuldade e revise-os periodicamente.
 
 ---
 
@@ -175,4 +203,4 @@ Os materiais desta seção serão organizados conforme a evolução da documenta
 
 ---
 
-> Esta seção reúne conceitos, exemplos, procedimentos e materiais de estudo relacionados a COBOL, desde os fundamentos da linguagem até tecnologias utilizadas em ambientes corporativos e mainframe.
+> Esta seção reúne conceitos, exemplos, procedimentos e materiais de estudo sobre COBOL, dos fundamentos da linguagem às tecnologias usadas em ambientes corporativos e mainframe.
