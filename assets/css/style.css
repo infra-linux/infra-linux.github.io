@@ -227,7 +227,7 @@ main {
 }
 
 .sidebar-top > * {
-  transform: translateY(4px);
+  transform: translateY(8px);
 }
 
 /* =========================================================
