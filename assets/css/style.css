@@ -427,9 +427,9 @@ body.sidebar-collapsed .sidebar-collapse {
   min-width: 32px;
   max-width: 32px;
 
-  height: 32px;
-  min-height: 32px;
-  max-height: 32px;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
 
   margin-top: 5px;
   margin-right: 6px;
