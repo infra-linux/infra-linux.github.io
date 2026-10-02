@@ -215,4 +215,4 @@ Em uma infraestrutura corporativa, o Squid normalmente fica entre os usuários e
 
 Depois de compreender o funcionamento básico, o próximo passo é instalar o Squid e realizar sua configuração inicial.
 
-> **Próximo:** Instalação e Configuração
+> **Próximo:** [Instalação e Configuração]({{ 'squid/fundamentos/02-instalacao-e-configuracao.html' | relative_url }})

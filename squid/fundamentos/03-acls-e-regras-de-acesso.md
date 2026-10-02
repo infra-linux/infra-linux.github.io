@@ -158,4 +158,5 @@ Ao trabalhar com ACLs:
 - registre alterações importantes;
 - analise os logs quando o comportamento não for o esperado.
 
-> **Próximo:** Gerenciamento de URLs
+
+> **Próximo:** [Gerenciamento de URLs]({{ 'squid/fundamentos/04-gerenciamento-de-urls.html' | relative_url }})
