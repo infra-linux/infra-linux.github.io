@@ -24,7 +24,6 @@
 
   --sidebar-width: 252px;
   --sidebar-collapsed-width: 54px;
-  --content-width: 980px;
 
   --sidebar-gap: 0px;
 
@@ -48,8 +47,10 @@ html {
 body {
   min-height: 100%;
   margin: 0;
+
   background: var(--bg-page);
   color: var(--text);
+
   font-family:
     Inter,
     ui-sans-serif,
@@ -59,6 +60,7 @@ body {
     "Segoe UI",
     Arial,
     sans-serif;
+
   font-size: 15px;
   line-height: 1.65;
 }
@@ -101,12 +103,17 @@ input:focus-visible {
   top: 12px;
   left: 12px;
   z-index: 100;
+
   padding: 9px 12px;
+
   border: 1px solid var(--accent);
   border-radius: 7px;
+
   background: var(--bg-card);
   color: var(--text-strong);
+
   text-decoration: none;
+
   transform: translateY(-150%);
   transition: transform 0.16s ease;
 }
@@ -117,13 +124,19 @@ input:focus-visible {
 
 .visually-hidden {
   position: absolute;
+
   width: 1px;
   height: 1px;
+
   padding: 0;
   margin: -1px;
+
   overflow: hidden;
+
   clip: rect(0, 0, 0, 0);
+
   white-space: nowrap;
+
   border: 0;
 }
 
@@ -135,22 +148,34 @@ input:focus-visible {
 .page-shell {
   display: flex;
   flex-direction: column;
+
   min-height: 100vh;
-  margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+
+  margin-left: calc(
+    var(--sidebar-width) + var(--sidebar-gap)
+  );
+
   background: var(--bg-page);
+
   transition: margin-left 0.22s ease;
 }
 
 main {
   position: relative;
+
   width: 100%;
-  flex: 1 0 auto;
   min-height: 100vh;
+
+  flex: 1 0 auto;
+
   margin: 0;
   padding: 26px 22px 34px;
+
   background: var(--bg-main);
+
   border: 0;
   border-radius: 0;
+
   box-shadow: none;
 }
 
@@ -168,6 +193,7 @@ main {
   flex-direction: column;
 
   width: var(--sidebar-width);
+
   overflow: hidden;
 
   background: var(--bg-sidebar);
@@ -176,6 +202,7 @@ main {
   border-right: 1px solid #2a2a2a;
 
   border-radius: 0;
+
   box-shadow: none;
 
   transition:
@@ -185,7 +212,7 @@ main {
 
 
 /* =========================================================
-   TOPO DA SIDEBAR
+   Topo da sidebar
    ========================================================= */
 
 .sidebar-top {
@@ -197,18 +224,55 @@ main {
 
   padding: 8px 6px 0;
 
-  box-sizing: border-box;
-
   gap: 6px;
 }
 
 
 /* =========================================================
-   ÍCONE DA LOGO
+   Logo
    ========================================================= */
 
-.sidebar-top .brand-icon,
-body.sidebar-collapsed .sidebar-top .brand-icon {
+.sidebar-top .brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 42px;
+
+  width: 42px;
+  min-width: 42px;
+  max-width: 42px;
+
+  height: 42px;
+  min-height: 42px;
+  max-height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--bg-sidebar);
+
+  color: var(--text-strong);
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.sidebar-top .brand:hover {
+  background: var(--bg-hover);
+  color: var(--text-strong);
+  text-decoration: none;
+}
+
+.sidebar-top .brand-icon {
   display: block;
 
   flex: 0 0 42px;
@@ -231,46 +295,6 @@ body.sidebar-collapsed .sidebar-top .brand-icon {
 
 
 /* =========================================================
-   SIDEBAR MINIMIZADA
-   ========================================================= */
-
-body.sidebar-collapsed .sidebar-top {
-  width: 54px;
-  height: 62px;
-
-  padding: 8px 0 0;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   ESCONDER PESQUISA E BOTÃO QUANDO MINIMIZADA
-   ========================================================= */
-
-body.sidebar-collapsed .sidebar-search,
-body.sidebar-collapsed .sidebar-collapse {
-  display: none;
-}
-
-/* =========================================================
-   Logo no topo
-   ========================================================= */
-
-
-.sidebar-top .brand:hover {
-  background: var(--bg-hover);
-  color: var(--text-strong);
-  text-decoration: none;
-}
-
-
-
-/* =========================================================
    Pesquisa do topo
    ========================================================= */
 
@@ -278,7 +302,6 @@ body.sidebar-collapsed .sidebar-collapse {
   position: relative;
 
   flex: 1 1 auto;
-
   min-width: 0;
 
   margin: 3px 0 0;
@@ -287,8 +310,8 @@ body.sidebar-collapsed .sidebar-collapse {
 .sidebar-search-icon {
   position: absolute;
 
-  left: 7px;
   top: 50%;
+  left: 7px;
 
   width: 15px;
   height: 15px;
@@ -306,15 +329,12 @@ body.sidebar-collapsed .sidebar-collapse {
   width: 100%;
   height: 36px;
 
-  box-sizing: border-box;
-
   padding: 0 8px 0 28px;
 
   border: 1px solid var(--border-soft);
   border-radius: 8px;
 
   background: var(--bg-main);
-
   color: var(--text);
 
   outline: none;
@@ -338,8 +358,11 @@ body.sidebar-collapsed .sidebar-collapse {
 
 .sidebar-search input:focus {
   border-color: #4a4a46;
+
   background: #101010;
-  box-shadow: 0 0 0 2px rgba(184, 184, 178, 0.08);
+
+  box-shadow:
+    0 0 0 2px rgba(184, 184, 178, 0.08);
 }
 
 
@@ -348,29 +371,24 @@ body.sidebar-collapsed .sidebar-collapse {
    ========================================================= */
 
 .sidebar-collapse {
-  position: static;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
   flex: 0 0 32px;
+
   width: 32px;
   height: 36px;
 
-  margin-top: 3px;
-  margin-right: 6px;
-  margin-bottom: 0;
-  margin-left: 2px;
-  padding: 0;
+  margin:
+    3px 6px 0 2px;
 
-  box-sizing: border-box;
+  padding: 0;
 
   border: 1px solid var(--border);
   border-radius: 7px;
 
   background: var(--bg-sidebar);
-
   color: var(--text-muted);
 
   font-size: 1.35rem;
@@ -386,6 +404,7 @@ body.sidebar-collapsed .sidebar-collapse {
 
 .sidebar-collapse:hover {
   border-color: #55554e;
+
   background: var(--bg-hover);
   color: var(--text-strong);
 }
@@ -410,37 +429,21 @@ body.sidebar-collapsed .page-shell {
   );
 }
 
+body.sidebar-collapsed .sidebar-top {
+  width: var(--sidebar-collapsed-width);
+  height: 62px;
+
+  padding: 8px 0 0;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+body.sidebar-collapsed .sidebar-search,
+body.sidebar-collapsed .sidebar-collapse,
 body.sidebar-collapsed .sidebar-menu,
 body.sidebar-collapsed .sidebar-footer {
   display: none;
-}
-
-
-/* =========================================================
-   Barra retraída
-   ========================================================= */
-
-body.sidebar-collapsed .sidebar-collapse {
-  display: none;
-}
-
-body.sidebar-collapsed .sidebar-search {
-  display: none;
-}
-
-body.sidebar-collapsed .dock-github {
-  width: 46px;
-  height: 46px;
-}
-
-body.sidebar-collapsed .dock-github-bottom {
-  margin-top: auto;
-  margin-bottom: 4px;
-}
-
-body.sidebar-collapsed .dock-github svg {
-  width: 26px;
-  height: 26px;
 }
 
 
@@ -450,6 +453,26 @@ body.sidebar-collapsed .dock-github svg {
 
 .sidebar-dock {
   display: none;
+}
+
+body.sidebar-collapsed .sidebar-dock {
+  display: flex;
+
+  flex: 1 1 auto;
+
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4px;
+
+  min-height: 0;
+
+  margin-top: 10px;
+  padding: 10px 0 14px;
+
+  overflow-y: auto;
+
+  scrollbar-width: none;
 }
 
 body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
@@ -489,7 +512,9 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .dock-item:hover {
   background: rgba(255, 255, 255, 0.07);
+
   color: var(--text-strong);
+
   text-decoration: none;
 }
 
@@ -526,7 +551,6 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   border-radius: 7px;
 
   background: var(--bg-card);
-
   color: var(--text-strong);
 
   font-size: 0.8rem;
@@ -550,77 +574,19 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   opacity: 1;
 }
 
-
-/* =========================================================
-   Transições da sidebar
-   ========================================================= */
-
-.sidebar-menu,
-.search-box,
-.sidebar-footer {
-  transition:
-    opacity 0.12s ease,
-    visibility 0.12s ease;
+body.sidebar-collapsed .dock-github {
+  width: 46px;
+  height: 46px;
 }
 
-
-/* =========================================================
-   Marca
-   ========================================================= */
-
-.brand {
-  display: flex;
-  align-items: center;
-
-  gap: 0;
-
-  min-height: 60px;
-
-  margin: 12px 14px 5px;
-  padding: 8px 12px;
-
-  border-radius: 10px;
-
-  background: var(--bg-sidebar);
-
-  color: var(--text-strong);
-
-  text-decoration: none;
-
-  overflow: hidden;
-
-  transition: background 0.16s ease;
+body.sidebar-collapsed .dock-github-bottom {
+  margin-top: auto;
+  margin-bottom: 4px;
 }
 
-.brand:hover {
-  background: var(--bg-sidebar);
-  color: var(--text-strong);
-  text-decoration: none;
-}
-
-.brand-icon {
-  display: block;
-
-  width: 42px;
-  height: 42px;
-
-  flex: 0 0 auto;
-
-  color: var(--accent);
-}
-
-.brand-name {
-  margin-left: 12px;
-  padding: 8px 14px 8px 12px;
-
-  background: var(--bg-sidebar);
-
-  color: #c8c8c3;
-
-  font-size: 1.30rem;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.02em;
+body.sidebar-collapsed .dock-github svg {
+  width: 26px;
+  height: 26px;
 }
 
 
@@ -630,17 +596,18 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
 .sidebar-menu {
   flex: 1 1 auto;
+
   min-height: 0;
 
   overflow-y: auto;
 
-  /* Barra de rolagem */
-  scrollbar-width: thin;
-  scrollbar-color: var(--text-muted) var(--bg-sidebar);
-
   margin-top: 14px;
-
   padding: 0 12px 18px;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    var(--text-muted)
+    var(--bg-sidebar);
 }
 
 .sidebar-menu::-webkit-scrollbar {
@@ -688,8 +655,6 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 }
 
 .sidebar-menu > a:hover {
-  border-color: transparent;
-
   background: rgba(255, 255, 255, 0.055);
 
   color: var(--text-strong);
@@ -782,7 +747,6 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   padding: 6px 10px 6px 28px;
 
   border-left: 1px solid var(--border);
-
   border-radius: 0 6px 6px 0;
 
   color: #aaa9a5;
@@ -850,14 +814,16 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
   border-color: #b0b0ab;
   background: var(--accent);
 
-  box-shadow: 0 0 0 3px rgba(184, 184, 178, 0.12);
+  box-shadow:
+    0 0 0 3px rgba(184, 184, 178, 0.12);
 }
 
 .sidebar-menu details[open] summary .nav-marker {
   border-color: #b0b0ab;
   background: var(--accent);
 
-  box-shadow: 0 0 0 3px rgba(184, 184, 178, 0.10);
+  box-shadow:
+    0 0 0 3px rgba(184, 184, 178, 0.10);
 }
 
 
@@ -1537,7 +1503,6 @@ pre.flow-diagram {
   padding: 12px 14px;
 
   font-size: 0.86rem;
-
   line-height: 1.4;
 }
 
@@ -1602,7 +1567,6 @@ pre:hover .copy-btn,
 
 .copy-btn:focus-visible {
   outline: 2px solid var(--accent);
-
   outline-offset: 2px;
 }
 
@@ -1696,7 +1660,6 @@ blockquote {
   padding: 12px 16px;
 
   border-left: 3px solid var(--accent);
-
   border-radius: 0 8px 8px 0;
 
   background: var(--accent-soft);
@@ -1816,6 +1779,52 @@ blockquote p:last-child {
 
 
 /* =========================================================
+   Ícones dos títulos
+   ========================================================= */
+
+.page-title {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.title-icon {
+  width: 1.1em;
+  height: 1.1em;
+
+  flex-shrink: 0;
+
+  transform: translateY(0.08em);
+}
+
+.home-title {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+
+/* =========================================================
+   Data da última atualização
+   ========================================================= */
+
+.last-update {
+  position: absolute;
+
+  right: 22px;
+  bottom: 12px;
+
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
    Responsividade
    ========================================================= */
 
@@ -1884,56 +1893,13 @@ blockquote p:last-child {
 
   .site-footer {
     justify-content: center;
+
     text-align: center;
   }
 
   table {
     display: block;
+
     overflow-x: auto;
   }
-}
-
-
-/* =========================================================
-   Ícones dos Títulos
-   ========================================================= */
-
-.page-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.title-icon {
-  width: 1.1em;
-  height: 1.1em;
-
-  flex-shrink: 0;
-
-  transform: translateY(0.08em);
-}
-
-.home-title {
-  display: flex;
-  align-items: center;
-
-  gap: 0.5rem;
-}
-
-
-/* =========================================================
-   Data da última atualização
-   ========================================================= */
-
-.last-update {
-  position: absolute;
-
-  right: 22px;
-  bottom: 12px;
-
-  margin: 0;
-
-  font-size: 0.75rem;
-
-  color: var(--text-muted);
 }
