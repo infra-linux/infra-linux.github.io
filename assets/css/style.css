@@ -227,7 +227,7 @@ main {
 }
 
 .sidebar-top > * {
-  transform: translateY(14px);
+  transform: translateY(8px);
 }
 
 /* =========================================================
@@ -771,7 +771,7 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
 
   overflow-y: auto;
 
-  margin-top: 20px;
+  margin-top: 14px;
 
   padding: 0 12px 18px;
 }
