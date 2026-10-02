@@ -170,4 +170,4 @@ Em uma infraestrutura com vários proxies, realizar essas alterações manualmen
 
 A automação resolve esse problema centralizando a alteração e aplicando-a nos servidores definidos no inventário.
 
-> **Próximo:** [Automação do Gerenciamento de URLs]({{ 'squid/fundamentos/02-automacao-do-gerenciamento-de-urls.html' | relative_url }})
+> **Próximo:** [Automação do Gerenciamento de URLs]({{ 'squid/fundamentos/05-automacao-do-gerenciamento-de-urls.html' | relative_url }})

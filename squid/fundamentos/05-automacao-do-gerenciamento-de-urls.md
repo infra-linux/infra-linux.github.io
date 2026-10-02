@@ -308,4 +308,4 @@ A automação proporciona:
 - maior facilidade de auditoria;
 - menor possibilidade de divergência entre servidores.
 
-> **Próximo:** [Autenticação]({{ 'squid/fundamentos/02-autenticacao.html' | relative_url }})
+> **Próximo:** [Autenticação]({{ 'squid/fundamentos/06-autenticacao.html' | relative_url }})

@@ -154,4 +154,4 @@ Ao configurar autenticação:
 - mantenha as configurações documentadas.
 
 > **Próximo:** Logs e Diagnóstico
-> **Próximo:** [Logs e Diagnóstico]({{ 'squid/fundamentos/02-logs-e-diagnosticos.html' | relative_url }})
+> **Próximo:** [Logs e Diagnóstico]({{ 'squid/fundamentos/07-logs-e-diagnosticos.html' | relative_url }})
