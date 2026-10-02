@@ -181,9 +181,6 @@ main {
   border-radius: 0;
   box-shadow: none;
 
-  scrollbar-color: #2a2a27 #151513;
-  scrollbar-width: thin;
-
   transition:
     width 0.22s ease,
     box-shadow 0.22s ease;
@@ -555,23 +552,6 @@ body.sidebar-collapsed .sidebar-dock {
   scrollbar-color: var(--text-muted) var(--bg-sidebar);
 }
 
-body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar {
-  width: 4px;
-}
-
-body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar-track {
-  background: var(--bg-sidebar);
-}
-
-body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar-thumb {
-  background: var(--text-muted);
-  border-radius: 0;
-}
-
-body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar-thumb:hover {
-  background: var(--text-strong);
-}
-
 .dock-item {
   position: relative;
 
@@ -821,9 +801,30 @@ body.sidebar-collapsed .sidebar-dock::-webkit-scrollbar-thumb:hover {
 
   overflow-y: auto;
 
+  /* Barra de rolagem */
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--bg-sidebar);
+
   margin-top: 14px;
 
   padding: 0 12px 18px;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+  width: 2px;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+  background: var(--bg-sidebar);
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 0;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover {
+  background: var(--text-strong);
 }
 
 .sidebar-menu > a,
