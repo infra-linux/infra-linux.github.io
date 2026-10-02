@@ -430,7 +430,7 @@ body.sidebar-collapsed .sidebar-top {
 body.sidebar-collapsed .brand {
   position: absolute;
 
-  top: 0px;
+  top: -6px;
   left: -2px;
 
   display: flex;
