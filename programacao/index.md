@@ -55,6 +55,10 @@ Siga esta sequência para compreender como uma página web é construída, da es
     <span class="wiki-topic-description">Gerador de sites estáticos usado para publicar esta wiki no GitHub Pages.</span>
   </a>
 
+  <a class="wiki-topic" href="{{ 'programacao/cobol/index.html' | relative_url }}">
+    <span class="wiki-topic-title">COBOL</span>
+    <span class="wiki-topic-description">Linguagem de programação.</span>
+  </a>
 </div>
 
 ---
